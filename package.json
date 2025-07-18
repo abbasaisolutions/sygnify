@@ -1,0 +1,89 @@
+{
+  "name": "sygnify-analytics-hub",
+  "version": "2.0.0",
+  "description": "Advanced AI-powered analytics platform with intelligent data comprehension, visualization, and narrative generation",
+  "main": "backend/server/index.js",
+  "scripts": {
+    "start": "npm run start:full",
+    "start:full": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd backend && npm run dev",
+    "start:frontend": "cd frontend/client && npm run dev",
+    "start:redis": "echo Redis not available on Windows - using in-memory storage",
+    "start:postgres": "echo PostgreSQL not available on Windows - using SQLite",
+    "start:docker": "docker-compose up -d",
+    "start:docker:build": "docker-compose up -d --build",
+    "dev": "npm run start:full",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend/client && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend/client && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend/client && npm install",
+    "setup": "npm run setup:env && npm run setup:db && npm run setup:deps",
+    "setup:env": "node scripts/setup-env.js",
+    "setup:db": "node scripts/setup-database.js",
+    "setup:deps": "npm run install:all",
+    "setup:docker": "docker-compose build",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend/client && npm test",
+    "lint": "npm run lint:backend && npm run lint:frontend",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend/client && npm run lint",
+    "clean": "npm run clean:logs && npm run clean:uploads && npm run clean:node_modules",
+    "clean:logs": "rimraf logs/*.log",
+    "clean:uploads": "rimraf backend/uploads/*",
+    "clean:node_modules": "rimraf node_modules backend/node_modules frontend/client/node_modules",
+    "reset": "npm run clean && npm run setup",
+    "status": "node scripts/check-status.js",
+    "logs": "concurrently \"npm run logs:backend\" \"npm run logs:frontend\"",
+    "logs:backend": "cd backend && npm run logs",
+    "logs:frontend": "cd frontend/client && npm run logs",
+    "stop": "npm run stop:docker && npm run stop:services",
+    "stop:docker": "docker-compose down",
+    "stop:services": "node scripts/stop-services.js",
+    "update": "git pull && npm run install:all",
+    "migrate": "cd backend && npm run migrate",
+    "seed": "cd backend && npm run seed",
+    "backup": "node scripts/backup-database.js",
+    "restore": "node scripts/restore-database.js",
+    "health": "node scripts/health-check.js",
+    "monitor": "node scripts/monitor-system.js",
+    "create-user": "node scripts/create-default-user.js"
+  },
+  "keywords": [
+    "analytics",
+    "business-intelligence",
+    "data-analysis",
+    "machine-learning",
+    "visualization",
+    "ai",
+    "dashboard",
+    "bi-tool"
+  ],
+  "author": "Sygnify Analytics Hub Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.10",
+    "rimraf": "^5.0.10"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sygnify/analytics-hub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sygnify/analytics-hub/issues"
+  },
+  "homepage": "https://github.com/sygnify/analytics-hub#readme",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.2.0"
+  }
+}

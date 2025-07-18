@@ -1,0 +1,31 @@
+version: '3.8'
+    services:
+      app:
+        build: .
+        ports:
+          - "3000:3000"
+        environment:
+          - NODE_ENV=production
+          - NEWSAPI_KEY=${NEWSAPI_KEY}
+          - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+          - STRIPE_PUBLISHABLE_KEY=${STRIPE_PUBLISHABLE_KEY}
+          - JWT_SECRET=${JWT_SECRET}
+          - DB_HOST=db
+          - DB_USER=postgres
+          - DB_PASSWORD=your_postgres_password
+          - DB_NAME=sygnify
+        depends_on:
+          - db
+          - redis
+      db:
+        image: postgres:13
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=your_postgres_password
+          - POSTGRES_DB=sygnify
+        volumes:
+          - db-data:/var/lib/postgresql/data
+      redis:
+        image: redis:6
+    volumes:
+      db-data:

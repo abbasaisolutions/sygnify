@@ -1,0 +1,232 @@
+# Finance Domain Configuration
+# Expected field semantics and thresholds for financial data analysis
+
+domain: finance
+description: "Financial transaction analysis with fraud detection and cash flow forecasting"
+
+# Expected fields and their semantic meanings
+expected_fields:
+  transaction_id: "Transaction ID"
+  account_id: "Account ID"
+  customer_name: "Customer Name"
+  transaction_date: "Transaction Date"
+  transaction_type: "Transaction Type"
+  amount: "Transaction Amount (Revenue/Expense)"
+  currency: "Currency"
+  description: "Description"
+  category: "Transaction Category"
+  current_balance: "Account Balance"
+  account_type: "Account Type"
+  merchant_name: "Merchant Name"
+  merchant_city: "Merchant City"
+  merchant_state: "Merchant State"
+  fraud_score: "Fraud Score"
+  is_fraud: "Fraud Indicator"
+
+# Importance weights for different field types
+importance_weights:
+  amount: 95
+  balance: 90
+  fraud_score: 85
+  transaction_type: 80
+  transaction_category: 75
+  transaction_id: 50
+  account_id: 50
+  transaction_date: 60
+  currency: 70
+  merchant_name: 70
+  merchant_city: 70
+  merchant_state: 70
+  customer_name: 70
+  description: 70
+  account_type: 80
+
+# Data type expectations
+data_types:
+  amount: "numeric"
+  balance: "numeric"
+  fraud_score: "numeric"
+  transaction_type: "categorical"
+  transaction_category: "categorical"
+  transaction_id: "text"
+  account_id: "text"
+  transaction_date: "date"
+  currency: "categorical"
+  merchant_name: "text"
+  merchant_city: "text"
+  merchant_state: "categorical"
+  customer_name: "text"
+  description: "text"
+  account_type: "categorical"
+  is_fraud: "categorical"
+
+# Thresholds for anomaly detection and risk assessment
+thresholds:
+  fraud_score:
+    high: 0.7
+    medium: 0.4
+    low: 0.2
+  amount:
+    large: 10000
+    medium: 1000
+    small: 100
+  balance:
+    low: 1000
+    high: 100000
+  volatility:
+    high: 0.5
+    medium: 0.3
+    low: 0.1
+
+# Anomaly detection settings
+anomaly_thresholds:
+  z_score: 3.0
+  iqr_multiplier: 1.5
+
+# Fraud impact weights for cash flow forecasting
+fraud_impact_weights:
+  high: 0.3
+  medium: 0.2
+  low: 0.1
+
+# Confidence levels for predictions
+confidence_levels:
+  high: 0.8
+  medium: 0.6
+  low: 0.4
+
+# Forecast periods (in days)
+forecast_periods:
+  short: 30
+  medium: 90
+  long: 365
+
+# Volatility thresholds for risk assessment
+volatility_thresholds:
+  low: 0.1
+  medium: 0.3
+  high: 0.5
+
+# Priority levels for recommendations
+priorities:
+  critical: 100
+  high: 80
+  medium: 60
+  low: 40
+
+# Key performance indicators
+kpis:
+  - amount
+  - balance
+  - fraud_score
+  - transaction_count
+
+# Narrative configuration
+narrative:
+  tones:
+    executive:
+      max_length: 200
+      style: "high_level"
+      focus: ["summary", "key_insights", "recommendations"]
+    analyst:
+      max_length: 500
+      style: "detailed"
+      focus: ["summary", "insights", "metrics", "trends", "recommendations"]
+    technical:
+      max_length: 800
+      style: "comprehensive"
+      focus: ["summary", "insights", "metrics", "trends", "anomalies", "recommendations", "methodology"]
+
+# Recommendation rules
+recommendation_rules:
+  fraud:
+    - condition: "fraud_score > 0.7"
+      recommendation:
+        title: "Implement Advanced Fraud Detection"
+        priority: "critical"
+        impact: "high"
+    - condition: "fraud_score > 0.4"
+      recommendation:
+        title: "Enhance Transaction Monitoring"
+        priority: "high"
+        impact: "medium"
+  
+  amount:
+    - condition: "amount > 10000"
+      recommendation:
+        title: "Monitor Large Transactions"
+        priority: "high"
+        impact: "high"
+    - condition: "amount > balance * 0.1"
+      recommendation:
+        title: "Review Transaction Size vs Balance Ratio"
+        priority: "medium"
+        impact: "medium"
+  
+  balance:
+    - condition: "balance < 1000"
+      recommendation:
+        title: "Address Low Account Balances"
+        priority: "medium"
+        impact: "medium"
+    - condition: "balance_volatility > 0.5"
+      recommendation:
+        title: "Manage Balance Volatility"
+        priority: "medium"
+        impact: "medium"
+
+# Data quality rules
+data_quality_rules:
+  - field: "amount"
+    checks: ["not_null", "numeric", "reasonable_range"]
+  - field: "fraud_score"
+    checks: ["not_null", "numeric", "range_0_1"]
+  - field: "transaction_date"
+    checks: ["not_null", "valid_date", "not_future"]
+  - field: "transaction_type"
+    checks: ["not_null", "valid_categories"]
+
+# Valid categories for categorical fields
+valid_categories:
+  transaction_type:
+    - "Purchase"
+    - "Deposit"
+    - "Withdrawal"
+    - "Transfer"
+    - "Bill Pay"
+    - "Credit"
+    - "Debit"
+  
+  account_type:
+    - "Checking"
+    - "Savings"
+    - "Credit"
+    - "Investment"
+  
+  currency:
+    - "USD"
+    - "EUR"
+    - "GBP"
+    - "JPY"
+    - "CAD"
+    - "AUD"
+  
+  is_fraud:
+    - "0"
+    - "1"
+    - "false"
+    - "true"
+
+# Performance benchmarks
+performance_benchmarks:
+  transaction_processing:
+    target_latency_ms: 100
+    max_latency_ms: 500
+  
+  fraud_detection:
+    target_accuracy: 0.95
+    min_accuracy: 0.90
+  
+  cash_flow_forecasting:
+    target_confidence: 0.8
+    min_confidence: 0.6 
