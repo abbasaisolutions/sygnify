@@ -37,7 +37,7 @@ const upload = multer({
     }
     cb(null, true);
   },
-  limits: { fileSize: 50 * 1024 * 1024 } // 50MB limit for larger datasets
+  limits: { fileSize: 100 * 1024 * 1024 } // 100MB limit for larger datasets (increased from 50MB)
 });
 
 // Advanced upload endpoint with comprehensive analysis
