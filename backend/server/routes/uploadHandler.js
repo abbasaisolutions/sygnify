@@ -455,7 +455,7 @@ function calculateFinancialHealth(financialMetrics, aiInsights) {
       efficiency: { score: 0, grade: 'F', insights: [] }
     }
   };
-
+  
   // Use metrics object if available (from main.py)
   const metrics = financialMetrics.metrics || {};
   const amountAvg = metrics.amount_avg;
@@ -507,21 +507,21 @@ function calculateFinancialHealth(financialMetrics, aiInsights) {
     }
     console.log(`[Health] Profitability: avgTransaction=${amountAvg}, score=${health.metrics.profitability.score}`);
   }
-
+  
   // Dynamic efficiency calculation (placeholder: always good for now)
   health.metrics.efficiency.score = 85;
   health.metrics.efficiency.grade = 'A';
   health.metrics.efficiency.insights.push('Good operational efficiency');
-
+  
   // Calculate overall score
   const scores = Object.values(health.metrics).map(m => m.score);
   health.overallScore = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
-
+  
   // Determine risk level
   if (health.overallScore > 80) health.riskLevel = 'low';
   else if (health.overallScore > 60) health.riskLevel = 'medium';
   else health.riskLevel = 'high';
-
+  
   return health;
 }
 
@@ -541,7 +541,7 @@ function generatePredictions(financialMetrics, enhancedInsights) {
       confidence: 'low'
     }
   };
-
+  
   if (typeof amountAvg === 'number' && typeof amountCount === 'number' && amountCount > 0) {
     predictions.revenue.nextMonth = Math.round(amountAvg * 30);
     predictions.revenue.nextQuarter = Math.round(amountAvg * 90);
@@ -551,7 +551,7 @@ function generatePredictions(financialMetrics, enhancedInsights) {
     predictions.cashFlow.riskLevel = amountAvg < 0 ? 'high' : (amountAvg === 0 ? 'medium' : 'low');
     console.log(`[Predictions] avgTransaction=${amountAvg}, count=${amountCount}, nextMonth=${predictions.revenue.nextMonth}`);
   }
-
+  
   return predictions;
 }
 

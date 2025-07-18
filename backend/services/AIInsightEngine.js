@@ -431,9 +431,12 @@ class AIInsightEngine {
     analyzeTrends(processedData, financialMetrics) {
         const insights = [];
         
+        // Ensure we have the actual data array
+        const dataArray = Array.isArray(processedData) ? processedData : (processedData.data || []);
+        
         // Analyze trends in amount columns
         Object.entries(financialMetrics.amounts || {}).forEach(([column, metrics]) => {
-            const trend = this.calculateTrend(processedData, column);
+            const trend = this.calculateTrend(dataArray, column);
             
             if (trend.slope > 0.05 && trend.confidence > 0.7) {
                 insights.push({
@@ -488,8 +491,11 @@ class AIInsightEngine {
     detectAnomalies(processedData, financialMetrics) {
         const insights = [];
         
+        // Ensure we have the actual data array
+        const dataArray = Array.isArray(processedData) ? processedData : (processedData.data || []);
+        
         Object.entries(financialMetrics.amounts || {}).forEach(([column, metrics]) => {
-            const anomalies = this.findAnomalies(processedData, column);
+            const anomalies = this.findAnomalies(dataArray, column);
             
             if (anomalies.length > 0) {
                 insights.push({
@@ -650,6 +656,12 @@ class AIInsightEngine {
     }
 
     calculateTrend(data, column) {
+        // Ensure data is an array and has the expected structure
+        if (!Array.isArray(data) || !data.length) {
+            return { slope: 0, confidence: 0 };
+        }
+        
+        // Extract values from the data array
         const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined && !isNaN(v));
         
         if (values.length < 3) {
@@ -682,6 +694,11 @@ class AIInsightEngine {
     }
 
     findAnomalies(data, column) {
+        // Ensure data is an array and has the expected structure
+        if (!Array.isArray(data) || !data.length) {
+            return [];
+        }
+        
         const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined && !isNaN(v));
         
         if (values.length < 3) return [];

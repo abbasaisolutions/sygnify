@@ -303,7 +303,7 @@ class SmartLabeler:
             # Check for percentage or ratio patterns
             if any(pattern in column.lower() for pattern in ['ratio', 'percentage', 'pct', 'rate', 'score']):
                 return f'{column.title()} Ratio'
-            
+                            
             # Check for count patterns
             if any(pattern in column.lower() for pattern in ['count', 'number', 'total', 'sum']):
                 return f'{column.title()} Count'
@@ -323,7 +323,7 @@ class SmartLabeler:
             if any(pattern in column.lower() for pattern in ['id', 'identifier', 'code', 'key']):
                 return f'{column.title()} ID'
             return f'{column.title()} Category'
-        
+            
         # Default text handling
         else:
             if any(pattern in column.lower() for pattern in ['name', 'title', 'description', 'note', 'comment']):
