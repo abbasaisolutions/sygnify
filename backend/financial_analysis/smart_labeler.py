@@ -145,6 +145,32 @@ class SmartLabeler:
                                       categorical_cols: Dict[str, set], data: List[Dict[str, Any]]) -> str:
         """Infer semantic labels for actual financial data structure."""
         
+        # Handle specific customer banking columns
+        elif column == 'CreditScore':
+            return 'Credit Score'
+        elif column == 'Balance':
+            return 'Account Balance'
+        elif column == 'Age':
+            return 'Customer Age'
+        elif column == 'Tenure':
+            return 'Customer Tenure'
+        elif column == 'NumOfProducts':
+            return 'Number of Products'
+        elif column == 'HasCrCard':
+            return 'Has Credit Card'
+        elif column == 'IsActiveMember':
+            return 'Active Member Status'
+        elif column == 'Geography':
+            return 'Geographic Location'
+        elif column == 'Gender':
+            return 'Customer Gender'
+        elif column == 'Surname':
+            return 'Customer Surname'
+        elif column == 'CustomerId':
+            return 'Customer ID'
+        elif column == 'id':
+            return 'Record ID'
+        
         # Handle specific loan application columns
         if column == 'ApplicationDate':
             return 'Application Date'
@@ -334,6 +360,32 @@ class SmartLabeler:
 
     def _assign_category_for_actual_csv(self, semantic: str) -> str:
         """Assign granular categories for actual CSV structure."""
+        # Specific customer banking categories
+        elif semantic in ['Customer Age', 'Age']:
+            return 'Demographic Metric'
+        elif semantic in ['Customer Tenure', 'Tenure']:
+            return 'Customer Metric'
+        elif semantic in ['Account Balance', 'Balance']:
+            return 'Liquidity Metric'
+        elif semantic in ['Credit Score', 'CreditScore']:
+            return 'Credit Metric'
+        elif semantic in ['Number of Products', 'NumOfProducts']:
+            return 'Product Metric'
+        elif semantic in ['Has Credit Card', 'HasCrCard']:
+            return 'Credit Metric'
+        elif semantic in ['Active Member Status', 'IsActiveMember']:
+            return 'Customer Metric'
+        elif semantic in ['Geographic Location', 'Geography']:
+            return 'Geographic Metric'
+        elif semantic in ['Customer Gender', 'Gender']:
+            return 'Demographic Metric'
+        elif semantic in ['Customer Surname', 'Surname']:
+            return 'Customer Metric'
+        elif semantic in ['Customer ID', 'CustomerId']:
+            return 'Customer Metric'
+        elif semantic in ['Record ID', 'id']:
+            return 'Identifier Metric'
+        
         # Specific loan application categories
         if semantic in ['Application Date']:
             return 'Temporal Metric'
@@ -427,15 +479,17 @@ class SmartLabeler:
         # Boost importance for key financial metrics
         if semantic in ['Transaction Amount (Revenue/Expense)', 'Revenue', 'Expense']:
             importance = 95
-        elif semantic == 'Account Balance':
+        elif semantic in ['Account Balance', 'Balance']:
             importance = 90
+        elif semantic in ['Credit Score', 'CreditScore']:
+            importance = 95
         elif semantic in ['Fraud Score', 'Fraud Indicator']:
             importance = 85
         elif semantic == 'Transaction Type':
             importance = 80
         elif semantic == 'Transaction Category':
             importance = 75
-        elif semantic in ['Transaction ID', 'Account ID']:
+        elif semantic in ['Transaction ID', 'Account ID', 'Record ID', 'id']:
             importance = 50  # Lower for identifiers
         elif semantic == 'Transaction Date':
             importance = 60
@@ -443,12 +497,28 @@ class SmartLabeler:
             importance = 70
         elif semantic in ['Merchant Name', 'Merchant City', 'Merchant State']:
             importance = 70
-        elif semantic == 'Customer Name':
+        elif semantic in ['Customer Name', 'Customer Surname', 'Surname']:
             importance = 70
         elif semantic == 'Description':
             importance = 70
         elif semantic == 'Account Type':
             importance = 80
+        elif semantic in ['Customer Age', 'Age']:
+            importance = 85
+        elif semantic in ['Customer Tenure', 'Tenure']:
+            importance = 80
+        elif semantic in ['Number of Products', 'NumOfProducts']:
+            importance = 75
+        elif semantic in ['Has Credit Card', 'HasCrCard']:
+            importance = 80
+        elif semantic in ['Active Member Status', 'IsActiveMember']:
+            importance = 75
+        elif semantic in ['Geographic Location', 'Geography']:
+            importance = 70
+        elif semantic in ['Customer Gender', 'Gender']:
+            importance = 70
+        elif semantic in ['Customer ID', 'CustomerId']:
+            importance = 60
         
         # Adjust based on data type
         if data_type == 'numeric' and values:
