@@ -146,7 +146,7 @@ class SmartLabeler:
         """Infer semantic labels for actual financial data structure."""
         
         # Handle specific customer banking columns
-        elif column == 'CreditScore':
+        if column == 'CreditScore':
             return 'Credit Score'
         elif column == 'Balance':
             return 'Account Balance'
@@ -172,14 +172,10 @@ class SmartLabeler:
             return 'Record ID'
         
         # Handle specific loan application columns
-        if column == 'ApplicationDate':
+        elif column == 'ApplicationDate':
             return 'Application Date'
-        elif column == 'Age':
-            return 'Age'
         elif column == 'AnnualIncome':
             return 'Annual Income'
-        elif column == 'CreditScore':
-            return 'Credit Score'
         elif column == 'EmploymentStatus':
             return 'Employment Status'
         elif column == 'EducationLevel':
@@ -361,7 +357,7 @@ class SmartLabeler:
     def _assign_category_for_actual_csv(self, semantic: str) -> str:
         """Assign granular categories for actual CSV structure."""
         # Specific customer banking categories
-        elif semantic in ['Customer Age', 'Age']:
+        if semantic in ['Customer Age', 'Age']:
             return 'Demographic Metric'
         elif semantic in ['Customer Tenure', 'Tenure']:
             return 'Customer Metric'
