@@ -1,0 +1,100 @@
+2025-07-24 21:47:37,832 INFO UPLOAD RESPONSE: {'key_insights': [{'category': 'Data Quality', 'insight': 'Columns with most missing data: Segment (0), Country (0),  Product  (0).', 'confidence': 0.95, 'impact': 'high'}, {'category': 'Correlation', 'insight': 'Strong correlation between Month Number and Year (0.43). Moderate association; further analysis recommended.', 'confidence': 0.9, 'impact': 'medium', 'metric1': 'Month Number', 'metric2': 'Year', 'correlation': 0.4276785995222255}], 'external_context': [{'category': 'External Context', 'insight': 'Market context: S&P 500 latest close: 6363.35 This may impact market sentiment, portfolio value.', 'confidence': 0.7, 'impact': 'medium', 'source': 'external', 'title': 'Live Market Update', 'impact_description': 'market sentiment, portfolio value'}, {'category': 'External Context', 'insight': 'Market context: Financial Sector ETF (XLF) latest close: 53.07 This may impact sector performance, financial stocks.', 'confidence': 0.7, 'impact': 'medium', 'source': 'external', 'title': 'Sector Performance', 'impact_description': 'sector performance, financial stocks'}, {'category': 'Market Context', 'insight': 'Interest rate is 5.1% (rising), inflation is 3.8%. Sector index: 1585, volatility: 0.27 Rising interest rates may increase borrowing costs. Consider refinancing or locking in fixed rates.', 'confidence': 0.85, 'impact': 'high', 'source': 'external', 'title': 'Macroeconomic Update', 'impact_description': 'borrowing costs, purchasing power, market sentiment'}, {'category': 'Market Volatility', 'insight': 'Market volatility is 27.0%. High volatility may indicate increased risk or opportunity. High volatility may require portfolio hedging or risk management adjustments.', 'confidence': 0.8, 'impact': 'medium', 'source': 'external', 'title': 'Market Volatility', 'impact_description': 'portfolio risk, hedging strategies'}], 'llama3_narrative': 'Based on the provided data, it appears that there is limited information available to assess the financial health of the entity in question. The lack of a Financial Health Score and Volatility metric suggests that there may be uncertainties or missing data points that make it challenging to gauge the overall financial well-being.\n\nHowever, the correlation between Month Number and Year (0.4276785995222255) indicates a moderate association, which warrants further analysis. Additionally, rising interest rates (5.1%) and inflation (3.8%) may pose risks for borrowers, as increasing borrowing costs could be detrimental to their financial health. To mitigate these risks, I recommend considering refinancing or locking in fixed rates to stabilize debt obligations. Furthermore, the moderate correlation suggests exploring opportunities for diversification and risk management strategies to capitalize on potential market trends.'}
+2025-07-25 12:01:07,019 INFO UPLOAD RESPONSE: {'key_insights': [{'category': 'Data Quality', 'insight': 'Columns with most missing data: transaction_id (0), amount (0), date (0).', 'confidence': 0.95, 'impact': 'high'}, {'category': 'Correlation', 'insight': 'Strong correlation between amount and balance (0.27). Moderate association; further analysis recommended.', 'confidence': 0.9, 'impact': 'medium', 'metric1': 'amount', 'metric2': 'balance', 'correlation': 0.26513296206346054}], 'external_context': [{'category': 'External Context', 'insight': 'Market context: S&P 500 latest close: 6389.19 This may impact market sentiment, portfolio value.', 'confidence': 0.7, 'impact': 'medium', 'source': 'external', 'title': 'Live Market Update', 'impact_description': 'market sentiment, portfolio value'}, {'category': 'External Context', 'insight': 'Market context: Financial Sector ETF (XLF) latest close: 53.37 This may impact sector performance, financial stocks.', 'confidence': 0.7, 'impact': 'medium', 'source': 'external', 'title': 'Sector Performance', 'impact_description': 'sector performance, financial stocks'}, {'category': 'Market Context', 'insight': 'Interest rate is 5.1% (rising), inflation is 3.8%. Sector index: 1585, volatility: 0.27 Rising interest rates may increase borrowing costs. Consider refinancing or locking in fixed rates.', 'confidence': 0.85, 'impact': 'high', 'source': 'external', 'title': 'Macroeconomic Update', 'impact_description': 'borrowing costs, purchasing power, market sentiment'}, {'category': 'Market Volatility', 'insight': 'Market volatility is 27.0%. High volatility may indicate increased risk or opportunity. High volatility may require portfolio hedging or risk management adjustments.', 'confidence': 0.8, 'impact': 'medium', 'source': 'external', 'title': 'Market Volatility', 'impact_description': 'portfolio risk, hedging strategies'}], 'llama3_narrative': "Based on the provided data, it appears that there is limited information available to make informed financial decisions. The lack of a Financial Health Score, Correlation, and Volatility metrics hinders a comprehensive understanding of the financial situation. However, we do see some signs of rising interest rates (5.1%) and inflation (3.8%), which may lead to increased borrowing costs.\n\nDespite these challenges, there are some key findings that can guide our analysis. The strong correlation between amount and balance (0.27) suggests a moderate association, warranting further investigation. Additionally, the sector index of 1585 with a volatility level of 0.27 indicates some level of market uncertainty. In light of these findings, I recommend considering refinancing or locking in fixed rates to mitigate the impact of rising interest rates. Further analysis is needed to better understand the relationship between amount and balance, but for now, it's essential to prioritize managing borrowing costs and maintaining financial stability."}
+2025-07-25 12:03:06,702 ERROR File processing failed in job da36772f-e303-4114-b797-fa45dccd28db: I/O operation on closed file.
+2025-07-25 12:05:11,034 INFO Job e9307c6a-c26c-4afa-bf0f-2dd975b41914 processed successfully with real ML analysis
+2025-07-25 12:07:09,680 INFO Job fc90a86b-8152-4541-a80e-6519230ca673 processed successfully with real ML analysis
+2025-07-25 12:17:55,407 INFO Job 6a8dcde8-17b9-4cc8-b878-1ea487fcdc4b processed successfully with real ML analysis
+2025-07-25 12:21:45,086 INFO Job 695fb04d-9ebf-4d9d-9e63-d3ae74acc9e6 processed successfully with real ML analysis
+2025-07-25 12:25:00,396 INFO Job 07648f6f-fe9e-4130-b30b-6d0be0a07599 processed successfully with real ML analysis
+2025-07-25 12:30:58,337 INFO Job 26bc291e-e301-4113-94a4-7b3f2b129b06 processed successfully with real ML analysis
+2025-07-25 12:31:16,338 ERROR File processing failed in job 02c76ac1-d5e1-411b-b64a-adaa5a1f3dab: 'utf-8' codec can't decode byte 0x8c in position 15: invalid start byte
+2025-07-25 13:53:54,668 INFO Job 306fc48e-b269-4f40-8bd2-7f8bf471bbbf processed successfully with real ML analysis
+2025-07-25 14:10:38,946 ERROR File processing failed in job 9c01c8d5-dce8-4ddc-ac77-2564668a54b7: 'utf-8' codec can't decode byte 0x8c in position 15: invalid start byte
+2025-07-25 14:12:52,180 INFO Successfully read file with utf-8 encoding
+2025-07-25 14:12:57,319 INFO Successfully read file with utf-8 encoding
+2025-07-25 14:13:30,807 INFO Job 62ca5511-9022-4bf2-93b6-330bc755a22f processed successfully with real ML analysis
+2025-07-25 14:13:30,822 INFO Job 2892ed0f-175a-4555-9bc6-b72089d8d31f processed successfully with real ML analysis
+2025-07-25 14:15:12,792 WARNING Failed to read with latin-1: Error tokenizing data. C error: Expected 3 fields in line 36, saw 4
+
+2025-07-25 14:15:12,797 WARNING Failed to read with iso-8859-1: Error tokenizing data. C error: Expected 3 fields in line 36, saw 4
+
+2025-07-25 14:15:12,798 ERROR File processing failed in job 498f934c-ba2c-4007-88ff-c1cc258dd580: Could not read file with any supported encoding
+2025-07-25 14:18:42,172 WARNING Failed to read with utf-8: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-25 14:18:42,172 WARNING Failed to read with latin-1: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-25 14:18:42,172 WARNING Failed to read with cp1252: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-25 14:18:42,172 WARNING Failed to read with iso-8859-1: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-25 14:18:42,173 ERROR File processing failed in job 21c516f0-b3c7-4ad4-b426-c962d830793a: Could not read file with any supported encoding
+2025-07-25 14:19:41,661 INFO Successfully read file with utf-8 encoding
+2025-07-25 14:21:10,773 INFO Job f803c251-60b1-4d2c-88e1-6be753fce666 processed successfully with real ML analysis
+2025-07-25 14:22:32,613 INFO Successfully read file with utf-8 encoding
+2025-07-25 14:22:33,535 ERROR LLaMA3 processing failed in job 53f74b67-eb7e-4f07-8c98-d54e1b27b3e3: module 'signal' has no attribute 'SIGALRM'
+2025-07-25 14:22:33,535 INFO Job 53f74b67-eb7e-4f07-8c98-d54e1b27b3e3 completed with fallback analysis
+2025-07-25 14:26:44,454 INFO Successfully read file with utf-8 encoding
+2025-07-25 14:27:45,444 WARNING LLaMA3 processing timed out in job e3811b59-c845-4376-84d7-b3686b6cd051, using fallback
+2025-07-25 14:27:45,445 INFO Job e3811b59-c845-4376-84d7-b3686b6cd051 completed with fallback analysis due to timeout
+2025-07-25 14:30:11,722 WARNING Failed to read with latin-1: Error tokenizing data. C error: Buffer overflow caught - possible malformed input file.
+
+2025-07-25 14:30:11,731 WARNING Failed to read with iso-8859-1: Error tokenizing data. C error: Buffer overflow caught - possible malformed input file.
+
+2025-07-25 14:30:11,731 ERROR File processing failed in job c20db38f-c6b6-4d06-b3b4-c2a2e12bb5fe: Could not read file with any supported encoding
+2025-07-25 14:30:41,759 INFO Successfully read file with utf-8 encoding
+2025-07-25 14:31:44,495 WARNING LLaMA3 processing timed out in job 50f750d7-4203-4dd5-9ef3-9ac1bfc3c404, using fallback
+2025-07-25 14:31:44,495 INFO Job 50f750d7-4203-4dd5-9ef3-9ac1bfc3c404 completed with fallback analysis due to timeout
+2025-07-25 14:41:38,811 WARNING Failed to read with latin-1: Error tokenizing data. C error: Buffer overflow caught - possible malformed input file.
+
+2025-07-25 14:41:38,823 WARNING Failed to read with iso-8859-1: Error tokenizing data. C error: Buffer overflow caught - possible malformed input file.
+
+2025-07-25 14:41:38,824 ERROR File processing failed in job 811c20ca-6c49-4afd-998a-481158d78e70: Could not read file with any supported encoding
+2025-07-25 14:42:13,524 INFO Successfully read file with utf-8 encoding
+2025-07-25 14:42:51,151 INFO Job 864c902a-1c17-4caf-894b-d76376b89e07 processed successfully with real ML analysis
+2025-07-25 15:25:04,667 INFO Successfully read file with ascii encoding
+2025-07-25 15:25:41,169 INFO Job f65b1a98-5c5f-4008-b700-2d0ae3e256e4 processed successfully with real ML analysis
+2025-07-25 15:30:55,820 INFO Successfully read file with ascii encoding
+2025-07-25 15:31:28,873 INFO Job d68854be-42b3-44b7-b469-6f912137d31a processed successfully with real ML analysis
+2025-07-25 15:33:08,373 WARNING Failed to read with utf-8: 'utf-8' codec can't decode byte 0x8c in position 15: invalid start byte
+2025-07-25 15:33:08,374 ERROR File processing failed in job 0d83fc8a-854b-4d19-8233-ffedf0da1d6e: Could not read file with any supported encoding
+2025-07-25 15:33:59,106 INFO Successfully read file with ascii encoding
+2025-07-25 15:34:13,996 WARNING Data validation warnings: Columns with >50% missing values: ['var_1', 'var_2', 'var_3', 'var_4', 'var_15', 'var_16', 'var_18', 'var_22', 'var_31', 'var_33', 'var_35', 'var_36']; Found 17166 duplicate rows; Large file detected (>100k rows). Processing may take longer.
+2025-07-25 15:34:13,998 INFO Data validation passed. File stats: {'rows': 2004812, 'columns': 55, 'missing_values': 31317101, 'duplicate_rows': 17166}
+2025-07-25 15:35:19,952 WARNING LLaMA3 processing timed out in job 02459d2e-4f53-430c-84a1-891405ef1a2d, using fallback
+2025-07-25 15:35:19,953 INFO Job 02459d2e-4f53-430c-84a1-891405ef1a2d completed with fallback analysis due to timeout
+2025-07-25 15:36:18,949 INFO Successfully read file with ascii encoding
+2025-07-25 15:36:18,973 INFO Data validation passed. File stats: {'rows': 700, 'columns': 16, 'missing_values': 0, 'duplicate_rows': 0}
+2025-07-25 15:37:24,247 WARNING LLaMA3 processing timed out in job 278ddab2-d52b-468a-b3dd-27b3e9ed39c7, using fallback
+2025-07-25 15:37:24,365 INFO Job 278ddab2-d52b-468a-b3dd-27b3e9ed39c7 completed with fallback analysis due to timeout
+2025-07-25 15:38:37,739 INFO Successfully read file with ascii encoding
+2025-07-25 15:38:37,771 INFO Data validation passed. File stats: {'rows': 10000, 'columns': 16, 'missing_values': 0, 'duplicate_rows': 0}
+2025-07-25 15:39:42,874 WARNING LLaMA3 processing timed out in job 888658f1-9435-44bc-85ec-ae53fac790d4, using fallback
+2025-07-25 15:39:42,875 INFO Job 888658f1-9435-44bc-85ec-ae53fac790d4 completed with fallback analysis due to timeout
+2025-07-25 15:42:14,672 INFO Successfully read file with ascii encoding
+2025-07-25 15:42:14,680 INFO Data validation passed. File stats: {'rows': 10, 'columns': 6, 'missing_values': 0, 'duplicate_rows': 0}
+2025-07-25 15:42:45,915 WARNING LLaMA3 processing timed out in job 2beac36f-8281-4f2f-abb3-585440844202, using fallback
+2025-07-25 15:42:45,915 INFO Job 2beac36f-8281-4f2f-abb3-585440844202 completed with fallback analysis due to timeout
+2025-07-25 19:42:33,702 INFO Successfully read file with ascii encoding
+2025-07-25 19:42:33,738 INFO Data validation passed. File stats: {'rows': 10000, 'columns': 16, 'missing_values': 0, 'duplicate_rows': 0}
+2025-07-25 19:43:07,998 WARNING LLaMA3 processing timed out in job a12e6d02-fde3-4c0f-8986-069c846e49fc, using fallback
+2025-07-25 19:43:07,998 INFO Job a12e6d02-fde3-4c0f-8986-069c846e49fc completed with fallback analysis due to timeout
+2025-07-25 21:22:40,636 INFO Successfully read file with ascii encoding
+2025-07-25 21:22:44,816 INFO Updated market insights cache
+2025-07-25 21:23:11,720 WARNING LLaMA3 processing timed out in job e708bac0-1f65-4eb7-90db-8076ee725661, using fallback
+2025-07-25 21:23:11,720 INFO Using cached market insights
+2025-07-25 21:23:11,721 INFO Job e708bac0-1f65-4eb7-90db-8076ee725661 completed with fallback analysis
+2025-07-25 21:25:01,868 INFO Successfully read file with ascii encoding
+2025-07-25 21:25:06,654 INFO Updated market insights cache
+2025-07-25 21:25:35,481 WARNING LLaMA3 processing timed out in job 8bd9690b-c5a1-47db-a5be-0ac8427a4f88, using fallback
+2025-07-25 21:25:35,481 INFO Using cached market insights
+2025-07-25 21:25:35,482 INFO Job 8bd9690b-c5a1-47db-a5be-0ac8427a4f88 completed with fallback analysis
+2025-07-26 22:06:49,134 WARNING Failed to read with utf-8: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-26 22:06:49,135 WARNING Failed to read with latin-1: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-26 22:06:49,135 WARNING Failed to read with cp1252: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-26 22:06:49,136 WARNING Failed to read with iso-8859-1: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-26 22:06:49,136 ERROR File processing failed in job c0b7cd75-a657-4598-b958-2f9fcf4a9d92: Could not read file with any supported encoding
+2025-07-27 08:02:14,966 WARNING Failed to read with utf-8: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-27 08:02:14,967 WARNING Failed to read with latin-1: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-27 08:02:14,967 WARNING Failed to read with cp1252: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-27 08:02:14,968 WARNING Failed to read with iso-8859-1: read_csv() got an unexpected keyword argument 'error_bad_lines'
+2025-07-27 08:02:14,968 ERROR File processing failed in job db01f989-34d4-447b-8666-f1e4b63d4bfe: Could not read file with any supported encoding
+2025-07-27 08:03:17,423 INFO Successfully read file with utf-8 encoding
+2025-07-27 08:04:30,408 INFO Job 220fad46-972f-4c06-a70c-b5c5a277ede2 processed successfully with real ML analysis
+2025-07-27 08:05:28,701 INFO Successfully read file with utf-8 encoding
+2025-07-27 08:06:34,251 INFO Job 9ffd53a5-8357-42e8-97dc-7b2b3bade74a processed successfully with real ML analysis

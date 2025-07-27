@@ -1,0 +1,286 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ML Engine Output Schema",
+  "description": "Structured output contract between Python ML engine and LLaMA 3 narrative generator",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "object",
+      "description": "Core financial and risk metrics",
+      "properties": {
+        "netCashFlow": {
+          "type": "number",
+          "description": "Net cash flow amount (positive or negative)",
+          "minimum": -999999999.99,
+          "maximum": 999999999.99
+        },
+        "avgTransaction": {
+          "type": "number",
+          "description": "Average transaction amount",
+          "minimum": 0,
+          "maximum": 999999999.99
+        },
+        "riskScore": {
+          "type": "number",
+          "description": "Overall risk assessment score (0.0 to 1.0)",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "fraudScore": {
+          "type": "number",
+          "description": "Fraud probability score (0.0 to 1.0)",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "anomalies": {
+          "type": "number",
+          "description": "Number of detected anomalies",
+          "minimum": 0
+        },
+        "confidence": {
+          "type": "number",
+          "description": "Confidence level in analysis (0.0 to 1.0)",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "volatility": {
+          "type": "number",
+          "description": "Transaction volatility measure",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "trend": {
+          "type": "string",
+          "enum": ["increasing", "decreasing", "stable", "volatile"],
+          "description": "Cash flow trend direction"
+        },
+        "liquidityRatio": {
+          "type": "number",
+          "description": "Liquidity ratio calculation",
+          "minimum": 0.0
+        },
+        "velocityScore": {
+          "type": "number",
+          "description": "Transaction velocity score",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      },
+      "required": ["netCashFlow", "riskScore", "confidence", "avgTransaction"]
+    },
+    "flags": {
+      "type": "object",
+      "description": "Binary flags for immediate attention",
+      "properties": {
+        "velocitySpike": {
+          "type": "boolean",
+          "description": "Unusual transaction velocity detected"
+        },
+        "balanceMismatch": {
+          "type": "boolean",
+          "description": "Balance reconciliation issues"
+        },
+        "highRiskTransactions": {
+          "type": "boolean",
+          "description": "High-risk transaction patterns detected"
+        },
+        "unusualAmounts": {
+          "type": "boolean",
+          "description": "Unusual transaction amounts detected"
+        },
+        "timingAnomalies": {
+          "type": "boolean",
+          "description": "Unusual transaction timing patterns"
+        },
+        "geographicAnomalies": {
+          "type": "boolean",
+          "description": "Unusual geographic transaction patterns"
+        },
+        "frequencyAnomalies": {
+          "type": "boolean",
+          "description": "Unusual transaction frequency patterns"
+        },
+        "amountAnomalies": {
+          "type": "boolean",
+          "description": "Unusual transaction amount patterns"
+        }
+      },
+      "required": ["velocitySpike", "balanceMismatch", "highRiskTransactions"]
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Detailed financial metrics",
+      "properties": {
+        "totalTransactions": {
+          "type": "number",
+          "description": "Total number of transactions analyzed",
+          "minimum": 0
+        },
+        "totalVolume": {
+          "type": "number",
+          "description": "Total transaction volume",
+          "minimum": 0
+        },
+        "positiveTransactions": {
+          "type": "number",
+          "description": "Number of positive cash flow transactions",
+          "minimum": 0
+        },
+        "negativeTransactions": {
+          "type": "number",
+          "description": "Number of negative cash flow transactions",
+          "minimum": 0
+        },
+        "largestTransaction": {
+          "type": "number",
+          "description": "Largest single transaction amount"
+        },
+        "smallestTransaction": {
+          "type": "number",
+          "description": "Smallest single transaction amount"
+        },
+        "transactionCount": {
+          "type": "number",
+          "description": "Total transaction count",
+          "minimum": 0
+        },
+        "uniqueMerchants": {
+          "type": "number",
+          "description": "Number of unique merchants",
+          "minimum": 0
+        },
+        "uniqueCategories": {
+          "type": "number",
+          "description": "Number of unique transaction categories",
+          "minimum": 0
+        }
+      },
+      "required": ["totalTransactions", "totalVolume", "transactionCount"]
+    },
+    "anomalies": {
+      "type": "array",
+      "description": "Detailed anomaly information",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["amount", "timing", "frequency", "geographic", "velocity", "pattern"],
+            "description": "Type of anomaly detected"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"],
+            "description": "Severity level of the anomaly"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the anomaly"
+          },
+          "score": {
+            "type": "number",
+            "description": "Anomaly score (0.0 to 1.0)",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Associated transaction ID if applicable"
+          }
+        },
+        "required": ["type", "severity", "description", "score"]
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "description": "ML-generated recommendations",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": ["risk_mitigation", "operational_improvement", "fraud_prevention", "efficiency", "compliance"],
+            "description": "Category of recommendation"
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"],
+            "description": "Priority level of recommendation"
+          },
+          "action": {
+            "type": "string",
+            "description": "Recommended action to take"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Reasoning behind the recommendation"
+          },
+          "impact": {
+            "type": "string",
+            "enum": ["low", "medium", "high"],
+            "description": "Expected impact of implementing the recommendation"
+          }
+        },
+        "required": ["category", "priority", "action", "rationale"]
+      }
+    },
+    "meta": {
+      "type": "object",
+      "description": "Metadata about the analysis",
+      "properties": {
+        "recordCount": {
+          "type": "number",
+          "description": "Number of records processed",
+          "minimum": 0
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of analysis"
+        },
+        "processingTime": {
+          "type": "number",
+          "description": "Processing time in milliseconds",
+          "minimum": 0
+        },
+        "modelVersion": {
+          "type": "string",
+          "description": "Version of the ML model used"
+        },
+        "dataQuality": {
+          "type": "object",
+          "properties": {
+            "completeness": {
+              "type": "number",
+              "description": "Data completeness score (0.0 to 1.0)",
+              "minimum": 0.0,
+              "maximum": 1.0
+            },
+            "consistency": {
+              "type": "number",
+              "description": "Data consistency score (0.0 to 1.0)",
+              "minimum": 0.0,
+              "maximum": 1.0
+            },
+            "accuracy": {
+              "type": "number",
+              "description": "Data accuracy score (0.0 to 1.0)",
+              "minimum": 0.0,
+              "maximum": 1.0
+            }
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any warnings about the analysis"
+        }
+      },
+      "required": ["recordCount", "timestamp", "processingTime"]
+    }
+  },
+  "required": ["summary", "flags", "metrics", "meta"],
+  "additionalProperties": false
+} 

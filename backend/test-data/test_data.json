@@ -1,0 +1,902 @@
+[
+  {
+    "transaction_id": "TXN000001",
+    "amount": 213.93338148071228,
+    "fraud_score": 0.1001734142009565,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-26",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000002",
+    "amount": 45.305947163231096,
+    "fraud_score": 0.26927830570086764,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-02",
+    "merchant_category": "Transport",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000003",
+    "amount": 2355.414137634234,
+    "fraud_score": 0.873670274632757,
+    "is_fraud": "1",
+    "transaction_date": "2025-06-23",
+    "merchant_category": "Healthcare",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000004",
+    "amount": 12.792541440826856,
+    "fraud_score": 0.17079154271852937,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-01",
+    "merchant_category": "Retail",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000005",
+    "amount": 72.98990160704898,
+    "fraud_score": 0.2788537459661958,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-14",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000006",
+    "amount": 408.09645416624994,
+    "fraud_score": 0.0004893440820285421,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-15",
+    "merchant_category": "Retail",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000007",
+    "amount": 23.089600759370825,
+    "fraud_score": 0.1301135974188129,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-14",
+    "merchant_category": "Healthcare",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000008",
+    "amount": 339.22769417737385,
+    "fraud_score": 0.09297082360648642,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-10",
+    "merchant_category": "Entertainment",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000009",
+    "amount": 27.611260297081046,
+    "fraud_score": 0.049517301505794184,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-12",
+    "merchant_category": "Retail",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000010",
+    "amount": 229.32364821432304,
+    "fraud_score": 0.13214554071069476,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-13",
+    "merchant_category": "Food",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000011",
+    "amount": 227.29175030645052,
+    "fraud_score": 0.23829239362145405,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-17",
+    "merchant_category": "Entertainment",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000012",
+    "amount": 417.0846991847109,
+    "fraud_score": 0.10487281274672944,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-30",
+    "merchant_category": "Food",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000013",
+    "amount": 370.1043692339011,
+    "fraud_score": 0.22573888410756618,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-04",
+    "merchant_category": "Transport",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000014",
+    "amount": 3262.1983130156864,
+    "fraud_score": 0.986721976358917,
+    "is_fraud": "1",
+    "transaction_date": "2025-06-26",
+    "merchant_category": "Retail",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000015",
+    "amount": 225.26579339314566,
+    "fraud_score": 0.061141894054378594,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-04",
+    "merchant_category": "Healthcare",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000016",
+    "amount": 363.01330055515666,
+    "fraud_score": 0.2864049155360067,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-28",
+    "merchant_category": "Transport",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000017",
+    "amount": 200.88004650314173,
+    "fraud_score": 0.01220663919666316,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-23",
+    "merchant_category": "Retail",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000018",
+    "amount": 132.8205918045756,
+    "fraud_score": 0.1607047967107389,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-30",
+    "merchant_category": "Retail",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000019",
+    "amount": 201.6424315517734,
+    "fraud_score": 0.022486151154491884,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-15",
+    "merchant_category": "Food",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000020",
+    "amount": 146.60488913261526,
+    "fraud_score": 0.12207449579362732,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-25",
+    "merchant_category": "Transport",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000021",
+    "amount": 492.3514292611979,
+    "fraud_score": 0.296472955537006,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-30",
+    "merchant_category": "Transport",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000022",
+    "amount": 315.9113893368538,
+    "fraud_score": 0.2073788277786033,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-29",
+    "merchant_category": "Transport",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000023",
+    "amount": 254.49175337776384,
+    "fraud_score": 0.1358551736554602,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-19",
+    "merchant_category": "Healthcare",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000024",
+    "amount": 19.428682351889094,
+    "fraud_score": 0.07249101146664239,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-07",
+    "merchant_category": "Retail",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000025",
+    "amount": 467.6655859030506,
+    "fraud_score": 0.01808929632823255,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-24",
+    "merchant_category": "Entertainment",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000026",
+    "amount": 402.9731049622406,
+    "fraud_score": 0.24478482550747555,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-06",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000027",
+    "amount": 133.31487009814413,
+    "fraud_score": 0.2274013161356268,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-17",
+    "merchant_category": "Healthcare",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000028",
+    "amount": 506.40772281436284,
+    "fraud_score": 0.16178679231095353,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-08",
+    "merchant_category": "Transport",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000029",
+    "amount": 172.10330423864295,
+    "fraud_score": 0.03240241239425572,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-10",
+    "merchant_category": "Healthcare",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000030",
+    "amount": 175.1452678335452,
+    "fraud_score": 0.17975057554870075,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-06",
+    "merchant_category": "Retail",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000031",
+    "amount": 1684.3584230861975,
+    "fraud_score": 0.7088605221506805,
+    "is_fraud": "1",
+    "transaction_date": "2025-06-24",
+    "merchant_category": "Transport",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000032",
+    "amount": 58.423308245005295,
+    "fraud_score": 0.2769981947786758,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-09",
+    "merchant_category": "Healthcare",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000033",
+    "amount": 230.28812184507572,
+    "fraud_score": 0.21225475992365297,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-05",
+    "merchant_category": "Retail",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000034",
+    "amount": 203.18675020184563,
+    "fraud_score": 0.26386574399203133,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-09",
+    "merchant_category": "Food",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000035",
+    "amount": 155.6354900723461,
+    "fraud_score": 0.2708292495006954,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-24",
+    "merchant_category": "Food",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000036",
+    "amount": 409.23801762707325,
+    "fraud_score": 0.2908844105786469,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-29",
+    "merchant_category": "Retail",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000037",
+    "amount": 500.51787879613926,
+    "fraud_score": 0.1784699412337203,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-01",
+    "merchant_category": "Food",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000038",
+    "amount": 429.42994711117024,
+    "fraud_score": 0.0005562995275074422,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-19",
+    "merchant_category": "Healthcare",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000039",
+    "amount": 482.9357679929912,
+    "fraud_score": 0.28037372560049934,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-01",
+    "merchant_category": "Healthcare",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000040",
+    "amount": 495.45347935844893,
+    "fraud_score": 0.27185475942165943,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-29",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000041",
+    "amount": 153.1098329899847,
+    "fraud_score": 0.26522888398963346,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-25",
+    "merchant_category": "Retail",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000042",
+    "amount": 400.45312092752505,
+    "fraud_score": 0.013673398218556575,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-11",
+    "merchant_category": "Food",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000043",
+    "amount": 213.08685713556417,
+    "fraud_score": 0.15572295825698107,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-05",
+    "merchant_category": "Entertainment",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000044",
+    "amount": 58.826421363951326,
+    "fraud_score": 0.13618898818149494,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-07",
+    "merchant_category": "Transport",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000045",
+    "amount": 341.4427622547743,
+    "fraud_score": 0.08456115423192419,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-14",
+    "merchant_category": "Healthcare",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000046",
+    "amount": 484.7790109468433,
+    "fraud_score": 0.004362725664224709,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-05",
+    "merchant_category": "Transport",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000047",
+    "amount": 142.06219084458726,
+    "fraud_score": 0.2225420559098519,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-16",
+    "merchant_category": "Food",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000048",
+    "amount": 355.1620165479679,
+    "fraud_score": 0.16312692833453982,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-12",
+    "merchant_category": "Entertainment",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000049",
+    "amount": 317.41807005597786,
+    "fraud_score": 0.14154351119123015,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-06",
+    "merchant_category": "Transport",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000050",
+    "amount": 71.5113040648584,
+    "fraud_score": 0.20866640924619984,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-26",
+    "merchant_category": "Entertainment",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000051",
+    "amount": 50.8299430244673,
+    "fraud_score": 0.07467891594364602,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-15",
+    "merchant_category": "Entertainment",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000052",
+    "amount": 303.10735714247926,
+    "fraud_score": 0.024662400900787394,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-25",
+    "merchant_category": "Entertainment",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000053",
+    "amount": 393.9681820660591,
+    "fraud_score": 0.10460146734149371,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-28",
+    "merchant_category": "Entertainment",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000054",
+    "amount": 298.63675584821715,
+    "fraud_score": 0.11356633391020121,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-06",
+    "merchant_category": "Food",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000055",
+    "amount": 156.19133876266676,
+    "fraud_score": 0.22899319824978323,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-30",
+    "merchant_category": "Retail",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000056",
+    "amount": 148.61962845378895,
+    "fraud_score": 0.24607934894387012,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-23",
+    "merchant_category": "Healthcare",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000057",
+    "amount": 104.41404346766124,
+    "fraud_score": 0.23549600627827544,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-24",
+    "merchant_category": "Retail",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000058",
+    "amount": 127.78029793434509,
+    "fraud_score": 0.04414557070881997,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-24",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000059",
+    "amount": 83.83012093393727,
+    "fraud_score": 0.282875644306801,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-20",
+    "merchant_category": "Healthcare",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000060",
+    "amount": 206.3597497632744,
+    "fraud_score": 0.029835226198262996,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-29",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000061",
+    "amount": 231.07061521807702,
+    "fraud_score": 0.2504626019257364,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-16",
+    "merchant_category": "Food",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000062",
+    "amount": 254.81804202608748,
+    "fraud_score": 0.1900127223612004,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-02",
+    "merchant_category": "Food",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000063",
+    "amount": 1991.8896950222156,
+    "fraud_score": 0.7650989314466269,
+    "is_fraud": "1",
+    "transaction_date": "2025-07-13",
+    "merchant_category": "Healthcare",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000064",
+    "amount": 477.71287243577217,
+    "fraud_score": 0.1920713443886096,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-24",
+    "merchant_category": "Retail",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000065",
+    "amount": 274.7986538986129,
+    "fraud_score": 0.2694617639913337,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-22",
+    "merchant_category": "Transport",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000066",
+    "amount": 414.6952264698844,
+    "fraud_score": 0.08930218495418248,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-17",
+    "merchant_category": "Transport",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000067",
+    "amount": 466.44439633282684,
+    "fraud_score": 0.03225102133213637,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-28",
+    "merchant_category": "Entertainment",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000068",
+    "amount": 241.00264725156305,
+    "fraud_score": 0.02129838492229028,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-13",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000069",
+    "amount": 38.578074090012564,
+    "fraud_score": 0.28954529587632294,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-30",
+    "merchant_category": "Entertainment",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000070",
+    "amount": 265.443128392246,
+    "fraud_score": 0.22909244458417444,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-25",
+    "merchant_category": "Transport",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000071",
+    "amount": 502.68515273952005,
+    "fraud_score": 0.2462620283512436,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-25",
+    "merchant_category": "Transport",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000072",
+    "amount": 112.33879336650098,
+    "fraud_score": 0.06827753227134038,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-09",
+    "merchant_category": "Food",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000073",
+    "amount": 410.8295586835323,
+    "fraud_score": 0.23453273277511566,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-22",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000074",
+    "amount": 426.8425925386324,
+    "fraud_score": 0.024135641609626602,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-30",
+    "merchant_category": "Food",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000075",
+    "amount": 429.3167182701364,
+    "fraud_score": 0.15785558933024776,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-12",
+    "merchant_category": "Retail",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000076",
+    "amount": 172.22040304043884,
+    "fraud_score": 0.2649679847802138,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-22",
+    "merchant_category": "Food",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000077",
+    "amount": 109.30532565692496,
+    "fraud_score": 0.1728641871665902,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-30",
+    "merchant_category": "Food",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000078",
+    "amount": 433.3046496920007,
+    "fraud_score": 0.09553964529160501,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-14",
+    "merchant_category": "Transport",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000079",
+    "amount": 507.79873962718057,
+    "fraud_score": 0.09508996537612902,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-15",
+    "merchant_category": "Retail",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000080",
+    "amount": 388.7396282922425,
+    "fraud_score": 0.019001053464402683,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-15",
+    "merchant_category": "Healthcare",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000081",
+    "amount": 403.28057855080334,
+    "fraud_score": 0.229217319420193,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-14",
+    "merchant_category": "Healthcare",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000082",
+    "amount": 160.7558767166567,
+    "fraud_score": 0.17367442787019216,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-17",
+    "merchant_category": "Retail",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000083",
+    "amount": 502.3687394676979,
+    "fraud_score": 0.016749450186620128,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-12",
+    "merchant_category": "Retail",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000084",
+    "amount": 122.06461605946106,
+    "fraud_score": 0.04150770817727556,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-03",
+    "merchant_category": "Entertainment",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000085",
+    "amount": 406.13722493637806,
+    "fraud_score": 0.19672442174124719,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-15",
+    "merchant_category": "Transport",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000086",
+    "amount": 425.42479615617447,
+    "fraud_score": 0.2260908987315276,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-17",
+    "merchant_category": "Food",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000087",
+    "amount": 37.651538940004606,
+    "fraud_score": 0.009595776939862488,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-05",
+    "merchant_category": "Retail",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000088",
+    "amount": 17.33349476282841,
+    "fraud_score": 0.0523827708642566,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-05",
+    "merchant_category": "Healthcare",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000089",
+    "amount": 464.5889410909806,
+    "fraud_score": 0.03528880179672724,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-04",
+    "merchant_category": "Transport",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000090",
+    "amount": 344.64992063033617,
+    "fraud_score": 0.11810495216923,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-19",
+    "merchant_category": "Retail",
+    "merchant_state": "NY"
+  },
+  {
+    "transaction_id": "TXN000091",
+    "amount": 103.4162787501911,
+    "fraud_score": 0.19531767241089082,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-01",
+    "merchant_category": "Food",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000092",
+    "amount": 403.7112993848707,
+    "fraud_score": 0.10919033991473845,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-22",
+    "merchant_category": "Food",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000093",
+    "amount": 419.15638790198307,
+    "fraud_score": 0.046042409819211504,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-26",
+    "merchant_category": "Retail",
+    "merchant_state": "FL"
+  },
+  {
+    "transaction_id": "TXN000094",
+    "amount": 12.652748521228766,
+    "fraud_score": 0.18732525378016388,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-02",
+    "merchant_category": "Healthcare",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000095",
+    "amount": 316.7644370225116,
+    "fraud_score": 0.05038200939075636,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-29",
+    "merchant_category": "Healthcare",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000096",
+    "amount": 438.5855852699103,
+    "fraud_score": 0.06977699147706846,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-11",
+    "merchant_category": "Healthcare",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000097",
+    "amount": 508.5699787465098,
+    "fraud_score": 0.2923737018323973,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-17",
+    "merchant_category": "Entertainment",
+    "merchant_state": "TX"
+  },
+  {
+    "transaction_id": "TXN000098",
+    "amount": 96.7032485312258,
+    "fraud_score": 0.23521071882926411,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-01",
+    "merchant_category": "Entertainment",
+    "merchant_state": "CA"
+  },
+  {
+    "transaction_id": "TXN000099",
+    "amount": 456.9995718177835,
+    "fraud_score": 0.14838899441942235,
+    "is_fraud": "0",
+    "transaction_date": "2025-06-26",
+    "merchant_category": "Retail",
+    "merchant_state": "IL"
+  },
+  {
+    "transaction_id": "TXN000100",
+    "amount": 402.67175605957107,
+    "fraud_score": 0.004675555512726537,
+    "is_fraud": "0",
+    "transaction_date": "2025-07-08",
+    "merchant_category": "Food",
+    "merchant_state": "IL"
+  }
+]

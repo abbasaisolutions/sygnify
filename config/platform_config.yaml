@@ -1,0 +1,3 @@
+insights:
+  detail_level: high
+  metrics: [revenue, churn, engagement] 

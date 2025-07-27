@@ -27,7 +27,7 @@ const sampleData = [
     merchant_city: 'New York',
     merchant_state: 'NY',
     fraud_score: '0.1',
-    is_fraud: '0'
+    is_fraud: '0',
   },
   {
     transaction_id: 'TXN002',
@@ -45,7 +45,7 @@ const sampleData = [
     merchant_city: 'New York',
     merchant_state: 'NY',
     fraud_score: '0.05',
-    is_fraud: '0'
+    is_fraud: '0',
   },
   {
     transaction_id: 'TXN003',
@@ -63,8 +63,8 @@ const sampleData = [
     merchant_city: 'New York',
     merchant_state: 'NY',
     fraud_score: '0.8',
-    is_fraud: '1'
-  }
+    is_fraud: '1',
+  },
 ];
 
 /**
@@ -72,11 +72,11 @@ const sampleData = [
  */
 async function testLabelService() {
   console.log('🧪 Testing LabelService...');
-  
+
   try {
     const labelService = new LabelService('finance');
     const labels = await labelService.extractLabels(sampleData);
-    
+
     // Test 1: Correctly detects amount as numeric
     const amountLabel = labels.amount;
     if (amountLabel && amountLabel.type === 'numeric') {
@@ -85,7 +85,7 @@ async function testLabelService() {
       console.log('❌ LabelService: Failed to detect amount as numeric');
       return false;
     }
-    
+
     // Test 2: Correct semantic labels
     if (amountLabel && amountLabel.semantic.includes('Amount')) {
       console.log('✅ LabelService: Correct semantic label for amount');
@@ -93,7 +93,7 @@ async function testLabelService() {
       console.log('❌ LabelService: Incorrect semantic label for amount');
       return false;
     }
-    
+
     // Test 3: Normalized importance scale [0-100]
     for (const [column, label] of Object.entries(labels)) {
       if (label.importance < 0 || label.importance > 100) {
@@ -102,7 +102,7 @@ async function testLabelService() {
       }
     }
     console.log('✅ LabelService: All importance values in normalized [0-100] scale');
-    
+
     // Test 4: Validation
     const validation = labelService.validateLabels(labels);
     if (validation.isValid) {
@@ -111,7 +111,7 @@ async function testLabelService() {
       console.log('❌ LabelService: Labels validation failed:', validation.issues);
       return false;
     }
-    
+
     return true;
   } catch (error) {
     console.log('❌ LabelService test failed:', error.message);
@@ -124,14 +124,14 @@ async function testLabelService() {
  */
 async function testInsightService() {
   console.log('🧪 Testing InsightService...');
-  
+
   try {
     const insightService = new InsightService('finance');
     const labels = await new LabelService('finance').extractLabels(sampleData);
     const results = await insightService.computeMetrics(sampleData, labels);
-    
+
     // Test 1: Returns average fraud score within expected bounds
-    const fraudCol = Object.keys(results.metrics).find(col => col.includes('fraud'));
+    const fraudCol = Object.keys(results.metrics).find((col) => col.includes('fraud'));
     if (fraudCol) {
       const fraudAvg = results.metrics[fraudCol].average;
       if (fraudAvg >= 0 && fraudAvg <= 1) {
@@ -141,7 +141,7 @@ async function testInsightService() {
         return false;
       }
     }
-    
+
     // Test 2: Generates insights
     if (results.insights && results.insights.length > 0) {
       console.log('✅ InsightService: Generated insights successfully');
@@ -149,9 +149,9 @@ async function testInsightService() {
       console.log('❌ InsightService: No insights generated');
       return false;
     }
-    
+
     // Test 3: Includes min, max, std deviation
-    const amountCol = Object.keys(results.metrics).find(col => col.includes('amount'));
+    const amountCol = Object.keys(results.metrics).find((col) => col.includes('amount'));
     if (amountCol) {
       const metric = results.metrics[amountCol];
       if (metric.min !== undefined && metric.max !== undefined && metric.stdDev !== undefined) {
@@ -161,16 +161,16 @@ async function testInsightService() {
         return false;
       }
     }
-    
+
     // Test 4: Deduplicates insights
-    const uniqueInsights = new Set(results.insights.map(i => i.description));
+    const uniqueInsights = new Set(results.insights.map((i) => i.description));
     if (uniqueInsights.size === results.insights.length) {
       console.log('✅ InsightService: Insights deduplicated successfully');
     } else {
       console.log('❌ InsightService: Duplicate insights found');
       return false;
     }
-    
+
     return true;
   } catch (error) {
     console.log('❌ InsightService test failed:', error.message);
@@ -183,14 +183,14 @@ async function testInsightService() {
  */
 async function testPredictionService() {
   console.log('🧪 Testing PredictionService...');
-  
+
   try {
     const predictionService = new PredictionService('finance');
     const labels = await new LabelService('finance').extractLabels(sampleData);
     const insightService = new InsightService('finance');
     const metrics = await insightService.computeMetrics(sampleData, labels);
     const forecasts = await predictionService.generateForecasts(sampleData, labels, metrics.metrics);
-    
+
     // Test 1: Validates output format
     if (forecasts.revenue && forecasts.revenue.nextMonth) {
       console.log('✅ PredictionService: Valid revenue forecast format');
@@ -198,7 +198,7 @@ async function testPredictionService() {
       console.log('❌ PredictionService: Invalid revenue forecast format');
       return false;
     }
-    
+
     // Test 2: Optional confidence scores
     if (forecasts.revenue.nextMonth.confidence !== undefined) {
       console.log('✅ PredictionService: Includes confidence scores');
@@ -206,7 +206,7 @@ async function testPredictionService() {
       console.log('❌ PredictionService: Missing confidence scores');
       return false;
     }
-    
+
     // Test 3: Variance ranges
     if (forecasts.revenue.nextMonth.variance !== undefined) {
       console.log('✅ PredictionService: Includes variance ranges');
@@ -214,7 +214,7 @@ async function testPredictionService() {
       console.log('❌ PredictionService: Missing variance ranges');
       return false;
     }
-    
+
     // Test 4: Underlying logic
     if (forecasts.revenue.underlyingLogic) {
       console.log('✅ PredictionService: Includes underlying logic');
@@ -222,7 +222,7 @@ async function testPredictionService() {
       console.log('❌ PredictionService: Missing underlying logic');
       return false;
     }
-    
+
     return true;
   } catch (error) {
     console.log('❌ PredictionService test failed:', error.message);
@@ -235,7 +235,7 @@ async function testPredictionService() {
  */
 async function testRecommendationService() {
   console.log('🧪 Testing RecommendationService...');
-  
+
   try {
     const recommendationService = new RecommendationService('finance');
     const labels = await new LabelService('finance').extractLabels(sampleData);
@@ -243,14 +243,14 @@ async function testRecommendationService() {
     const metrics = await insightService.computeMetrics(sampleData, labels);
     const predictionService = new PredictionService('finance');
     const forecasts = await predictionService.generateForecasts(sampleData, labels, metrics.metrics);
-    
+
     const recommendations = await recommendationService.generateRecommendations(
       metrics.metrics,
       metrics.insights,
       forecasts,
-      labels
+      labels,
     );
-    
+
     // Test 1: At least 2 input scenarios trigger expected suggestions
     if (recommendations.recommendations.length >= 2) {
       console.log('✅ RecommendationService: Generated multiple recommendations');
@@ -258,28 +258,26 @@ async function testRecommendationService() {
       console.log('❌ RecommendationService: Insufficient recommendations generated');
       return false;
     }
-    
+
     // Test 2: High fraud score triggers fraud detection recommendation
-    const fraudRecommendations = recommendations.recommendations.filter(r => 
-      r.title.toLowerCase().includes('fraud')
-    );
+    const fraudRecommendations = recommendations.recommendations.filter((r) => r.title.toLowerCase().includes('fraud'));
     if (fraudRecommendations.length > 0) {
       console.log('✅ RecommendationService: High fraud score triggers fraud detection recommendation');
     } else {
       console.log('❌ RecommendationService: High fraud score does not trigger fraud detection recommendation');
       return false;
     }
-    
+
     // Test 3: Modular recommendations structure
-    if (recommendations.recommendations[0].priority && 
-        recommendations.recommendations[0].impact && 
-        recommendations.recommendations[0].effort) {
+    if (recommendations.recommendations[0].priority
+        && recommendations.recommendations[0].impact
+        && recommendations.recommendations[0].effort) {
       console.log('✅ RecommendationService: Modular recommendations structure');
     } else {
       console.log('❌ RecommendationService: Missing modular structure');
       return false;
     }
-    
+
     // Test 4: Strategic recommendations
     if (recommendations.strategic && recommendations.strategic.length > 0) {
       console.log('✅ RecommendationService: Generated strategic recommendations');
@@ -287,7 +285,7 @@ async function testRecommendationService() {
       console.log('❌ RecommendationService: Missing strategic recommendations');
       return false;
     }
-    
+
     return true;
   } catch (error) {
     console.log('❌ RecommendationService test failed:', error.message);
@@ -300,7 +298,7 @@ async function testRecommendationService() {
  */
 async function testNarrativeService() {
   console.log('🧪 Testing NarrativeService...');
-  
+
   try {
     const narrativeService = new NarrativeService('finance');
     const labels = await new LabelService('finance').extractLabels(sampleData);
@@ -313,18 +311,18 @@ async function testNarrativeService() {
       metrics.metrics,
       metrics.insights,
       forecasts,
-      labels
+      labels,
     );
-    
+
     const narratives = await narrativeService.generateNarratives(
       metrics.metrics,
       metrics.insights,
       forecasts,
       recommendations.recommendations,
       labels,
-      'executive'
+      'executive',
     );
-    
+
     // Test 1: Human-readable narrative
     if (narratives.main.headline && narratives.main.summary) {
       console.log('✅ NarrativeService: Generated human-readable narrative');
@@ -332,7 +330,7 @@ async function testNarrativeService() {
       console.log('❌ NarrativeService: Missing human-readable narrative');
       return false;
     }
-    
+
     // Test 2: Data context included
     if (narratives.main.summary.includes('3') || narratives.main.summary.includes('records')) {
       console.log('✅ NarrativeService: Includes data context');
@@ -340,7 +338,7 @@ async function testNarrativeService() {
       console.log('❌ NarrativeService: Missing data context');
       return false;
     }
-    
+
     // Test 3: Multiple tones supported
     const analystNarrative = await narrativeService.generateNarratives(
       metrics.metrics,
@@ -348,16 +346,16 @@ async function testNarrativeService() {
       forecasts,
       recommendations.recommendations,
       labels,
-      'analyst'
+      'analyst',
     );
-    
+
     if (analystNarrative.main.tone !== narratives.main.tone) {
       console.log('✅ NarrativeService: Supports multiple tones');
     } else {
       console.log('❌ NarrativeService: Does not support multiple tones');
       return false;
     }
-    
+
     // Test 4: Structured format
     if (narratives.main.keyFindings && narratives.main.insights) {
       console.log('✅ NarrativeService: Structured narrative format');
@@ -365,7 +363,7 @@ async function testNarrativeService() {
       console.log('❌ NarrativeService: Missing structured format');
       return false;
     }
-    
+
     return true;
   } catch (error) {
     console.log('❌ NarrativeService test failed:', error.message);
@@ -378,18 +376,18 @@ async function testNarrativeService() {
  */
 async function runAllTests() {
   console.log('🚀 Starting comprehensive service tests...\n');
-  
+
   const tests = [
     { name: 'LabelService', test: testLabelService },
     { name: 'InsightService', test: testInsightService },
     { name: 'PredictionService', test: testPredictionService },
     { name: 'RecommendationService', test: testRecommendationService },
-    { name: 'NarrativeService', test: testNarrativeService }
+    { name: 'NarrativeService', test: testNarrativeService },
   ];
-  
+
   let passedTests = 0;
-  let totalTests = tests.length;
-  
+  const totalTests = tests.length;
+
   for (const test of tests) {
     console.log(`\n📋 Testing ${test.name}...`);
     const result = await test.test();
@@ -400,18 +398,17 @@ async function runAllTests() {
       console.log(`❌ ${test.name} tests FAILED\n`);
     }
   }
-  
+
   console.log('📊 Test Results Summary:');
   console.log(`✅ Passed: ${passedTests}/${totalTests}`);
   console.log(`❌ Failed: ${totalTests - passedTests}/${totalTests}`);
-  
+
   if (passedTests === totalTests) {
     console.log('🎉 All tests passed! Services are working correctly.');
     return true;
-  } else {
-    console.log('⚠️ Some tests failed. Please review the service implementations.');
-    return false;
   }
+  console.log('⚠️ Some tests failed. Please review the service implementations.');
+  return false;
 }
 
 // Export for use in other test files
@@ -421,15 +418,15 @@ module.exports = {
   testPredictionService,
   testRecommendationService,
   testNarrativeService,
-  runAllTests
+  runAllTests,
 };
 
 // Run tests if this file is executed directly
 if (require.main === module) {
-  runAllTests().then(success => {
+  runAllTests().then((success) => {
     process.exit(success ? 0 : 1);
-  }).catch(error => {
+  }).catch((error) => {
     console.error('Test execution failed:', error);
     process.exit(1);
   });
-} 
+}

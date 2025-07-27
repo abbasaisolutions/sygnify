@@ -1,215 +1,509 @@
-import os
-import asyncio
+import pandas as pd
+import numpy as np
 import json
-import logging
-from smart_labeler import SmartLabeler
-from external_context import ExternalContext
-from visualization import VisualizationGenerator
-from narrative import NarrativeGenerator
-from data_quality import DataQualityAnalyzer
-from recommendations import RecommendationsEngine
+import tempfile
+import os
+import sys
+from datetime import datetime
+import warnings
+warnings.filterwarnings('ignore')
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-async def run_financial_analysis(columns, sample_rows, user_id=None, user_role="executive"):
-    """
-    Complete financial analysis pipeline using all modules with enhanced SmartLabeler.
-    Returns modular JSON output ready for frontend consumption.
-    """
+try:
+    import ydata_profiling as yp
+    HAS_YDATA_PROFILING = True
+except ImportError:
     try:
-        logger.info("Starting enhanced financial analysis pipeline...")
-        
-        # Step 1: Smart Labeling (Enhanced with cross-column inference)
-        logger.info("Step 1: Enhanced Smart Labeling with cross-column inference")
-        labeler = SmartLabeler(glossary_path="finance_glossary.json")
-        labels = await labeler.extract_labels(sample_rows, user_id=user_id)
-        logger.info(f"Extracted {len(labels)} enhanced labels with cross-column inference")
-        
-        # Extract semantic labels for backward compatibility
-        semantic_labels = {col: label_info['semantic'] for col, label_info in labels.items()}
+        import pandas_profiling as pp
+        HAS_PANDAS_PROFILING = True
+    except ImportError:
+        HAS_YDATA_PROFILING = False
+        HAS_PANDAS_PROFILING = False
 
-        # Step 2: External Context Integration
-        logger.info("Step 2: External Context Integration")
-        external = ExternalContext(redis_url="redis://localhost:6379/0")
-        news = external.fetch_news("interest rates")
-        fred = external.fetch_fred("FEDFUNDS")
-        av_data = external.fetch_alpha_vantage("AAPL")
-        logger.info("External context fetched")
+try:
+    import sweetviz as sv
+    HAS_SWEETVIZ = True
+except ImportError:
+    HAS_SWEETVIZ = False
 
-        # Step 3: Visualizations
-        logger.info("Step 3: Visualizations")
-        viz = VisualizationGenerator()
-        chart_config = viz.generate_chart_config(sample_rows)
-        chart_config = viz.add_interactivity_hints(chart_config)
-        caption = viz.generate_caption(sample_rows)
-        logger.info("Visualizations generated")
-
-        # Step 4: Narrative Generation (Enhanced with user preferences)
-        logger.info("Step 4: Enhanced Narrative Generation")
-        narrative_gen = NarrativeGenerator()
+class EnhancedFinancialAnalyzer:
+    """
+    Enhanced financial analysis with multiple profiling libraries
+    """
+    
+    def __init__(self):
+        self.profiling_libraries = self._detect_profiling_libraries()
+        print(f"[Python] Available profiling libraries: {list(self.profiling_libraries.keys())}")
+    
+    def _detect_profiling_libraries(self):
+        """Detect available profiling libraries"""
+        libraries = {}
         
-        # Get user preferences (simulated for now)
-        user_preferences = {
-            "role": user_role,
-            "tone": "formal",
-            "verbosity": "concise"
-        }
+        if HAS_YDATA_PROFILING:
+            libraries['ydata_profiling'] = True
+        elif HAS_PANDAS_PROFILING:
+            libraries['pandas_profiling'] = True
         
-        # Prepare data for narrative generation with semantic labels
-        narrative_data = {
-            "data": sample_rows, 
-            "labels": semantic_labels,
-            "enhanced_labels": labels  # Include full label info
-        }
-        
-        # Generate narratives with user preferences
-        narratives = await narrative_gen.generate_narratives(
-            data=sample_rows,
-            labels=semantic_labels,
-            metrics={'profit_margin': 0.2, 'current_ratio': 2.5, 'asset_turnover': 1.2},
-            user_role=user_preferences["role"],
-            tone=user_preferences["tone"],
-            verbosity=user_preferences["verbosity"]
-        )
-        
-        # Also generate complete analysis for backward compatibility
-        narrative_result = await narrative_gen.generate_complete_analysis(
-            narrative_data, 
-            user_id=user_id, 
-            user_role=user_role
-        )
-        logger.info(f"Narrative generation: {'success' if narrative_result['success'] else 'failed'}")
-
-        # Step 5: Data Quality & Outlier Detection
-        logger.info("Step 5: Data Quality Analysis")
-        dq = DataQualityAnalyzer()
-        
-        # Analyze numeric columns for outliers
-        outlier_analysis = {}
-        for col, label_info in labels.items():
-            if label_info['type'] == 'numeric':
-                values = [row.get(col, 0) for row in sample_rows if row.get(col) is not None]
-                if values:
-                    outlier_indices = dq.detect_outliers(values)
-                    if outlier_indices:
-                        outlier_analysis[col] = {
-                            'indices': outlier_indices,
-                            'semantic_label': label_info['semantic'],
-                            'count': len(outlier_indices)
-                        }
-        
-        missing_data = dq.assess_missing_data(sample_rows)
-        problematic_rows = dq.sample_problematic_rows(sample_rows)
-        logger.info(f"Data quality analysis complete. Outliers found in {len(outlier_analysis)} columns")
-
-        # Step 6: SMART Recommendations
-        logger.info("Step 6: SMART Recommendations")
-        recommender = RecommendationsEngine()
-        recommendations = recommender.generate_smart_recommendations({
-            "labels": semantic_labels, 
-            "enhanced_labels": labels,
-            "data_quality": missing_data,
-            "outliers": outlier_analysis
-        })
-        recommendations = recommender.prioritize(recommendations)
-        logger.info(f"Generated {len(recommendations)} recommendations")
-
-        # Modular JSON Output
-        output = {
-            "version": "2.1.0",
-            "success": True,
-            "smart_labels": semantic_labels,  # Backward compatibility
-            "enhanced_labels": labels,  # Full label information
-            "external_context": {
-                "news": news, 
-                "fred": fred, 
-                "alpha_vantage": av_data
-            },
-            "visualizations": {
-                "chart_config": chart_config, 
-                "caption": caption
-            },
-            "narratives": narratives,  # New format
-            "narrative": narrative_result["narrative"],  # Backward compatibility
-            "facts": narrative_result["facts"],
-            "data_quality": {
-                "outliers": outlier_analysis, 
-                "missing": missing_data, 
-                "problematic_rows": problematic_rows
-            },
-            "recommendations": recommendations,
-            "metadata": {
-                "user_id": user_id,
-                "user_role": user_role,
-                "user_preferences": user_preferences,
-                "generated_at": narrative_result["metadata"]["generated_at"],
-                "pipeline_version": "2.1.0",
-                "columns_analyzed": len(columns),
-                "records_analyzed": len(sample_rows),
-                "cross_column_inference": True
+        if HAS_SWEETVIZ:
+            libraries['sweetviz'] = True
+            
+        return libraries
+    
+    def analyze_financial_data(self, columns, data, user_id=1, role='executive'):
+        """
+        Enhanced financial analysis with multiple profiling approaches
+        """
+        try:
+            # Create DataFrame
+            df = pd.DataFrame(data, columns=columns)
+            print(f"[Python] Created DataFrame with {len(df)} rows and {len(df.columns)} columns")
+            
+            # Basic data validation
+            if df.empty:
+                return self._create_error_response("Empty dataset provided")
+            
+            # Enhanced analysis results
+            analysis_results = {
+                'metadata': {
+                    'records_analyzed': len(df),
+                    'columns_analyzed': len(df.columns),
+                    'analysis_timestamp': datetime.now().isoformat(),
+                    'profiling_libraries': list(self.profiling_libraries.keys()),
+                    'user_id': user_id,
+                    'role': role
+                },
+                'data_quality': self._assess_data_quality(df),
+                'profiling_results': self._generate_profiling_report(df),
+                'financial_metrics': self._extract_financial_metrics(df),
+                'smart_labels': self._generate_smart_labels(df),
+                'enhanced_labels': self._generate_enhanced_labels(df),
+                'narratives': self._generate_narratives(df),
+                'facts': self._extract_facts(df),
+                'predictions': self._generate_predictions(df),
+                'recommendations': self._generate_recommendations(df),
+                'risk_assessment': self._assess_risks(df),
+                'correlations': self._analyze_correlations(df),
+                'anomalies': self._detect_anomalies(df),
+                'trends': self._analyze_trends(df)
             }
+            
+            print(f"[Python] Analysis completed successfully")
+            return analysis_results
+            
+        except Exception as e:
+            error_msg = f"Analysis failed: {str(e)}"
+            print(f"[Python] ERROR: {error_msg}")
+            return self._create_error_response(error_msg)
+    
+    def _assess_data_quality(self, df):
+        """Comprehensive data quality assessment"""
+        try:
+            quality_metrics = {
+                'completeness': {},
+                'accuracy': {},
+                'consistency': {},
+                'timeliness': {},
+                'validity': {},
+                'uniqueness': {},
+                'overall_score': 0
+            }
+            
+            # Completeness
+            for col in df.columns:
+                non_null_count = df[col].notna().sum()
+                quality_metrics['completeness'][col] = non_null_count / len(df)
+            
+            # Accuracy (type consistency)
+            for col in df.columns:
+                if df[col].dtype in ['int64', 'float64']:
+                    quality_metrics['accuracy'][col] = 1.0  # Assume numeric columns are accurate
+                else:
+                    quality_metrics['accuracy'][col] = 0.9  # Default for non-numeric
+            
+            # Consistency
+            for col in df.columns:
+                if df[col].dtype in ['int64', 'float64']:
+                    # Check for outliers using IQR
+                    Q1 = df[col].quantile(0.25)
+                    Q3 = df[col].quantile(0.75)
+                    IQR = Q3 - Q1
+                    outliers = ((df[col] < (Q1 - 1.5 * IQR)) | (df[col] > (Q3 + 1.5 * IQR))).sum()
+                    quality_metrics['consistency'][col] = 1 - (outliers / len(df))
+                else:
+                    quality_metrics['consistency'][col] = 0.95
+            
+            # Calculate overall score
+            completeness_avg = np.mean(list(quality_metrics['completeness'].values()))
+            accuracy_avg = np.mean(list(quality_metrics['accuracy'].values()))
+            consistency_avg = np.mean(list(quality_metrics['consistency'].values()))
+            
+            quality_metrics['overall_score'] = (completeness_avg + accuracy_avg + consistency_avg) / 3
+            
+            return quality_metrics
+            
+        except Exception as e:
+            print(f"[Python] Data quality assessment error: {e}")
+            return {'overall_score': 0.8, 'error': str(e)}
+    
+    def _generate_profiling_report(self, df):
+        """Generate comprehensive profiling report using available libraries"""
+        profiling_results = {
+            'library_used': None,
+            'report_generated': False,
+            'summary_stats': {},
+            'correlations': {},
+            'missing_values': {},
+            'data_types': {},
+            'descriptive_stats': {}
         }
-
-        logger.info("Enhanced financial analysis pipeline completed successfully!")
-        return output
+        
+        try:
+            # Use ydata_profiling if available
+            if 'ydata_profiling' in self.profiling_libraries:
+                profiling_results['library_used'] = 'ydata_profiling'
+                profile = yp.ProfileReport(df, title="Financial Data Profile", explorative=True)
+                profiling_results['report_generated'] = True
+                
+                # Extract key statistics
+                profiling_results['summary_stats'] = profile.get_description()
+                profiling_results['missing_values'] = df.isnull().sum().to_dict()
+                profiling_results['data_types'] = df.dtypes.astype(str).to_dict()
+                
+            elif 'pandas_profiling' in self.profiling_libraries:
+                profiling_results['library_used'] = 'pandas_profiling'
+                profile = pp.ProfileReport(df, title="Financial Data Profile")
+                profiling_results['report_generated'] = True
+                
+                # Extract key statistics
+                profiling_results['summary_stats'] = profile.get_description()
+                profiling_results['missing_values'] = df.isnull().sum().to_dict()
+                profiling_results['data_types'] = df.dtypes.astype(str).to_dict()
+            
+            # Fallback to basic pandas profiling
+            if not profiling_results['report_generated']:
+                profiling_results['library_used'] = 'pandas_basic'
+                profiling_results['descriptive_stats'] = df.describe().to_dict()
+                profiling_results['missing_values'] = df.isnull().sum().to_dict()
+                profiling_results['data_types'] = df.dtypes.astype(str).to_dict()
+                profiling_results['correlations'] = df.corr().to_dict() if df.select_dtypes(include=[np.number]).shape[1] > 1 else {}
+                
+                except Exception as e:
+            print(f"[Python] Profiling error: {e}")
+            profiling_results['error'] = str(e)
+        
+        return profiling_results
+    
+    def _extract_financial_metrics(self, df):
+        """Extract comprehensive financial metrics"""
+        try:
+            metrics = {}
+            
+            # Find numeric columns
+            numeric_cols = df.select_dtypes(include=[np.number]).columns
+            
+            for col in numeric_cols:
+                metrics[col] = {
+                    'count': df[col].count(),
+                    'sum': df[col].sum(),
+                    'mean': df[col].mean(),
+                    'median': df[col].median(),
+                    'std': df[col].std(),
+                    'min': df[col].min(),
+                    'max': df[col].max(),
+                    'q25': df[col].quantile(0.25),
+                    'q75': df[col].quantile(0.75),
+                    'skewness': df[col].skew(),
+                    'kurtosis': df[col].kurtosis()
+                }
+            
+            return metrics
+            
+        except Exception as e:
+            print(f"[Python] Financial metrics extraction error: {e}")
+            return {}
+    
+    def _generate_smart_labels(self, df):
+        """Generate smart column labels based on content analysis"""
+        try:
+            labels = {}
+            
+            for col in df.columns:
+                # Analyze column content
+                sample_values = df[col].dropna().head(10).astype(str)
+                
+                # Detect common patterns
+                if any('amount' in col.lower() or 'price' in col.lower() or 'cost' in col.lower() for col in [col]):
+                    labels[col] = 'Financial Amount'
+                elif any('date' in col.lower() or 'time' in col.lower() for col in [col]):
+                    labels[col] = 'Date/Time'
+                elif df[col].dtype in ['int64', 'float64']:
+                    labels[col] = 'Numeric Metric'
+                else:
+                    labels[col] = 'Categorical Data'
+            
+            return labels
+            
+        except Exception as e:
+            print(f"[Python] Smart labels generation error: {e}")
+            return {}
+    
+    def _generate_enhanced_labels(self, df):
+        """Generate enhanced labels with confidence scores"""
+        try:
+            enhanced_labels = {}
+            
+            for col in df.columns:
+                confidence = 0.8  # Base confidence
+                
+                # Enhance confidence based on data characteristics
+                if df[col].dtype in ['int64', 'float64']:
+                    confidence += 0.1
+                
+                if df[col].notna().sum() / len(df) > 0.9:
+                    confidence += 0.1
+                
+                enhanced_labels[col] = {
+                    'label': self._generate_smart_labels(df).get(col, 'Unknown'),
+                    'confidence': min(confidence, 1.0),
+                    'data_type': str(df[col].dtype),
+                    'unique_values': df[col].nunique(),
+                    'missing_percentage': (df[col].isna().sum() / len(df)) * 100
+                }
+            
+            return enhanced_labels
+            
+        except Exception as e:
+            print(f"[Python] Enhanced labels generation error: {e}")
+            return {}
+    
+    def _generate_narratives(self, df):
+        """Generate natural language narratives about the data"""
+        try:
+            narratives = []
+            
+            # Basic data overview
+            narratives.append(f"Dataset contains {len(df)} records with {len(df.columns)} columns")
+            
+            # Missing data narrative
+            missing_data = df.isnull().sum().sum()
+            if missing_data > 0:
+                narratives.append(f"Found {missing_data} missing values across the dataset")
+            
+            # Numeric columns narrative
+            numeric_cols = df.select_dtypes(include=[np.number]).columns
+            if len(numeric_cols) > 0:
+                narratives.append(f"Identified {len(numeric_cols)} numeric columns for analysis")
+            
+            return narratives
+            
+        except Exception as e:
+            print(f"[Python] Narrative generation error: {e}")
+            return ["Unable to generate narratives due to processing error"]
+    
+    def _extract_facts(self, df):
+        """Extract key facts about the data"""
+        try:
+            facts = {
+                'total_records': len(df),
+                'total_columns': len(df.columns),
+                'numeric_columns': len(df.select_dtypes(include=[np.number]).columns),
+                'categorical_columns': len(df.select_dtypes(include=['object']).columns),
+                'missing_values_total': df.isnull().sum().sum(),
+                'duplicate_rows': df.duplicated().sum()
+            }
+            
+            return {'facts': [f"{k.replace('_', ' ').title()}: {v}" for k, v in facts.items()]}
+            
+        except Exception as e:
+            print(f"[Python] Facts extraction error: {e}")
+            return {'facts': []}
+    
+    def _generate_predictions(self, df):
+        """Generate basic predictions based on data patterns"""
+        try:
+            predictions = {}
+            
+            # Simple trend predictions for numeric columns
+            numeric_cols = df.select_dtypes(include=[np.number]).columns
+            
+            for col in numeric_cols:
+                if len(df[col].dropna()) > 10:
+                    # Simple linear trend
+                    x = np.arange(len(df[col].dropna()))
+                    y = df[col].dropna().values
+                    
+                    if len(x) > 1:
+                        slope = np.polyfit(x, y, 1)[0]
+                        predictions[col] = {
+                            'trend_direction': 'increasing' if slope > 0 else 'decreasing',
+                            'trend_strength': abs(slope),
+                            'prediction_confidence': 0.7
+                        }
+            
+            return predictions
+            
+        except Exception as e:
+            print(f"[Python] Predictions generation error: {e}")
+            return {}
+    
+    def _generate_recommendations(self, df):
+        """Generate actionable recommendations"""
+        try:
+            recommendations = []
+            
+            # Data quality recommendations
+            missing_percentage = (df.isnull().sum().sum() / (len(df) * len(df.columns))) * 100
+            if missing_percentage > 10:
+                recommendations.append("Consider data cleaning to address missing values")
+            
+            # Volume recommendations
+            if len(df) > 1000:
+                recommendations.append("Large dataset detected - consider sampling for faster analysis")
+            
+            # Column recommendations
+            if len(df.columns) > 20:
+                recommendations.append("High-dimensional data - consider feature selection")
+            
+            return recommendations
 
     except Exception as e:
-        logger.error(f"Enhanced financial analysis pipeline failed: {e}")
-        return {
-            "version": "2.1.0",
-            "success": False,
-            "error": str(e),
-            "metadata": {
-                "user_id": user_id,
-                "user_role": user_role,
-                "generated_at": "2024-01-01T00:00:00Z",
-                "cross_column_inference": True
+            print(f"[Python] Recommendations generation error: {e}")
+            return ["Unable to generate recommendations due to processing error"]
+    
+    def _assess_risks(self, df):
+        """Assess data quality and business risks"""
+        try:
+            risks = {
+                'data_quality_risks': [],
+                'business_risks': [],
+                'overall_risk_score': 0
             }
+            
+            # Data quality risks
+            missing_percentage = (df.isnull().sum().sum() / (len(df) * len(df.columns))) * 100
+            if missing_percentage > 20:
+                risks['data_quality_risks'].append("High percentage of missing data")
+                risks['overall_risk_score'] += 30
+            
+            # Duplicate risks
+            duplicate_percentage = (df.duplicated().sum() / len(df)) * 100
+            if duplicate_percentage > 5:
+                risks['data_quality_risks'].append("Significant duplicate records detected")
+                risks['overall_risk_score'] += 20
+            
+            return risks
+            
+        except Exception as e:
+            print(f"[Python] Risk assessment error: {e}")
+            return {'overall_risk_score': 50, 'error': str(e)}
+    
+    def _analyze_correlations(self, df):
+        """Analyze correlations between numeric columns"""
+        try:
+            numeric_df = df.select_dtypes(include=[np.number])
+            if numeric_df.shape[1] > 1:
+                corr_matrix = numeric_df.corr()
+                return corr_matrix.to_dict()
+            else:
+                return {}
+        except Exception as e:
+            print(f"[Python] Correlation analysis error: {e}")
+            return {}
+    
+    def _detect_anomalies(self, df):
+        """Detect anomalies in numeric columns"""
+        try:
+            anomalies = {}
+            
+            numeric_cols = df.select_dtypes(include=[np.number]).columns
+            
+            for col in numeric_cols:
+                Q1 = df[col].quantile(0.25)
+                Q3 = df[col].quantile(0.75)
+                IQR = Q3 - Q1
+                
+                outliers = df[(df[col] < (Q1 - 1.5 * IQR)) | (df[col] > (Q3 + 1.5 * IQR))]
+                
+                if len(outliers) > 0:
+                    anomalies[col] = {
+                        'count': len(outliers),
+                        'percentage': (len(outliers) / len(df)) * 100,
+                        'values': outliers[col].tolist()[:10]  # First 10 outliers
+                    }
+            
+            return anomalies
+            
+        except Exception as e:
+            print(f"[Python] Anomaly detection error: {e}")
+            return {}
+    
+    def _analyze_trends(self, df):
+        """Analyze trends in numeric columns"""
+        try:
+            trends = {}
+            
+            numeric_cols = df.select_dtypes(include=[np.number]).columns
+            
+            for col in numeric_cols:
+                if len(df[col].dropna()) > 10:
+                    values = df[col].dropna().values
+                    x = np.arange(len(values))
+                    
+                    if len(x) > 1:
+                        slope = np.polyfit(x, values, 1)[0]
+                        trends[col] = {
+                            'direction': 'increasing' if slope > 0 else 'decreasing',
+                            'slope': slope,
+                            'strength': abs(slope)
+                        }
+            
+            return trends
+            
+        except Exception as e:
+            print(f"[Python] Trend analysis error: {e}")
+            return {}
+    
+    def _create_error_response(self, error_message):
+        """Create standardized error response"""
+        return {
+            'error': True,
+            'error_message': error_message,
+            'metadata': {
+                'records_analyzed': 0,
+                'columns_analyzed': 0,
+                'analysis_timestamp': datetime.now().isoformat(),
+                'profiling_libraries': list(self.profiling_libraries.keys())
+            },
+            'data_quality': {'overall_score': 0},
+            'profiling_results': {'report_generated': False},
+            'financial_metrics': {},
+            'smart_labels': {},
+            'enhanced_labels': {},
+            'narratives': [f"Analysis failed: {error_message}"],
+            'facts': {'facts': []},
+            'predictions': {},
+            'recommendations': ["Please check your data and try again"],
+            'risk_assessment': {'overall_risk_score': 100},
+            'correlations': {},
+            'anomalies': {},
+            'trends': {}
         }
 
-# Sample data for testing
-columns = ["Revenue", "Net Income", "Total Assets"]
-sample_rows = [
-    {"Revenue": 100000, "Net Income": 15000, "Total Assets": 500000},
-    {"Revenue": 120000, "Net Income": 18000, "Total Assets": 520000},
-    {"Revenue": 90000, "Net Income": 12000, "Total Assets": 480000},
-    {"Revenue": 110000, "Net Income": 16000, "Total Assets": 510000},
-    {"Revenue": 130000, "Net Income": 20000, "Total Assets": 530000}
-]
+# Global analyzer instance
+analyzer = EnhancedFinancialAnalyzer()
 
-async def main():
-    """Main function to run the enhanced financial analysis pipeline."""
-    print("🚀 Starting Enhanced Sygnify Financial Analysis Pipeline (v2.1)...")
-    print("=" * 60)
-    
-    # Test with different user roles
-    roles = ["executive", "analyst", "manager"]
-    
-    for role in roles:
-        print(f"\n📊 Testing with role: {role.upper()}")
-        print("-" * 40)
-        
-        result = await run_financial_analysis(
-            columns=columns,
-            sample_rows=sample_rows,
-            user_id=123,
-            user_role=role
-        )
-        
-        if result["success"]:
-            print(f"✅ Enhanced analysis completed for {role}")
-            print(f"📝 Narrative: {result['narrative']['headline']}")
-            print(f"🔍 Facts extracted: {len(result['facts']['facts'])}")
-            print(f"📈 Recommendations: {len(result['recommendations'])}")
-            print(f"🏷️  Smart Labels: {list(result['smart_labels'].values())}")
-            print(f"🔄 Cross-column inference: {result['metadata']['cross_column_inference']}")
-        else:
-            print(f"❌ Enhanced analysis failed for {role}: {result['error']}")
-    
-    print("\n" + "=" * 60)
-    print("🎉 Enhanced Financial Analysis Pipeline Test Complete!")
+def run_financial_analysis(columns, data, user_id=1, role='executive'):
+    """
+    Main entry point for financial analysis
+    """
+    return analyzer.analyze_financial_data(columns, data, user_id, role)
 
 if __name__ == "__main__":
-    asyncio.run(main()) 
+    # Test the analyzer
+    test_data = [
+        {'amount': 100, 'date': '2023-01-01', 'category': 'income'},
+        {'amount': -50, 'date': '2023-01-02', 'category': 'expense'},
+        {'amount': 200, 'date': '2023-01-03', 'category': 'income'}
+    ]
+    
+    result = run_financial_analysis(['amount', 'date', 'category'], test_data)
+    print(json.dumps(result, indent=2, default=str)) 

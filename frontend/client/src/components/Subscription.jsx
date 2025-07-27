@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
+import { ENDPOINTS } from '../config/api';
 
 const stripePromise = loadStripe('your_stripe_publishable_key');
 
@@ -14,7 +15,7 @@ function Subscription() {
       setIsLoading(true);
       setError(null);
       try {
-        const res = await axios.get('http://localhost:3000/api/v1/subscription/status', {
+        const res = await axios.get(ENDPOINTS.subscriptionStatus, {
           headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         });
         setStatus(res.data.status);
@@ -33,7 +34,7 @@ function Subscription() {
     const stripe = await stripePromise;
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/v1/subscription/create-checkout-session',
+        ENDPOINTS.subscriptionCheckout,
         {},
         { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } }
       );

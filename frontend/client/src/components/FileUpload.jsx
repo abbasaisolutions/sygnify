@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import MLSummaryDisplay from './MLSummaryDisplay';
 import EnhancedAnalysisDisplay from './EnhancedAnalysisDisplay';
+import AdvancedVisualization from './AdvancedVisualization';
+import { ENDPOINTS } from '../config/api';
 
 function FileUpload() {
   const [file, setFile] = useState(null);
@@ -9,6 +11,8 @@ function FileUpload() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [analysisResults, setAnalysisResults] = useState(null);
+  const [processingTime, setProcessingTime] = useState(null);
+  const [fileHash, setFileHash] = useState(null);
 
   const handleUpload = async () => {
     if (!file) {
@@ -23,19 +27,65 @@ function FileUpload() {
     formData.append('domain', domain);
     
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/upload', formData, {
+      const response = await axios.post(ENDPOINTS.upload, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
-      setAnalysisResults(response.data.analysis);
-      setError(null);
+
+      // Accept new LLaMA 3 response format
+      if (
+        response.data.llama3_narrative ||
+        response.data.key_insights ||
+        response.data.external_context
+      ) {
+        setAnalysisResults(response.data);
+        setProcessingTime(null);
+        setError(null);
+      } else if (response.data.executive_summary) {
+        setAnalysisResults(response.data);
+        setProcessingTime(null);
+        setError(null);
+      } else if (response.data.success && response.data.data) {
+        setAnalysisResults(response.data.data);
+        setProcessingTime(response.data.metadata?.processing_time_ms);
+        setError(null);
+      } else if (response.data.analysis) {
+        setAnalysisResults(response.data.analysis);
+        setProcessingTime(null);
+        setError(null);
+      } else {
+        throw new Error('Invalid response format from server');
+      }
+      if (response.data.file_hash) {
+        setFileHash(response.data.file_hash);
+      }
     } catch (error) {
       console.error('Upload error:', error);
-      setError(error.response?.data?.error || error.message || 'Upload failed');
+      
+      // Handle structured error responses
+      if (error.response?.data?.error) {
+        const errorData = error.response.data.error;
+        setError(`${errorData.message} (${errorData.type})`);
+      } else {
+        setError(error.response?.data?.message || error.message || 'Upload failed');
+      }
       setAnalysisResults(null);
+      setProcessingTime(null);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleClearCache = async () => {
+    if (!fileHash) return;
+    try {
+      await axios.post(ENDPOINTS.clearCache, { file_hash: fileHash });
+      setFileHash(null);
+      setAnalysisResults(null);
+      setError(null);
+    } catch (err) {
+      setError('Failed to clear cache.');
     }
   };
 
@@ -43,6 +93,7 @@ function FileUpload() {
     setAnalysisResults(null);
     setFile(null);
     setError(null);
+    setProcessingTime(null);
   };
 
   return (
@@ -53,7 +104,15 @@ function FileUpload() {
         
         {error && (
           <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-red-800">{error}</p>
+            <div className="flex items-start">
+              <svg className="h-5 w-5 text-red-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <p className="text-red-800 font-medium">Analysis Failed</p>
+                <p className="text-red-700 text-sm mt-1">{error}</p>
+              </div>
+            </div>
           </div>
         )}
         
@@ -87,7 +146,7 @@ function FileUpload() {
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <p className="mt-1 text-sm text-gray-500">
-              Maximum file size: 10MB. Only CSV files are supported.
+              Maximum file size: 500MB. Only CSV files are supported.
             </p>
           </div>
           
@@ -119,6 +178,11 @@ function FileUpload() {
               </button>
             )}
           </div>
+          {fileHash && (
+            <button onClick={handleClearCache} className="px-4 py-2 border border-red-300 text-red-700 rounded-md hover:bg-red-50 transition-colors mt-2">
+              Clear Previous Result (Force Reprocess)
+            </button>
+          )}
         </div>
       </div>
 
@@ -127,11 +191,18 @@ function FileUpload() {
         <div className="space-y-6">
           {/* Success Message */}
           <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-            <div className="flex items-center">
-              <svg className="h-5 w-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-green-800 font-medium">✅ AI-Powered Analysis Complete!</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <svg className="h-5 w-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-green-800 font-medium">✅ AI-Powered Analysis Complete!</span>
+              </div>
+              {processingTime && (
+                <span className="text-sm text-green-600">
+                  Processed in {processingTime}ms
+                </span>
+              )}
             </div>
           </div>
 
@@ -149,6 +220,12 @@ function FileUpload() {
               </div>
             </div>
           )}
+        </div>
+      )}
+      {/* Show Advanced Insights after upload */}
+      {analysisResults && (
+        <div className="mt-8">
+          <AdvancedVisualization analysisData={analysisResults} />
         </div>
       )}
     </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
     import { Link } from 'react-router-dom';
     import Chart from 'chart.js/auto';
     import axios from 'axios';
+    import { ENDPOINTS } from './config/api';
 
     function Dashboard() {
       const [results, setResults] = useState([]);
@@ -10,20 +11,20 @@ import React, { useEffect, useState } from 'react';
       useEffect(() => {
         const fetchResults = async () => {
           try {
-            const res = await axios.get('http://localhost:3000/api/v1/results', {
+            const res = await axios.get(ENDPOINTS.results, {
               headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
-            setResults(res.data);
-            const insightsRes = await axios.get('http://localhost:3000/api/v1/insights', {
+            setResults(res.data.results);
+            const insightsRes = await axios.get(ENDPOINTS.insights, {
               headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
-            setInsights(insightsRes.data);
+            setInsights(insightsRes.data.insights);
           } catch (error) {
             console.error('Fetch failed:', error);
           }
         };
         fetchResults();
-        const interval = setInterval(fetchResults, 5000);
+        const interval = setInterval(fetchResults, 30000); // 30 seconds instead of 5
         return () => clearInterval(interval);
       }, []);
 

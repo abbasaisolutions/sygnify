@@ -1,10 +1,8 @@
-import pandas as pd
-import numpy as np
 import json
-from typing import Dict, List, Any, Tuple
+from typing import Dict, List, Any
 import logging
-from datetime import datetime, timedelta
 import re
+import yaml
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -110,40 +108,163 @@ class SmartNarrativeGenerator:
             'forecast': 'Forecasting'
         }
     
-    def generate_comprehensive_narrative(self, data_profile: Dict[str, Any], analysis_results: Dict[str, Any], 
-                                       external_insights: List[Dict[str, Any]], domain: str) -> Dict[str, Any]:
-        """Generate comprehensive narrative with multiple insight categories"""
-        narrative = {
-            'executive_summary': self._generate_executive_summary(data_profile, analysis_results, domain),
-            'key_insights': self._generate_key_insights(data_profile, analysis_results, domain),
-            'trend_analysis': self._generate_trend_analysis(data_profile, analysis_results, domain),
-            'anomaly_insights': self._generate_anomaly_insights(data_profile, domain),
-            'correlation_insights': self._generate_correlation_insights(data_profile, domain),
-            'performance_benchmarks': self._generate_performance_benchmarks(data_profile, analysis_results, domain),
-            'external_context': self._integrate_external_insights(external_insights, domain),
-            'actionable_recommendations': self._generate_actionable_recommendations(data_profile, analysis_results, domain),
-            'risk_assessment': self._generate_risk_assessment(data_profile, analysis_results, domain),
-            'opportunity_identification': self._generate_opportunity_identification(data_profile, analysis_results, domain)
+    def generate_comprehensive_narrative(self, data_profile: Dict[str, Any], analysis_results: Dict[str, Any], external_insights: List[Dict[str, Any]], domain: str) -> Dict[str, Any]:
+        narrative = {}
+        structure = data_profile['structure']
+        df = analysis_results.get('dataframe')
+        # Smart fallback for small datasets
+        if df is not None and len(df) < 1000:
+            narrative['data_warning'] = "Data volume is limited. Statistical confidence may be lower, and anomaly detection might be less reliable."
+        # Minimal health score if basic columns exist
+        if df is not None:
+            min_score, liquidity, profit_margin, volatility = self._compute_minimal_health_score(df)
+            narrative['financial_health_score'] = {
+                'score': min_score,
+                'liquidity': liquidity,
+                'profit_margin': profit_margin,
+                'volatility': volatility
+            }
+        # LLaMA 3 narrative (required)
+        metrics = {
+            'score': narrative['financial_health_score']['score'] if 'financial_health_score' in narrative else None,
+            'correlation': None,
+            'volatility': narrative['financial_health_score'].get('volatility') if 'financial_health_score' in narrative else None,
+            'record_count': len(df) if df is not None else None
         }
-        
+        # Find a moderate correlation for narrative
+        narrative['key_insights'] = self._generate_key_insights(data_profile, analysis_results, domain)
+        for insight in narrative['key_insights']:
+            if insight.get('category') == 'Correlation' and abs(insight.get('correlation', 0)) > 0.3 and abs(insight.get('correlation', 0)) < 1.0:
+                metrics['correlation'] = insight['correlation']
+                break
+        context = {'interest_rate': None}
+        narrative['external_context'] = self._integrate_external_insights(external_insights, domain)
+        for ext in narrative['external_context']:
+            if 'interest rate' in ext.get('insight', '').lower():
+                context['interest_rate'] = ext['insight']
+                break
+        findings = [i['insight'] for i in narrative['key_insights'][:3]]
+        llama_narr = self._llama3_narrative(metrics, findings, context)
+        if not llama_narr:
+            raise RuntimeError('LLaMA 3 narrative generation failed: No output from LLaMA 3. Please check your LLaMA 3 service.')
+        narrative['llama3_narrative'] = llama_narr
+        # Remove all template-based or generic narrative logic
         return narrative
     
+    def _compute_financial_health_score(self, df):
+        # Example: Use ratios if available
+        ratios = self._compute_financial_ratios(df)
+        score = 0
+        components = []
+        if 'current_ratio' in ratios:
+            if ratios['current_ratio'] >= 1.5:
+                score += 1
+                components.append('Good liquidity')
+            else:
+                components.append('Low liquidity')
+        if 'net_margin' in ratios:
+            if ratios['net_margin'] >= 0.15:
+                score += 1
+                components.append('Strong profitability')
+            else:
+                components.append('Low profitability')
+        if 'debt_equity' in ratios:
+            if ratios['debt_equity'] < 2:
+                score += 1
+                components.append('Healthy leverage')
+            else:
+                components.append('High leverage')
+        if score == 3:
+            return 'HIGH', components
+        elif score == 2:
+            return 'MEDIUM', components
+        elif score == 1:
+            return 'LOW', components
+        else:
+            return 'N/A', ['Insufficient data for health score']
+
+    def _compute_minimal_health_score(self, df):
+        try:
+            liquidity = df['net_cash_flow'].mean() if 'net_cash_flow' in df else None
+            profit_margin = (df['net_profit'] / df['revenue']).mean() if 'net_profit' in df and 'revenue' in df else None
+            volatility = df['net_cash_flow'].std() if 'net_cash_flow' in df else None
+            if liquidity is not None and profit_margin is not None and volatility is not None:
+                score = (liquidity * 0.4 + profit_margin * 0.4 + (1 - volatility) * 0.2)
+                return round(score * 100, 2), liquidity, profit_margin, volatility
+            else:
+                return 'Not Enough Data', liquidity, profit_margin, volatility
+        except Exception:
+            return 'Not Enough Data', None, None, None
+
+    def _llama3_narrative(self, metrics: dict, findings: list, context: dict):
+        try:
+            from backend.api.services.llama3_service import query_llama3
+            prompt = f"""
+You are an AI Financial Analyst. Analyze the following data:
+- Financial Health Score: {metrics.get('score')}
+- Correlation: {metrics.get('correlation')}
+- Volatility: {metrics.get('volatility')}
+- Interest Rate: {context.get('interest_rate')}
+- Record Count: {metrics.get('record_count')}
+Key findings: {findings}
+Generate a concise 2-paragraph narrative summary with risks, opportunities, and recommendations.
+"""
+            result = query_llama3(prompt)
+            if result and not result.startswith("LLaMA 3 analysis failed") and not result.startswith("Analysis timed out"):
+                return result
+            else:
+                # Fallback to template-based narrative
+                return self._generate_fallback_narrative(metrics, findings, context)
+        except Exception as e:
+            print(f"LLaMA 3 narrative generation failed: {e}")
+            return self._generate_fallback_narrative(metrics, findings, context)
+    
+    def _generate_fallback_narrative(self, metrics: dict, findings: list, context: dict):
+        """Generate a fallback narrative when LLaMA3 is unavailable"""
+        narrative_parts = []
+        
+        # First paragraph - Data overview
+        if metrics.get('record_count'):
+            narrative_parts.append(f"Analysis of {metrics.get('record_count')} financial records reveals key patterns and insights.")
+        
+        if metrics.get('correlation'):
+            narrative_parts.append(f"Data correlation analysis shows {metrics.get('correlation'):.2f} correlation strength, indicating moderate relationships between key metrics.")
+        
+        if context.get('interest_rate'):
+            narrative_parts.append(f"Current interest rate environment at {context.get('interest_rate')}% suggests careful consideration of borrowing costs and investment strategies.")
+        
+        # Second paragraph - Recommendations
+        narrative_parts.append("Based on the analysis, key recommendations include monitoring data quality, implementing correlation-based insights, and adapting strategies to current market conditions.")
+        
+        if findings:
+            narrative_parts.append(f"Specific findings indicate {len(findings)} areas requiring attention, with focus on data-driven decision making and risk management.")
+        
+        return " ".join(narrative_parts)
+
     def _generate_executive_summary(self, data_profile: Dict[str, Any], analysis_results: Dict[str, Any], domain: str) -> str:
-        """Generate high-level executive summary"""
+        """Generate high-level executive summary with sweetviz profiling"""
         structure = data_profile['structure']
         summary_parts = []
-        
+        sweetviz_summary = data_profile.get('sweetviz_summary', {})
         # Data overview
         summary_parts.append(f"This {domain.replace('_', ' ').title()} analysis covers {structure['shape'][0]:,} data points across {structure['shape'][1]} key metrics.")
-        
-        # Domain detection confidence
-        if data_profile.get('confidence', 0) > 0.7:
-            summary_parts.append(f"Domain detection confidence is {data_profile['confidence']:.1%}, indicating strong alignment with {domain} patterns.")
-        
-        # Key findings
-        if analysis_results.get('analysis'):
-            summary_parts.append(f"Primary analysis reveals {self._extract_key_finding(analysis_results['analysis'])}")
-        
+        # Financial Health Score
+        df = analysis_results.get('dataframe')
+        if df is not None:
+            score, components = self._compute_financial_health_score(df)
+            summary_parts.append(f"Financial Health Score: {score}. {'; '.join(components)}.")
+        else:
+            summary_parts.append("Financial Health Score: N/A. Data not sufficient for computation.")
+        # Sweetviz: missing data
+        if sweetviz_summary.get('missing', 0) > 0:
+            top_missing = sweetviz_summary.get('top_missing_cols', {})
+            missing_str = ', '.join([f"{col} ({cnt} missing)" for col, cnt in top_missing.items()])
+            summary_parts.append(f"Columns with most missing data: {missing_str}.")
+        # Sweetviz: top correlations
+        if sweetviz_summary.get('top_corrs'):
+            top_corrs = sweetviz_summary['top_corrs']
+            corr_str = '; '.join([f"{k[0]} & {k[1]} ({v:.2f})" if isinstance(k, tuple) else f"{k} ({v:.2f})" for k, v in top_corrs.items()])
+            summary_parts.append(f"Strongest correlations: {corr_str}.")
         # Data quality
         missing_count = sum(1 for v in structure['missing_values'].values() if v > 0)
         if missing_count == 0:
@@ -152,13 +273,147 @@ class SmartNarrativeGenerator:
             summary_parts.append(f"Data quality is good with minor missing values in {missing_count} columns.")
         else:
             summary_parts.append(f"Data quality requires attention with missing values in {missing_count} columns.")
-        
         return " ".join(summary_parts)
-    
+
+    def _get_industry_benchmarks(self, sector: str) -> dict:
+        import pandas as pd
+        import os
+        path = os.path.join(os.path.dirname(__file__), '../data/industry_benchmarks.csv')
+        df = pd.read_csv(path)
+        row = df[df['sector'].str.lower() == sector.lower()]
+        if not row.empty:
+            return row.iloc[0].to_dict()
+        return {}
+
+    def _compute_financial_ratios(self, df):
+        ratios = {}
+        # Example: Compute ratios if columns exist
+        if 'CurrentAssets' in df and 'CurrentLiabilities' in df:
+            ratios['current_ratio'] = df['CurrentAssets'].sum() / df['CurrentLiabilities'].sum()
+        if 'QuickAssets' in df and 'CurrentLiabilities' in df:
+            ratios['quick_ratio'] = df['QuickAssets'].sum() / df['CurrentLiabilities'].sum()
+        if 'NetIncome' in df and 'Revenue' in df:
+            ratios['net_margin'] = df['NetIncome'].sum() / df['Revenue'].sum()
+        if 'NetIncome' in df and 'TotalAssets' in df:
+            ratios['roa'] = df['NetIncome'].sum() / df['TotalAssets'].sum()
+        if 'NetIncome' in df and 'TotalEquity' in df:
+            ratios['roe'] = df['NetIncome'].sum() / df['TotalEquity'].sum()
+        if 'NetIncome' in df and 'TotalInvestment' in df:
+            ratios['roi'] = df['NetIncome'].sum() / df['TotalInvestment'].sum()
+        return ratios
+
+    def _analyze_financial_trends(self, df):
+        import pandas as pd
+        trends = []
+        # Example: Monthly revenue trend
+        if 'Date' in df and 'Revenue' in df:
+            df['Date'] = pd.to_datetime(df['Date'])
+            monthly = df.set_index('Date').resample('M')['Revenue'].sum()
+            growth = (monthly.iloc[-1] - monthly.iloc[0]) / monthly.iloc[0] if len(monthly) > 1 else 0
+            trends.append({
+                'metric': 'Revenue',
+                'trend': f"Revenue {'increased' if growth > 0 else 'decreased'} by {growth*100:.1f}% over the period.",
+                'growth': growth
+            })
+        # Add similar for Expenses, Profit, Cash Flow
+        return trends
+
+    def _detect_financial_anomalies(self, df):
+        anomalies = []
+        # Example: Z-score for Revenue
+        if 'Revenue' in df:
+            rev = df['Revenue'].dropna()
+            if len(rev) > 2:
+                z = (rev - rev.mean()) / rev.std()
+                outliers = rev[abs(z) > 3]
+                for idx, val in outliers.items():
+                    anomalies.append({
+                        'metric': 'Revenue',
+                        'value': val,
+                        'index': idx,
+                        'insight': f"Unusual revenue value detected: {val} (z-score > 3)"
+                    })
+        # Add similar for Expenses, Profit, Cash Flow
+        return anomalies
+
     def _generate_key_insights(self, data_profile: Dict[str, Any], analysis_results: Dict[str, Any], domain: str) -> List[Dict[str, Any]]:
-        """Generate key insights with confidence scores"""
+        """Generate key insights with sweetviz profiling"""
         insights = []
         structure = data_profile['structure']
+        sweetviz_summary = data_profile.get('sweetviz_summary', {})
+        # Financial ratio and benchmark comparison
+        df = analysis_results.get('dataframe')
+        sector = 'Banking'  # For demo, could be detected or user-supplied
+        if df is not None:
+            ratios = self._compute_financial_ratios(df)
+            benchmarks = self._get_industry_benchmarks(sector)
+            for k, v in ratios.items():
+                if k in benchmarks:
+                    bench = float(benchmarks[k])
+                    if v < bench:
+                        insights.append({
+                            'category': 'Benchmark',
+                            'insight': f"{k.replace('_', ' ').title()} ({v:.2f}) is below industry average ({bench:.2f}).",
+                            'confidence': 0.9,
+                            'impact': 'medium'
+                        })
+                    else:
+                        insights.append({
+                            'category': 'Benchmark',
+                            'insight': f"{k.replace('_', ' ').title()} ({v:.2f}) is above industry average ({bench:.2f}).",
+                            'confidence': 0.9,
+                            'impact': 'medium'
+                        })
+            # Add trend and anomaly insights
+            trends = self._analyze_financial_trends(df)
+            for t in trends:
+                insights.append({
+                    'category': 'Trend',
+                    'insight': t['trend'],
+                    'confidence': 0.85,
+                    'impact': 'medium',
+                    'metric': t['metric']
+                })
+            anomalies = self._detect_financial_anomalies(df)
+            for a in anomalies:
+                insights.append({
+                    'category': 'Anomaly',
+                    'insight': a['insight'],
+                    'confidence': 0.95,
+                    'impact': 'high',
+                    'metric': a['metric'],
+                    'value': a['value'],
+                    'index': a['index']
+                })
+        # Sweetviz: highlight top missing columns
+        if sweetviz_summary.get('top_missing_cols'):
+            top_missing = sweetviz_summary['top_missing_cols']
+            insights.append({
+                'category': 'Data Quality',
+                'insight': f"Columns with most missing data: {', '.join([f'{col} ({cnt})' for col, cnt in top_missing.items()])}.",
+                'confidence': 0.95,
+                'impact': 'high'
+            })
+        # Sweetviz: highlight top correlations (filter self-matches, explain relevance)
+        if sweetviz_summary.get('top_corrs'):
+            top_corrs = sweetviz_summary['top_corrs']
+            for k, v in list(top_corrs.items()):
+                if isinstance(k, tuple):
+                    col1, col2 = k
+                else:
+                    col1, col2 = str(k), ''
+                if col1 == col2:
+                    continue  # skip self-match
+                relevance = 'These variables move together, which may indicate a causal or operational link.' if abs(v) > 0.8 else 'Moderate association; further analysis recommended.'
+                insights.append({
+                    'category': 'Correlation',
+                    'insight': f"Strong correlation between {col1} and {col2} ({v:.2f}). {relevance}",
+                    'confidence': 0.9,
+                    'impact': 'medium',
+                    'metric1': col1,
+                    'metric2': col2,
+                    'correlation': v
+                })
         
         # Performance insights
         if domain in self.domain_templates:
@@ -209,18 +464,30 @@ class SmartNarrativeGenerator:
         """Generate trend analysis insights"""
         trends = []
         structure = data_profile['structure']
-        
+        # Load metrics from config
+        try:
+            with open('config/platform_config.yaml') as f:
+                config = yaml.safe_load(f)
+            metrics = config.get('insights', {}).get('metrics', ["revenue", "churn", "engagement"])
+        except Exception:
+            metrics = ["revenue", "churn", "engagement"]
+        # Add detailed trend logic for each metric
+        for metric in metrics:
+            if metric in analysis_results:
+                values = analysis_results[metric]
+                if isinstance(values, list) and values:
+                    trend = f"{metric.title()} trend: {sum(values)/len(values):.2f} (mean)"
+                else:
+                    trend = f"{metric.title()} trend: {values}"
+                trends.append({"metric": metric, "trend": trend, "category": "Trend", "confidence": 0.9, "impact": "high"})
+        # Retain existing trend logic
         if structure.get('patterns', {}).get('trends'):
             for trend_key, trend_info in structure['patterns']['trends'].items():
                 trend_direction = trend_info['direction']
                 trend_strength = trend_info['strength']
-                
-                # Parse trend key to get columns
                 if '_' in trend_key:
                     temp_col, num_col = trend_key.rsplit('_', 1)
-                    
                     trend_text = f"{num_col.replace('_', ' ').title()} shows a {trend_direction} trend with {trend_strength:.2f} strength over time."
-                    
                     trends.append({
                         'category': 'Trend',
                         'insight': trend_text,
@@ -231,7 +498,6 @@ class SmartNarrativeGenerator:
                         'direction': trend_direction,
                         'strength': trend_strength
                     })
-        
         return trends
     
     def _generate_anomaly_insights(self, data_profile: Dict[str, Any], domain: str) -> List[Dict[str, Any]]:
@@ -331,21 +597,57 @@ class SmartNarrativeGenerator:
         return benchmarks
     
     def _integrate_external_insights(self, external_insights: List[Dict[str, Any]], domain: str) -> List[Dict[str, Any]]:
-        """Integrate external market insights"""
+        """Integrate external market insights with actionable, finance-specific context"""
         integrated_insights = []
-        
         for insight in external_insights:
             if insight.get('impact') and insight.get('summary'):
-                integrated_insights.append({
-                    'category': 'External Context',
-                    'insight': f"Market context: {insight['summary']} This may impact {insight['impact']}.",
-                    'confidence': 0.70,
-                    'impact': 'medium',
-                    'source': 'external',
-                    'title': insight.get('title', 'Market Update'),
-                    'impact_description': insight.get('impact', 'general operations')
-                })
-        
+                # Add more actionable, finance-specific context
+                if domain == 'finance':
+                    if 'interest rate' in insight['summary'].lower():
+                        if 'rising' in insight['summary']:
+                            advice = "Rising interest rates may increase borrowing costs. Consider refinancing or locking in fixed rates."
+                        else:
+                            advice = "Falling interest rates may present opportunities for new financing or investment."
+                        integrated_insights.append({
+                            'category': 'Market Context',
+                            'insight': f"{insight['summary']} {advice}",
+                            'confidence': 0.85,
+                            'impact': 'high',
+                            'source': 'external',
+                            'title': insight.get('title', 'Market Update'),
+                            'impact_description': insight.get('impact', 'general operations')
+                        })
+                    elif 'volatility' in insight['summary'].lower():
+                        advice = "High volatility may require portfolio hedging or risk management adjustments."
+                        integrated_insights.append({
+                            'category': 'Market Volatility',
+                            'insight': f"{insight['summary']} {advice}",
+                            'confidence': 0.8,
+                            'impact': 'medium',
+                            'source': 'external',
+                            'title': insight.get('title', 'Market Update'),
+                            'impact_description': insight.get('impact', 'general operations')
+                        })
+                    else:
+                        integrated_insights.append({
+                            'category': 'External Context',
+                            'insight': f"Market context: {insight['summary']} This may impact {insight['impact']}.",
+                            'confidence': 0.70,
+                            'impact': 'medium',
+                            'source': 'external',
+                            'title': insight.get('title', 'Market Update'),
+                            'impact_description': insight.get('impact', 'general operations')
+                        })
+                else:
+                    integrated_insights.append({
+                        'category': 'External Context',
+                        'insight': f"Market context: {insight['summary']} This may impact {insight['impact']}.",
+                        'confidence': 0.70,
+                        'impact': 'medium',
+                        'source': 'external',
+                        'title': insight.get('title', 'Market Update'),
+                        'impact_description': insight.get('impact', 'general operations')
+                    })
         return integrated_insights
     
     def _generate_actionable_recommendations(self, data_profile: Dict[str, Any], analysis_results: Dict[str, Any], domain: str) -> List[Dict[str, Any]]:

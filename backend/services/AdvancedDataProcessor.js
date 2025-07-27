@@ -127,7 +127,7 @@ class AdvancedDataProcessor {
         const processedRows = this.processRows(data, schema, options);
         
         // Assess data quality
-        const quality = this.assessDataQuality(processedRows, schema);
+        const quality = this.calculateDataQuality(processedRows, schema);
 
         return {
             rows: processedRows,
@@ -300,181 +300,338 @@ class AdvancedDataProcessor {
         return value;
     }
 
-    assessDataQuality(data, schema) {
-        const quality = {
-            score: 0,
-            issues: [],
-            warnings: [],
-            completeness: {},
-            accuracy: {},
-            consistency: {},
-            records_analyzed: data ? data.length : 0  // UNIFIED: Use actual record count
-        };
-
+    calculateDataQuality(data, schema) {
         if (!data || data.length === 0) {
-            quality.issues.push('No data available');
-            quality.records_analyzed = 0;  // UNIFIED: Explicit zero for no data
-            return quality;
+            return {
+                score: 0,
+                completeness: 0,
+                accuracy: 0,
+                consistency: 0,
+                issues: [],
+                warnings: []
+            };
         }
 
-        // UNIFIED: Set the actual record count
-        quality.records_analyzed = data.length;
-        console.log(`[DataQuality] Analyzing ${data.length} records for quality assessment`);
-
-        // Assess completeness
-        Object.entries(schema).forEach(([column, columnSchema]) => {
+        const totalRecords = data.length;
+        const totalColumns = Object.keys(schema || data[0] || {}).length;
+        const totalCells = totalRecords * totalColumns;
+        
+        let missingCells = 0;
+        let invalidCells = 0;
+        let typeInconsistencies = 0;
+        const columnQuality = {};
+        
+        // Analyze each column
+        Object.keys(schema || data[0] || {}).forEach(column => {
             const values = data.map(row => row[column]);
-            const nonNullCount = values.filter(v => v !== null && v !== undefined).length;
-            const completeness = nonNullCount / values.length;
+            const nonNullValues = values.filter(v => v !== null && v !== undefined && v !== '');
+            const missingCount = values.length - nonNullValues.length;
+            missingCells += missingCount;
             
-            quality.completeness[column] = completeness;
+            // Calculate column-specific quality
+            const completeness = nonNullValues.length / values.length;
+            let accuracy = 1.0;
+            let consistency = 1.0;
             
-            if (completeness < 0.8) {
-                quality.warnings.push(`Low completeness in column '${column}': ${(completeness * 100).toFixed(1)}%`);
-            }
-        });
-
-        // Assess accuracy (type consistency)
-        Object.entries(schema).forEach(([column, columnSchema]) => {
-            const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined);
-            const correctTypeCount = values.filter(value => {
-                try {
-                    return this.dataValidators[columnSchema.type](value.toString());
-                } catch {
-                    return false;
+            // Check for type consistency
+            if (nonNullValues.length > 0) {
+                const expectedType = this.inferColumnType(nonNullValues);
+                const typeConsistent = nonNullValues.every(v => this.isValidType(v, expectedType));
+                if (!typeConsistent) {
+                    typeInconsistencies += nonNullValues.length;
+                    accuracy *= 0.8; // Penalty for type inconsistencies
                 }
-            }).length;
-            
-            const accuracy = values.length > 0 ? correctTypeCount / values.length : 1;
-            quality.accuracy[column] = accuracy;
-            
-            if (accuracy < 0.9) {
-                quality.warnings.push(`Type inconsistencies in column '${column}': ${(accuracy * 100).toFixed(1)}% accuracy`);
             }
-        });
-
-        // Assess consistency
-        Object.entries(schema).forEach(([column, columnSchema]) => {
-            const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined);
             
-            if (columnSchema.type === 'numeric' || columnSchema.type === 'currency') {
-                const numericValues = values.filter(v => !isNaN(parseFloat(v)));
+            // Check for value consistency (for numeric columns)
+            if (nonNullValues.length > 1 && this.isNumericColumn(nonNullValues)) {
+                const numericValues = nonNullValues.map(v => parseFloat(v)).filter(v => !isNaN(v));
                 if (numericValues.length > 1) {
-                    const mean = numericValues.reduce((a, b) => a + parseFloat(b), 0) / numericValues.length;
-                    const std = Math.sqrt(numericValues.reduce((a, b) => a + Math.pow(parseFloat(b) - mean, 2), 0) / numericValues.length);
-                    const cv = std / Math.abs(mean);
+                    const mean = numericValues.reduce((a, b) => a + b, 0) / numericValues.length;
+                    const variance = numericValues.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / numericValues.length;
+                    const coefficientOfVariation = Math.sqrt(variance) / Math.abs(mean);
                     
-                    quality.consistency[column] = {
-                        coefficientOfVariation: cv,
-                        isConsistent: cv < 2.0
-                    };
-                    
-                    if (cv > 2.0) {
-                        quality.warnings.push(`High variability in column '${column}': CV = ${cv.toFixed(2)}`);
+                    // High CV indicates inconsistency
+                    if (coefficientOfVariation > 2.0) {
+                        consistency *= 0.9;
                     }
                 }
             }
+            
+            columnQuality[column] = {
+                completeness,
+                accuracy,
+                consistency,
+                missingCount,
+                totalCount: values.length
+            };
         });
-
-        // Calculate overall quality score
-        const completenessScore = Object.values(quality.completeness).reduce((a, b) => a + b, 0) / Object.keys(quality.completeness).length;
-        const accuracyScore = Object.values(quality.accuracy).reduce((a, b) => a + b, 0) / Object.keys(quality.accuracy).length;
         
-        quality.score = (completenessScore + accuracyScore) / 2;
-
-        // UNIFIED: Adjust quality score based on record count (more records = higher confidence)
-        if (data.length > 500) {
-            quality.score = Math.min(0.98, quality.score + 0.05);  // Boost for large datasets
-        } else if (data.length > 100) {
-            quality.score = Math.min(0.95, quality.score + 0.03);  // Moderate boost
-        }
-
-        // Add critical issues
-        if (quality.score < 0.5) {
-            quality.issues.push('Critical: Overall data quality is poor');
-        } else if (quality.score < 0.8) {
-            quality.issues.push('Warning: Data quality needs improvement');
-        }
-
-        console.log(`[DataQuality] Final quality score: ${quality.score.toFixed(3)}, records: ${quality.records_analyzed}`);
-        return quality;
+        // Calculate overall quality metrics
+        const completeness = (totalCells - missingCells) / totalCells;
+        const accuracy = Math.max(0, 1 - (typeInconsistencies / totalCells));
+        const consistency = Object.values(columnQuality).reduce((sum, col) => sum + col.consistency, 0) / totalColumns;
+        
+        // Weighted quality score
+        const qualityScore = (completeness * 0.4 + accuracy * 0.4 + consistency * 0.2);
+        
+        // Generate warnings for low-quality columns
+        const warnings = [];
+        Object.entries(columnQuality).forEach(([column, quality]) => {
+            if (quality.accuracy < 0.5) {
+                warnings.push(`Type inconsistencies in column '${column}': ${(quality.accuracy * 100).toFixed(1)}% accuracy`);
+            }
+            if (quality.completeness < 0.8) {
+                warnings.push(`Missing data in column '${column}': ${((1 - quality.completeness) * 100).toFixed(1)}% missing`);
+            }
+        });
+        
+        return {
+            score: qualityScore,
+            completeness,
+            accuracy,
+            consistency,
+            issues: [],
+            warnings,
+            columnQuality,
+            records_analyzed: totalRecords
+        };
     }
 
     /**
      * Extract financial metrics from processed data
+     * Refactored into smaller, pure functions for better maintainability
      */
     extractFinancialMetrics(data, schema) {
-        const metrics = {
-            amounts: {},
-            dates: {},
-            categories: {},
-            summary: {}
-        };
+        try {
+            // Validate inputs
+            const validationResult = this.validateFinancialMetricsInputs(data, schema);
+            if (!validationResult.isValid) {
+                throw new Error(`Invalid inputs: ${validationResult.error}`);
+            }
 
-        // Find amount columns
+            // Extract metrics using pure functions
+            const amounts = this.extractAmountMetrics(data, schema);
+            const dates = this.extractDateMetrics(data, schema);
+            const categories = this.extractCategoryMetrics(data, schema);
+            const summary = this.generateSummaryMetrics({ amounts, dates, categories });
+
+            return {
+                amounts,
+                dates,
+                categories,
+                summary,
+                metadata: {
+                    extractedAt: new Date().toISOString(),
+                    totalRecords: data.length,
+                    columnsAnalyzed: Object.keys(schema).length
+                }
+            };
+        } catch (error) {
+            console.error('Error extracting financial metrics:', error);
+            return {
+                amounts: {},
+                dates: {},
+                categories: {},
+                summary: {},
+                error: error.message,
+                metadata: {
+                    extractedAt: new Date().toISOString(),
+                    error: true
+                }
+            };
+        }
+    }
+
+    /**
+     * Validate inputs for financial metrics extraction
+     */
+    validateFinancialMetricsInputs(data, schema) {
+        if (!data || !Array.isArray(data) || data.length === 0) {
+            return { isValid: false, error: 'Data must be a non-empty array' };
+        }
+
+        if (!schema || typeof schema !== 'object') {
+            return { isValid: false, error: 'Schema must be a valid object' };
+        }
+
+        if (!data[0] || typeof data[0] !== 'object') {
+            return { isValid: false, error: 'Data must contain objects' };
+        }
+
+        return { isValid: true };
+    }
+
+    /**
+     * Extract amount-related metrics from currency columns
+     */
+    extractAmountMetrics(data, schema) {
+        const amounts = {};
+        
         Object.entries(schema).forEach(([column, columnSchema]) => {
             if (columnSchema.type === 'currency') {
-                const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined && !isNaN(v));
+                const values = this.extractNumericValues(data, column);
                 
                 if (values.length > 0) {
-                    metrics.amounts[column] = {
-                        count: values.length,
-                        sum: values.reduce((a, b) => a + b, 0),
-                        average: values.reduce((a, b) => a + b, 0) / values.length,
-                        min: Math.min(...values),
-                        max: Math.max(...values),
-                        positiveSum: values.filter(v => v > 0).reduce((a, b) => a + b, 0),
-                        negativeSum: Math.abs(values.filter(v => v < 0).reduce((a, b) => a + b, 0)),
-                        positiveCount: values.filter(v => v > 0).length,
-                        negativeCount: values.filter(v => v < 0).length
-                    };
+                    amounts[column] = this.calculateAmountStatistics(values);
                 }
             }
         });
 
-        // Find date columns
+        return amounts;
+    }
+
+    /**
+     * Extract numeric values from a column with validation
+     */
+    extractNumericValues(data, column) {
+        return data
+            .map(row => row[column])
+            .filter(v => v !== null && v !== undefined && !isNaN(parseFloat(v)))
+            .map(v => parseFloat(v));
+    }
+
+    /**
+     * Calculate comprehensive statistics for amount values
+     */
+    calculateAmountStatistics(values) {
+        const positiveValues = values.filter(v => v > 0);
+        const negativeValues = values.filter(v => v < 0);
+        
+        return {
+            count: values.length,
+            sum: values.reduce((a, b) => a + b, 0),
+            average: values.reduce((a, b) => a + b, 0) / values.length,
+            min: Math.min(...values),
+            max: Math.max(...values),
+            positiveSum: positiveValues.reduce((a, b) => a + b, 0),
+            negativeSum: Math.abs(negativeValues.reduce((a, b) => a + b, 0)),
+            positiveCount: positiveValues.length,
+            negativeCount: negativeValues.length,
+            positivePercentage: (positiveValues.length / values.length) * 100,
+            negativePercentage: (negativeValues.length / values.length) * 100,
+            netFlow: positiveValues.reduce((a, b) => a + b, 0) - Math.abs(negativeValues.reduce((a, b) => a + b, 0))
+        };
+    }
+
+    /**
+     * Extract date-related metrics from date columns
+     */
+    extractDateMetrics(data, schema) {
+        const dates = {};
+        
         Object.entries(schema).forEach(([column, columnSchema]) => {
             if (columnSchema.type === 'date') {
-                const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined);
-                const dates = values.map(v => new Date(v)).filter(d => !isNaN(d.getTime()));
+                const dateValues = this.extractDateValues(data, column);
                 
-                if (dates.length > 0) {
-                    metrics.dates[column] = {
-                        count: dates.length,
-                        minDate: new Date(Math.min(...dates.map(d => d.getTime()))),
-                        maxDate: new Date(Math.max(...dates.map(d => d.getTime()))),
-                        dateRange: this.calculateDateRange(dates)
-                    };
+                if (dateValues.length > 0) {
+                    dates[column] = this.calculateDateStatistics(dateValues);
                 }
             }
         });
 
-        // Find categorical columns
+        return dates;
+    }
+
+    /**
+     * Extract and validate date values from a column
+     */
+    extractDateValues(data, column) {
+        return data
+            .map(row => row[column])
+            .filter(v => v !== null && v !== undefined)
+            .map(v => new Date(v))
+            .filter(d => !isNaN(d.getTime()));
+    }
+
+    /**
+     * Calculate comprehensive statistics for date values
+     */
+    calculateDateStatistics(dateValues) {
+        const timestamps = dateValues.map(d => d.getTime());
+        const minDate = new Date(Math.min(...timestamps));
+        const maxDate = new Date(Math.max(...timestamps));
+        
+        return {
+            count: dateValues.length,
+            minDate,
+            maxDate,
+            dateRange: this.calculateDateRange(dateValues),
+            averageDate: new Date(timestamps.reduce((a, b) => a + b, 0) / timestamps.length),
+            uniqueDates: [...new Set(dateValues.map(d => d.toDateString()))].length
+        };
+    }
+
+    /**
+     * Extract category-related metrics from categorical columns
+     */
+    extractCategoryMetrics(data, schema) {
+        const categories = {};
+        
         Object.entries(schema).forEach(([column, columnSchema]) => {
             if (columnSchema.type === 'text' && columnSchema.uniqueCount < data.length * 0.5) {
-                const values = data.map(row => row[column]).filter(v => v !== null && v !== undefined);
-                const valueCounts = {};
+                const values = this.extractCategoricalValues(data, column);
                 
-                values.forEach(value => {
-                    valueCounts[value] = (valueCounts[value] || 0) + 1;
-                });
-
-                metrics.categories[column] = {
-                    uniqueCount: Object.keys(valueCounts).length,
-                    totalCount: values.length,
-                    distribution: valueCounts,
-                    topValues: Object.entries(valueCounts)
-                        .sort(([,a], [,b]) => b - a)
-                        .slice(0, 10)
-                        .map(([value, count]) => ({ value, count, percentage: (count / values.length) * 100 }))
-                };
+                if (values.length > 0) {
+                    categories[column] = this.calculateCategoryStatistics(values);
+                }
             }
         });
 
-        // Generate summary metrics
-        metrics.summary = this.generateSummaryMetrics(metrics);
+        return categories;
+    }
 
-        return metrics;
+    /**
+     * Extract categorical values from a column
+     */
+    extractCategoricalValues(data, column) {
+        return data
+            .map(row => row[column])
+            .filter(v => v !== null && v !== undefined && v !== '')
+            .map(v => String(v).trim());
+    }
+
+    /**
+     * Calculate comprehensive statistics for categorical values
+     */
+    calculateCategoryStatistics(values) {
+        const valueCounts = {};
+        
+        values.forEach(value => {
+            valueCounts[value] = (valueCounts[value] || 0) + 1;
+        });
+
+        const sortedEntries = Object.entries(valueCounts)
+            .sort(([,a], [,b]) => b - a);
+
+        return {
+            uniqueCount: Object.keys(valueCounts).length,
+            totalCount: values.length,
+            distribution: valueCounts,
+            topValues: sortedEntries
+                .slice(0, 10)
+                .map(([value, count]) => ({ 
+                    value, 
+                    count, 
+                    percentage: (count / values.length) * 100 
+                })),
+            diversity: this.calculateDiversityIndex(valueCounts, values.length),
+            mostCommon: sortedEntries.length > 0 ? sortedEntries[0][0] : null,
+            leastCommon: sortedEntries.length > 0 ? sortedEntries[sortedEntries.length - 1][0] : null
+        };
+    }
+
+    /**
+     * Calculate diversity index (Simpson's Diversity Index)
+     */
+    calculateDiversityIndex(valueCounts, totalCount) {
+        if (totalCount === 0) return 0;
+        
+        const sum = Object.values(valueCounts).reduce((acc, count) => {
+            return acc + (count * (count - 1));
+        }, 0);
+        
+        return 1 - (sum / (totalCount * (totalCount - 1)));
     }
 
     calculateDateRange(dates) {
@@ -664,6 +821,71 @@ class AdvancedDataProcessor {
             inconsistent,
             total: data.length
         };
+    }
+
+    inferColumnType(values) {
+        if (!values || values.length === 0) return 'string';
+        
+        const nonNullValues = values.filter(v => v !== null && v !== undefined && v !== '');
+        if (nonNullValues.length === 0) return 'string';
+        
+        // Check if all values are numeric
+        const numericCount = nonNullValues.filter(v => !isNaN(parseFloat(v)) && isFinite(v)).length;
+        if (numericCount === nonNullValues.length) {
+            return 'numeric';
+        }
+        
+        // Check if all values are dates
+        const datePatterns = [
+            /^\d{4}-\d{2}-\d{2}/,
+            /^\d{2}\/\d{2}\/\d{4}/,
+            /^\d{2}-\d{2}-\d{4}/,
+            /^\d{4}\/\d{2}\/\d{2}/
+        ];
+        const dateCount = nonNullValues.filter(v => 
+            datePatterns.some(pattern => pattern.test(String(v)))
+        ).length;
+        if (dateCount === nonNullValues.length) {
+            return 'date';
+        }
+        
+        // Check if it's boolean
+        const booleanValues = ['true', 'false', '1', '0', 'yes', 'no', 'y', 'n'];
+        const booleanCount = nonNullValues.filter(v => booleanValues.includes(String(v).toLowerCase())).length;
+        if (booleanCount === nonNullValues.length) {
+            return 'boolean';
+        }
+        
+        return 'string';
+    }
+
+    isValidType(value, expectedType) {
+        if (value === null || value === undefined || value === '') {
+            return true; // Null values are valid for any type
+        }
+        
+        switch (expectedType) {
+            case 'numeric':
+                return !isNaN(parseFloat(value)) && isFinite(value);
+            case 'date':
+                const datePatterns = [
+                    /^\d{4}-\d{2}-\d{2}/,
+                    /^\d{2}\/\d{2}\/\d{4}/,
+                    /^\d{2}-\d{2}-\d{4}/,
+                    /^\d{4}\/\d{2}\/\d{2}/
+                ];
+                return datePatterns.some(pattern => pattern.test(String(value)));
+            case 'boolean':
+                const booleanValues = ['true', 'false', '1', '0', 'yes', 'no', 'y', 'n'];
+                return booleanValues.includes(String(value).toLowerCase());
+            default:
+                return true; // String type accepts anything
+        }
+    }
+
+    isNumericColumn(values) {
+        const numericCount = values.filter(v => !isNaN(parseFloat(v)) && isFinite(v)).length;
+        return numericCount / values.length > 0.8;
     }
 }
 

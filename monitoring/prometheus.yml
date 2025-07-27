@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: 'sygnify-api'
+    static_configs:
+      - targets: ['api:8000']
+  - job_name: 'sygnify-streamlit'
+    static_configs:
+      - targets: ['streamlit:8501']
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+rule_files:
+  - 'alert.rules.yml' 

@@ -134,7 +134,12 @@ class EnhancedMLService {
         processedData.columns.forEach(column => {
             const sampleValues = data.slice(0, 100).map(row => row[column]).filter(v => v !== null && v !== undefined);
             
-            if (this.isNumericColumn(sampleValues)) {
+            // Check for specific column patterns first
+            if (this.isIDColumn(column)) {
+                processedData.categoricalColumns[column] = this.analyzeCategoricalColumn(data, column);
+            } else if (this.isBooleanColumn(column, sampleValues)) {
+                processedData.categoricalColumns[column] = this.analyzeCategoricalColumn(data, column);
+            } else if (this.isNumericColumn(sampleValues)) {
                 processedData.numericColumns[column] = this.analyzeNumericColumn(data, column);
             } else if (this.isTemporalColumn(sampleValues)) {
                 processedData.temporalColumns[column] = this.analyzeTemporalColumn(data, column);
@@ -150,7 +155,18 @@ class EnhancedMLService {
 
     isNumericColumn(values) {
         const numericCount = values.filter(v => !isNaN(parseFloat(v)) && isFinite(v)).length;
-        return numericCount / values.length > 0.8;
+        const numericRatio = numericCount / values.length;
+        
+        // Check for ID columns that might be numeric but are actually categorical
+        const uniqueValues = new Set(values.map(v => String(v)));
+        const uniqueRatio = uniqueValues.size / values.length;
+        
+        // If it's mostly unique values (>80%), it's likely an ID column (categorical)
+        if (uniqueRatio > 0.8 && numericRatio > 0.8) {
+            return false; // Treat as categorical
+        }
+        
+        return numericRatio > 0.8;
     }
 
     isTemporalColumn(values) {
@@ -166,6 +182,28 @@ class EnhancedMLService {
         ).length;
         
         return dateCount / values.length > 0.7;
+    }
+
+    isIDColumn(columnName) {
+        const idKeywords = ['id', '_id', 'identifier', 'code', 'number'];
+        return idKeywords.some(keyword => 
+            columnName.toLowerCase().includes(keyword)
+        );
+    }
+
+    isBooleanColumn(columnName, values) {
+        const booleanKeywords = ['is_', 'has_', 'can_', 'should_', 'will_', 'did_', 'was_', 'were_'];
+        const hasBooleanKeyword = booleanKeywords.some(keyword => 
+            columnName.toLowerCase().includes(keyword)
+        );
+        
+        if (hasBooleanKeyword) {
+            const booleanValues = ['true', 'false', '1', '0', 'yes', 'no', 'y', 'n'];
+            const booleanCount = values.filter(v => booleanValues.includes(String(v).toLowerCase())).length;
+            return booleanCount / values.length > 0.7;
+        }
+        
+        return false;
     }
 
     isAmountColumn(columnName, values) {
@@ -430,16 +468,17 @@ class EnhancedMLService {
                 return this.generateFallbackInsights();
             }
 
-            const insights = {
-                patterns: this.generatePatternInsights(processedData),
-                anomalies: this.generateAnomalyInsights(processedData),
-                trends: this.generateTrendInsights(processedData),
-                risks: this.generateRiskInsights(processedData),
-                opportunities: this.generateOpportunityInsights(processedData),
-                recommendations: this.generateRecommendations(processedData),
-                predictions: this.generatePredictions(processedData),
-                summary: this.generateExecutiveSummary(processedData)
-            };
+                    const insights = {
+            patterns: this.generatePatternInsights(processedData),
+            anomalies: this.generateAnomalyInsights(processedData),
+            trends: this.generateTrendInsights(processedData),
+            risks: this.generateRiskInsights(processedData),
+            opportunities: this.generateOpportunityInsights(processedData),
+            correlations: this.generateCorrelationInsights(processedData),
+            recommendations: this.generateRecommendations(processedData),
+            predictions: this.generatePredictions(processedData),
+            summary: this.generateExecutiveSummary(processedData)
+        };
 
             return insights;
         } catch (error) {
@@ -477,9 +516,21 @@ class EnhancedMLService {
     generatePatternInsights(processedData) {
         const insights = [];
         
+        console.log('[PatternDetection] Starting pattern analysis...');
+        console.log('[PatternDetection] Data structure:', {
+            hasData: !!processedData.data,
+            dataLength: processedData.data?.length || 0,
+            hasAmountColumns: !!processedData.amountColumns,
+            amountColumnsCount: Object.keys(processedData.amountColumns || {}).length,
+            hasNumericColumns: !!processedData.numericColumns,
+            numericColumnsCount: Object.keys(processedData.numericColumns || {}).length
+        });
+        
         // Analyze amount columns for financial patterns
         const amountColumns = processedData.amountColumns || {};
         Object.entries(amountColumns).forEach(([column, analysis]) => {
+            console.log(`[PatternDetection] Analyzing amount column: ${column}`, analysis);
+            
             if (analysis && analysis.financialMetrics) {
                 const { netCashFlow, cashFlowRatio, volatility } = analysis.financialMetrics;
                 
@@ -515,14 +566,134 @@ class EnhancedMLService {
             }
         });
 
+        // Analyze numeric columns for general patterns
+        const numericColumns = processedData.numericColumns || {};
+        Object.entries(numericColumns).forEach(([column, analysis]) => {
+            console.log(`[PatternDetection] Analyzing numeric column: ${column}`, analysis);
+            
+            if (analysis && analysis.count > 0) {
+                // Detect distribution patterns
+                const { average, median, stdDev, skewness, kurtosis } = analysis;
+                
+                // Skewness pattern
+                if (Math.abs(skewness) > 1) {
+                    insights.push({
+                        type: skewness > 0 ? 'warning' : 'info',
+                        category: 'distribution',
+                        description: `${column} shows ${skewness > 0 ? 'right' : 'left'}-skewed distribution`,
+                        impact: 'medium',
+                        confidence: 'high',
+                        details: { skewness: skewness.toFixed(3) }
+                    });
+                }
+                
+                // Volatility pattern
+                const coefficientOfVariation = stdDev / Math.abs(average);
+                if (coefficientOfVariation > 1) {
+                    insights.push({
+                        type: 'warning',
+                        category: 'volatility',
+                        description: `High variability in ${column} (CV: ${coefficientOfVariation.toFixed(2)})`,
+                        impact: 'medium',
+                        confidence: 'high',
+                        details: { coefficientOfVariation: coefficientOfVariation.toFixed(3) }
+                    });
+                }
+                
+                // Range pattern
+                const range = analysis.max - analysis.min;
+                const rangeRatio = range / Math.abs(average);
+                if (rangeRatio > 10) {
+                    insights.push({
+                        type: 'info',
+                        category: 'range',
+                        description: `Wide range in ${column} (${rangeRatio.toFixed(1)}x average)`,
+                        impact: 'low',
+                        confidence: 'high',
+                        details: { range, average, rangeRatio: rangeRatio.toFixed(2) }
+                    });
+                }
+            }
+        });
+
+        // Generate basic patterns from raw data if no structured analysis available
+        if (insights.length === 0 && processedData.data && processedData.data.length > 0) {
+            console.log('[PatternDetection] No structured patterns found, generating basic patterns from raw data...');
+            
+            const firstRow = processedData.data[0];
+            const columns = Object.keys(firstRow);
+            
+            // Detect numeric columns from raw data
+            const numericCols = columns.filter(col => {
+                const sampleValues = processedData.data.slice(0, 10).map(row => row[col]);
+                return sampleValues.some(val => !isNaN(parseFloat(val)) && isFinite(parseFloat(val)));
+            });
+            
+            console.log(`[PatternDetection] Found ${numericCols.length} numeric columns:`, numericCols);
+            
+            numericCols.forEach(column => {
+                const values = processedData.data
+                    .map(row => parseFloat(row[column]))
+                    .filter(v => !isNaN(v) && isFinite(v));
+                
+                if (values.length > 0) {
+                    const sum = values.reduce((a, b) => a + b, 0);
+                    const avg = sum / values.length;
+                    const positiveCount = values.filter(v => v > 0).length;
+                    const negativeCount = values.filter(v => v < 0).length;
+                    
+                    // Basic cash flow pattern
+                    if (sum > 0) {
+                        insights.push({
+                            type: 'positive',
+                            category: 'cash_flow',
+                            description: `Positive net flow in ${column}: $${sum.toLocaleString()}`,
+                            impact: 'medium',
+                            confidence: 'medium',
+                            details: { total: sum, average: avg.toFixed(2) }
+                        });
+                    }
+                    
+                    // Transaction pattern
+                    if (positiveCount > negativeCount) {
+                        insights.push({
+                            type: 'positive',
+                            category: 'transaction_pattern',
+                            description: `${column}: ${positiveCount} positive vs ${negativeCount} negative transactions`,
+                            impact: 'low',
+                            confidence: 'medium',
+                            details: { positiveCount, negativeCount, ratio: (positiveCount / values.length).toFixed(2) }
+                        });
+                    }
+                    
+                    // Volume pattern
+                    if (values.length > 100) {
+                        insights.push({
+                            type: 'info',
+                            category: 'volume',
+                            description: `High transaction volume in ${column}: ${values.length} records`,
+                            impact: 'low',
+                            confidence: 'high',
+                            details: { recordCount: values.length }
+                        });
+                    }
+                }
+            });
+        }
+
+        console.log(`[PatternDetection] Generated ${insights.length} patterns`);
         return insights;
     }
 
     generateAnomalyInsights(processedData) {
         const insights = [];
         
+        console.log('[AnomalyDetection] Starting anomaly analysis...');
+        
         const numericColumns = processedData.numericColumns || {};
         Object.entries(numericColumns).forEach(([column, analysis]) => {
+            console.log(`[AnomalyDetection] Analyzing numeric column: ${column}`, analysis);
+            
             if (analysis && analysis.anomalies) {
                 const totalAnomalies = analysis.anomalies.total;
                 const anomalyPercentage = analysis.anomalies.percentage;
@@ -547,6 +718,82 @@ class EnhancedMLService {
             }
         });
 
+        // Generate basic anomalies from raw data if no structured analysis available
+        if (insights.length === 0 && processedData.data && processedData.data.length > 0) {
+            console.log('[AnomalyDetection] No structured anomalies found, generating basic anomalies from raw data...');
+            
+            const firstRow = processedData.data[0];
+            const columns = Object.keys(firstRow);
+            
+            // Detect numeric columns from raw data
+            const numericCols = columns.filter(col => {
+                const sampleValues = processedData.data.slice(0, 10).map(row => row[col]);
+                return sampleValues.some(val => !isNaN(parseFloat(val)) && isFinite(parseFloat(val)));
+            });
+            
+            console.log(`[AnomalyDetection] Found ${numericCols.length} numeric columns for anomaly detection:`, numericCols);
+            
+            numericCols.forEach(column => {
+                const values = processedData.data
+                    .map(row => parseFloat(row[column]))
+                    .filter(v => !isNaN(v) && isFinite(v));
+                
+                if (values.length > 10) { // Need minimum data for anomaly detection
+                    // Simple IQR-based anomaly detection
+                    const sorted = values.sort((a, b) => a - b);
+                    const q1 = sorted[Math.floor(sorted.length * 0.25)];
+                    const q3 = sorted[Math.floor(sorted.length * 0.75)];
+                    const iqr = q3 - q1;
+                    const lowerBound = q1 - 1.5 * iqr;
+                    const upperBound = q3 + 1.5 * iqr;
+                    
+                    const outliers = values.filter(v => v < lowerBound || v > upperBound);
+                    const outlierPercentage = (outliers.length / values.length) * 100;
+                    
+                    if (outlierPercentage > 2) { // More sensitive threshold
+                        insights.push({
+                            type: 'warning',
+                            category: 'anomalies',
+                            description: `${outliers.length} outliers detected in ${column} (${outlierPercentage.toFixed(1)}% of data)`,
+                            impact: 'medium',
+                            confidence: 'medium',
+                            details: {
+                                column,
+                                outlierCount: outliers.length,
+                                outlierPercentage: outlierPercentage.toFixed(2),
+                                range: `${lowerBound.toFixed(2)} to ${upperBound.toFixed(2)}`,
+                                outliers: outliers.slice(0, 5) // Show first 5 outliers
+                            }
+                        });
+                    }
+                    
+                    // Detect extreme values
+                    const mean = values.reduce((a, b) => a + b, 0) / values.length;
+                    const stdDev = Math.sqrt(values.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / values.length);
+                    const extremeValues = values.filter(v => Math.abs(v - mean) > 3 * stdDev);
+                    
+                    if (extremeValues.length > 0) {
+                        insights.push({
+                            type: 'info',
+                            category: 'extreme_values',
+                            description: `${extremeValues.length} extreme values detected in ${column} (3+ standard deviations)`,
+                            impact: 'low',
+                            confidence: 'high',
+                            details: {
+                                column,
+                                extremeCount: extremeValues.length,
+                                extremePercentage: ((extremeValues.length / values.length) * 100).toFixed(2),
+                                mean: mean.toFixed(2),
+                                stdDev: stdDev.toFixed(2),
+                                extremeValues: extremeValues.slice(0, 3) // Show first 3 extreme values
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        console.log(`[AnomalyDetection] Generated ${insights.length} anomaly insights`);
         return insights;
     }
 
@@ -703,6 +950,51 @@ class EnhancedMLService {
         });
 
         return predictions;
+    }
+
+    generateCorrelationInsights(processedData) {
+        const correlations = [];
+        const numericColumns = Object.keys(processedData.numericColumns);
+        
+        // Generate all pairwise correlations for numeric columns
+        for (let i = 0; i < numericColumns.length; i++) {
+            for (let j = i + 1; j < numericColumns.length; j++) {
+                const col1 = numericColumns[i];
+                const col2 = numericColumns[j];
+                
+                try {
+                    const values1 = processedData.raw.map(row => parseFloat(row[col1])).filter(v => !isNaN(v) && isFinite(v));
+                    const values2 = processedData.raw.map(row => parseFloat(row[col2])).filter(v => !isNaN(v) && isFinite(v));
+                    
+                    // Ensure we have matching pairs
+                    const minLength = Math.min(values1.length, values2.length);
+                    if (minLength < 10) continue; // Need at least 10 data points
+                    
+                    const pairedValues1 = values1.slice(0, minLength);
+                    const pairedValues2 = values2.slice(0, minLength);
+                    
+                    const corr = correlation(pairedValues1, pairedValues2);
+                    
+                    if (!isNaN(corr) && Math.abs(corr) > 0.3) { // Only report significant correlations
+                        correlations.push({
+                            column1: col1,
+                            column2: col2,
+                            correlation: corr,
+                            strength: Math.abs(corr) > 0.7 ? 'strong' : Math.abs(corr) > 0.5 ? 'moderate' : 'weak',
+                            direction: corr > 0 ? 'positive' : 'negative',
+                            significance: Math.abs(corr) > 0.8 ? 'high' : Math.abs(corr) > 0.6 ? 'medium' : 'low'
+                        });
+                    }
+                } catch (error) {
+                    console.warn(`Failed to calculate correlation between ${col1} and ${col2}:`, error.message);
+                }
+            }
+        }
+        
+        // Sort by absolute correlation strength
+        correlations.sort((a, b) => Math.abs(b.correlation) - Math.abs(a.correlation));
+        
+        return correlations.slice(0, 10); // Return top 10 correlations
     }
 
     generateExecutiveSummary(processedData) {

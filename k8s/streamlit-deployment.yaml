@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sygnify-streamlit
+  namespace: sygnify
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sygnify-streamlit
+  template:
+    metadata:
+      labels:
+        app: sygnify-streamlit
+    spec:
+      containers:
+        - name: streamlit
+          image: sygnify-streamlit:latest
+          ports:
+            - containerPort: 8501
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamlit-service
+  namespace: sygnify
+spec:
+  selector:
+    app: sygnify-streamlit
+  ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 8501
+  type: LoadBalancer 

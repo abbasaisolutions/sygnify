@@ -1,0 +1,258 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sygnify Analytics BI Integration Schema",
+  "description": "Standardized schema for BI dashboard integration",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "analysis_id": { "type": "string", "format": "uuid" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "user_id": { "type": "integer" },
+        "user_role": { "type": "string", "enum": ["executive", "analyst", "manager", "viewer"] },
+        "records_analyzed": { "type": "integer", "minimum": 0 },
+        "columns_analyzed": { "type": "integer", "minimum": 0 },
+        "processing_time_ms": { "type": "integer", "minimum": 0 },
+        "data_source": { "type": "string" },
+        "file_size_bytes": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["analysis_id", "timestamp", "version", "records_analyzed", "columns_analyzed"]
+    },
+    "data_quality": {
+      "type": "object",
+      "properties": {
+        "overall_score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "completeness": { "type": "object" },
+        "accuracy": { "type": "object" },
+        "consistency": { "type": "object" },
+        "issues": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["overall_score"]
+    },
+    "financial_metrics": {
+      "type": "object",
+      "properties": {
+        "amounts": { "type": "object" },
+        "dates": { "type": "object" },
+        "categories": { "type": "object" },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "total_records": { "type": "integer" },
+            "total_amount": { "type": "number" },
+            "net_cash_flow": { "type": "number" },
+            "average_transaction": { "type": "number" },
+            "date_range": {
+              "type": "object",
+              "properties": {
+                "start": { "type": "string", "format": "date" },
+                "end": { "type": "string", "format": "date" },
+                "days": { "type": "integer" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ml_insights": {
+      "type": "object",
+      "properties": {
+        "patterns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "enum": ["positive", "negative", "warning", "info"] },
+              "category": { "type": "string" },
+              "description": { "type": "string" },
+              "impact": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+              "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+              "details": { "type": "object" }
+            },
+            "required": ["type", "category", "description", "impact", "confidence"]
+          }
+        },
+        "anomalies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "enum": ["outlier", "extreme_value", "pattern_break"] },
+              "column": { "type": "string" },
+              "description": { "type": "string" },
+              "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+              "count": { "type": "integer" },
+              "percentage": { "type": "number" },
+              "values": { "type": "array", "items": { "type": "number" } }
+            },
+            "required": ["type", "column", "description", "severity", "count", "percentage"]
+          }
+        },
+        "trends": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "column": { "type": "string" },
+              "direction": { "type": "string", "enum": ["increasing", "decreasing", "stable"] },
+              "strength": { "type": "number", "minimum": 0 },
+              "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+              "slope": { "type": "number" },
+              "r_squared": { "type": "number", "minimum": 0, "maximum": 1 }
+            },
+            "required": ["column", "direction", "strength", "confidence"]
+          }
+        }
+      }
+    },
+    "risk_assessment": {
+      "type": "object",
+      "properties": {
+        "overall_risk_score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "risk_level": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "data_quality_risks": { "type": "array", "items": { "type": "string" } },
+        "business_risks": { "type": "array", "items": { "type": "string" } },
+        "fraud_indicators": { "type": "array", "items": { "type": "string" } },
+        "compliance_issues": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["overall_risk_score", "risk_level"]
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "priority": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+          "category": { "type": "string" },
+          "description": { "type": "string" },
+          "action": { "type": "string" },
+          "effort": { "type": "string", "enum": ["low", "medium", "high"] },
+          "impact": { "type": "string", "enum": ["low", "medium", "high"] },
+          "estimated_roi": { "type": "number" },
+          "timeline_days": { "type": "integer" }
+        },
+        "required": ["priority", "category", "description", "action", "effort", "impact"]
+      }
+    },
+    "predictions": {
+      "type": "object",
+      "properties": {
+        "revenue": {
+          "type": "object",
+          "properties": {
+            "next_month": { "type": "number" },
+            "next_quarter": { "type": "number" },
+            "next_year": { "type": "number" },
+            "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+            "growth_rate": { "type": "number" }
+          }
+        },
+        "cash_flow": {
+          "type": "object",
+          "properties": {
+            "next_month": { "type": "number" },
+            "risk_level": { "type": "string", "enum": ["low", "medium", "high"] },
+            "confidence": { "type": "string", "enum": ["low", "medium", "high"] }
+          }
+        },
+        "anomalies": {
+          "type": "object",
+          "properties": {
+            "probability": { "type": "number", "minimum": 0, "maximum": 1 },
+            "expected_count": { "type": "integer" },
+            "confidence": { "type": "string", "enum": ["low", "medium", "high"] }
+          }
+        }
+      }
+    },
+    "visualizations": {
+      "type": "object",
+      "properties": {
+        "charts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "type": { "type": "string", "enum": ["line", "bar", "pie", "scatter", "heatmap", "histogram"] },
+              "title": { "type": "string" },
+              "description": { "type": "string" },
+              "data": { "type": "object" },
+              "options": { "type": "object" },
+              "priority": { "type": "string", "enum": ["low", "medium", "high"] }
+            },
+            "required": ["id", "type", "title", "data"]
+          }
+        },
+        "dashboards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "layout": { "type": "object" },
+              "charts": { "type": "array", "items": { "type": "string" } }
+            },
+            "required": ["id", "name", "layout", "charts"]
+          }
+        }
+      }
+    },
+    "narratives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["executive_summary", "detailed_analysis", "action_items"] },
+          "content": { "type": "string" },
+          "target_audience": { "type": "string", "enum": ["executive", "analyst", "manager", "viewer"] },
+          "tone": { "type": "string", "enum": ["formal", "casual", "technical"] },
+          "key_points": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["type", "content", "target_audience"]
+      }
+    },
+    "correlations": {
+      "type": "object",
+      "description": "Correlation matrix between numeric columns",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "type": "number", "minimum": -1, "maximum": 1 }
+      }
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "type": "string" },
+              "semantic_label": { "type": "string" },
+              "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+              "unique_values": { "type": "integer" },
+              "missing_percentage": { "type": "number", "minimum": 0, "maximum": 100 }
+            },
+            "required": ["name", "type", "semantic_label", "confidence"]
+          }
+        }
+      }
+    },
+    "export_options": {
+      "type": "object",
+      "properties": {
+        "formats": { "type": "array", "items": { "type": "string", "enum": ["json", "csv", "excel", "pdf", "powerbi"] } },
+        "templates": { "type": "array", "items": { "type": "string" } },
+        "api_endpoints": { "type": "array", "items": { "type": "string", "format": "uri" } }
+      }
+    }
+  },
+  "required": ["metadata", "data_quality", "financial_metrics", "ml_insights", "risk_assessment", "recommendations"]
+} 

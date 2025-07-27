@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+date: Fri, 25 Jul 2025 16:37:56 GMT
+server: uvicorn
+content-length: 49
+content-type: application/json
+
+{"job_id":"0c5b0318-0578-4659-b773-606ccb60b546"}

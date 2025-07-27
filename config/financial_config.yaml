@@ -1,0 +1,21 @@
+# Financial Configuration
+risk_management:
+  var_threshold: 0.05
+  cvar_threshold: 0.01
+  stress_test_scenarios:
+    - scenario: "Market Crash"
+      drop_percent: 30
+model_training:
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+alerts:
+  risk_limit: 1000000
+  notification_emails:
+    - "alerts@sygnify.com"
+compliance:
+  sox_enabled: true
+  basel_enabled: true
+  ifrs_enabled: true
+performance:
+  max_response_time_ms: 500 

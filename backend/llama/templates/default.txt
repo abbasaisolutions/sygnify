@@ -1,0 +1,77 @@
+Generate a comprehensive financial analysis report based on the following data:
+
+## Financial Summary
+- Net Cash Flow: ${{netCashFlow}}
+- Average Transaction: ${{avgTransaction}}
+- Total Transactions: {{totalTransactions}}
+- Total Volume: ${{totalVolume}}
+
+## Risk Assessment
+- Risk Score: {{riskScore}}/1.0 ({{riskLevel}})
+- Fraud Score: {{fraudScore}}/1.0 ({{fraudLevel}})
+- Confidence Level: {{confidence}}/1.0
+- Anomalies Detected: {{anomalies}}
+
+## Key Metrics
+- Volatility: {{volatility}}/1.0
+- Velocity Score: {{velocityScore}}/1.0
+- Trend: {{trend}}
+- Liquidity Ratio: {{liquidityRatio}}
+
+## Transaction Breakdown
+- Positive Transactions: {{positiveTransactions}}
+- Negative Transactions: {{negativeTransactions}}
+- Largest Transaction: {{largestTransaction}}
+- Smallest Transaction: {{smallestTransaction}}
+- Unique Merchants: {{uniqueMerchants}}
+- Unique Categories: {{uniqueCategories}}
+
+## Risk Flags
+{{#if velocitySpike}}⚠️ Velocity Spike Detected{{/if}}
+{{#if balanceMismatch}}⚠️ Balance Mismatch Detected{{/if}}
+{{#if highRiskTransactions}}⚠️ High Risk Transactions Detected{{/if}}
+{{#if unusualAmounts}}⚠️ Unusual Amounts Detected{{/if}}
+{{#if timingAnomalies}}⚠️ Timing Anomalies Detected{{/if}}
+{{#if geographicAnomalies}}⚠️ Geographic Anomalies Detected{{/if}}
+{{#if frequencyAnomalies}}⚠️ Frequency Anomalies Detected{{/if}}
+{{#if amountAnomalies}}⚠️ Amount Anomalies Detected{{/if}}
+
+## Detailed Anomalies
+{{anomalyDescriptions}}
+
+## Recommendations
+{{recommendationDescriptions}}
+
+## Analysis Requirements
+Please provide a comprehensive analysis that includes:
+
+1. **Executive Summary**: A concise overview of the financial health and key findings
+2. **Risk Assessment**: Detailed evaluation of the risk profile and potential concerns
+3. **Anomaly Analysis**: Explanation of any detected anomalies and their implications
+4. **Trend Analysis**: Interpretation of the cash flow trend and what it indicates
+5. **Operational Insights**: Actionable insights for improving operations
+6. **Recommendations**: Specific, prioritized recommendations for next steps
+7. **Confidence Assessment**: Evaluation of the reliability of this analysis
+
+## Response Format
+Please structure your response as follows:
+
+**Executive Summary**
+[2-3 sentences summarizing key findings]
+
+**Risk Assessment**
+[Detailed risk analysis with specific concerns]
+
+**Key Findings**
+[Bullet points of most important discoveries]
+
+**Anomalies & Concerns**
+[Explanation of any detected issues]
+
+**Recommendations**
+[Prioritized list of actionable recommendations]
+
+**Confidence Level**
+[Assessment of analysis reliability]
+
+Please be professional, concise, and focus on actionable insights. Use clear language that would be appropriate for business stakeholders. 

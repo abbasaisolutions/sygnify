@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
     import axios from 'axios';
+    import { ENDPOINTS } from '../config/api';
 
     function Login({ setIsAuthenticated }) {
       const [isLogin, setIsLogin] = useState(true);
@@ -11,7 +12,7 @@ import React, { useState } from 'react';
 
       const handleLogin = async () => {
         try {
-          const response = await axios.post('http://localhost:3000/api/v1/login', { email, password });
+          const response = await axios.post(ENDPOINTS.login, { username: email, password });
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', JSON.stringify(response.data.user));
           setIsAuthenticated(true);
@@ -29,7 +30,7 @@ import React, { useState } from 'react';
         }
         
         try {
-          await axios.post('http://localhost:3000/api/v1/register', { email, password, name });
+          await axios.post(ENDPOINTS.register, { username: email, password });
           setMessage('Registration successful! You can now log in.');
           setIsLogin(true);
           setPassword('');

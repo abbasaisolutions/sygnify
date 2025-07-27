@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - sygnify-net
+  streamlit:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./frontend:/app/frontend
+    networks:
+      - sygnify-net
+networks:
+  sygnify-net:
+    driver: bridge 

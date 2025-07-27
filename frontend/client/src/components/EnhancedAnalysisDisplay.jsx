@@ -90,16 +90,20 @@ function EnhancedAnalysisDisplay({ analysis }) {
 
   const renderAIInsights = () => {
     const insights = analysis.aiInsights;
-    if (!insights || !insights.success) return null;
+    if (!insights) return null;
+
+    // Handle both old format (insights.success) and new format (direct insights)
+    const isOldFormat = insights.success !== undefined;
+    const insightsData = isOldFormat ? insights : insights;
 
     const allInsights = [
-      ...(insights.cashFlow || []),
-      ...(insights.profitability || []),
-      ...(insights.risk || []),
-      ...(insights.efficiency || []),
-      ...(insights.trends || []),
-      ...(insights.anomalies || []),
-      ...(insights.opportunities || [])
+      ...(insightsData.cashFlow || []),
+      ...(insightsData.profitability || []),
+      ...(insightsData.risk || []),
+      ...(insightsData.efficiency || []),
+      ...(insightsData.trends || []),
+      ...(insightsData.anomalies || []),
+      ...(insightsData.opportunities || [])
     ];
 
     if (allInsights.length === 0) return null;
@@ -117,11 +121,20 @@ function EnhancedAnalysisDisplay({ analysis }) {
             }`}>
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <h4 className="font-semibold text-gray-900">{insight.title}</h4>
-                  <p className="text-sm text-gray-700 mt-1">{insight.description}</p>
+                  <h4 className="font-semibold text-gray-900">{insight.title || insight.description}</h4>
+                  <p className="text-sm text-gray-700 mt-1">{insight.description || insight.message}</p>
                   {insight.metrics && (
                     <div className="text-xs text-gray-500 mt-2">
                       {Object.entries(insight.metrics).map(([key, value]) => (
+                        <span key={key} className="mr-3">
+                          {key}: {typeof value === 'number' ? value.toFixed(2) : value}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {insight.details && (
+                    <div className="text-xs text-gray-500 mt-2">
+                      {Object.entries(insight.details).map(([key, value]) => (
                         <span key={key} className="mr-3">
                           {key}: {typeof value === 'number' ? value.toFixed(2) : value}
                         </span>
@@ -135,7 +148,7 @@ function EnhancedAnalysisDisplay({ analysis }) {
                     insight.impact === 'medium' ? 'bg-yellow-100 text-yellow-800' :
                     'bg-green-100 text-green-800'
                   }`}>
-                    {insight.impact} impact
+                    {insight.impact || 'medium'} impact
                   </span>
                 </div>
               </div>
@@ -327,21 +340,146 @@ function EnhancedAnalysisDisplay({ analysis }) {
     if (!labels || Object.keys(labels).length === 0) return null;
 
     return (
-      <div className="bg-teal-50 p-4 rounded-lg">
-        <h3 className="text-lg font-semibold text-teal-900 mb-2">🏷️ Enhanced Smart Data Labeling</h3>
+      <div className="bg-gray-50 p-4 rounded-lg">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">🏷️ Enhanced Column Labels</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {Object.entries(labels).slice(0, 12).map(([column, label]) => (
-            <div key={column} className="p-3 bg-white rounded-lg border border-teal-200">
-              <h4 className="font-semibold text-teal-900 text-sm">{column}</h4>
-              <div className="text-xs text-gray-600 mt-1">
-                <div>Semantic: {label.semantic || 'N/A'}</div>
-                <div>Category: {label.category || 'N/A'}</div>
-                <div>Importance: {label.importance || 0}%</div>
-                <div>Type: {label.type || 'N/A'}</div>
+          {Object.entries(labels).map(([column, label]) => (
+            <div key={column} className="p-3 bg-white rounded-lg border border-gray-200">
+              <div className="font-semibold text-gray-900">{column}</div>
+              <div className="text-sm text-gray-600 mt-1">
+                <div>Label: {label.label || label.semantic || 'Unknown'}</div>
+                <div>Confidence: {Math.round((label.confidence || 0) * 100)}%</div>
+                <div>Type: {label.data_type || label.type || 'N/A'}</div>
+                <div>Unique Values: {label.unique_values || label.uniqueCount || 'N/A'}</div>
+                <div>Missing: {label.missing_percentage ? `${label.missing_percentage.toFixed(1)}%` : 'N/A'}</div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+    );
+  };
+
+  const renderEnhancedMLInsights = () => {
+    const enhancedML = analysis.enhancedML;
+    if (!enhancedML) return null;
+
+    return (
+      <div className="space-y-4">
+        {/* Patterns */}
+        {enhancedML.patterns && enhancedML.patterns.length > 0 && (
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <h3 className="text-lg font-semibold text-blue-900 mb-2">🔍 ML Pattern Detection</h3>
+            <div className="space-y-3">
+              {enhancedML.patterns.slice(0, 5).map((pattern, index) => (
+                <div key={index} className={`p-3 rounded-lg ${
+                  pattern.type === 'positive' ? 'bg-green-100 border border-green-200' :
+                  pattern.type === 'warning' ? 'bg-yellow-100 border border-yellow-200' :
+                  pattern.type === 'info' ? 'bg-blue-100 border border-blue-200' :
+                  'bg-gray-100 border border-gray-200'
+                }`}>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900">{pattern.category}</h4>
+                      <p className="text-sm text-gray-700 mt-1">{pattern.description}</p>
+                      {pattern.details && (
+                        <div className="text-xs text-gray-500 mt-2">
+                          {Object.entries(pattern.details).map(([key, value]) => (
+                            <span key={key} className="mr-3">
+                              {key}: {typeof value === 'number' ? value.toFixed(2) : value}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div className="ml-3">
+                      <span className={`px-2 py-1 text-xs rounded-full ${
+                        pattern.impact === 'high' ? 'bg-red-100 text-red-800' :
+                        pattern.impact === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-green-100 text-green-800'
+                      }`}>
+                        {pattern.impact || 'medium'} impact
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Anomalies */}
+        {enhancedML.anomalies && enhancedML.anomalies.length > 0 && (
+          <div className="bg-red-50 p-4 rounded-lg">
+            <h3 className="text-lg font-semibold text-red-900 mb-2">⚠️ Anomaly Detection</h3>
+            <div className="space-y-3">
+              {enhancedML.anomalies.slice(0, 5).map((anomaly, index) => (
+                <div key={index} className="p-3 bg-white rounded-lg border border-red-200">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900">{anomaly.category}</h4>
+                      <p className="text-sm text-gray-700 mt-1">{anomaly.description}</p>
+                      {anomaly.details && (
+                        <div className="text-xs text-gray-500 mt-2">
+                          {Object.entries(anomaly.details).map(([key, value]) => (
+                            <span key={key} className="mr-3">
+                              {key}: {typeof value === 'number' ? value.toFixed(2) : value}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div className="ml-3">
+                      <span className={`px-2 py-1 text-xs rounded-full ${
+                        anomaly.severity === 'critical' ? 'bg-red-100 text-red-800' :
+                        anomaly.severity === 'high' ? 'bg-orange-100 text-orange-800' :
+                        anomaly.severity === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-blue-100 text-blue-800'
+                      }`}>
+                        {anomaly.severity || 'medium'} severity
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Trends */}
+        {enhancedML.trends && enhancedML.trends.length > 0 && (
+          <div className="bg-green-50 p-4 rounded-lg">
+            <h3 className="text-lg font-semibold text-green-900 mb-2">📈 Trend Analysis</h3>
+            <div className="space-y-3">
+              {enhancedML.trends.slice(0, 3).map((trend, index) => (
+                <div key={index} className="p-3 bg-white rounded-lg border border-green-200">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900">{trend.column}</h4>
+                      <p className="text-sm text-gray-700 mt-1">
+                        {trend.direction} trend with {trend.strength} strength
+                      </p>
+                      {trend.details && (
+                        <div className="text-xs text-gray-500 mt-2">
+                          <span className="mr-3">Slope: {trend.details.slope?.toFixed(3)}</span>
+                          <span className="mr-3">R²: {trend.details.rSquared?.toFixed(3)}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="ml-3">
+                      <span className={`px-2 py-1 text-xs rounded-full ${
+                        trend.direction === 'increasing' ? 'bg-green-100 text-green-800' :
+                        'bg-red-100 text-red-800'
+                      }`}>
+                        {trend.direction}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     );
   };
@@ -384,6 +522,9 @@ function EnhancedAnalysisDisplay({ analysis }) {
 
           {/* Enhanced Labels */}
           {renderEnhancedLabels()}
+
+          {/* Enhanced ML Insights */}
+          {renderEnhancedMLInsights()}
         </div>
       </div>
 

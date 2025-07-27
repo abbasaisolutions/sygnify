@@ -1,0 +1,524 @@
+# Sygnify Analytics Hub - Data Connections Configuration
+# This file defines all supported data sources, formats, and connection parameters
+
+# ==================== SUPPORTED DATA FORMATS ====================
+supported_formats:
+  # Spreadsheet formats
+  spreadsheet:
+    - csv
+    - xlsx
+    - xls
+    - xlsm
+    - xlsb
+    - ods
+  
+  # Data interchange formats
+  data_interchange:
+    - json
+    - xml
+    - yaml
+    - yml
+    - toml
+  
+  # Database formats
+  database:
+    - db
+    - sqlite
+    - sql
+  
+  # Archive formats
+  archive:
+    - zip
+    - tar
+    - gz
+    - bz2
+    - 7z
+  
+  # Big data formats
+  big_data:
+    - parquet
+    - avro
+    - orc
+    - feather
+  
+  # Log formats
+  logs:
+    - log
+    - txt
+    - md
+
+# ==================== DATABASE CONNECTIONS ====================
+database_connections:
+  # PostgreSQL configuration
+  postgresql:
+    default_config:
+      host: localhost
+      port: 5432
+      database: sygnify_analytics
+      user: postgres
+      password: ""
+      ssl: false
+      max_connections: 20
+      idle_timeout: 30000
+      connection_timeout: 2000
+    
+    # Common PostgreSQL schemas
+    schemas:
+      - public
+      - analytics
+      - staging
+      - production
+    
+    # Supported data types
+    data_types:
+      - integer
+      - bigint
+      - decimal
+      - numeric
+      - real
+      - double precision
+      - text
+      - varchar
+      - char
+      - boolean
+      - date
+      - timestamp
+      - timestamptz
+      - json
+      - jsonb
+      - uuid
+      - bytea
+
+  # MySQL configuration
+  mysql:
+    default_config:
+      host: localhost
+      port: 3306
+      database: sygnify_analytics
+      user: root
+      password: ""
+      ssl: false
+      connect_timeout: 10000
+      acquire_timeout: 10000
+    
+    # Common MySQL schemas
+    schemas:
+      - information_schema
+      - mysql
+      - performance_schema
+      - sys
+    
+    # Supported data types
+    data_types:
+      - int
+      - bigint
+      - decimal
+      - float
+      - double
+      - varchar
+      - text
+      - longtext
+      - boolean
+      - date
+      - datetime
+      - timestamp
+      - json
+      - blob
+      - longblob
+
+  # SQLite configuration
+  sqlite:
+    default_config:
+      path: ":memory:"
+      mode: "rwc"
+    
+    # Supported data types
+    data_types:
+      - integer
+      - real
+      - text
+      - blob
+      - null
+
+  # Microsoft SQL Server configuration
+  mssql:
+    default_config:
+      server: localhost
+      port: 1433
+      database: sygnify_analytics
+      user: sa
+      password: ""
+      encrypt: false
+      trust_server_certificate: true
+    
+    # Supported data types
+    data_types:
+      - int
+      - bigint
+      - decimal
+      - float
+      - real
+      - varchar
+      - nvarchar
+      - text
+      - ntext
+      - bit
+      - date
+      - datetime
+      - datetime2
+      - smalldatetime
+      - uniqueidentifier
+      - varbinary
+      - image
+
+  # Oracle configuration
+  oracle:
+    default_config:
+      host: localhost
+      port: 1521
+      service: xe
+      user: system
+      password: ""
+      connect_string: ""
+    
+    # Supported data types
+    data_types:
+      - number
+      - varchar2
+      - nvarchar2
+      - char
+      - nchar
+      - clob
+      - nclob
+      - date
+      - timestamp
+      - raw
+      - blob
+      - bfile
+      - rowid
+      - urowid
+
+# ==================== API CONNECTIONS ====================
+api_connections:
+  # REST API configuration
+  rest:
+    default_config:
+      timeout: 30000
+      retry_attempts: 3
+      retry_delay: 1000
+      headers:
+        Content-Type: application/json
+        User-Agent: Sygnify-Analytics-Hub/1.0
+    
+    # Common authentication methods
+    auth_methods:
+      - none
+      - basic
+      - bearer
+      - api_key
+      - oauth2
+      - jwt
+    
+    # Common response formats
+    response_formats:
+      - json
+      - xml
+      - csv
+      - text
+
+  # GraphQL API configuration
+  graphql:
+    default_config:
+      timeout: 30000
+      retry_attempts: 3
+      headers:
+        Content-Type: application/json
+    
+    # Common GraphQL features
+    features:
+      - introspection
+      - subscriptions
+      - batching
+      - caching
+
+  # SOAP API configuration
+  soap:
+    default_config:
+      timeout: 30000
+      retry_attempts: 3
+      headers:
+        Content-Type: text/xml
+    
+    # Common SOAP features
+    features:
+      - wsdl
+      - ws_security
+      - attachments
+
+# ==================== REAL-TIME CONNECTIONS ====================
+realtime_connections:
+  # WebSocket configuration
+  websocket:
+    default_config:
+      timeout: 30000
+      reconnect_attempts: 5
+      reconnect_delay: 1000
+      heartbeat_interval: 30000
+    
+    # Common WebSocket protocols
+    protocols:
+      - ws
+      - wss
+      - mqtt
+      - stomp
+
+  # Server-Sent Events configuration
+  sse:
+    default_config:
+      timeout: 30000
+      reconnect_attempts: 5
+      reconnect_delay: 1000
+    
+    # Common SSE features
+    features:
+      - event_stream
+      - retry
+      - last_event_id
+
+  # Message Queue configuration
+  message_queue:
+    default_config:
+      timeout: 30000
+      retry_attempts: 3
+      retry_delay: 1000
+    
+    # Supported message queues
+    types:
+      - rabbitmq
+      - apache_kafka
+      - redis
+      - amazon_sqs
+      - azure_service_bus
+      - google_pubsub
+
+# ==================== CLOUD STORAGE CONNECTIONS ====================
+cloud_storage:
+  # Amazon S3 configuration
+  aws_s3:
+    default_config:
+      region: us-east-1
+      timeout: 30000
+      retry_attempts: 3
+      max_concurrent_requests: 10
+    
+    # Supported operations
+    operations:
+      - list_objects
+      - get_object
+      - put_object
+      - delete_object
+      - copy_object
+      - multipart_upload
+
+  # Google Cloud Storage configuration
+  gcs:
+    default_config:
+      timeout: 30000
+      retry_attempts: 3
+      max_concurrent_requests: 10
+    
+    # Supported operations
+    operations:
+      - list_objects
+      - get_object
+      - put_object
+      - delete_object
+      - copy_object
+      - multipart_upload
+
+  # Azure Blob Storage configuration
+  azure_blob:
+    default_config:
+      timeout: 30000
+      retry_attempts: 3
+      max_concurrent_requests: 10
+    
+    # Supported operations
+    operations:
+      - list_blobs
+      - get_blob
+      - put_blob
+      - delete_blob
+      - copy_blob
+      - multipart_upload
+
+# ==================== DATA PROCESSING CONFIGURATION ====================
+data_processing:
+  # File size limits
+  file_limits:
+    max_file_size: 500MB
+    max_files_per_upload: 10
+    max_total_size: 2GB
+  
+  # Processing options
+  processing:
+    chunk_size: 50000
+    timeout: 60000
+    retry_attempts: 3
+    parallel_processing: true
+    max_workers: 4
+  
+  # Validation options
+  validation:
+    check_data_types: true
+    check_null_values: true
+    check_empty_strings: true
+    check_duplicates: true
+    check_outliers: true
+  
+  # Compression options
+  compression:
+    supported_formats:
+      - gzip
+      - bzip2
+      - zip
+      - tar.gz
+      - 7z
+    auto_detect: true
+    decompress_on_upload: true
+
+# ==================== ML INTEGRATION CONFIGURATION ====================
+ml_integration:
+  # Model configuration
+  models:
+    - name: financial_analysis
+      type: classification
+      framework: tensorflow
+      version: 1.0.0
+    
+    - name: fraud_detection
+      type: anomaly_detection
+      framework: scikit-learn
+      version: 1.0.0
+    
+    - name: trend_prediction
+      type: regression
+      framework: pytorch
+      version: 1.0.0
+  
+  # Processing pipeline
+  pipeline:
+    preprocess: true
+    feature_engineering: true
+    model_inference: true
+    post_process: true
+    result_aggregation: true
+  
+  # Performance settings
+  performance:
+    batch_size: 1000
+    timeout: 30000
+    cache_results: true
+    parallel_inference: true
+
+# ==================== SECURITY CONFIGURATION ====================
+security:
+  # Authentication
+  authentication:
+    enabled: true
+    methods:
+      - jwt
+      - api_key
+      - oauth2
+      - basic
+  
+  # Encryption
+  encryption:
+    data_at_rest: true
+    data_in_transit: true
+    algorithm: AES-256
+  
+  # Access control
+  access_control:
+    role_based: true
+    ip_whitelist: true
+    rate_limiting: true
+  
+  # Audit logging
+  audit:
+    enabled: true
+    log_level: info
+    retention_days: 90
+
+# ==================== MONITORING CONFIGURATION ====================
+monitoring:
+  # Metrics collection
+  metrics:
+    enabled: true
+    collection_interval: 60
+    retention_days: 30
+  
+  # Health checks
+  health_checks:
+    enabled: true
+    interval: 30
+    timeout: 10
+  
+  # Alerting
+  alerting:
+    enabled: true
+    channels:
+      - email
+      - slack
+      - webhook
+  
+  # Logging
+  logging:
+    level: info
+    format: json
+    retention_days: 90
+    rotation: daily
+
+# ==================== CACHING CONFIGURATION ====================
+caching:
+  # Redis configuration
+  redis:
+    enabled: true
+    host: localhost
+    port: 6379
+    db: 0
+    timeout: 5000
+  
+  # Memory cache
+  memory:
+    enabled: true
+    max_size: 100MB
+    ttl: 3600
+  
+  # Cache strategies
+  strategies:
+    - lru
+    - lfu
+    - fifo
+    - ttl
+
+# ==================== BACKUP AND RECOVERY ====================
+backup:
+  # Automated backups
+  automated:
+    enabled: true
+    schedule: "0 2 * * *"  # Daily at 2 AM
+    retention_days: 30
+  
+  # Backup locations
+  locations:
+    - local
+    - s3
+    - gcs
+    - azure
+  
+  # Recovery options
+  recovery:
+    point_in_time: true
+    incremental: true
+    full: true 

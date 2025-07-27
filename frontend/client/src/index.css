@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Global Styles and CSS Reset */
 * {
   margin: 0;
@@ -21,6 +25,97 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Custom Animation Classes */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 24px rgba(6, 182, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(6, 182, 212, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Custom Scrollbar for Webkit browsers */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 182, 212, 0.3) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(6, 182, 212, 0.3);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(6, 182, 212, 0.5);
+}
+
+/* Backdrop blur support */
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+  }
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+  }
+}
+
+/* Gradient text support */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom glow effects */
+.glow-cyan {
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.4);
+}
+
+.glow-orange {
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.4);
+}
+
+.glow-green {
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.4);
+}
+
+.glow-blue {
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.4);
+}
+
+.glow-purple {
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.4);
 }
 
 /* Typography */
