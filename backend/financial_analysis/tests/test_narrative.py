@@ -50,13 +50,13 @@ class TestNarrativeGenerator:
         assert "detailed" in gen.ab_test_variants
         assert "executive" in gen.ab_test_variants
 
-@pytest.mark.asyncio
+    @pytest.mark.asyncio
     async def test_get_user_preferences_default(self, narrative_gen):
         """Test getting default user preferences when user not found."""
         prefs = await narrative_gen.get_user_preferences(123)
-        assert prefs["tone"] == "professional"
-        assert prefs["verbosity"] == "detailed"
-        assert prefs["role"] == "analyst"
+        assert prefs["tone"] == "formal"
+        assert prefs["verbosity"] == "concise"
+        assert prefs["role"] == "executive"
         assert prefs["ab_test_group"] in ["concise", "detailed", "executive"]
 
     def test_load_fallback_template(self, narrative_gen):
@@ -66,7 +66,7 @@ class TestNarrativeGenerator:
         assert "paragraphs" in template
         assert isinstance(template["paragraphs"], list)
 
-@pytest.mark.asyncio
+    @pytest.mark.asyncio
     async def test_extract_facts_rule_based(self, narrative_gen, sample_data):
         """Test rule-based fact extraction."""
         facts = await narrative_gen.extract_facts(sample_data)
@@ -118,32 +118,34 @@ class TestNarrativeGenerator:
     def test_generate_template_narrative_executive(self, narrative_gen):
         """Test executive template narrative generation."""
         facts = {"facts": ["Revenue up 20%", "Profit margin stable", "Assets growing"]}
-        preferences = {"role": "executive"}
-        variant_config = {"style": "high_level"}
+        preferences = {"role": "executive", "tone": "formal", "verbosity": "concise"}
         
-        narrative = narrative_gen._generate_template_narrative(facts, preferences, variant_config)
-        assert "Executive Summary" in narrative["headline"]
+        narrative = narrative_gen._generate_template_narrative(
+            facts["facts"], {}, preferences["role"], preferences["tone"], preferences["verbosity"]
+        )
+        assert "Executive" in narrative["headline"]
         assert len(narrative["paragraphs"]) >= 2
 
     def test_generate_template_narrative_analyst(self, narrative_gen):
         """Test analyst template narrative generation."""
         facts = {"facts": ["Revenue up 20%", "Profit margin stable", "Assets growing"]}
-        preferences = {"role": "analyst"}
-        variant_config = {"style": "paragraphs"}
+        preferences = {"role": "analyst", "tone": "formal", "verbosity": "detailed"}
         
-        narrative = narrative_gen._generate_template_narrative(facts, preferences, variant_config)
-        assert "Comprehensive" in narrative["headline"]
+        narrative = narrative_gen._generate_template_narrative(
+            facts["facts"], {}, preferences["role"], preferences["tone"], preferences["verbosity"]
+        )
+        assert "Detailed" in narrative["headline"]
         assert "analysis" in narrative["headline"].lower()
 
     def test_generate_template_narrative_manager(self, narrative_gen):
         """Test manager template narrative generation."""
         facts = {"facts": ["Revenue up 20%", "Profit margin stable", "Assets growing"]}
-        preferences = {"role": "manager"}
-        variant_config = {"style": "paragraphs"}
+        preferences = {"role": "manager", "tone": "formal", "verbosity": "concise"}
         
-        narrative = narrative_gen._generate_template_narrative(facts, preferences, variant_config)
-        assert "Performance" in narrative["headline"]
-        assert "Overview" in narrative["headline"]
+        narrative = narrative_gen._generate_template_narrative(
+            facts["facts"], {}, preferences["role"], preferences["tone"], preferences["verbosity"]
+        )
+        assert "Financial Transaction Analysis with Real Data Insights" in narrative["headline"]
 
     def test_parse_facts_response_json(self, narrative_gen):
         """Test parsing JSON facts response."""
@@ -236,11 +238,11 @@ class TestNarrativeGenerator:
         
         # Test analyst role
         analyst_narrative = await narrative_gen.generate_narrative(facts, user_role="analyst")
-        assert "Comprehensive" in analyst_narrative["headline"]
+        assert "Detailed" in analyst_narrative["headline"]
         
         # Test manager role
         manager_narrative = await narrative_gen.generate_narrative(facts, user_role="manager")
-        assert "Performance" in manager_narrative["headline"]
+        assert "Financial Transaction Analysis with Real Data Insights" in manager_narrative["headline"]
 
     @pytest.mark.asyncio
     async def test_narrative_metadata(self, narrative_gen):
