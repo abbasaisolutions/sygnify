@@ -2740,3 +2740,31 @@ KMeans does not accept missing values encoded as NaN natively. For supervised le
 2025-07-30 23:42:16,401 INFO Financial dashboard WebSocket: True
 2025-07-30 23:42:16,401 INFO Real-time market WebSocket: True
 2025-07-30 23:43:02,173 INFO Sygnify Financial Analytics API shutting down...
+2025-07-31 10:05:04,713 INFO Matplotlib imported successfully
+2025-07-31 10:05:05,824 INFO NumExpr defaulting to 8 threads.
+2025-07-31 10:05:08,383 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-31 10:05:08,390 INFO Financial router imported successfully
+2025-07-31 10:05:08,396 INFO Enhanced financial router imported successfully
+2025-07-31 10:05:08,520 INFO Auth router imported successfully
+2025-07-31 10:05:08,528 INFO Market data router imported successfully
+2025-07-31 10:05:09,232 INFO Advanced ML service imported successfully
+2025-07-31 10:05:09,232 ERROR Failed to import predictive analytics service: attempted relative import beyond top-level package
+2025-07-31 10:05:09,232 INFO LLM service imported successfully
+2025-07-31 10:05:09,245 INFO ML router imported successfully
+2025-07-31 10:05:09,250 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-31 10:05:09,261 INFO Real-time market WebSocket handler imported successfully
+2025-07-31 10:05:09,261 INFO Job simulation service imported successfully
+2025-07-31 10:05:14,285 INFO Matplotlib imported successfully
+2025-07-31 10:05:15,094 INFO NumExpr defaulting to 8 threads.
+2025-07-31 10:05:16,838 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-31 10:05:16,844 INFO Financial router imported successfully
+2025-07-31 10:05:16,847 INFO Enhanced financial router imported successfully
+2025-07-31 10:05:16,920 INFO Auth router imported successfully
+2025-07-31 10:05:16,927 INFO Market data router imported successfully
+2025-07-31 10:05:17,297 INFO Advanced ML service imported successfully
+2025-07-31 10:05:17,297 ERROR Failed to import predictive analytics service: attempted relative import beyond top-level package
+2025-07-31 10:05:17,298 INFO LLM service imported successfully
+2025-07-31 10:05:17,311 INFO ML router imported successfully
+2025-07-31 10:05:17,313 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-31 10:05:17,316 INFO Real-time market WebSocket handler imported successfully
+2025-07-31 10:05:17,316 INFO Job simulation service imported successfully

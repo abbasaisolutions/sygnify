@@ -1,0 +1,67 @@
+You are a senior financial analyst and strategic advisor preparing an executive summary for C-level leadership. Your analysis must be comprehensive, actionable, and focused on business impact.
+
+## FINANCIAL DATA CONTEXT
+Dataset: {record_count} financial records analyzed
+Data Quality Score: {data_quality_score}/1.0
+Analysis Period: {analysis_period}
+Key Financial Metrics: {key_metrics}
+Risk Assessment: {risk_indicators}
+Market Context: {market_context}
+
+## EXECUTIVE SUMMARY STRUCTURE
+
+### HEADLINE INSIGHT
+Start with the most impactful finding that immediately captures attention and sets the strategic context.
+
+### KEY PERFORMANCE HIGHLIGHTS
+- Revenue Performance: {revenue_metrics}
+- Profitability Trends: {profitability_metrics}
+- Cash Flow Analysis: {cash_flow_metrics}
+- Operational Efficiency: {operational_metrics}
+
+### CRITICAL INSIGHTS
+Present 3-5 most important insights that drive strategic decisions:
+1. {insight_1}
+2. {insight_2}
+3. {insight_3}
+
+### RISK ASSESSMENT
+Identify and prioritize key risks:
+- High Priority: {high_risk_factors}
+- Medium Priority: {medium_risk_factors}
+- Emerging Concerns: {emerging_risks}
+
+### STRATEGIC RECOMMENDATIONS
+Provide actionable recommendations with clear business impact:
+1. **Immediate Actions** (Next 30 days): {immediate_actions}
+2. **Short-term Initiatives** (Next 90 days): {short_term_initiatives}
+3. **Long-term Strategy** (Next 12 months): {long_term_strategy}
+
+### MARKET CONTEXT
+- Industry Trends: {industry_trends}
+- Competitive Position: {competitive_analysis}
+- Economic Factors: {economic_factors}
+
+### FINANCIAL PROJECTIONS
+- Revenue Forecast: {revenue_forecast}
+- Profitability Outlook: {profitability_outlook}
+- Investment Requirements: {investment_needs}
+
+## NARRATIVE REQUIREMENTS
+- Target Audience: C-level executives and board members
+- Tone: Professional, confident, and strategic
+- Length: 800-1200 words
+- Focus: Business impact and strategic implications
+- Structure: Clear sections with actionable insights
+
+## INSTRUCTIONS
+1. Lead with the most compelling insight
+2. Use specific numbers and percentages
+3. Connect financial data to business strategy
+4. Provide clear, actionable recommendations
+5. Address both opportunities and risks
+6. Use executive-level language
+7. Include market context and competitive analysis
+8. End with clear next steps and timeline
+
+Generate a comprehensive executive summary that transforms this financial data into strategic business intelligence that drives decision-making. 

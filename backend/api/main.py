@@ -64,6 +64,14 @@ except ImportError as e:
     logging.error(f"Failed to import market data router: {e}")
     market_data_router = None
 
+# Import ML router
+try:
+    from .routers.ml import router as ml_router
+    logging.info("ML router imported successfully")
+except ImportError as e:
+    logging.error(f"Failed to import ML router: {e}")
+    ml_router = None
+
 # Import financial dashboard WebSocket handler
 try:
     from .websocket.financial_dashboard import financial_dashboard_websocket
@@ -609,13 +617,15 @@ if auth_router:
     app.include_router(auth_router, prefix="/auth")
 if market_data_router:
     app.include_router(market_data_router)
+if ml_router:
+    app.include_router(ml_router) # ML router already has prefix="/ml"
 
 # Startup event
 @app.on_event("startup")
 async def startup_event():
     """Application startup event."""
     logging.info("Sygnify Financial Analytics API starting up...")
-    logging.info(f"Available routers: financial={financial_router is not None}, enhanced_financial={enhanced_financial_router is not None}, auth={auth_router is not None}, market_data={market_data_router is not None}")
+    logging.info(f"Available routers: financial={financial_router is not None}, enhanced_financial={enhanced_financial_router is not None}, auth={auth_router is not None}, market_data={market_data_router is not None}, ml={ml_router is not None}")
     logging.info(f"Financial dashboard WebSocket: {financial_dashboard_websocket is not None}")
     logging.info(f"Real-time market WebSocket: {realtime_market_websocket is not None}")
 

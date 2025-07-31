@@ -33,4 +33,8 @@ matplotlib==3.8.2
 seaborn==0.13.0
 scikit-learn==1.3.2
 plotly==5.17.0
-kaleido==0.2.1 
+kaleido==0.2.1
+# Enhanced narrative service dependencies
+aiohttp==3.9.1
+redis[hiredis]==5.0.1
+asyncio-redis==0.15.0 

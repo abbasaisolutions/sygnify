@@ -22,6 +22,8 @@ class WebSocketService {
     this.heartbeatInterval = 30000; // 30 seconds between pings (increased from default)
     this.connectionStatus = 'disconnected';
     this.version = '2.0.0'; // Version for cache busting
+    this.jobCompleted = new Set(); // Track completed jobs to stop unnecessary pings
+    this.heartbeatEnabled = true; // Global heartbeat control
     
     console.log('🔧 WebSocketService initialized with version:', this.version);
   }
@@ -181,14 +183,29 @@ class WebSocketService {
   }
 
   /**
-   * Subscribe to job updates
+   * Reset completed jobs (useful when starting fresh)
+   */
+  resetCompletedJobs() {
+    console.log('🔄 Resetting completed jobs');
+    this.jobCompleted.clear();
+    this.heartbeatEnabled = true;
+  }
+
+  /**
+   * Subscribe to job-specific updates
    */
   subscribeToJob(jobId) {
-    if (this.isConnected) {
-      this.sendMessage({
-        type: 'subscribe',
-        job_id: jobId
-      });
+    console.log('📡 Subscribing to job updates:', jobId);
+    
+    // Enable heartbeat when new jobs start
+    this.enableHeartbeat();
+    
+    // Connect to job-specific WebSocket
+    this.connectToJob(jobId);
+    
+    // Add to job listeners
+    if (!this.jobListeners.has(jobId)) {
+      this.jobListeners.set(jobId, new Map());
     }
   }
 
@@ -296,21 +313,27 @@ class WebSocketService {
   }
 
   /**
-   * Clean up all listeners for a specific job
+   * Clean up job-specific listeners
    */
   cleanupJobListeners(jobId) {
-    const keysToRemove = [];
+    console.log('🧹 Cleaning up job listeners for:', jobId);
     
-    for (const [key, listeners] of this.jobListeners.entries()) {
-      if (key.startsWith(`job_${jobId}_`)) {
-        keysToRemove.push(key);
-      }
+    // Mark job as completed
+    this.markJobCompleted(jobId);
+    
+    // Remove job listeners
+    if (this.jobListeners.has(jobId)) {
+      this.jobListeners.delete(jobId);
     }
     
-    keysToRemove.forEach(key => {
-      this.jobListeners.delete(key);
-      console.log(`🧹 Cleaned up job listeners for: ${key}`);
-    });
+    // Close job-specific WebSocket if it exists
+    if (this.jobWs) {
+      console.log('🔧 Closing job WebSocket connection');
+      this.jobWs.close();
+      this.jobWs = null;
+    }
+    
+    console.log('🧹 Job listeners cleaned up for:', jobId);
   }
 
   /**
@@ -472,22 +495,20 @@ class WebSocketService {
   }
 
   /**
-   * Get debug information about current listeners
+   * Get debug info including heartbeat status
    */
   getDebugInfo() {
-    const info = {
+    return {
       isConnected: this.isConnected,
+      connectionStatus: this.connectionStatus,
       reconnectAttempts: this.reconnectAttempts,
-      totalListeners: this.listeners.size,
-      totalJobListeners: this.jobListeners.size,
-      jobListeners: {}
+      lastPingTime: this.lastPingTime,
+      heartbeatEnabled: this.heartbeatEnabled,
+      activeJobCount: this.getActiveJobCount(),
+      totalJobCount: this.jobListeners.size,
+      completedJobs: Array.from(this.jobCompleted),
+      version: this.version
     };
-    
-    for (const [key, listeners] of this.jobListeners.entries()) {
-      info.jobListeners[key] = listeners.length;
-    }
-    
-    return info;
   }
 
   /**
@@ -508,6 +529,20 @@ class WebSocketService {
     console.log('💓 Starting WebSocket heartbeat with interval:', this.heartbeatInterval, 'ms');
     
     this.pingInterval = setInterval(() => {
+      // Only send pings if heartbeat is enabled and we have active jobs
+      if (!this.heartbeatEnabled) {
+        console.log('💓 Heartbeat disabled - skipping ping');
+        return;
+      }
+      
+      // Check if we have any active jobs (not completed)
+      const hasActiveJobs = this.hasActiveJobs();
+      
+      if (!hasActiveJobs) {
+        console.log('💓 No active jobs - skipping ping to reduce noise');
+        return;
+      }
+      
       if (this.ws && this.isConnected && this.ws.readyState === WebSocket.OPEN) {
         console.log('💓 Sending ping to main WebSocket');
         this.ws.send(JSON.stringify({ type: 'ping' }));
@@ -666,6 +701,46 @@ class WebSocketService {
       listenersCount: this.listeners.size,
       jobListenersCount: this.jobListeners.size
     };
+  }
+
+  /**
+   * Mark a job as completed to stop unnecessary pings
+   */
+  markJobCompleted(jobId) {
+    console.log('✅ Marking job as completed:', jobId);
+    this.jobCompleted.add(jobId);
+    
+    // If all jobs are completed, disable heartbeat
+    const allJobsCompleted = Array.from(this.jobListeners.keys()).every(jobId => 
+      this.jobCompleted.has(jobId)
+    );
+    
+    if (allJobsCompleted && this.jobListeners.size > 0) {
+      console.log('💓 All jobs completed - disabling heartbeat to reduce noise');
+      this.heartbeatEnabled = false;
+    }
+  }
+
+  /**
+   * Re-enable heartbeat when new jobs start
+   */
+  enableHeartbeat() {
+    console.log('💓 Re-enabling heartbeat for new jobs');
+    this.heartbeatEnabled = true;
+  }
+
+  /**
+   * Get number of active jobs
+   */
+  getActiveJobCount() {
+    return Array.from(this.jobListeners.keys()).filter(jobId => !this.jobCompleted.has(jobId)).length;
+  }
+
+  /**
+   * Check if there are any active jobs
+   */
+  hasActiveJobs() {
+    return this.getActiveJobCount() > 0;
   }
 }
 
