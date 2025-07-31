@@ -38,4 +38,8 @@ kaleido==0.2.1
 email-validator==2.1.0
 slowapi==0.1.9
 python-multipart==0.0.6
-bcrypt==4.1.2 
+bcrypt==4.1.2
+# Enhanced AI narrative dependencies
+aiohttp==3.9.5
+redis[hiredis]==5.0.1
+asyncio-redis==0.16.0 

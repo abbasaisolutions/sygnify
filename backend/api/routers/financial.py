@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 import pandas as pd
 import json
 import logging
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 from datetime import datetime
 import asyncio
 
@@ -15,6 +15,7 @@ import asyncio
 from ..services.llm_service import llm_service
 from ..services.data_quality_service import data_quality_service
 from ..services.job_simulation_service import job_simulator
+from ..services.enhanced_narrative_service import enhanced_narrative_service, NarrativeRequest, NarrativeType
 
 # Import global job status manager
 from ..job_status_manager import job_status_manager
@@ -229,6 +230,169 @@ async def perform_ai_analysis_endpoint(
     except Exception as e:
         logger.error(f"Error in AI analysis: {e}")
         raise HTTPException(status_code=500, detail=f"AI analysis failed: {str(e)}")
+
+@router.post("/enhanced-narrative")
+async def generate_enhanced_narrative(
+    data: Dict,
+    narrative_type: str = "executive_summary",
+    user_role: str = "executive",
+    tone: str = "professional",
+    length: str = "concise"
+):
+    """
+    Generate enhanced AI narrative using enterprise narrative service
+    """
+    try:
+        # Validate narrative type
+        try:
+            narrative_enum = NarrativeType(narrative_type)
+        except ValueError:
+            narrative_enum = NarrativeType.EXECUTIVE_SUMMARY
+        
+        # Extract data components
+        records = data.get("data", [])
+        labels = data.get("labels", {})
+        metrics = data.get("metrics", {})
+        
+        if not records:
+            raise HTTPException(status_code=400, detail="No data provided for narrative generation")
+        
+        # Create narrative request
+        request = NarrativeRequest(
+            data=records,
+            labels=labels,
+            metrics=metrics,
+            narrative_type=narrative_enum,
+            user_role=user_role,
+            tone=tone,
+            length=length
+        )
+        
+        # Generate narrative using enhanced service
+        narrative_response = await enhanced_narrative_service.generate_narrative(request)
+        
+        return {
+            "narrative": {
+                "headline": narrative_response.headline,
+                "executive_summary": narrative_response.executive_summary,
+                "key_insights": narrative_response.key_insights,
+                "recommendations": narrative_response.recommendations,
+                "financial_metrics": narrative_response.financial_metrics,
+                "risk_assessment": narrative_response.risk_assessment,
+                "market_context": getattr(narrative_response, 'market_context', {}),
+                "compliance_notes": getattr(narrative_response, 'compliance_notes', [])
+            },
+            "metadata": {
+                "confidence_score": narrative_response.confidence_score,
+                "generation_time": narrative_response.generation_time,
+                "model_used": narrative_response.model_used,
+                "cached": narrative_response.cached,
+                "narrative_type": narrative_type,
+                "user_role": user_role,
+                "timestamp": datetime.now().isoformat()
+            }
+        }
+        
+    except Exception as e:
+        logger.error(f"Enhanced narrative generation failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Narrative generation failed: {str(e)}")
+
+@router.get("/narrative-performance")
+async def get_narrative_performance():
+    """
+    Get AI narrative service performance statistics
+    """
+    try:
+        stats = enhanced_narrative_service.get_performance_stats()
+        return {
+            "performance": stats,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to retrieve performance stats: {e}")
+        raise HTTPException(status_code=500, detail=f"Performance stats unavailable: {str(e)}")
+
+@router.post("/bulk-narratives")
+async def generate_bulk_narratives(
+    requests: List[Dict],
+    background_tasks: BackgroundTasks = None
+):
+    """
+    Generate multiple narratives in bulk for different user roles or narrative types
+    """
+    try:
+        if len(requests) > 10:
+            raise HTTPException(status_code=400, detail="Maximum 10 narrative requests per bulk operation")
+        
+        results = []
+        
+        for i, request_data in enumerate(requests):
+            try:
+                # Extract request parameters
+                records = request_data.get("data", [])
+                labels = request_data.get("labels", {})
+                metrics = request_data.get("metrics", {})
+                narrative_type = request_data.get("narrative_type", "executive_summary")
+                user_role = request_data.get("user_role", "executive")
+                tone = request_data.get("tone", "professional")
+                length = request_data.get("length", "concise")
+                
+                # Validate narrative type
+                try:
+                    narrative_enum = NarrativeType(narrative_type)
+                except ValueError:
+                    narrative_enum = NarrativeType.EXECUTIVE_SUMMARY
+                
+                # Create narrative request
+                request_obj = NarrativeRequest(
+                    data=records,
+                    labels=labels,
+                    metrics=metrics,
+                    narrative_type=narrative_enum,
+                    user_role=user_role,
+                    tone=tone,
+                    length=length
+                )
+                
+                # Generate narrative
+                narrative_response = await enhanced_narrative_service.generate_narrative(request_obj)
+                
+                results.append({
+                    "index": i,
+                    "success": True,
+                    "narrative": {
+                        "headline": narrative_response.headline,
+                        "executive_summary": narrative_response.executive_summary,
+                        "key_insights": narrative_response.key_insights,
+                        "recommendations": narrative_response.recommendations
+                    },
+                    "metadata": {
+                        "confidence_score": narrative_response.confidence_score,
+                        "generation_time": narrative_response.generation_time,
+                        "model_used": narrative_response.model_used,
+                        "cached": narrative_response.cached
+                    }
+                })
+                
+            except Exception as e:
+                logger.error(f"Bulk narrative generation failed for request {i}: {e}")
+                results.append({
+                    "index": i,
+                    "success": False,
+                    "error": str(e)
+                })
+        
+        return {
+            "results": results,
+            "total_requests": len(requests),
+            "successful": sum(1 for r in results if r["success"]),
+            "failed": sum(1 for r in results if not r["success"]),
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Bulk narrative generation failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Bulk generation failed: {str(e)}")
 
 @router.post("/test-job")
 async def create_test_job():
