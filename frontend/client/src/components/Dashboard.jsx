@@ -1,516 +1,523 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
-  Brain, TrendingUp, Users, Truck, Settings, Globe, 
-  BarChart3, PieChart, Activity, Shield, Target, Rocket,
-  Sparkles, Zap, CheckCircle, AlertTriangle, Info, 
-  Download, Share2, RefreshCw, Eye, EyeOff, DollarSign,
-  TrendingDown, AlertCircle, Lightbulb, BarChart2, 
-  ActivitySquare, Target as TargetIcon, Zap as ZapIcon, Wifi
+  BarChart3, TrendingUp, DollarSign, AlertTriangle, 
+  CheckCircle, ArrowUpRight, ArrowDownRight, Activity,
+  PieChart, Target, Shield, Zap, Download, Share2,
+  Globe, TrendingDown, DollarSign as DollarIcon,
+  Wifi, WifiOff, Bell
 } from 'lucide-react';
-import RealTimeDashboard from './RealTimeDashboard.jsx';
+import marketDataService from '../services/marketDataService';
+import realtimeMarketService from '../services/realtimeMarketService';
 
-// Simple Chart Component
-const SimpleChart = ({ data, title, type = 'bar' }) => {
-  if (!data || data.length === 0) {
-    return (
-      <div className="bg-white rounded-xl p-6 text-center">
-        <BarChart3 className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
-        <p className="text-gray-600">No data available for visualization</p>
-      </div>
-    );
-  }
-
-  const maxValue = Math.max(...data.map(d => d.value));
-  
-  return (
-    <div className="bg-white rounded-xl p-6">
-      <h3 className="text-lg font-semibold text-gray-800 mb-4">{title}</h3>
-      <div className="space-y-3">
-        {data.map((item, index) => (
-          <div key={index} className="flex items-center gap-3">
-            <div className="flex-1">
-              <div className="flex justify-between text-sm mb-1">
-                <span className="font-medium text-gray-700">{item.name}</span>
-                <span className="text-gray-600">{item.value}</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full transition-all duration-500"
-                  style={{ width: `${(item.value / maxValue) * 100}%` }}
-                />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// Domain-specific configurations
-const DOMAIN_CONFIG = {
-  finance: {
-    label: 'Finance Analytics',
-    icon: <TrendingUp className="w-8 h-8" />,
-    color: 'from-[#ff6b35] via-[#f7931e] to-[#ffd23f]',
-    glow: 'shadow-[0_0_24px_rgba(255,107,53,0.4)]',
-    bgGradient: 'from-orange-50 via-yellow-50 to-amber-50',
-    insights: [
-      { title: 'Revenue Trends', icon: <TrendingUp />, color: 'text-green-600' },
-      { title: 'Risk Assessment', icon: <Shield />, color: 'text-red-600' },
-      { title: 'Market Analysis', icon: <BarChart3 />, color: 'text-blue-600' },
-      { title: 'Investment Insights', icon: <Target />, color: 'text-purple-600' }
-    ]
-  },
-  hr: {
-    label: 'HR Analytics',
-    icon: <Users className="w-8 h-8" />,
-    color: 'from-[#ff6b9d] via-[#c44569] to-[#f093fb]',
-    glow: 'shadow-[0_0_24px_rgba(255,107,157,0.4)]',
-    bgGradient: 'from-pink-50 via-purple-50 to-indigo-50',
-    insights: [
-      { title: 'Employee Performance', icon: <Activity />, color: 'text-green-600' },
-      { title: 'Turnover Analysis', icon: <Users />, color: 'text-red-600' },
-      { title: 'Recruitment Metrics', icon: <Target />, color: 'text-blue-600' },
-      { title: 'Workforce Planning', icon: <BarChart3 />, color: 'text-purple-600' }
-    ]
-  },
-  supply_chain: {
-    label: 'Supply Chain Analytics',
-    icon: <Truck className="w-8 h-8" />,
-    color: 'from-[#4facfe] via-[#00f2fe] to-[#43e97b]',
-    glow: 'shadow-[0_0_24px_rgba(79,172,254,0.4)]',
-    bgGradient: 'from-blue-50 via-cyan-50 to-green-50',
-    insights: [
-      { title: 'Inventory Management', icon: <BarChart3 />, color: 'text-green-600' },
-      { title: 'Delivery Optimization', icon: <Truck />, color: 'text-blue-600' },
-      { title: 'Cost Analysis', icon: <TrendingUp />, color: 'text-red-600' },
-      { title: 'Supplier Performance', icon: <Target />, color: 'text-purple-600' }
-    ]
-  },
-  operations: {
-    label: 'Operations Analytics',
-    icon: <Settings className="w-8 h-8" />,
-    color: 'from-[#667eea] via-[#764ba2] to-[#f093fb]',
-    glow: 'shadow-[0_0_24px_rgba(102,126,234,0.4)]',
-    bgGradient: 'from-purple-50 via-indigo-50 to-pink-50',
-    insights: [
-      { title: 'Process Efficiency', icon: <Activity />, color: 'text-green-600' },
-      { title: 'Quality Metrics', icon: <Shield />, color: 'text-blue-600' },
-      { title: 'Resource Allocation', icon: <Target />, color: 'text-purple-600' },
-      { title: 'Performance KPIs', icon: <BarChart3 />, color: 'text-orange-600' }
-    ]
-  },
-  general: {
-    label: 'General Analytics',
-    icon: <Globe className="w-8 h-8" />,
-    color: 'from-[#a8edea] via-[#fed6e3] to-[#ffecd2]',
-    glow: 'shadow-[0_0_24px_rgba(168,237,234,0.4)]',
-    bgGradient: 'from-teal-50 via-pink-50 to-orange-50',
-    insights: [
-      { title: 'Data Quality', icon: <Shield />, color: 'text-green-600' },
-      { title: 'Pattern Recognition', icon: <Brain />, color: 'text-blue-600' },
-      { title: 'Predictive Insights', icon: <Target />, color: 'text-purple-600' },
-      { title: 'Business Intelligence', icon: <BarChart3 />, color: 'text-orange-600' }
-    ]
-  }
-};
-
-const Dashboard = ({ analysisResults, selectedDomain, selectedSource }) => {
+const Dashboard = ({ analysisResults, onBackToLanding }) => {
   const [activeTab, setActiveTab] = useState('overview');
-  const [showAdvanced, setShowAdvanced] = useState(false);
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [selectedKPI, setSelectedKPI] = useState(null);
+  const [marketData, setMarketData] = useState(null);
+  const [marketDataLoading, setMarketDataLoading] = useState(false);
+  const [marketDataError, setMarketDataError] = useState(null);
+  
+  // Real-time market data state
+  const [realtimeData, setRealtimeData] = useState({});
+  const [realtimeConnected, setRealtimeConnected] = useState(false);
+  const [marketAlerts, setMarketAlerts] = useState([]);
+  const [streamStatus, setStreamStatus] = useState(null);
 
-  // Debug logging
+  // Extract financial KPIs from analysis results
+  const financialKPIs = analysisResults?.financial_kpis || {};
+  const mlPrompts = analysisResults?.ml_prompts || [];
+  const riskAssessment = analysisResults?.risk_assessment || {};
+  const recommendations = analysisResults?.recommendations || [];
+
+  // Check for error status
+  const hasError = analysisResults?.status === 'error';
+  const errorMessage = analysisResults?.error;
+
+  // Fetch market data on component mount
   useEffect(() => {
-    console.log('Dashboard received analysisResults:', analysisResults);
-    console.log('Key insights:', analysisResults?.key_insights);
-    console.log('External context:', analysisResults?.external_context);
-    console.log('LLaMA3 narrative:', analysisResults?.llama3_narrative);
-  }, [analysisResults]);
+    const fetchMarketData = async () => {
+      setMarketDataLoading(true);
+      setMarketDataError(null);
+      
+      try {
+        const data = await marketDataService.getAllMarketData();
+        setMarketData(data);
+        console.log('📊 Market data loaded successfully:', data);
+      } catch (error) {
+        console.error('❌ Error fetching market data:', error);
+        setMarketDataError(error.message);
+      } finally {
+        setMarketDataLoading(false);
+      }
+    };
 
-  const domainConfig = DOMAIN_CONFIG[selectedDomain] || DOMAIN_CONFIG.general;
+    fetchMarketData();
+  }, []);
 
-  const handleRefresh = async () => {
-    setIsRefreshing(true);
-    // Simulate refresh
-    setTimeout(() => setIsRefreshing(false), 2000);
-  };
+  // Real-time market data functionality
+  useEffect(() => {
+    // Connect to real-time market service
+    realtimeMarketService.connect();
 
-  const handleExport = () => {
-    // Export functionality
-    alert('Export functionality coming soon!');
-  };
+    // Set up event listeners
+    const handleConnection = (data) => {
+      setRealtimeConnected(data.connected);
+      console.log('Real-time connection status:', data.connected);
+    };
 
-  const handleShare = () => {
-    // Share functionality
-    alert('Share functionality coming soon!');
-  };
+    const handleMarketUpdate = (data) => {
+      setRealtimeData(prev => ({
+        ...prev,
+        [data.stream_type]: data.data
+      }));
+      console.log('Real-time market update:', data.stream_type, data.data);
+    };
 
-  // Helper function to get insight count
-  const getInsightCount = () => {
-    if (!analysisResults) return 0;
-    return (analysisResults.key_insights?.length || 0) + 
-           (analysisResults.external_context?.length || 0);
-  };
+    const handleMarketAlert = (data) => {
+      setMarketAlerts(prev => [data.alert, ...prev.slice(0, 9)]); // Keep last 10 alerts
+      console.log('Market alert received:', data.alert);
+    };
 
-  // Helper function to get confidence score
-  const getAverageConfidence = () => {
-    if (!analysisResults?.key_insights) return 0;
-    const insights = analysisResults.key_insights;
-    const totalConfidence = insights.reduce((sum, insight) => sum + (insight.confidence || 0), 0);
-    return Math.round((totalConfidence / insights.length) * 100);
-  };
+    const handleStreamStatus = (data) => {
+      setStreamStatus(data.status);
+      console.log('Stream status updated:', data.status);
+    };
 
-  // Helper function to get impact distribution
-  const getImpactDistribution = () => {
-    if (!analysisResults?.key_insights) return { high: 0, medium: 0, low: 0 };
-    const insights = analysisResults.key_insights;
-    const distribution = { high: 0, medium: 0, low: 0 };
-    insights.forEach(insight => {
-      const impact = insight.impact || 'medium';
-      distribution[impact]++;
-    });
-    return distribution;
-  };
+    // Add event listeners
+    realtimeMarketService.addEventListener('connection', handleConnection);
+    realtimeMarketService.addEventListener('market_update', handleMarketUpdate);
+    realtimeMarketService.addEventListener('market_alert', handleMarketAlert);
+    realtimeMarketService.addEventListener('stream_status', handleStreamStatus);
 
-  return (
-    <div className={`min-h-screen bg-gradient-to-br ${domainConfig.bgGradient}`}>
-      {/* Header Section */}
+    // Subscribe to all market data streams
+    setTimeout(() => {
+      if (realtimeMarketService.getConnectionStatus().connected) {
+        realtimeMarketService.subscribeToAll();
+        realtimeMarketService.getStatus();
+      }
+    }, 1000);
+
+    // Cleanup on unmount
+    return () => {
+      realtimeMarketService.removeEventListener('connection', handleConnection);
+      realtimeMarketService.removeEventListener('market_update', handleMarketUpdate);
+      realtimeMarketService.removeEventListener('market_alert', handleMarketAlert);
+      realtimeMarketService.removeEventListener('stream_status', handleStreamStatus);
+      realtimeMarketService.disconnect();
+    };
+  }, []);
+
+  const tabs = [
+    { id: 'overview', label: 'Overview', icon: BarChart3 },
+    { id: 'kpis', label: 'Financial KPIs', icon: TrendingUp },
+    { id: 'insights', label: 'AI Insights', icon: Zap },
+    { id: 'market', label: 'Market Trends', icon: Activity },
+    { id: 'risks', label: 'Risk Assessment', icon: Shield },
+    { id: 'recommendations', label: 'Recommendations', icon: Target }
+  ];
+
+  const KPICard = ({ title, value, trend, color, icon: Icon }) => (
       <motion.div 
-        className="mb-8"
-        initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-4">
-            <div className={`w-16 h-16 bg-gradient-to-br ${domainConfig.color} rounded-2xl shadow-lg flex items-center justify-center ${domainConfig.glow}`}>
-              {domainConfig.icon}
+      className="bg-white rounded-xl p-6 shadow-lg border border-gray-100"
+    >
+      <div className="flex items-center justify-between mb-4">
+        <div className={`p-2 rounded-lg ${color}`}>
+          <Icon className="w-6 h-6 text-white" />
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-800">{domainConfig.label}</h1>
-              <p className="text-gray-600">AI-Powered Insights & Analytics</p>
+        {value && value !== "N/A" && (
+          <div className="flex items-center space-x-1">
+            {trend === 'up' ? (
+              <ArrowUpRight className="w-4 h-4 text-green-500" />
+            ) : (
+              <ArrowDownRight className="w-4 h-4 text-red-500" />
+            )}
+            <span className={`text-sm font-medium ${trend === 'up' ? 'text-green-500' : 'text-red-500'}`}>
+              {trend === 'up' ? 'Positive' : 'Negative'}
+            </span>
           </div>
+        )}
           </div>
-          
-          <div className="flex items-center gap-3">
-            <motion.button
-              onClick={handleRefresh}
-              disabled={isRefreshing}
-              className="p-3 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-50"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <RefreshCw className={`w-5 h-5 text-gray-600 ${isRefreshing ? 'animate-spin' : ''}`} />
-            </motion.button>
-            <motion.button
-              onClick={handleExport}
-              className="p-3 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download className="w-5 h-5 text-gray-600" />
-            </motion.button>
-            <motion.button
-              onClick={handleShare}
-              className="p-3 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Share2 className="w-5 h-5 text-gray-600" />
-            </motion.button>
-          </div>
-        </div>
+      <h3 className="text-gray-600 text-sm font-medium mb-1">{title}</h3>
+      <p className="text-2xl font-bold text-gray-900">{value || "No data available"}</p>
+    </motion.div>
+  );
 
-        {/* Status Banner */}
-        {analysisResults && (
+  const InsightCard = ({ insight, index }) => (
           <motion.div 
-            className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-green-500"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6 text-green-600" />
+      transition={{ delay: index * 0.1 }}
+      className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200"
+    >
+      <div className="flex items-start space-x-3">
+        <div className="p-2 bg-blue-500 rounded-lg">
+          <Zap className="w-4 h-4 text-white" />
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800">Analysis Complete</h3>
-                  <p className="text-gray-600">
-                    {analysisResults.llama3_narrative ? 
-                      'Your data has been successfully analyzed with AI-powered insights.' :
-                      'Analysis completed successfully.'
-                    }
-                  </p>
+        <div className="flex-1">
+          <h4 className="font-medium text-gray-900 mb-1">{insight.title}</h4>
+          <p className="text-sm text-gray-600">{insight.description}</p>
                 </div>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500">Completed</p>
-                <p className="text-sm font-medium text-gray-800">
-                  {new Date().toLocaleString()}
+    </motion.div>
+  );
+
+  const RiskCard = ({ risk, level, index }) => (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: index * 0.1 }}
+      className={`rounded-lg p-4 border ${
+        level === 'low' ? 'bg-green-50 border-green-200' :
+        level === 'medium' ? 'bg-yellow-50 border-yellow-200' :
+        'bg-red-50 border-red-200'
+      }`}
+    >
+      <div className="flex items-center space-x-3">
+        <div className={`p-2 rounded-lg ${
+          level === 'low' ? 'bg-green-500' :
+          level === 'medium' ? 'bg-yellow-500' :
+          'bg-red-500'
+        }`}>
+          <Shield className="w-4 h-4 text-white" />
+        </div>
+        <div className="flex-1">
+          <h4 className="font-medium text-gray-900">{risk}</h4>
+          <p className={`text-sm font-medium ${
+            level === 'low' ? 'text-green-600' :
+            level === 'medium' ? 'text-yellow-600' :
+            'text-red-600'
+          }`}>
+            {level.toUpperCase()} RISK
                 </p>
         </div>
       </div>
           </motion.div>
-        )}
-      </motion.div>
+  );
 
-      {/* Navigation Tabs */}
+  const RecommendationCard = ({ recommendation, index }) => (
       <motion.div 
-        className="mb-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-      >
-        <div className="bg-white rounded-2xl shadow-lg p-2">
-          <div className="flex space-x-2">
-            {[
-              { id: 'overview', label: 'Overview', icon: <BarChart3 className="w-5 h-5" /> },
-              { id: 'insights', label: 'AI Insights', icon: <Brain className="w-5 h-5" /> },
-              { id: 'market', label: 'Market Context', icon: <TrendingUp className="w-5 h-5" /> },
-              { id: 'narrative', label: 'AI Narrative', icon: <Lightbulb className="w-5 h-5" /> },
-              { id: 'realtime', label: 'Real-Time Monitor', icon: <Wifi className="w-5 h-5" /> },
-              { id: 'advanced', label: 'Advanced Analytics', icon: <Activity className="w-5 h-5" /> }
-            ].map((tab) => (
+      transition={{ delay: index * 0.1 }}
+      className="bg-white rounded-lg p-4 shadow-sm border border-gray-200"
+    >
+      <div className="flex items-start space-x-3">
+        <div className="p-2 bg-green-500 rounded-lg">
+          <Target className="w-4 h-4 text-white" />
+        </div>
+        <div className="flex-1">
+          <h4 className="font-medium text-gray-900 mb-1">Recommendation {index + 1}</h4>
+          <p className="text-sm text-gray-600">{recommendation}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white shadow-sm border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-4">
+              <h1 className="text-2xl font-bold text-gray-900">Sygnify Dashboard</h1>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span className="text-sm text-green-600 font-medium">Analysis Complete</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <button className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                <Download className="w-4 h-4" />
+                <span>Export</span>
+              </button>
+              <button className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                <Share2 className="w-4 h-4" />
+                <span>Share</span>
+              </button>
+              <button 
+                onClick={onBackToLanding}
+                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+              >
+                New Analysis
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex space-x-8">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                  className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === tab.id
-                    ? `bg-gradient-to-r ${domainConfig.color} text-white shadow-lg`
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                      ? 'border-blue-500 text-blue-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                {tab.icon}
-                {tab.label}
+                  <Icon className="w-4 h-4" />
+                  <span>{tab.label}</span>
               </button>
-            ))}
+              );
+            })}
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Content Sections */}
-      <AnimatePresence mode="wait">
-        {activeTab === 'overview' && (
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {hasError && (
           <motion.div
-            key="overview"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="bg-red-50 border border-red-200 rounded-xl p-6 mb-6"
           >
-            {/* Key Metrics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <motion.div
-                className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${domainConfig.color} rounded-xl flex items-center justify-center`}>
-                    <Brain className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Total Insights</h3>
-                    <p className="text-2xl font-bold text-gray-900">{getInsightCount()}</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${domainConfig.color} rounded-xl flex items-center justify-center`}>
-                    <TargetIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">AI Confidence</h3>
-                    <p className="text-2xl font-bold text-gray-900">{getAverageConfidence()}%</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${domainConfig.color} rounded-xl flex items-center justify-center`}>
-                    <AlertCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">High Impact</h3>
-                    <p className="text-2xl font-bold text-gray-900">{getImpactDistribution().high}</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${domainConfig.color} rounded-xl flex items-center justify-center`}>
-                    <ZapIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">Market Signals</h3>
-                    <p className="text-2xl font-bold text-gray-900">{analysisResults?.external_context?.length || 0}</p>
-                  </div>
-                </div>
-              </motion.div>
-      </div>
-      
-            {/* Visualizations */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <SimpleChart 
-                data={analysisResults?.key_insights?.map(insight => ({
-                  name: insight.category,
-                  value: Math.round((insight.confidence || 0) * 100)
-                })) || []}
-                title="Insight Confidence Levels"
-              />
-              <SimpleChart 
-                data={analysisResults?.external_context?.map(context => ({
-                  name: context.title,
-                  value: Math.round((context.confidence || 0) * 100)
-                })) || []}
-                title="Market Context Confidence"
-              />
-            </div>
-
-            {/* Quick Actions */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Actions</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <motion.button
-                  onClick={() => setActiveTab('insights')}
-                  className="p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:shadow-lg transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center gap-3">
-                    <Eye className="w-6 h-6" />
-                    <div className="text-left">
-                      <div className="font-semibold">View Insights</div>
-                      <div className="text-sm opacity-90">Deep dive into AI insights</div>
-                    </div>
-                  </div>
-                </motion.button>
-                
-                <motion.button
-                  onClick={() => setActiveTab('market')}
-                  className="p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:shadow-lg transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center gap-3">
-                    <TrendingUp className="w-6 h-6" />
-                    <div className="text-left">
-                      <div className="font-semibold">Market Context</div>
-                      <div className="text-sm opacity-90">External market data</div>
-                    </div>
-                  </div>
-                </motion.button>
-                
-                <motion.button
-                  onClick={() => setActiveTab('narrative')}
-                  className="p-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center gap-3">
-                    <Lightbulb className="w-6 h-6" />
-                    <div className="text-left">
-                      <div className="font-semibold">AI Narrative</div>
-                      <div className="text-sm opacity-90">LLaMA3 analysis</div>
-                    </div>
-                  </div>
-                </motion.button>
+            <div className="flex items-center space-x-3">
+              <AlertTriangle className="w-6 h-6 text-red-500" />
+              <div>
+                <h3 className="text-lg font-semibold text-red-900">Analysis Error</h3>
+                <p className="text-red-700">{errorMessage}</p>
               </div>
             </div>
+          </motion.div>
+        )}
+        
+        {activeTab === 'overview' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="space-y-6"
+          >
+            {/* KPIs Grid */}
+            {Object.keys(financialKPIs).length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <KPICard
+                  title="Revenue Growth"
+                  value={financialKPIs.revenue_growth}
+                  trend="up"
+                  color="bg-green-500"
+                  icon={TrendingUp}
+                />
+                <KPICard
+                  title="Profit Margin"
+                  value={financialKPIs.profit_margin}
+                  trend="up"
+                  color="bg-blue-500"
+                  icon={DollarSign}
+                />
+                <KPICard
+                  title="Cash Flow"
+                  value={financialKPIs.cash_flow}
+                  trend="up"
+                  color="bg-purple-500"
+                  icon={Activity}
+                />
+                <KPICard
+                  title="ROI"
+                  value={financialKPIs.roi}
+                  trend="up"
+                  color="bg-indigo-500"
+                  icon={BarChart3}
+                />
+              </div>
+            ) : (
+              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+                <div className="flex items-center space-x-3">
+                  <AlertTriangle className="w-6 h-6 text-yellow-500" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-yellow-900">No Financial Data Available</h3>
+                    <p className="text-yellow-700">Financial KPIs will be displayed here once the analysis is complete.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Additional KPIs */}
+            {Object.keys(financialKPIs).length > 4 && (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Additional Financial Metrics</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {Object.entries(financialKPIs)
+                    .filter(([key]) => !['revenue_growth', 'profit_margin', 'cash_flow', 'roi'].includes(key))
+                    .map(([key, value]) => (
+                      <div key={key} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span className="font-medium text-gray-700 capitalize">{key.replace('_', ' ')}</span>
+                        <span className="font-bold text-gray-900">{value}</span>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+
+            {/* Data Summary */}
+            {Object.keys(financialKPIs).length > 0 && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Analysis Summary</h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Data Points Analyzed:</span>
+                      <span className="font-semibold">{analysisResults?.statistical_analysis?.data_points_analyzed || analysisResults?.data_points_analyzed || "N/A"}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Analysis Confidence:</span>
+                      <span className="font-semibold">{analysisResults?.ai_analysis?.confidence_score ? `${(analysisResults.ai_analysis.confidence_score * 100).toFixed(1)}%` : "N/A"}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Analysis Timestamp:</span>
+                      <span className="font-semibold">{analysisResults?.timestamp ? new Date(analysisResults.timestamp).toLocaleString() : "N/A"}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Risk Score:</span>
+                      <span className="font-semibold">{riskAssessment?.risk_score || "N/A"}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Key Metrics</h3>
+                  <div className="space-y-3">
+                    {Object.entries(financialKPIs).slice(0, 4).map(([key, value]) => (
+                      <div key={key} className="flex justify-between items-center">
+                        <span className="text-gray-600 capitalize">{key.replace('_', ' ')}:</span>
+                        <span className="font-semibold">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Quick Market Overview */}
+            {analysisResults?.market_context && (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Market Overview</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {analysisResults.market_context.industry_trends && (
+                    <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                      <h4 className="font-medium text-blue-900 mb-1">Industry Trends</h4>
+                      <p className="text-sm text-blue-800">{analysisResults.market_context.industry_trends}</p>
+                    </div>
+                  )}
+                  {analysisResults.market_context.economic_outlook && (
+                    <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                      <h4 className="font-medium text-green-900 mb-1">Economic Outlook</h4>
+                      <p className="text-sm text-green-800">{analysisResults.market_context.economic_outlook}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        )}
+
+        {activeTab === 'kpis' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="space-y-6"
+          >
+            {Object.keys(financialKPIs).length > 0 ? (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Financial KPIs</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {Object.entries(financialKPIs).map(([key, value]) => (
+                    <div key={key} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                      <span className="font-medium text-gray-700 capitalize">{key.replace('_', ' ')}</span>
+                      <span className="font-bold text-gray-900">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+                <div className="flex items-center space-x-3">
+                  <AlertTriangle className="w-6 h-6 text-yellow-500" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-yellow-900">No Financial KPIs Available</h3>
+                    <p className="text-yellow-700">Financial KPIs will be displayed here once the analysis is complete.</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </motion.div>
         )}
 
         {activeTab === 'insights' && (
           <motion.div
-            key="insights"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             className="space-y-6"
           >
-            {analysisResults?.key_insights ? (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-3">
-                  <Brain className="w-6 h-6 text-blue-600" />
-                  AI-Powered Key Insights
-                </h3>
-                <div className="space-y-4">
-                  {analysisResults.key_insights.map((insight, index) => (
-                    <motion.div
-                      key={index}
-                      className={`p-4 rounded-xl border-l-4 ${
-                        insight.impact === 'high' ? 'bg-red-50 border-red-400' :
-                        insight.impact === 'medium' ? 'bg-yellow-50 border-yellow-400' :
-                        'bg-green-50 border-green-400'
-                      }`}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-gray-900 mb-2">{insight.category}</h4>
-                          <p className="text-gray-700 mb-3">{insight.insight}</p>
-                          {insight.metric1 && insight.metric2 && (
-                            <div className="text-sm text-gray-600 bg-white p-2 rounded">
-                              <span className="font-medium">Correlation:</span> {insight.metric1} ↔ {insight.metric2} 
-                              {insight.correlation && ` (${insight.correlation.toFixed(3)})`}
-                            </div>
-                          )}
-                        </div>
-                        <div className="ml-4 flex flex-col items-end gap-2">
-                          <span className={`px-3 py-1 text-xs rounded-full font-medium ${
-                            insight.impact === 'high' ? 'bg-red-100 text-red-800' :
-                            insight.impact === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-green-100 text-green-800'
-                          }`}>
-                            {insight.impact} impact
-                          </span>
-                          <span className="text-sm text-gray-500">
-                            {Math.round((insight.confidence || 0) * 100)}% confidence
-                          </span>
-                        </div>
+            {/* AI Analysis Narrative */}
+            {analysisResults?.ai_analysis?.analysis && (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">AI Analysis Narrative</h3>
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <p className="text-gray-800 leading-relaxed">{analysisResults.ai_analysis.analysis}</p>
+                  {analysisResults.ai_analysis.confidence_score && (
+                    <div className="mt-3 flex items-center space-x-2">
+                      <span className="text-sm text-gray-600">Confidence Score:</span>
+                      <span className="text-sm font-semibold text-blue-600">
+                        {(analysisResults.ai_analysis.confidence_score * 100).toFixed(1)}%
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Key Insights */}
+            {analysisResults?.ai_analysis?.key_insights?.length > 0 && (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Key Insights</h3>
+                <div className="space-y-3">
+                  {analysisResults.ai_analysis.key_insights.map((insight, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                      <div className="p-1 bg-green-500 rounded-full">
+                        <CheckCircle className="w-4 h-4 text-white" />
                       </div>
-                    </motion.div>
+                      <p className="text-gray-800">{insight}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* ML Prompts */}
+            {mlPrompts.length > 0 ? (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">AI-Generated Analysis Prompts</h3>
+                <div className="space-y-4">
+                  {mlPrompts.map((prompt, index) => (
+                    <InsightCard
+                      key={index}
+                      insight={{
+                        title: `Analysis Prompt ${index + 1}`,
+                        description: prompt
+                      }}
+                      index={index}
+                    />
                   ))}
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                <Brain className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">No Insights Available</h3>
-                <p className="text-gray-600">Complete an analysis to view AI insights</p>
+              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+                <div className="flex items-center space-x-3">
+                  <AlertTriangle className="w-6 h-6 text-yellow-500" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-yellow-900">No AI Insights Available</h3>
+                    <p className="text-yellow-700">AI-generated insights will be displayed here once the analysis is complete.</p>
+                  </div>
+                </div>
               </div>
             )}
           </motion.div>
@@ -518,211 +525,371 @@ const Dashboard = ({ analysisResults, selectedDomain, selectedSource }) => {
 
         {activeTab === 'market' && (
           <motion.div
-            key="market"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             className="space-y-6"
           >
-            {analysisResults?.external_context ? (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-3">
-                  <TrendingUp className="w-6 h-6 text-green-600" />
-                  Market Context & External Data
-                </h3>
-                <div className="space-y-4">
-                  {analysisResults.external_context.map((context, index) => (
-                    <motion.div
-                      key={index}
-                      className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                            {context.title || context.category}
-                            {context.source && (
-                              <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                                {context.source}
-                              </span>
-                            )}
-                          </h4>
-                          <p className="text-gray-700 mb-3">{context.insight}</p>
-                          {context.impact_description && (
-                            <div className="text-sm text-gray-600 bg-white p-2 rounded">
-                              <span className="font-medium">Impact:</span> {context.impact_description}
+            {/* Market Data Loading State */}
+            {marketDataLoading && (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <div className="flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                  <span className="ml-3 text-gray-600">Loading market data...</span>
+                </div>
+              </div>
+            )}
+
+            {/* Market Data Error State */}
+            {marketDataError && (
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                <div className="flex items-center space-x-3">
+                  <AlertTriangle className="w-6 h-6 text-red-500" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-red-900">Market Data Error</h3>
+                    <p className="text-red-700">{marketDataError}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Market Data Content */}
+            {marketData && !marketDataLoading && (
+              <>
+                {/* Market Overview */}
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <Globe className="w-5 h-5 mr-2" />
+                    Market Overview
+                  </h3>
+                  
+                  {/* Major Indices */}
+                  {marketData.indices?.indices && (
+                    <div className="mb-6">
+                      <h4 className="text-md font-semibold text-gray-800 mb-3">Major Indices</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {Object.entries(marketData.indices.indices).map(([symbol, data]) => (
+                          <div key={symbol} className="bg-gray-50 rounded-lg p-4 border">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <h5 className="font-semibold text-gray-900">{symbol}</h5>
+                                <p className="text-2xl font-bold text-gray-900">${data.price?.toFixed(2) || 'N/A'}</p>
+                              </div>
+                              <div className={`text-right ${data.change_percent > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                                <div className="flex items-center">
+                                  {data.change_percent > 0 ? (
+                                    <ArrowUpRight className="w-4 h-4 mr-1" />
+                                  ) : (
+                                    <ArrowDownRight className="w-4 h-4 mr-1" />
+                                  )}
+                                  <span className="font-semibold">
+                                    {data.change_percent?.toFixed(2) || 0}%
+                                  </span>
+                                </div>
+                                <p className="text-sm">
+                                  {data.change > 0 ? '+' : ''}{data.change?.toFixed(2) || 0}
+                                </p>
+                              </div>
                             </div>
-                          )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Market Sentiment */}
+                  {marketData.sentiment?.sentiment && (
+                    <div className="mb-6">
+                      <h4 className="text-md font-semibold text-gray-800 mb-3">Market Sentiment</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                          <h5 className="font-semibold text-blue-900">VIX Volatility Index</h5>
+                          <p className="text-2xl font-bold text-blue-900">
+                            {marketData.sentiment.sentiment.vix_level?.toFixed(2) || 'N/A'}
+                          </p>
+                          <p className="text-sm text-blue-700">
+                            {marketData.sentiment.sentiment.sentiment} sentiment
+                          </p>
                         </div>
-                        <div className="ml-4 flex flex-col items-end gap-2">
-                          <span className={`px-3 py-1 text-xs rounded-full font-medium ${
-                            context.impact === 'high' ? 'bg-red-100 text-red-800' :
-                            context.impact === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-green-100 text-green-800'
-                          }`}>
-                            {context.impact} impact
-                          </span>
-                          <span className="text-sm text-gray-500">
-                            {Math.round((context.confidence || 0) * 100)}% confidence
-                          </span>
+                        <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                          <h5 className="font-semibold text-green-900">Fear & Greed Index</h5>
+                          <p className="text-2xl font-bold text-green-900">
+                            {(marketData.sentiment.sentiment.fear_greed_index * 100)?.toFixed(0) || 'N/A'}
+                          </p>
+                          <p className="text-sm text-green-700">
+                            {marketData.sentiment.sentiment.fear_greed_index > 0.5 ? 'Greed' : 'Fear'}
+                          </p>
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Interest Rates */}
+                {marketData.rates?.interest_rates && (
+                  <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <TrendingUp className="w-5 h-5 mr-2" />
+                      Interest Rates
+                    </h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                      {Object.entries(marketData.rates.interest_rates).map(([term, rate]) => (
+                        <div key={term} className="bg-gray-50 rounded-lg p-3 border text-center">
+                          <h5 className="font-semibold text-gray-800 text-sm">{term.replace('_', ' ').toUpperCase()}</h5>
+                          <p className="text-xl font-bold text-gray-900">{rate?.toFixed(2) || 'N/A'}%</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Commodities */}
+                {marketData.commodities?.commodities && (
+                  <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <DollarIcon className="w-5 h-5 mr-2" />
+                      Commodities
+                    </h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {Object.entries(marketData.commodities.commodities).map(([symbol, price]) => (
+                        <div key={symbol} className="bg-gray-50 rounded-lg p-3 border text-center">
+                          <h5 className="font-semibold text-gray-800 text-sm">
+                            {symbol === 'GC' ? 'Gold' : 
+                             symbol === 'CL' ? 'Crude Oil' :
+                             symbol === 'SI' ? 'Silver' :
+                             symbol === 'PL' ? 'Platinum' :
+                             symbol === 'PA' ? 'Palladium' : symbol}
+                          </h5>
+                          <p className="text-lg font-bold text-gray-900">${price?.toFixed(2) || 'N/A'}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Market Analysis */}
+                {marketData.analysis?.analysis && (
+                  <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Market Analysis</h3>
+                    <div className="space-y-4">
+                      {marketData.analysis.analysis.recommendations?.map((rec, index) => (
+                        <div key={index} className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                          <p className="text-blue-800">{rec}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Real-time Market Data */}
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                      <Wifi className={`w-5 h-5 mr-2 ${realtimeConnected ? 'text-green-500' : 'text-red-500'}`} />
+                      Real-time Market Data
+                    </h3>
+                    <div className="flex items-center space-x-2">
+                      <div className={`w-2 h-2 rounded-full ${realtimeConnected ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                      <span className="text-sm text-gray-600">
+                        {realtimeConnected ? 'Connected' : 'Disconnected'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Real-time Connection Status */}
+                  {!realtimeConnected && (
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                      <div className="flex items-center space-x-2">
+                        <WifiOff className="w-4 h-4 text-yellow-600" />
+                        <span className="text-yellow-800">Real-time connection not available</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Real-time Market Updates */}
+                  {realtimeConnected && Object.keys(realtimeData).length > 0 && (
+                    <div className="space-y-4">
+                      {/* Live Indices */}
+                      {realtimeData.indices && (
+                        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                          <h4 className="font-semibold text-green-900 mb-2 flex items-center">
+                            <TrendingUp className="w-4 h-4 mr-2" />
+                            Live Market Indices
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {Object.entries(realtimeData.indices.indices || {}).slice(0, 4).map(([symbol, data]) => (
+                              <div key={symbol} className="bg-white rounded p-3 border">
+                                <div className="flex justify-between items-center">
+                                  <span className="font-medium text-gray-900">{symbol}</span>
+                                  <span className="font-bold text-gray-900">${data.price?.toFixed(2) || 'N/A'}</span>
+                                </div>
+                                <div className={`text-sm ${data.change_percent > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                                  {data.change_percent > 0 ? '+' : ''}{data.change_percent?.toFixed(2) || 0}%
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Live Sentiment */}
+                      {realtimeData.sentiment && (
+                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                          <h4 className="font-semibold text-blue-900 mb-2 flex items-center">
+                            <Activity className="w-4 h-4 mr-2" />
+                            Live Market Sentiment
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div className="bg-white rounded p-3 border">
+                              <span className="text-sm text-gray-600">VIX Level</span>
+                              <div className="font-bold text-blue-900">
+                                {realtimeData.sentiment.sentiment?.vix_level?.toFixed(2) || 'N/A'}
+                              </div>
+                            </div>
+                            <div className="bg-white rounded p-3 border">
+                              <span className="text-sm text-gray-600">Fear & Greed</span>
+                              <div className="font-bold text-blue-900">
+                                {realtimeData.sentiment.sentiment?.fear_greed_index > 0.5 ? 'Greed' : 'Fear'}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Market Alerts */}
+                  {marketAlerts.length > 0 && (
+                    <div className="mt-4">
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Bell className="w-4 h-4 mr-2" />
+                        Recent Market Alerts
+                      </h4>
+                      <div className="space-y-2">
+                        {marketAlerts.slice(0, 5).map((alert, index) => (
+                          <div key={index} className={`p-3 rounded-lg border ${
+                            alert.severity === 'critical' ? 'bg-red-50 border-red-200' :
+                            alert.severity === 'warning' ? 'bg-yellow-50 border-yellow-200' :
+                            'bg-blue-50 border-blue-200'
+                          }`}>
+                            <div className="flex items-start space-x-2">
+                              <AlertTriangle className={`w-4 h-4 mt-0.5 ${
+                                alert.severity === 'critical' ? 'text-red-500' :
+                                alert.severity === 'warning' ? 'text-yellow-500' :
+                                'text-blue-500'
+                              }`} />
+                              <div className="flex-1">
+                                <div className="font-medium text-gray-900">{alert.symbol}</div>
+                                <div className="text-sm text-gray-600">{alert.message}</div>
+                                <div className="text-xs text-gray-500 mt-1">
+                                  {new Date(alert.timestamp).toLocaleTimeString()}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Stream Status */}
+                  {streamStatus && (
+                    <div className="mt-4 bg-gray-50 rounded-lg p-4">
+                      <h4 className="font-semibold text-gray-900 mb-2">Stream Status</h4>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                        <div>
+                          <span className="text-gray-600">Active Connections:</span>
+                          <div className="font-semibold">{streamStatus.active_connections}</div>
+                        </div>
+                        <div>
+                          <span className="text-gray-600">Total Subscriptions:</span>
+                          <div className="font-semibold">{streamStatus.total_subscriptions}</div>
+                        </div>
+                        <div>
+                          <span className="text-gray-600">Alert Count:</span>
+                          <div className="font-semibold">{streamStatus.alert_count}</div>
+                        </div>
+                        <div>
+                          <span className="text-gray-600">Last Update:</span>
+                          <div className="font-semibold">
+                            {streamStatus.timestamp ? new Date(streamStatus.timestamp).toLocaleTimeString() : 'N/A'}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+          </motion.div>
+        )}
+
+        {activeTab === 'risks' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="space-y-6"
+          >
+            {riskAssessment?.key_risks?.length > 0 ? (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Risk Assessment</h3>
+                <div className="space-y-4">
+                  {riskAssessment.key_risks.map((risk, index) => (
+                    <RiskCard
+                      key={index}
+                      risk={risk}
+                      level={riskAssessment.risk_level}
+                      index={index}
+                    />
                   ))}
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                <TrendingUp className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">No Market Data</h3>
-                <p className="text-gray-600">Complete an analysis to view market context</p>
+              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+                <div className="flex items-center space-x-3">
+                  <AlertTriangle className="w-6 h-6 text-yellow-500" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-yellow-900">No Risk Assessment Available</h3>
+                    <p className="text-yellow-700">Risk assessment will be displayed here once the analysis is complete.</p>
+                  </div>
+                </div>
               </div>
             )}
           </motion.div>
         )}
 
-        {activeTab === 'narrative' && (
+        {activeTab === 'recommendations' && (
           <motion.div
-            key="narrative"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             className="space-y-6"
           >
-            {analysisResults?.llama3_narrative ? (
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-3">
-                  <Lightbulb className="w-6 h-6 text-purple-600" />
-                  LLaMA3 AI Narrative Analysis
-                </h3>
-                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl border border-purple-200">
-                  <div className="prose max-w-none">
-                    <p className="text-gray-800 leading-relaxed text-lg whitespace-pre-line">
-                      {analysisResults.llama3_narrative}
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-purple-200">
-                    <div className="flex items-center gap-2 text-sm text-purple-600">
-                      <Brain className="w-4 h-4" />
-                      <span>Generated by LLaMA3 AI Model</span>
-                    </div>
-                  </div>
+            {recommendations.length > 0 ? (
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Recommendations</h3>
+                <div className="space-y-4">
+                  {recommendations.map((recommendation, index) => (
+                    <RecommendationCard
+                      key={index}
+                      recommendation={recommendation}
+                      index={index}
+                    />
+                  ))}
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                <Lightbulb className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">No AI Narrative</h3>
-                <p className="text-gray-600">Complete an analysis to view LLaMA3 narrative</p>
+              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+                <div className="flex items-center space-x-3">
+                  <AlertTriangle className="w-6 h-6 text-yellow-500" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-yellow-900">No Recommendations Available</h3>
+                    <p className="text-yellow-700">Recommendations will be displayed here once the analysis is complete.</p>
+                  </div>
+                </div>
               </div>
             )}
           </motion.div>
         )}
-
-        {activeTab === 'realtime' && (
-          <motion.div
-            key="realtime"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <RealTimeDashboard />
-          </motion.div>
-        )}
-
-        {activeTab === 'advanced' && (
-          <motion.div
-            key="advanced"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-semibold text-gray-800">Advanced Analytics</h3>
-                <button
-                  onClick={() => setShowAdvanced(!showAdvanced)}
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-                >
-                  {showAdvanced ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  {showAdvanced ? 'Hide' : 'Show'} Advanced
-                </button>
-              </div>
-              
-              {showAdvanced ? (
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl">
-                      <h4 className="font-semibold text-blue-800 mb-3">Insight Distribution</h4>
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <span className="text-blue-700">High Impact</span>
-                          <span className="font-semibold text-blue-800">{getImpactDistribution().high}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-blue-700">Medium Impact</span>
-                          <span className="font-semibold text-blue-800">{getImpactDistribution().medium}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-blue-700">Low Impact</span>
-                          <span className="font-semibold text-blue-800">{getImpactDistribution().low}</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-xl">
-                      <h4 className="font-semibold text-green-800 mb-3">Analysis Metrics</h4>
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <span className="text-green-700">Total Insights</span>
-                          <span className="font-semibold text-green-800">{getInsightCount()}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-green-700">Average Confidence</span>
-                          <span className="font-semibold text-green-800">{getAverageConfidence()}%</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-green-700">Market Signals</span>
-                          <span className="font-semibold text-green-800">{analysisResults?.external_context?.length || 0}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="p-6 bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl">
-                    <h4 className="font-semibold text-purple-800 mb-3">AI Analysis Summary</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-600">Real-time</div>
-                        <div className="text-sm text-purple-700">LLaMA3 Processing</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-600">Enhanced</div>
-                        <div className="text-sm text-purple-700">Data Analysis</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-600">Intelligent</div>
-                        <div className="text-sm text-purple-700">Insight Generation</div>
-                      </div>
-                    </div>
-        </div>
       </div>
-              ) : (
-                <div className="text-center py-12">
-                  <Activity className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">Click "Show Advanced" to view detailed analytics</p>
-                </div>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };

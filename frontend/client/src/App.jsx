@@ -17,17 +17,26 @@ function App() {
   const [analysisResults, setAnalysisResults] = useState(null);
 
   const handleNavigateToProcessing = (data) => {
+    // Clean up any existing state
+    setAnalysisResults(null);
+    setJobData(null);
     setJobData(data);
     setCurrentStep('processing');
   };
 
   const handleProcessingComplete = (results) => {
-    console.log('App: handleProcessingComplete called with results:', results);
-    setAnalysisResults(results);
-    setCurrentStep('dashboard');
+    console.log('📊 App: handleProcessingComplete called with results:', results);
+    if (results) {
+      // Clean up processing state
+      setJobData(null);
+      setAnalysisResults(results);
+      setCurrentStep('dashboard');
+      console.log('✅ Transitioned to dashboard step');
+    }
   };
 
   const handleBackToLanding = () => {
+    // Clean up all state when going back to landing
     setCurrentStep('landing');
     setJobData(null);
     setAnalysisResults(null);
@@ -62,10 +71,9 @@ function App() {
               </div>
             </header>
             <main className="p-6 max-w-7xl mx-auto">
-              <EnhancedDashboard 
+              <Dashboard 
                 analysisResults={analysisResults}
-                selectedDomain={jobData?.selectedDomain}
-                selectedSource={jobData?.selectedSource}
+                onBackToLanding={handleBackToLanding}
               />
             </main>
           </div>

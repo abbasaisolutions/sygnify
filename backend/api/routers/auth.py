@@ -6,16 +6,11 @@ Authentication API Router
 """
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
-from sqlalchemy.orm import Session
-from backend.database.models import User
 from passlib.context import CryptContext
 import jwt
 import os
 from datetime import datetime, timedelta
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from backend.database.models import Base
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
 SECRET_KEY = os.getenv("JWT_SECRET_KEY", "your-super-secret-key")
 ALGORITHM = "HS256"
@@ -23,11 +18,6 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
-
-# Database session setup (for demonstration; use dependency injection in production)
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./sygnify_analytics.db")
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {})
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
@@ -43,12 +33,8 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+# Mock user storage for demonstration
+mock_users = {}
 
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
@@ -63,23 +49,62 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
+@router.get("/health")
+def health_check():
+    """
+    Health check endpoint for auth router
+    """
+    return {
+        "status": "healthy",
+        "router": "auth",
+        "timestamp": datetime.now().isoformat(),
+        "endpoints": [
+            "/register",
+            "/login"
+        ]
+    }
+
 @router.post("/register", response_model=Token)
-def register(user: UserCreate, db: Session = Depends(get_db)):
-    db_user = db.query(User).filter(User.username == user.username).first()
-    if db_user:
+def register(user: UserCreate):
+    """
+    Register a new user
+    """
+    if user.username in mock_users:
         raise HTTPException(status_code=400, detail="Username already registered")
+    
     hashed_password = get_password_hash(user.password)
-    new_user = User(username=user.username, password=hashed_password)
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-    access_token = create_access_token(data={"sub": new_user.username})
+    mock_users[user.username] = {
+        "username": user.username,
+        "hashed_password": hashed_password
+    }
+    
+    access_token = create_access_token(data={"sub": user.username})
     return {"access_token": access_token, "token_type": "bearer"}
 
 @router.post("/login", response_model=Token)
-def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.username == form_data.username).first()
-    if not user or not verify_password(form_data.password, user.password):
+def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    """
+    Login user
+    """
+    user_data = mock_users.get(form_data.username)
+    if not user_data or not verify_password(form_data.password, user_data["hashed_password"]):
         raise HTTPException(status_code=401, detail="Incorrect username or password")
-    access_token = create_access_token(data={"sub": user.username})
-    return {"access_token": access_token, "token_type": "bearer"} 
+    
+    access_token = create_access_token(data={"sub": form_data.username})
+    return {"access_token": access_token, "token_type": "bearer"}
+
+@router.get("/verify")
+def verify_token(token: str = Depends(oauth2_scheme)):
+    """
+    Verify JWT token
+    """
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise HTTPException(status_code=401, detail="Invalid token")
+        return {"username": username, "valid": True}
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token expired")
+    except jwt.JWTError:
+        raise HTTPException(status_code=401, detail="Invalid token") 

@@ -824,18 +824,38 @@ const ComprehensiveKPIDashboard = ({ financialKPIs }) => {
   );
 };
 
-const EnhancedDashboard = ({ analysisResults, selectedDomain, selectedSource }) => {
+const EnhancedDashboard = ({ analysisResults, onBackToLanding }) => {
   const [activeTab, setActiveTab] = useState('overview');
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [selectedKPI, setSelectedKPI] = useState(null);
 
-  // Debug logging
-  useEffect(() => {
-    console.log('EnhancedDashboard received analysisResults:', analysisResults);
-    console.log('Financial KPIs:', analysisResults?.financial_kpis);
-    console.log('ML Prompts:', analysisResults?.ml_prompts);
-    console.log('Enhanced Profiling:', analysisResults?.enhanced_profiling);
-    console.log('Intelligent Analysis:', analysisResults?.intelligent_analysis);
-  }, [analysisResults]);
+  // Extract data from analysis results
+  const financialKPIs = analysisResults?.financial_kpis || {};
+  const mlPrompts = analysisResults?.ml_prompts || [];
+  const enhancedProfiling = analysisResults?.enhanced_profiling || {};
+  const intelligentAnalysis = analysisResults?.intelligent_analysis || {};
+
+  // Check for error status
+  const hasError = analysisResults?.status === 'error';
+  const errorMessage = analysisResults?.error;
+
+  // Error display
+  if (hasError) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-700 text-white flex items-center justify-center">
+        <div className="text-center">
+          <AlertCircle className="w-16 h-16 mx-auto mb-4 text-red-200" />
+          <h1 className="text-2xl font-bold mb-2">Analysis Error</h1>
+          <p className="text-red-200 mb-4">{errorMessage || 'An error occurred during analysis'}</p>
+          <button
+            onClick={onBackToLanding}
+            className="px-6 py-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+          >
+            Back to Landing
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const domainConfig = DOMAIN_CONFIG[selectedDomain] || DOMAIN_CONFIG.general;
 

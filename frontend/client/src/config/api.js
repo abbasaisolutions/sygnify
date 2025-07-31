@@ -11,7 +11,7 @@ export const ENDPOINTS = {
   // Financial Analytics
   upload: `${FINANCIAL_API}/upload`,
   analyze: `${FINANCIAL_API}/analyze`,
-  insights: `${FINANCIAL_API}/insights`,
+  insights: `${FINANCIAL_API}/insights`, // Requires job_id parameter
   startJob: `${FINANCIAL_API}/start-job`,
   jobStatus: (jobId) => `${FINANCIAL_API}/status/${jobId}`,
   

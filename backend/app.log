@@ -302,3 +302,2441 @@ KMeans does not accept missing values encoded as NaN natively. For supervised le
 2025-07-28 09:47:17,096 ERROR Failed to import auth router: No module named 'backend'
 2025-07-28 09:47:17,097 INFO Including financial router in app
 2025-07-28 09:47:17,115 INFO Financial router included successfully
+2025-07-28 14:34:30,490 INFO Matplotlib imported successfully
+2025-07-28 14:34:32,920 INFO NumExpr defaulting to 8 threads.
+2025-07-28 14:34:34,338 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 14:34:34,358 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-28 14:34:35,397 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 14:34:35,458 INFO Real-time financial router imported successfully
+2025-07-28 16:50:08,739 INFO Matplotlib imported successfully
+2025-07-28 16:50:10,212 INFO NumExpr defaulting to 8 threads.
+2025-07-28 16:50:10,707 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 16:50:10,744 INFO Enhanced financial router imported successfully
+2025-07-28 16:50:11,213 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 16:50:11,227 INFO Real-time financial router imported successfully
+2025-07-28 16:50:18,696 INFO Matplotlib imported successfully
+2025-07-28 16:50:20,328 INFO NumExpr defaulting to 8 threads.
+2025-07-28 16:50:20,695 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 16:50:20,720 INFO Enhanced financial router imported successfully
+2025-07-28 16:50:21,410 INFO Auth router imported successfully
+2025-07-28 16:50:21,421 INFO Real-time financial router imported successfully
+2025-07-28 16:50:23,011 INFO Matplotlib imported successfully
+2025-07-28 16:50:24,117 INFO NumExpr defaulting to 8 threads.
+2025-07-28 16:50:24,433 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 16:50:24,461 INFO Enhanced financial router imported successfully
+2025-07-28 16:50:24,868 INFO Auth router imported successfully
+2025-07-28 16:50:24,880 INFO Real-time financial router imported successfully
+2025-07-28 16:50:49,868 INFO Matplotlib imported successfully
+2025-07-28 16:50:50,849 INFO NumExpr defaulting to 8 threads.
+2025-07-28 16:50:55,757 INFO Financial router imported successfully
+2025-07-28 16:50:55,789 INFO Enhanced financial router imported successfully
+2025-07-28 16:50:56,020 INFO Auth router imported successfully
+2025-07-28 16:50:56,040 INFO Real-time financial router imported successfully
+2025-07-28 16:50:58,618 INFO Matplotlib imported successfully
+2025-07-28 16:50:59,521 INFO NumExpr defaulting to 8 threads.
+2025-07-28 16:51:03,607 INFO Financial router imported successfully
+2025-07-28 16:51:03,636 INFO Enhanced financial router imported successfully
+2025-07-28 16:51:03,788 INFO Auth router imported successfully
+2025-07-28 16:51:03,799 INFO Real-time financial router imported successfully
+2025-07-28 16:51:43,955 INFO New WebSocket connection established. Total connections: 1
+2025-07-28 16:55:06,194 INFO WebSocket connection closed. Total connections: 0
+2025-07-28 16:55:28,390 INFO Matplotlib imported successfully
+2025-07-28 16:55:30,429 INFO NumExpr defaulting to 8 threads.
+2025-07-28 16:55:36,190 INFO Financial router imported successfully
+2025-07-28 16:55:36,243 INFO Enhanced financial router imported successfully
+2025-07-28 16:55:36,537 INFO Auth router imported successfully
+2025-07-28 16:55:36,553 INFO Real-time financial router imported successfully
+2025-07-28 16:55:50,823 INFO Matplotlib imported successfully
+2025-07-28 16:55:51,872 INFO NumExpr defaulting to 8 threads.
+2025-07-28 16:55:56,585 INFO Financial router imported successfully
+2025-07-28 16:55:56,624 INFO Enhanced financial router imported successfully
+2025-07-28 16:55:56,802 INFO Auth router imported successfully
+2025-07-28 16:55:56,818 INFO Real-time financial router imported successfully
+2025-07-28 16:56:09,521 INFO WebSocket connected: client_1753739769.520886
+2025-07-28 16:56:09,526 INFO Subscribed to job 6fae3bc5-87db-4933-8ff0-69ba511a65dc
+2025-07-28 16:56:11,281 INFO Successfully read file with utf-8 encoding
+2025-07-28 16:56:11,366 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 16:56:11,369 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 16:56:11,370 WARNING Domain instructions not available, using basic analysis
+2025-07-28 16:56:16,440 INFO Unsubscribed from job 6fae3bc5-87db-4933-8ff0-69ba511a65dc
+2025-07-28 16:57:25,159 INFO New WebSocket connection established. Total connections: 1
+2025-07-28 16:57:25,177 INFO Client subscribed to financial_metrics
+2025-07-28 16:57:25,178 INFO Client subscribed to financial_alerts
+2025-07-28 16:57:28,571 INFO Started monitoring sample_financial_data with 30s interval
+2025-07-28 16:57:28,641 INFO WebSocket connection closed. Total connections: 0
+2025-07-28 16:57:28,641 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 16:57:28,641 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:57:28,641 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:57:28,642 INFO Processed real-time update for sample_financial_data
+2025-07-28 16:57:45,916 INFO WebSocket connected: client_1753739865.914977
+2025-07-28 16:57:45,918 INFO Subscribed to job d2d9d7b5-47e9-4ffc-8392-1efde5e820de
+2025-07-28 16:57:48,267 INFO Successfully read file with utf-8 encoding
+2025-07-28 16:57:48,808 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 16:57:48,808 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 16:57:48,809 WARNING Domain instructions not available, using basic analysis
+2025-07-28 16:57:51,404 INFO Unsubscribed from job d2d9d7b5-47e9-4ffc-8392-1efde5e820de
+2025-07-28 16:57:58,689 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 16:57:58,689 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:57:58,690 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:57:58,690 INFO Processed real-time update for sample_financial_data
+2025-07-28 16:58:28,736 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 16:58:28,737 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:58:28,737 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:58:28,737 INFO Processed real-time update for sample_financial_data
+2025-07-28 16:58:58,784 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 16:58:58,785 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:58:58,785 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:58:58,785 INFO Processed real-time update for sample_financial_data
+2025-07-28 16:59:28,844 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 16:59:28,845 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:59:28,845 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:59:28,845 INFO Processed real-time update for sample_financial_data
+2025-07-28 16:59:58,908 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 16:59:58,909 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:59:58,909 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 16:59:58,910 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:00:29,046 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:00:29,079 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:00:29,140 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:00:29,141 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:00:59,199 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:00:59,200 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:00:59,201 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:00:59,201 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:01:29,310 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:01:29,310 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:01:29,311 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:01:29,311 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:01:59,483 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:01:59,484 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:01:59,484 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:01:59,485 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:02:29,529 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:02:29,529 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:02:29,530 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:02:29,530 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:02:32,043 INFO WebSocket disconnected: client_1753739769.520886
+2025-07-28 17:02:32,060 INFO WebSocket disconnected: client_1753739865.914977
+2025-07-28 17:02:32,061 INFO WebSocket connection closed. Total connections: 0
+2025-07-28 17:02:59,640 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:02:59,640 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:02:59,641 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:02:59,641 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:03:29,702 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:03:29,703 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:03:29,703 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:03:29,703 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:03:59,776 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:03:59,776 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:03:59,777 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:03:59,777 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:04:29,831 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:04:29,831 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:04:29,831 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:04:29,831 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:04:59,879 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:04:59,879 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:04:59,880 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:04:59,880 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:05:29,924 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:05:29,925 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:05:29,925 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:05:29,925 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:05:59,973 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:05:59,973 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:05:59,974 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:05:59,974 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:06:30,069 INFO Broadcasted financial_metrics update to 0 clients
+2025-07-28 17:06:30,070 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:06:30,071 INFO Broadcasted financial_alerts update to 0 clients
+2025-07-28 17:06:30,071 INFO Processed real-time update for sample_financial_data
+2025-07-28 17:06:30,196 INFO Monitoring cancelled for sample_financial_data
+2025-07-28 17:06:32,146 INFO Matplotlib imported successfully
+2025-07-28 17:06:33,606 INFO NumExpr defaulting to 8 threads.
+2025-07-28 17:06:38,078 INFO Financial router imported successfully
+2025-07-28 17:06:38,112 INFO Enhanced financial router imported successfully
+2025-07-28 17:06:38,293 INFO Auth router imported successfully
+2025-07-28 17:06:38,305 INFO Real-time financial router imported successfully
+2025-07-28 17:06:40,580 INFO WebSocket connected: client_1753740400.580801
+2025-07-28 17:06:40,583 INFO Subscribed to job 9f445c37-7bce-4810-b5dd-0f36982b5c10
+2025-07-28 17:06:43,116 INFO Successfully read file with utf-8 encoding
+2025-07-28 17:06:43,671 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 17:06:43,673 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 17:06:43,674 WARNING Domain instructions not available, using basic analysis
+2025-07-28 17:06:46,659 INFO Unsubscribed from job 9f445c37-7bce-4810-b5dd-0f36982b5c10
+2025-07-28 17:06:58,181 INFO Matplotlib imported successfully
+2025-07-28 17:06:59,125 INFO NumExpr defaulting to 8 threads.
+2025-07-28 17:07:03,609 INFO Financial router imported successfully
+2025-07-28 17:07:03,632 INFO Enhanced financial router imported successfully
+2025-07-28 17:07:03,773 INFO Auth router imported successfully
+2025-07-28 17:07:03,785 INFO Real-time financial router imported successfully
+2025-07-28 17:07:05,078 INFO Matplotlib imported successfully
+2025-07-28 17:07:06,324 INFO NumExpr defaulting to 8 threads.
+2025-07-28 17:07:11,133 INFO Financial router imported successfully
+2025-07-28 17:07:11,155 INFO Enhanced financial router imported successfully
+2025-07-28 17:07:11,291 INFO Auth router imported successfully
+2025-07-28 17:07:11,302 INFO Real-time financial router imported successfully
+2025-07-28 17:08:01,051 INFO WebSocket disconnected: client_1753740400.580801
+2025-07-28 17:08:03,143 INFO Matplotlib imported successfully
+2025-07-28 17:08:04,430 INFO NumExpr defaulting to 8 threads.
+2025-07-28 17:08:11,756 INFO Financial router imported successfully
+2025-07-28 17:08:11,791 INFO Enhanced financial router imported successfully
+2025-07-28 17:08:11,965 INFO Auth router imported successfully
+2025-07-28 17:08:11,979 INFO Real-time financial router imported successfully
+2025-07-28 17:08:12,081 INFO WebSocket connected: client_1753740492.080938
+2025-07-28 17:08:38,652 INFO Matplotlib imported successfully
+2025-07-28 17:08:39,659 INFO NumExpr defaulting to 8 threads.
+2025-07-28 17:08:43,760 INFO Financial router imported successfully
+2025-07-28 17:08:43,786 INFO Enhanced financial router imported successfully
+2025-07-28 17:08:43,955 INFO Auth router imported successfully
+2025-07-28 17:08:43,968 INFO Real-time financial router imported successfully
+2025-07-28 17:11:24,425 INFO WebSocket disconnected: client_1753740492.080938
+2025-07-28 17:12:34,186 INFO Successfully read file with utf-8 encoding
+2025-07-28 17:12:34,767 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 17:12:34,769 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 17:12:34,769 WARNING Domain instructions not available, using basic analysis
+2025-07-28 17:12:42,463 INFO Successfully read file with utf-8 encoding
+2025-07-28 17:16:02,507 INFO Matplotlib imported successfully
+2025-07-28 17:16:03,592 INFO NumExpr defaulting to 8 threads.
+2025-07-28 17:16:08,355 INFO Financial router imported successfully
+2025-07-28 17:16:08,394 INFO Enhanced financial router imported successfully
+2025-07-28 17:16:08,570 INFO Auth router imported successfully
+2025-07-28 17:16:08,584 INFO Real-time financial router imported successfully
+2025-07-28 20:32:30,809 INFO Matplotlib imported successfully
+2025-07-28 20:32:32,598 INFO NumExpr defaulting to 8 threads.
+2025-07-28 20:32:39,955 INFO Financial router imported successfully
+2025-07-28 20:32:39,997 INFO Enhanced financial router imported successfully
+2025-07-28 20:32:40,237 INFO Auth router imported successfully
+2025-07-28 20:32:40,255 INFO Real-time financial router imported successfully
+2025-07-29 08:04:01,076 INFO Matplotlib imported successfully
+2025-07-29 08:04:03,052 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:04:03,053 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 08:04:03,054 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:04:03,055 ERROR Failed to import financial dashboard WebSocket handler: No module named 'backend'
+2025-07-29 08:04:03,058 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:04:03,058 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 08:04:03,058 INFO Financial dashboard WebSocket: False
+2025-07-29 08:10:16,093 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:10:17,796 INFO Matplotlib imported successfully
+2025-07-29 08:10:18,495 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:10:18,501 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 08:10:18,503 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:10:18,505 ERROR Failed to import financial dashboard WebSocket handler: No module named 'backend'
+2025-07-29 08:10:18,513 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:10:18,516 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 08:10:18,516 INFO Financial dashboard WebSocket: False
+2025-07-29 08:15:35,542 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:15:37,508 INFO Matplotlib imported successfully
+2025-07-29 08:15:38,313 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:15:38,315 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 08:15:38,316 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:15:38,318 ERROR Failed to import financial dashboard WebSocket handler: No module named 'backend'
+2025-07-29 08:15:38,324 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:15:38,324 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 08:15:38,325 INFO Financial dashboard WebSocket: False
+2025-07-29 08:27:07,711 INFO Matplotlib imported successfully
+2025-07-29 08:27:08,718 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:27:08,723 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 08:27:08,724 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:27:08,725 ERROR Failed to import financial dashboard WebSocket handler: No module named 'backend'
+2025-07-29 08:27:08,730 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:27:08,730 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 08:27:08,730 INFO Financial dashboard WebSocket: False
+2025-07-29 08:34:04,755 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:34:05,398 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:34:05,826 INFO Matplotlib imported successfully
+2025-07-29 08:34:06,249 INFO Matplotlib imported successfully
+2025-07-29 08:34:07,548 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:34:07,551 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 08:34:08,102 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:34:08,259 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:34:08,318 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:34:08,319 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 08:34:08,319 INFO Financial dashboard WebSocket: True
+2025-07-29 08:34:10,152 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:34:10,187 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 08:34:11,908 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:34:11,917 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:34:11,921 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:34:11,921 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 08:34:11,921 INFO Financial dashboard WebSocket: True
+2025-07-29 08:36:51,724 INFO Matplotlib imported successfully
+2025-07-29 08:36:52,490 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:36:52,492 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 08:36:52,756 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:36:52,759 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:36:52,762 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:36:52,762 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 08:36:52,763 INFO Financial dashboard WebSocket: True
+2025-07-29 08:38:13,404 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:38:14,169 INFO Matplotlib imported successfully
+2025-07-29 08:38:14,621 ERROR Failed to import financial router: cannot import name 'router' from 'api.routers.financial' (C:\Abbasai\Sygnify V2\backend\api\routers\financial.py)
+2025-07-29 08:38:15,083 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 08:38:15,378 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:38:15,380 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:38:15,384 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:38:15,384 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 08:38:15,384 INFO Financial dashboard WebSocket: True
+2025-07-29 08:38:23,524 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:38:24,332 INFO Matplotlib imported successfully
+2025-07-29 08:38:24,780 ERROR Failed to import financial router: cannot import name 'router' from 'api.routers.financial' (C:\Abbasai\Sygnify V2\backend\api\routers\financial.py)
+2025-07-29 08:38:25,256 INFO Enhanced financial router imported successfully
+2025-07-29 08:38:25,545 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:38:25,548 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:38:25,559 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:38:25,559 INFO Available routers: financial=False, enhanced_financial=True, auth=False
+2025-07-29 08:38:25,560 INFO Financial dashboard WebSocket: True
+2025-07-29 08:40:28,200 INFO Matplotlib imported successfully
+2025-07-29 08:40:28,780 ERROR Failed to import financial router: cannot import name 'router' from 'api.routers.financial' (C:\Abbasai\Sygnify V2\backend\api\routers\financial.py)
+2025-07-29 08:40:29,345 INFO Enhanced financial router imported successfully
+2025-07-29 08:40:29,652 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:40:29,654 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:40:29,664 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:40:29,664 INFO Available routers: financial=False, enhanced_financial=True, auth=False
+2025-07-29 08:40:29,665 INFO Financial dashboard WebSocket: True
+2025-07-29 08:46:23,415 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:46:24,512 INFO Matplotlib imported successfully
+2025-07-29 08:46:25,717 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:46:25,746 INFO Enhanced financial router imported successfully
+2025-07-29 08:46:26,636 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:46:26,639 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:46:26,654 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:46:26,655 INFO Available routers: financial=False, enhanced_financial=True, auth=False
+2025-07-29 08:46:26,655 INFO Financial dashboard WebSocket: True
+2025-07-29 08:50:15,597 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:50:16,599 INFO Matplotlib imported successfully
+2025-07-29 08:50:17,181 ERROR Failed to import financial router: cannot import name 'router' from 'api.routers.financial' (C:\Abbasai\Sygnify V2\backend\api\routers\financial.py)
+2025-07-29 08:50:18,352 INFO Enhanced financial router imported successfully
+2025-07-29 08:50:18,751 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:50:18,754 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:50:18,768 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:50:18,768 INFO Available routers: financial=False, enhanced_financial=True, auth=False
+2025-07-29 08:50:18,768 INFO Financial dashboard WebSocket: True
+2025-07-29 08:51:18,642 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:51:19,780 INFO Matplotlib imported successfully
+2025-07-29 08:51:20,933 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 08:51:20,960 INFO Enhanced financial router imported successfully
+2025-07-29 08:51:21,579 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:51:21,623 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:51:21,709 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:51:21,719 INFO Available routers: financial=False, enhanced_financial=True, auth=False
+2025-07-29 08:51:21,720 INFO Financial dashboard WebSocket: True
+2025-07-29 08:53:11,364 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:53:13,069 INFO Matplotlib imported successfully
+2025-07-29 08:53:13,685 ERROR Failed to import financial router: cannot import name 'router' from 'api.routers.financial' (C:\Abbasai\Sygnify V2\backend\api\routers\financial.py)
+2025-07-29 08:53:14,309 INFO Enhanced financial router imported successfully
+2025-07-29 08:53:14,713 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:53:14,720 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:53:14,741 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:53:14,741 INFO Available routers: financial=False, enhanced_financial=True, auth=False
+2025-07-29 08:53:14,741 INFO Financial dashboard WebSocket: True
+2025-07-29 08:54:09,187 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 08:54:10,340 INFO Matplotlib imported successfully
+2025-07-29 08:54:11,138 INFO Financial router imported successfully
+2025-07-29 08:54:11,156 INFO Enhanced financial router imported successfully
+2025-07-29 08:54:11,410 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:54:11,412 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:54:11,425 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:54:11,425 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-29 08:54:11,425 INFO Financial dashboard WebSocket: True
+2025-07-29 08:55:17,262 INFO Matplotlib imported successfully
+2025-07-29 08:55:18,085 INFO Financial router imported successfully
+2025-07-29 08:55:18,107 INFO Enhanced financial router imported successfully
+2025-07-29 08:55:18,712 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:55:18,714 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:55:48,862 INFO Matplotlib imported successfully
+2025-07-29 08:55:50,110 INFO Financial router imported successfully
+2025-07-29 08:55:50,130 INFO Enhanced financial router imported successfully
+2025-07-29 08:55:50,439 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 08:55:50,441 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 08:55:50,453 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 08:55:50,454 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-29 08:55:50,454 INFO Financial dashboard WebSocket: True
+2025-07-29 08:56:21,551 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 09:11:06,558 INFO Matplotlib imported successfully
+2025-07-29 09:11:07,624 INFO Financial router imported successfully
+2025-07-29 09:11:07,655 INFO Enhanced financial router imported successfully
+2025-07-29 09:11:08,446 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 09:11:08,448 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 09:11:08,465 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 09:11:08,465 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-29 09:11:08,465 INFO Financial dashboard WebSocket: True
+2025-07-29 09:11:16,421 INFO Matplotlib imported successfully
+2025-07-29 09:11:18,326 INFO Financial router imported successfully
+2025-07-29 09:11:18,357 INFO Enhanced financial router imported successfully
+2025-07-29 09:11:18,813 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 09:11:18,817 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 09:14:02,931 INFO Matplotlib imported successfully
+2025-07-29 09:14:04,195 INFO Financial router imported successfully
+2025-07-29 09:14:04,224 INFO Enhanced financial router imported successfully
+2025-07-29 09:14:04,620 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 09:14:04,624 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 09:14:04,645 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 09:14:04,645 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-29 09:14:04,645 INFO Financial dashboard WebSocket: True
+2025-07-29 09:15:44,978 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 09:16:23,863 INFO Matplotlib imported successfully
+2025-07-29 09:16:25,254 INFO Financial router imported successfully
+2025-07-29 09:16:25,292 INFO Enhanced financial router imported successfully
+2025-07-29 09:16:25,727 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 09:16:25,731 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 09:16:25,752 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 09:16:25,753 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-29 09:16:25,753 INFO Financial dashboard WebSocket: True
+2025-07-29 09:19:12,839 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 09:19:48,762 INFO Matplotlib imported successfully
+2025-07-29 09:19:49,909 INFO Financial router imported successfully
+2025-07-29 09:19:49,935 INFO Enhanced financial router imported successfully
+2025-07-29 09:19:50,352 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 09:19:50,355 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 09:23:00,080 INFO Matplotlib imported successfully
+2025-07-29 09:23:01,192 INFO Financial router imported successfully
+2025-07-29 09:23:01,219 INFO Enhanced financial router imported successfully
+2025-07-29 09:23:01,586 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 09:23:01,589 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 09:23:01,620 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 09:23:01,620 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-29 09:23:01,620 INFO Financial dashboard WebSocket: True
+2025-07-29 09:23:01,622 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 09:28:37,070 INFO Matplotlib imported successfully
+2025-07-29 09:28:38,141 INFO Financial router imported successfully
+2025-07-29 09:28:38,164 INFO Enhanced financial router imported successfully
+2025-07-29 09:28:38,547 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 09:28:38,550 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 09:28:38,567 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 09:28:38,567 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-29 09:28:38,567 INFO Financial dashboard WebSocket: True
+2025-07-29 09:34:27,855 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 09:35:07,236 INFO Matplotlib imported successfully
+2025-07-29 09:35:08,318 INFO Financial router imported successfully
+2025-07-29 09:35:08,343 INFO Enhanced financial router imported successfully
+2025-07-29 09:35:08,702 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 09:35:08,704 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 09:35:08,724 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 09:35:08,724 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-29 09:35:08,724 INFO Financial dashboard WebSocket: True
+2025-07-29 09:39:37,970 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 10:12:07,472 INFO Matplotlib imported successfully
+2025-07-29 10:12:08,132 INFO Enhanced financial router imported successfully
+2025-07-29 10:12:08,405 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 10:12:08,406 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 10:12:08,411 INFO Financial router imported successfully
+2025-07-29 10:12:08,411 INFO WebSocket manager set for financial router
+2025-07-29 10:12:08,414 INFO Financial router included
+2025-07-29 10:12:08,422 INFO Enhanced financial router included
+2025-07-29 10:12:32,454 INFO Matplotlib imported successfully
+2025-07-29 10:12:33,178 INFO Enhanced financial router imported successfully
+2025-07-29 10:12:33,401 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 10:12:33,403 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 10:12:33,408 INFO Financial router imported successfully
+2025-07-29 10:12:33,408 INFO WebSocket manager set for financial router
+2025-07-29 10:12:33,412 INFO Financial router included
+2025-07-29 10:12:33,417 INFO Enhanced financial router included
+2025-07-29 10:12:33,419 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 10:12:33,419 INFO WebSocket manager initialized: {'active_connections': 0, 'job_subscriptions': 0, 'total_websockets': 0}
+2025-07-29 10:12:44,784 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 10:12:44,785 INFO Final WebSocket stats: {'active_connections': 0, 'job_subscriptions': 0, 'total_websockets': 0}
+2025-07-29 10:17:50,167 INFO Matplotlib imported successfully
+2025-07-29 10:17:50,823 INFO Enhanced financial router imported successfully
+2025-07-29 10:17:51,247 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 10:17:51,250 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 10:17:51,255 INFO Financial router imported successfully
+2025-07-29 10:17:51,256 INFO WebSocket manager set for financial router
+2025-07-29 10:17:51,260 INFO Financial router included
+2025-07-29 10:17:51,265 INFO Enhanced financial router included
+2025-07-29 10:23:15,994 INFO Matplotlib imported successfully
+2025-07-29 10:23:16,546 INFO Enhanced financial router imported successfully
+2025-07-29 10:23:16,735 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 10:23:16,737 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 10:23:16,745 INFO Financial router imported successfully
+2025-07-29 10:23:16,746 INFO WebSocket manager set for financial router
+2025-07-29 10:23:16,748 INFO Financial router included
+2025-07-29 10:23:16,754 INFO Enhanced financial router included
+2025-07-29 10:23:16,755 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 10:23:16,755 INFO WebSocket manager initialized: {'active_connections': 0, 'job_subscriptions': 0, 'total_websockets': 0}
+2025-07-29 10:23:50,148 INFO Matplotlib imported successfully
+2025-07-29 10:23:50,805 INFO Enhanced financial router imported successfully
+2025-07-29 10:23:51,225 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 10:23:51,227 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 10:23:51,230 INFO Financial router imported successfully
+2025-07-29 10:23:51,230 INFO WebSocket manager set for financial router
+2025-07-29 10:23:51,233 INFO Financial router included
+2025-07-29 10:23:51,239 INFO Enhanced financial router included
+2025-07-29 10:46:29,152 INFO Matplotlib imported successfully
+2025-07-29 10:46:29,856 INFO Enhanced financial router imported successfully
+2025-07-29 10:46:30,126 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 10:46:30,128 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 10:46:30,133 INFO Financial router imported successfully
+2025-07-29 10:46:30,133 INFO WebSocket manager set for financial router
+2025-07-29 10:46:30,136 INFO Financial router included
+2025-07-29 10:46:30,145 INFO Enhanced financial router included
+2025-07-29 10:51:02,961 INFO Matplotlib imported successfully
+2025-07-29 10:51:03,809 INFO Enhanced financial router imported successfully
+2025-07-29 10:51:04,513 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 10:51:04,515 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 10:51:04,521 INFO Financial router imported successfully
+2025-07-29 10:51:04,521 INFO WebSocket manager set for financial router
+2025-07-29 10:51:04,526 INFO Financial router included
+2025-07-29 10:51:04,534 INFO Enhanced financial router included
+2025-07-29 10:51:04,535 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 10:51:04,536 INFO WebSocket manager initialized: {'active_connections': 0, 'job_subscriptions': 0, 'total_websockets': 0}
+2025-07-29 10:51:04,537 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 10:51:04,537 INFO Final WebSocket stats: {'active_connections': 0, 'job_subscriptions': 0, 'total_websockets': 0}
+2025-07-29 11:08:27,891 INFO Matplotlib imported successfully
+2025-07-29 11:08:29,173 INFO Enhanced financial router imported successfully
+2025-07-29 11:08:29,175 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 11:08:29,181 INFO Financial router imported successfully
+2025-07-29 11:08:29,182 INFO WebSocket manager set for financial router
+2025-07-29 11:08:29,186 INFO Financial router included
+2025-07-29 11:08:29,196 INFO Enhanced financial router included
+2025-07-29 11:08:29,199 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 11:08:29,199 INFO WebSocket manager initialized: {'active_connections': 0, 'job_subscriptions': 0, 'total_websockets': 0}
+2025-07-29 11:08:55,032 INFO Sygnify Financial Analytics API shutting down...
+2025-07-29 11:08:55,032 INFO Final WebSocket stats: {'active_connections': 0, 'job_subscriptions': 0, 'total_websockets': 0}
+2025-07-29 11:15:38,437 INFO Matplotlib imported successfully
+2025-07-29 11:15:39,320 INFO Enhanced financial router imported successfully
+2025-07-29 11:15:39,322 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 11:15:39,328 INFO Financial router imported successfully
+2025-07-29 11:15:39,329 INFO WebSocket manager set for financial router
+2025-07-29 11:15:39,335 INFO Financial router included
+2025-07-29 11:15:39,343 INFO Enhanced financial router included
+2025-07-29 11:26:48,214 INFO Matplotlib imported successfully
+2025-07-29 11:26:53,546 INFO Enhanced financial router imported successfully
+2025-07-29 11:26:53,565 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-29 11:26:53,588 INFO Financial router imported successfully
+2025-07-29 11:26:53,588 INFO WebSocket manager set for financial router
+2025-07-29 11:26:53,594 INFO Financial router included
+2025-07-29 11:26:53,603 INFO Enhanced financial router included
+2025-07-29 11:39:00,101 INFO Matplotlib imported successfully
+2025-07-29 11:39:00,701 ERROR Failed to import financial router: No module named 'backend'
+2025-07-29 11:39:00,702 ERROR Failed to import enhanced financial router: No module named 'backend'
+2025-07-29 11:39:00,703 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 11:39:00,704 ERROR Failed to import financial dashboard WebSocket handler: No module named 'backend'
+2025-07-29 11:39:00,718 INFO Sygnify Financial Analytics API starting up...
+2025-07-29 11:39:00,718 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-29 11:39:00,719 INFO Financial dashboard WebSocket: False
+2025-07-29 22:10:58,287 INFO Matplotlib imported successfully
+2025-07-29 22:10:59,303 INFO Financial router imported successfully
+2025-07-29 22:10:59,544 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 22:11:29,241 INFO Matplotlib imported successfully
+2025-07-29 22:11:30,036 INFO Financial router imported successfully
+2025-07-29 22:11:30,664 ERROR Failed to import auth router: No module named 'backend'
+2025-07-29 22:11:47,055 INFO Matplotlib imported successfully
+2025-07-29 22:11:47,824 INFO Financial router imported successfully
+2025-07-29 22:11:48,091 ERROR Failed to import auth router: No module named 'backend'
+2025-07-30 09:11:10,208 INFO Matplotlib imported successfully
+2025-07-30 09:11:11,265 INFO Financial router imported successfully
+2025-07-30 09:11:11,271 INFO Enhanced financial router imported successfully
+2025-07-30 09:11:11,589 ERROR Failed to import auth router: No module named 'backend'
+2025-07-30 09:11:11,594 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 09:11:11,600 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:11:11,601 INFO Available routers: financial=True, enhanced_financial=True, auth=False
+2025-07-30 09:11:11,601 INFO Financial dashboard WebSocket: True
+2025-07-30 09:16:16,343 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 09:36:09,431 INFO Matplotlib imported successfully
+2025-07-30 09:36:09,713 ERROR Failed to import financial router: No module named 'routers'
+2025-07-30 09:36:09,714 ERROR Failed to import enhanced financial router: No module named 'routers'
+2025-07-30 09:36:09,715 ERROR Failed to import auth router: No module named 'routers'
+2025-07-30 09:36:09,715 ERROR Failed to import financial dashboard WebSocket handler: No module named 'websocket'
+2025-07-30 09:36:09,717 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:36:09,717 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-30 09:36:09,717 INFO Financial dashboard WebSocket: False
+2025-07-30 09:40:31,130 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 09:40:31,760 INFO Matplotlib imported successfully
+2025-07-30 09:40:32,023 ERROR Failed to import financial router: No module named 'routers'
+2025-07-30 09:40:32,024 ERROR Failed to import enhanced financial router: No module named 'routers'
+2025-07-30 09:40:32,024 ERROR Failed to import auth router: No module named 'routers'
+2025-07-30 09:40:32,025 ERROR Failed to import financial dashboard WebSocket handler: No module named 'websocket'
+2025-07-30 09:40:32,027 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:40:32,028 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-30 09:40:32,028 INFO Financial dashboard WebSocket: False
+2025-07-30 09:42:05,026 INFO Matplotlib imported successfully
+2025-07-30 09:42:05,287 ERROR Failed to import financial router: No module named 'routers'
+2025-07-30 09:42:05,288 ERROR Failed to import enhanced financial router: No module named 'routers'
+2025-07-30 09:42:05,288 ERROR Failed to import auth router: No module named 'routers'
+2025-07-30 09:42:05,289 ERROR Failed to import financial dashboard WebSocket handler: No module named 'websocket'
+2025-07-30 09:42:05,291 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:42:05,292 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-30 09:42:05,292 INFO Financial dashboard WebSocket: False
+2025-07-30 09:47:33,451 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 09:47:33,995 INFO Matplotlib imported successfully
+2025-07-30 09:47:34,255 ERROR Failed to import financial router: No module named 'routers'
+2025-07-30 09:47:34,256 ERROR Failed to import enhanced financial router: No module named 'routers'
+2025-07-30 09:47:34,256 ERROR Failed to import auth router: No module named 'routers'
+2025-07-30 09:47:34,257 ERROR Failed to import financial dashboard WebSocket handler: No module named 'websocket'
+2025-07-30 09:47:34,259 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:47:34,260 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-30 09:47:34,260 INFO Financial dashboard WebSocket: False
+2025-07-30 09:50:13,683 INFO Matplotlib imported successfully
+2025-07-30 09:50:13,974 ERROR Failed to import financial router: No module named 'routers'
+2025-07-30 09:50:13,975 ERROR Failed to import enhanced financial router: No module named 'routers'
+2025-07-30 09:50:13,975 ERROR Failed to import auth router: No module named 'routers'
+2025-07-30 09:50:13,976 ERROR Failed to import financial dashboard WebSocket handler: No module named 'websocket'
+2025-07-30 09:50:13,978 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:50:13,979 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-30 09:50:13,979 INFO Financial dashboard WebSocket: False
+2025-07-30 09:51:38,000 INFO Matplotlib imported successfully
+2025-07-30 09:51:38,483 ERROR Failed to import financial router: No module named 'routers'
+2025-07-30 09:51:38,483 ERROR Failed to import enhanced financial router: No module named 'routers'
+2025-07-30 09:51:38,484 ERROR Failed to import auth router: No module named 'routers'
+2025-07-30 09:51:38,484 ERROR Failed to import financial dashboard WebSocket handler: No module named 'websocket'
+2025-07-30 09:51:38,487 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:51:38,487 INFO Available routers: financial=False, enhanced_financial=False, auth=False
+2025-07-30 09:51:38,487 INFO Financial dashboard WebSocket: False
+2025-07-30 09:52:00,930 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 09:53:00,716 INFO Matplotlib imported successfully
+2025-07-30 09:53:01,640 INFO Financial router imported successfully
+2025-07-30 09:53:01,642 INFO Enhanced financial router imported successfully
+2025-07-30 09:53:02,111 INFO Auth router imported successfully
+2025-07-30 09:53:02,113 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 09:53:02,126 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:53:02,126 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 09:53:02,126 INFO Financial dashboard WebSocket: True
+2025-07-30 09:53:12,693 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 09:54:20,785 INFO Matplotlib imported successfully
+2025-07-30 09:54:21,466 INFO Financial router imported successfully
+2025-07-30 09:54:21,468 INFO Enhanced financial router imported successfully
+2025-07-30 09:54:21,537 INFO Auth router imported successfully
+2025-07-30 09:54:21,540 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 09:54:21,549 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 09:54:21,549 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 09:54:21,549 INFO Financial dashboard WebSocket: True
+2025-07-30 09:56:09,091 INFO WebSocket connected: None
+2025-07-30 10:00:37,792 INFO WebSocket connected: None
+2025-07-30 10:04:24,647 INFO Matplotlib imported successfully
+2025-07-30 10:04:25,195 INFO Financial router imported successfully
+2025-07-30 10:04:25,196 INFO Enhanced financial router imported successfully
+2025-07-30 10:04:25,254 INFO Auth router imported successfully
+2025-07-30 10:04:25,256 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:04:25,260 INFO Job simulation service imported successfully
+2025-07-30 10:04:25,268 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:04:25,268 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:04:25,268 INFO Financial dashboard WebSocket: True
+2025-07-30 10:05:57,751 INFO WebSocket connected: None
+2025-07-30 10:06:08,738 INFO WebSocket connected: None
+2025-07-30 10:06:19,785 INFO WebSocket connected: None
+2025-07-30 10:06:20,802 INFO WebSocket connected: None
+2025-07-30 10:06:31,741 INFO WebSocket connected: None
+2025-07-30 10:06:31,774 INFO WebSocket connected: None
+2025-07-30 10:07:05,030 INFO WebSocket disconnected: None
+2025-07-30 10:07:05,031 INFO WebSocket disconnected: None
+2025-07-30 10:07:05,031 INFO WebSocket disconnected: None
+2025-07-30 10:07:05,032 INFO WebSocket disconnected: None
+2025-07-30 10:07:05,032 INFO WebSocket disconnected: None
+2025-07-30 10:07:05,033 INFO WebSocket disconnected: None
+2025-07-30 10:07:05,120 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:07:06,103 INFO Matplotlib imported successfully
+2025-07-30 10:07:06,736 INFO Financial router imported successfully
+2025-07-30 10:07:06,739 INFO Enhanced financial router imported successfully
+2025-07-30 10:07:06,809 INFO Auth router imported successfully
+2025-07-30 10:07:06,811 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:07:06,816 INFO Job simulation service imported successfully
+2025-07-30 10:07:06,825 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:07:06,826 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:07:06,826 INFO Financial dashboard WebSocket: True
+2025-07-30 10:07:06,846 INFO WebSocket connected: None
+2025-07-30 10:07:07,741 INFO WebSocket connected: None
+2025-07-30 10:07:08,748 INFO WebSocket connected: None
+2025-07-30 10:07:09,730 INFO WebSocket connected: None
+2025-07-30 10:07:10,746 INFO WebSocket connected: None
+2025-07-30 10:08:24,205 INFO WebSocket connected: None
+2025-07-30 10:09:04,957 INFO WebSocket disconnected: None
+2025-07-30 10:09:04,959 INFO WebSocket disconnected: None
+2025-07-30 10:09:04,959 INFO WebSocket disconnected: None
+2025-07-30 10:09:04,960 INFO WebSocket disconnected: None
+2025-07-30 10:09:04,960 INFO WebSocket disconnected: None
+2025-07-30 10:09:04,961 INFO WebSocket disconnected: None
+2025-07-30 10:09:14,505 INFO WebSocket connected: None
+2025-07-30 10:10:25,351 INFO WebSocket disconnected: None
+2025-07-30 10:10:25,462 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:10:26,061 INFO Matplotlib imported successfully
+2025-07-30 10:10:26,595 INFO Financial router imported successfully
+2025-07-30 10:10:26,597 INFO Enhanced financial router imported successfully
+2025-07-30 10:10:26,651 INFO Auth router imported successfully
+2025-07-30 10:10:26,653 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:10:26,654 INFO Job simulation service imported successfully
+2025-07-30 10:10:26,663 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:10:26,663 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:10:26,663 INFO Financial dashboard WebSocket: True
+2025-07-30 10:10:26,684 INFO WebSocket connected: None
+2025-07-30 10:10:26,741 INFO WebSocket connected: None
+2025-07-30 10:10:32,575 INFO WebSocket disconnected: None
+2025-07-30 10:10:32,575 INFO WebSocket disconnected: None
+2025-07-30 10:10:32,686 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:10:33,254 INFO Matplotlib imported successfully
+2025-07-30 10:10:33,819 INFO Financial router imported successfully
+2025-07-30 10:10:33,821 INFO Enhanced financial router imported successfully
+2025-07-30 10:10:33,882 INFO Auth router imported successfully
+2025-07-30 10:10:33,883 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:10:33,885 INFO Job simulation service imported successfully
+2025-07-30 10:10:33,893 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:10:33,893 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:10:33,893 INFO Financial dashboard WebSocket: True
+2025-07-30 10:10:34,738 INFO WebSocket connected: None
+2025-07-30 10:10:35,735 INFO WebSocket connected: None
+2025-07-30 10:11:06,430 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:11:36,176 INFO WebSocket disconnected: None
+2025-07-30 10:11:36,176 INFO WebSocket disconnected: None
+2025-07-30 10:11:36,286 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:11:36,853 INFO Matplotlib imported successfully
+2025-07-30 10:11:37,370 INFO Financial router imported successfully
+2025-07-30 10:11:37,373 INFO Enhanced financial router imported successfully
+2025-07-30 10:11:37,431 INFO Auth router imported successfully
+2025-07-30 10:11:37,433 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:11:37,435 INFO Job simulation service imported successfully
+2025-07-30 10:11:37,443 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:11:37,444 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:11:37,444 INFO Financial dashboard WebSocket: True
+2025-07-30 10:11:37,747 INFO WebSocket connected: None
+2025-07-30 10:11:38,745 INFO WebSocket connected: None
+2025-07-30 10:11:46,088 INFO WebSocket disconnected: None
+2025-07-30 10:11:46,088 INFO WebSocket disconnected: None
+2025-07-30 10:11:46,197 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:11:46,863 INFO Matplotlib imported successfully
+2025-07-30 10:11:47,398 INFO Financial router imported successfully
+2025-07-30 10:11:47,400 INFO Enhanced financial router imported successfully
+2025-07-30 10:11:47,457 INFO Auth router imported successfully
+2025-07-30 10:11:47,459 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:11:47,463 INFO Job simulation service imported successfully
+2025-07-30 10:11:47,472 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:11:47,472 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:11:47,472 INFO Financial dashboard WebSocket: True
+2025-07-30 10:11:47,739 INFO WebSocket connected: None
+2025-07-30 10:11:48,736 INFO WebSocket connected: None
+2025-07-30 10:11:58,167 INFO WebSocket disconnected: None
+2025-07-30 10:11:58,168 INFO WebSocket disconnected: None
+2025-07-30 10:11:58,278 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:11:58,916 INFO Matplotlib imported successfully
+2025-07-30 10:11:59,441 INFO Financial router imported successfully
+2025-07-30 10:11:59,444 INFO Enhanced financial router imported successfully
+2025-07-30 10:11:59,498 INFO Auth router imported successfully
+2025-07-30 10:11:59,500 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:11:59,503 INFO Job simulation service imported successfully
+2025-07-30 10:11:59,512 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:11:59,513 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:11:59,513 INFO Financial dashboard WebSocket: True
+2025-07-30 10:11:59,739 INFO WebSocket connected: None
+2025-07-30 10:12:00,741 INFO WebSocket connected: None
+2025-07-30 10:12:29,753 INFO WebSocket connected: None
+2025-07-30 10:12:40,738 INFO WebSocket connected: None
+2025-07-30 10:12:51,734 INFO WebSocket connected: None
+2025-07-30 10:13:02,749 INFO WebSocket connected: None
+2025-07-30 10:13:13,744 INFO WebSocket connected: None
+2025-07-30 10:13:24,734 INFO WebSocket connected: None
+2025-07-30 10:13:35,742 INFO WebSocket connected: None
+2025-07-30 10:13:46,732 INFO WebSocket connected: None
+2025-07-30 10:13:57,739 INFO WebSocket connected: None
+2025-07-30 10:14:07,778 INFO WebSocket connected: None
+2025-07-30 10:14:07,781 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'test_job_1753888447', 'domain': 'financial'}
+2025-07-30 10:14:07,782 INFO Processing subscription for job_id: test_job_1753888447
+2025-07-30 10:14:07,782 INFO WebSocket subscribed to job test_job_1753888447
+2025-07-30 10:14:07,783 INFO Starting job simulation for test_job_1753888447 with domain financial
+2025-07-30 10:14:07,783 INFO Starting job simulation for test_job_1753888447 with domain financial
+2025-07-30 10:14:07,784 INFO Job test_job_1753888447 initialized, starting simulation...
+2025-07-30 10:14:07,784 INFO Job test_job_1753888447: Starting stage 1/7 - uploading
+2025-07-30 10:14:07,785 INFO Sent job update for test_job_1753888447: uploading
+2025-07-30 10:14:07,786 INFO Job test_job_1753888447: Waiting 2 seconds for stage uploading
+2025-07-30 10:14:08,735 INFO WebSocket connected: None
+2025-07-30 10:14:09,795 INFO Job test_job_1753888447: Starting stage 2/7 - profiling
+2025-07-30 10:14:09,795 INFO Sent job update for test_job_1753888447: profiling
+2025-07-30 10:14:09,795 INFO Job test_job_1753888447: Waiting 3 seconds for stage profiling
+2025-07-30 10:14:12,800 INFO Job test_job_1753888447: Starting stage 3/7 - ai_analysis
+2025-07-30 10:14:12,801 INFO Sent job update for test_job_1753888447: ai_analysis
+2025-07-30 10:14:12,802 INFO Job test_job_1753888447: Waiting 5 seconds for stage ai_analysis
+2025-07-30 10:14:17,802 INFO Job test_job_1753888447: Starting stage 4/7 - predictive_modeling
+2025-07-30 10:14:17,802 INFO Sent job update for test_job_1753888447: predictive_modeling
+2025-07-30 10:14:17,803 INFO Job test_job_1753888447: Waiting 4 seconds for stage predictive_modeling
+2025-07-30 10:14:19,737 INFO WebSocket connected: None
+2025-07-30 10:14:21,792 INFO Job test_job_1753888447: Starting stage 5/7 - anomaly_detection
+2025-07-30 10:14:21,793 INFO Sent job update for test_job_1753888447: anomaly_detection
+2025-07-30 10:14:21,793 INFO Job test_job_1753888447: Waiting 3 seconds for stage anomaly_detection
+2025-07-30 10:14:24,800 INFO Job test_job_1753888447: Starting stage 6/7 - financial_kpis
+2025-07-30 10:14:24,801 INFO Sent job update for test_job_1753888447: financial_kpis
+2025-07-30 10:14:24,801 INFO Job test_job_1753888447: Waiting 2 seconds for stage financial_kpis
+2025-07-30 10:14:26,814 INFO Job test_job_1753888447: Starting stage 7/7 - insights_ready
+2025-07-30 10:14:26,815 INFO Sent job update for test_job_1753888447: insights_ready
+2025-07-30 10:14:26,816 INFO Job test_job_1753888447: Waiting 1 seconds for stage insights_ready
+2025-07-30 10:14:27,841 INFO Job test_job_1753888447 completed successfully
+2025-07-30 10:14:27,844 INFO WebSocket disconnected: None
+2025-07-30 10:14:30,746 INFO WebSocket connected: None
+2025-07-30 10:14:41,743 INFO WebSocket connected: None
+2025-07-30 10:14:47,439 INFO Received WebSocket message: {'type': 'unsubscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:14:47,756 INFO WebSocket connected: None
+2025-07-30 10:14:47,762 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:14:47,762 INFO Processing subscription for job_id: job_1753888154151
+2025-07-30 10:14:47,763 INFO WebSocket subscribed to job job_1753888154151
+2025-07-30 10:14:47,763 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:14:47,764 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:14:47,764 INFO Job job_1753888154151 initialized, starting simulation...
+2025-07-30 10:14:47,765 INFO Job job_1753888154151: Starting stage 1/7 - uploading
+2025-07-30 10:14:47,765 INFO Sent job update for job_1753888154151: uploading
+2025-07-30 10:14:47,766 INFO Job job_1753888154151: Waiting 2 seconds for stage uploading
+2025-07-30 10:14:49,775 INFO Job job_1753888154151: Starting stage 2/7 - profiling
+2025-07-30 10:14:49,776 INFO Sent job update for job_1753888154151: profiling
+2025-07-30 10:14:49,777 INFO Job job_1753888154151: Waiting 3 seconds for stage profiling
+2025-07-30 10:14:52,786 INFO Job job_1753888154151: Starting stage 3/7 - ai_analysis
+2025-07-30 10:14:52,787 INFO Sent job update for job_1753888154151: ai_analysis
+2025-07-30 10:14:52,787 INFO Job job_1753888154151: Waiting 5 seconds for stage ai_analysis
+2025-07-30 10:14:57,784 INFO Job job_1753888154151: Starting stage 4/7 - predictive_modeling
+2025-07-30 10:14:57,785 INFO Sent job update for job_1753888154151: predictive_modeling
+2025-07-30 10:14:57,785 INFO Job job_1753888154151: Waiting 4 seconds for stage predictive_modeling
+2025-07-30 10:15:01,802 INFO Job job_1753888154151: Starting stage 5/7 - anomaly_detection
+2025-07-30 10:15:01,802 INFO Sent job update for job_1753888154151: anomaly_detection
+2025-07-30 10:15:01,803 INFO Job job_1753888154151: Waiting 3 seconds for stage anomaly_detection
+2025-07-30 10:15:03,438 INFO Received WebSocket message: {'type': 'unsubscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:15:03,757 INFO WebSocket connected: None
+2025-07-30 10:15:03,763 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:15:03,763 INFO Processing subscription for job_id: job_1753888154151
+2025-07-30 10:15:03,763 INFO WebSocket subscribed to job job_1753888154151
+2025-07-30 10:15:03,764 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:15:03,765 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:15:03,765 WARNING Job job_1753888154151 is already running
+2025-07-30 10:15:04,812 INFO Job job_1753888154151: Starting stage 6/7 - financial_kpis
+2025-07-30 10:15:04,813 INFO Sent job update for job_1753888154151: financial_kpis
+2025-07-30 10:15:04,813 INFO Job job_1753888154151: Waiting 2 seconds for stage financial_kpis
+2025-07-30 10:15:06,840 INFO Job job_1753888154151: Starting stage 7/7 - insights_ready
+2025-07-30 10:15:06,841 INFO Sent job update for job_1753888154151: insights_ready
+2025-07-30 10:15:06,842 INFO Job job_1753888154151: Waiting 1 seconds for stage insights_ready
+2025-07-30 10:15:07,852 INFO Job job_1753888154151 completed successfully
+2025-07-30 10:15:12,428 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:15:15,452 INFO Received WebSocket message: {'type': 'unsubscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:15:15,762 INFO WebSocket connected: None
+2025-07-30 10:15:15,766 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:15:15,766 INFO Processing subscription for job_id: job_1753888154151
+2025-07-30 10:15:15,766 INFO WebSocket subscribed to job job_1753888154151
+2025-07-30 10:15:15,768 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:15:15,769 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:15:15,769 INFO Job job_1753888154151 initialized, starting simulation...
+2025-07-30 10:15:15,769 INFO Job job_1753888154151: Starting stage 1/7 - uploading
+2025-07-30 10:15:15,769 INFO Sent job update for job_1753888154151: uploading
+2025-07-30 10:15:15,769 INFO Job job_1753888154151: Waiting 2 seconds for stage uploading
+2025-07-30 10:15:17,794 INFO Job job_1753888154151: Starting stage 2/7 - profiling
+2025-07-30 10:15:17,795 INFO Sent job update for job_1753888154151: profiling
+2025-07-30 10:15:17,795 INFO Job job_1753888154151: Waiting 3 seconds for stage profiling
+2025-07-30 10:15:18,420 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:15:20,812 INFO Job job_1753888154151: Starting stage 3/7 - ai_analysis
+2025-07-30 10:15:20,813 INFO Sent job update for job_1753888154151: ai_analysis
+2025-07-30 10:15:20,813 INFO Job job_1753888154151: Waiting 5 seconds for stage ai_analysis
+2025-07-30 10:15:25,823 INFO Job job_1753888154151: Starting stage 4/7 - predictive_modeling
+2025-07-30 10:15:25,825 INFO Sent job update for job_1753888154151: predictive_modeling
+2025-07-30 10:15:25,835 INFO Job job_1753888154151: Waiting 4 seconds for stage predictive_modeling
+2025-07-30 10:15:26,448 INFO Received WebSocket message: {'type': 'unsubscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:15:26,778 INFO WebSocket connected: None
+2025-07-30 10:15:26,784 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:15:26,784 INFO Processing subscription for job_id: job_1753888154151
+2025-07-30 10:15:26,785 INFO WebSocket subscribed to job job_1753888154151
+2025-07-30 10:15:26,785 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:15:26,786 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:15:26,786 WARNING Job job_1753888154151 is already running
+2025-07-30 10:15:29,848 INFO Job job_1753888154151: Starting stage 5/7 - anomaly_detection
+2025-07-30 10:15:29,848 INFO Sent job update for job_1753888154151: anomaly_detection
+2025-07-30 10:15:29,849 INFO Job job_1753888154151: Waiting 3 seconds for stage anomaly_detection
+2025-07-30 10:15:32,843 INFO Job job_1753888154151: Starting stage 6/7 - financial_kpis
+2025-07-30 10:15:32,844 INFO Sent job update for job_1753888154151: financial_kpis
+2025-07-30 10:15:32,845 INFO Job job_1753888154151: Waiting 2 seconds for stage financial_kpis
+2025-07-30 10:15:34,431 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:15:34,867 INFO Job job_1753888154151: Starting stage 7/7 - insights_ready
+2025-07-30 10:15:34,868 INFO Sent job update for job_1753888154151: insights_ready
+2025-07-30 10:15:34,869 INFO Job job_1753888154151: Waiting 1 seconds for stage insights_ready
+2025-07-30 10:15:35,883 INFO Job job_1753888154151 completed successfully
+2025-07-30 10:15:42,423 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:15:46,423 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:15:48,430 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:15:49,950 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,950 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,951 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,951 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,952 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,952 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,952 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,953 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,953 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,953 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,954 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,954 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,954 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,954 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,956 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,956 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,956 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,957 INFO WebSocket disconnected: None
+2025-07-30 10:15:49,957 INFO WebSocket disconnected: None
+2025-07-30 10:15:50,041 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:15:50,874 INFO Matplotlib imported successfully
+2025-07-30 10:15:51,481 INFO Financial router imported successfully
+2025-07-30 10:15:51,483 INFO Enhanced financial router imported successfully
+2025-07-30 10:15:51,531 INFO Auth router imported successfully
+2025-07-30 10:15:51,533 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:15:51,536 INFO Job simulation service imported successfully
+2025-07-30 10:15:51,546 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:15:51,546 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:15:51,546 INFO Financial dashboard WebSocket: True
+2025-07-30 10:15:51,564 INFO WebSocket connected: None
+2025-07-30 10:15:51,568 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:15:51,569 INFO Processing subscription for job_id: job_1753888154151
+2025-07-30 10:15:51,569 INFO WebSocket subscribed to job job_1753888154151
+2025-07-30 10:15:51,569 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:15:51,569 INFO Starting job simulation for job_1753888154151 with domain financial
+2025-07-30 10:15:51,570 INFO Job job_1753888154151 initialized, starting simulation...
+2025-07-30 10:15:51,570 INFO Job job_1753888154151: Starting stage 1/7 - uploading
+2025-07-30 10:15:51,570 INFO Sent job update for job_1753888154151: uploading
+2025-07-30 10:15:51,571 INFO Job job_1753888154151: Waiting 2 seconds for stage uploading
+2025-07-30 10:15:51,742 INFO WebSocket connected: None
+2025-07-30 10:15:51,758 INFO WebSocket connected: None
+2025-07-30 10:15:51,786 INFO WebSocket connected: None
+2025-07-30 10:15:51,802 INFO WebSocket connected: None
+2025-07-30 10:15:51,818 INFO WebSocket connected: None
+2025-07-30 10:15:52,744 INFO WebSocket connected: None
+2025-07-30 10:15:53,578 INFO Job job_1753888154151: Starting stage 2/7 - profiling
+2025-07-30 10:15:53,579 INFO Sent job update for job_1753888154151: profiling
+2025-07-30 10:15:53,580 INFO Job job_1753888154151: Waiting 3 seconds for stage profiling
+2025-07-30 10:15:53,735 INFO WebSocket connected: None
+2025-07-30 10:15:54,749 INFO WebSocket connected: None
+2025-07-30 10:15:55,744 INFO WebSocket connected: None
+2025-07-30 10:15:56,598 INFO Job job_1753888154151: Starting stage 3/7 - ai_analysis
+2025-07-30 10:15:56,598 INFO Sent job update for job_1753888154151: ai_analysis
+2025-07-30 10:15:56,599 INFO Job job_1753888154151: Waiting 5 seconds for stage ai_analysis
+2025-07-30 10:16:01,608 INFO Job job_1753888154151: Starting stage 4/7 - predictive_modeling
+2025-07-30 10:16:01,610 INFO Sent job update for job_1753888154151: predictive_modeling
+2025-07-30 10:16:01,610 INFO Job job_1753888154151: Waiting 4 seconds for stage predictive_modeling
+2025-07-30 10:16:05,624 INFO Job job_1753888154151: Starting stage 5/7 - anomaly_detection
+2025-07-30 10:16:05,624 INFO Sent job update for job_1753888154151: anomaly_detection
+2025-07-30 10:16:05,625 INFO Job job_1753888154151: Waiting 3 seconds for stage anomaly_detection
+2025-07-30 10:16:08,638 INFO Job job_1753888154151: Starting stage 6/7 - financial_kpis
+2025-07-30 10:16:08,639 INFO Sent job update for job_1753888154151: financial_kpis
+2025-07-30 10:16:08,639 INFO Job job_1753888154151: Waiting 2 seconds for stage financial_kpis
+2025-07-30 10:16:10,633 INFO Job job_1753888154151: Starting stage 7/7 - insights_ready
+2025-07-30 10:16:10,633 INFO Sent job update for job_1753888154151: insights_ready
+2025-07-30 10:16:10,634 INFO Job job_1753888154151: Waiting 1 seconds for stage insights_ready
+2025-07-30 10:16:11,643 INFO Job job_1753888154151 completed successfully
+2025-07-30 10:16:21,572 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:21,759 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:21,773 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:21,813 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:21,827 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:25,749 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:29,782 INFO Received WebSocket message: {'type': 'unsubscribe_job', 'job_id': 'job_1753888154151'}
+2025-07-30 10:16:51,567 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:51,747 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:51,767 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:51,808 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:51,825 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:16:55,761 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:15,852 INFO WebSocket connected: None
+2025-07-30 10:17:15,858 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753888635487'}
+2025-07-30 10:17:15,859 INFO Processing subscription for job_id: job_1753888635487
+2025-07-30 10:17:15,861 INFO WebSocket subscribed to job job_1753888635487
+2025-07-30 10:17:15,864 INFO Starting job simulation for job_1753888635487 with domain financial
+2025-07-30 10:17:15,865 INFO Starting job simulation for job_1753888635487 with domain financial
+2025-07-30 10:17:15,866 INFO Job job_1753888635487 initialized, starting simulation...
+2025-07-30 10:17:15,867 INFO Job job_1753888635487: Starting stage 1/7 - uploading
+2025-07-30 10:17:15,874 INFO Sent job update for job_1753888635487: uploading
+2025-07-30 10:17:15,880 INFO Job job_1753888635487: Waiting 2 seconds for stage uploading
+2025-07-30 10:17:17,886 INFO Job job_1753888635487: Starting stage 2/7 - profiling
+2025-07-30 10:17:17,887 INFO Sent job update for job_1753888635487: profiling
+2025-07-30 10:17:17,888 INFO Job job_1753888635487: Waiting 3 seconds for stage profiling
+2025-07-30 10:17:20,876 INFO Job job_1753888635487: Starting stage 3/7 - ai_analysis
+2025-07-30 10:17:20,877 INFO Sent job update for job_1753888635487: ai_analysis
+2025-07-30 10:17:20,878 INFO Job job_1753888635487: Waiting 5 seconds for stage ai_analysis
+2025-07-30 10:17:21,750 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:21,773 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:21,811 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:21,827 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:25,753 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:25,861 INFO Job job_1753888635487: Starting stage 4/7 - predictive_modeling
+2025-07-30 10:17:25,862 INFO Sent job update for job_1753888635487: predictive_modeling
+2025-07-30 10:17:25,862 INFO Job job_1753888635487: Waiting 4 seconds for stage predictive_modeling
+2025-07-30 10:17:29,869 INFO Job job_1753888635487: Starting stage 5/7 - anomaly_detection
+2025-07-30 10:17:29,869 INFO Sent job update for job_1753888635487: anomaly_detection
+2025-07-30 10:17:29,869 INFO Job job_1753888635487: Waiting 3 seconds for stage anomaly_detection
+2025-07-30 10:17:32,881 INFO Job job_1753888635487: Starting stage 6/7 - financial_kpis
+2025-07-30 10:17:32,882 INFO Sent job update for job_1753888635487: financial_kpis
+2025-07-30 10:17:32,883 INFO Job job_1753888635487: Waiting 2 seconds for stage financial_kpis
+2025-07-30 10:17:34,878 INFO Job job_1753888635487: Starting stage 7/7 - insights_ready
+2025-07-30 10:17:34,879 INFO Sent job update for job_1753888635487: insights_ready
+2025-07-30 10:17:34,879 INFO Job job_1753888635487: Waiting 1 seconds for stage insights_ready
+2025-07-30 10:17:35,861 INFO Job job_1753888635487 completed successfully
+2025-07-30 10:17:45,881 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:51,757 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:51,771 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:51,818 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:51,834 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:17:55,754 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:04,737 INFO Received WebSocket message: {'type': 'unsubscribe_job', 'job_id': 'job_1753888635487'}
+2025-07-30 10:18:16,433 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:22,008 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:22,019 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:22,022 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:22,023 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:25,749 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:46,427 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:52,427 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:52,427 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:52,428 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:52,428 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:18:56,425 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:19:16,425 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:19:22,430 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:19:22,431 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:19:22,433 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:19:22,434 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:19:26,422 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:19:46,425 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:20:16,432 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:20:27,428 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:20:27,430 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:20:27,431 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:20:27,432 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:20:27,433 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:20:42,517 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,520 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,524 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,524 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,528 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,528 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,529 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,531 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,531 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,532 INFO WebSocket disconnected: None
+2025-07-30 10:20:42,532 INFO WebSocket disconnected: None
+2025-07-30 10:20:57,765 INFO WebSocket connected: None
+2025-07-30 10:20:57,797 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753888857393'}
+2025-07-30 10:20:57,797 INFO Processing subscription for job_id: job_1753888857393
+2025-07-30 10:20:57,798 INFO WebSocket subscribed to job job_1753888857393
+2025-07-30 10:20:57,798 INFO Starting job simulation for job_1753888857393 with domain financial
+2025-07-30 10:20:57,798 INFO Starting job simulation for job_1753888857393 with domain financial
+2025-07-30 10:20:57,799 INFO Job job_1753888857393 initialized, starting simulation...
+2025-07-30 10:20:57,799 INFO Job job_1753888857393: Starting stage 1/7 - uploading
+2025-07-30 10:20:57,799 INFO Sent job update for job_1753888857393: uploading
+2025-07-30 10:20:57,799 INFO Job job_1753888857393: Waiting 2 seconds for stage uploading
+2025-07-30 10:20:59,822 INFO Job job_1753888857393: Starting stage 2/7 - profiling
+2025-07-30 10:20:59,823 INFO Sent job update for job_1753888857393: profiling
+2025-07-30 10:20:59,824 INFO Job job_1753888857393: Waiting 3 seconds for stage profiling
+2025-07-30 10:21:02,833 INFO Job job_1753888857393: Starting stage 3/7 - ai_analysis
+2025-07-30 10:21:02,834 INFO Sent job update for job_1753888857393: ai_analysis
+2025-07-30 10:21:02,835 INFO Job job_1753888857393: Waiting 5 seconds for stage ai_analysis
+2025-07-30 10:21:07,840 INFO Job job_1753888857393: Starting stage 4/7 - predictive_modeling
+2025-07-30 10:21:07,841 INFO Sent job update for job_1753888857393: predictive_modeling
+2025-07-30 10:21:07,842 INFO Job job_1753888857393: Waiting 4 seconds for stage predictive_modeling
+2025-07-30 10:21:11,829 INFO Job job_1753888857393: Starting stage 5/7 - anomaly_detection
+2025-07-30 10:21:11,830 INFO Sent job update for job_1753888857393: anomaly_detection
+2025-07-30 10:21:11,831 INFO Job job_1753888857393: Waiting 3 seconds for stage anomaly_detection
+2025-07-30 10:21:14,856 INFO Job job_1753888857393: Starting stage 6/7 - financial_kpis
+2025-07-30 10:21:14,857 INFO Sent job update for job_1753888857393: financial_kpis
+2025-07-30 10:21:14,858 INFO Job job_1753888857393: Waiting 2 seconds for stage financial_kpis
+2025-07-30 10:21:16,853 INFO Job job_1753888857393: Starting stage 7/7 - insights_ready
+2025-07-30 10:21:16,854 INFO Sent job update for job_1753888857393: insights_ready
+2025-07-30 10:21:16,855 INFO Job job_1753888857393: Waiting 1 seconds for stage insights_ready
+2025-07-30 10:21:17,839 INFO Job job_1753888857393 completed successfully
+2025-07-30 10:21:26,881 INFO Received WebSocket message: {'type': 'unsubscribe_job', 'job_id': 'job_1753888857393'}
+2025-07-30 10:21:27,808 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:21:58,425 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:22:28,431 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:22:58,428 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:23:28,421 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:23:58,432 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:24:29,421 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:25:29,432 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:26:17,542 INFO WebSocket disconnected: None
+2025-07-30 10:26:17,648 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:26:18,369 INFO Matplotlib imported successfully
+2025-07-30 10:26:19,110 INFO Financial router imported successfully
+2025-07-30 10:26:19,112 INFO Enhanced financial router imported successfully
+2025-07-30 10:26:19,192 INFO Auth router imported successfully
+2025-07-30 10:26:19,195 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:26:19,197 INFO Job simulation service imported successfully
+2025-07-30 10:26:19,209 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:26:19,209 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:26:19,209 INFO Financial dashboard WebSocket: True
+2025-07-30 10:26:19,228 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:26:19,876 INFO Matplotlib imported successfully
+2025-07-30 10:26:20,443 INFO Financial router imported successfully
+2025-07-30 10:26:20,444 INFO Enhanced financial router imported successfully
+2025-07-30 10:26:20,512 INFO Auth router imported successfully
+2025-07-30 10:26:20,513 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:26:20,515 INFO Job simulation service imported successfully
+2025-07-30 10:26:20,524 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:26:20,524 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:26:20,524 INFO Financial dashboard WebSocket: True
+2025-07-30 10:26:20,543 INFO WebSocket connected: None
+2025-07-30 10:26:51,431 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:27:18,925 INFO WebSocket disconnected: None
+2025-07-30 10:27:19,033 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:27:19,764 INFO Matplotlib imported successfully
+2025-07-30 10:27:20,506 INFO Financial router imported successfully
+2025-07-30 10:27:20,508 INFO Enhanced financial router imported successfully
+2025-07-30 10:27:20,575 INFO Auth router imported successfully
+2025-07-30 10:27:20,578 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:27:20,580 INFO Job simulation service imported successfully
+2025-07-30 10:27:20,589 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:27:20,589 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:27:20,589 INFO Financial dashboard WebSocket: True
+2025-07-30 10:27:20,609 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:27:21,290 INFO Matplotlib imported successfully
+2025-07-30 10:27:21,957 INFO Financial router imported successfully
+2025-07-30 10:27:21,959 INFO Enhanced financial router imported successfully
+2025-07-30 10:27:22,018 INFO Auth router imported successfully
+2025-07-30 10:27:22,020 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:27:22,021 INFO Job simulation service imported successfully
+2025-07-30 10:27:22,030 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:27:22,030 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:27:22,031 INFO Financial dashboard WebSocket: True
+2025-07-30 10:27:22,050 INFO WebSocket connected: None
+2025-07-30 10:27:52,434 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:28:22,432 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 10:28:41,881 INFO WebSocket disconnected: None
+2025-07-30 10:28:41,992 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 10:28:42,696 INFO Matplotlib imported successfully
+2025-07-30 10:31:16,089 INFO Matplotlib imported successfully
+2025-07-30 10:55:51,744 INFO Matplotlib imported successfully
+2025-07-30 10:59:26,594 INFO Matplotlib imported successfully
+2025-07-30 10:59:28,768 INFO Financial router imported successfully
+2025-07-30 10:59:28,772 INFO Enhanced financial router imported successfully
+2025-07-30 10:59:29,327 INFO Auth router imported successfully
+2025-07-30 10:59:29,331 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 10:59:29,332 INFO Job simulation service imported successfully
+2025-07-30 10:59:29,341 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 10:59:29,342 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 10:59:29,342 INFO Financial dashboard WebSocket: True
+2025-07-30 10:59:29,344 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:00:21,563 INFO Matplotlib imported successfully
+2025-07-30 11:00:23,804 INFO Financial router imported successfully
+2025-07-30 11:00:23,808 INFO Enhanced financial router imported successfully
+2025-07-30 11:00:23,889 INFO Auth router imported successfully
+2025-07-30 11:00:23,891 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:00:23,891 INFO Job simulation service imported successfully
+2025-07-30 11:00:23,904 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:00:23,905 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:00:23,905 INFO Financial dashboard WebSocket: True
+2025-07-30 11:00:35,258 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:01:00,665 INFO Matplotlib imported successfully
+2025-07-30 11:01:02,919 INFO Financial router imported successfully
+2025-07-30 11:01:02,923 INFO Enhanced financial router imported successfully
+2025-07-30 11:01:02,995 INFO Auth router imported successfully
+2025-07-30 11:01:02,997 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:01:02,998 INFO Job simulation service imported successfully
+2025-07-30 11:01:03,013 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:01:03,014 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:01:03,014 INFO Financial dashboard WebSocket: True
+2025-07-30 11:02:53,380 INFO WebSocket connected: None
+2025-07-30 11:02:53,382 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'test_job_1753891373381', 'domain': 'financial'}
+2025-07-30 11:02:53,382 INFO Processing subscription for job_id: test_job_1753891373381
+2025-07-30 11:02:53,382 INFO WebSocket subscribed to job test_job_1753891373381
+2025-07-30 11:02:53,382 INFO Starting job simulation for test_job_1753891373381 with domain financial
+2025-07-30 11:02:53,383 INFO Starting enhanced job simulation for test_job_1753891373381 with domain: <starlette.websockets.WebSocket object at 0x000001E4B5453B90>
+2025-07-30 11:02:53,383 INFO Job test_job_1753891373381: Starting stage 1/8 - uploading
+2025-07-30 11:02:53,383 INFO Sent job update for test_job_1753891373381: uploading (10%)
+2025-07-30 11:02:55,375 INFO Job test_job_1753891373381: Completed stage uploading
+2025-07-30 11:02:55,376 INFO Job test_job_1753891373381: Starting stage 2/8 - encoding_detection
+2025-07-30 11:02:55,376 INFO Sent job update for test_job_1753891373381: encoding_detection (20%)
+2025-07-30 11:02:58,404 INFO Job test_job_1753891373381: Completed stage encoding_detection
+2025-07-30 11:02:58,405 INFO Job test_job_1753891373381: Starting stage 3/8 - csv_parsing
+2025-07-30 11:02:58,405 INFO Sent job update for test_job_1753891373381: csv_parsing (35%)
+2025-07-30 11:03:03,422 INFO Job test_job_1753891373381: Completed stage csv_parsing
+2025-07-30 11:03:03,422 INFO Job test_job_1753891373381: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:03:03,423 INFO Sent job update for test_job_1753891373381: data_quality_analysis (50%)
+2025-07-30 11:03:07,436 INFO Job test_job_1753891373381: Completed stage data_quality_analysis
+2025-07-30 11:03:07,437 INFO Job test_job_1753891373381: Starting stage 5/8 - column_labeling
+2025-07-30 11:03:07,437 INFO Sent job update for test_job_1753891373381: column_labeling (65%)
+2025-07-30 11:03:09,460 INFO Job test_job_1753891373381: Completed stage column_labeling
+2025-07-30 11:03:09,460 INFO Job test_job_1753891373381: Starting stage 6/8 - ai_analysis
+2025-07-30 11:03:09,460 INFO Sent job update for test_job_1753891373381: ai_analysis (80%)
+2025-07-30 11:03:17,465 INFO Job test_job_1753891373381: Completed stage ai_analysis
+2025-07-30 11:03:17,465 INFO Job test_job_1753891373381: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:03:17,465 INFO Sent job update for test_job_1753891373381: sweetviz_report (90%)
+2025-07-30 11:03:20,477 INFO Job test_job_1753891373381: Completed stage sweetviz_report
+2025-07-30 11:03:20,477 INFO Job test_job_1753891373381: Starting stage 8/8 - insights_ready
+2025-07-30 11:03:20,478 INFO Sent job update for test_job_1753891373381: insights_ready (100%)
+2025-07-30 11:03:22,472 INFO Job test_job_1753891373381: Completed stage insights_ready
+2025-07-30 11:03:22,473 INFO Job test_job_1753891373381 completed successfully with comprehensive insights
+2025-07-30 11:03:22,473 INFO Job test_job_1753891373381: Completed successfully
+2025-07-30 11:03:53,489 INFO WebSocket disconnected: None
+2025-07-30 11:04:19,907 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:04:20,766 INFO Matplotlib imported successfully
+2025-07-30 11:04:22,486 INFO Financial router imported successfully
+2025-07-30 11:04:22,488 INFO Enhanced financial router imported successfully
+2025-07-30 11:04:22,548 INFO Auth router imported successfully
+2025-07-30 11:04:22,550 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:04:22,551 INFO Job simulation service imported successfully
+2025-07-30 11:04:22,559 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:04:22,559 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:04:22,559 INFO Financial dashboard WebSocket: True
+2025-07-30 11:06:14,408 INFO WebSocket connected: None
+2025-07-30 11:06:14,411 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753891574073'}
+2025-07-30 11:06:14,411 INFO Processing subscription for job_id: job_1753891574073
+2025-07-30 11:06:14,411 INFO WebSocket subscribed to job job_1753891574073
+2025-07-30 11:06:14,412 INFO Starting job simulation for job_1753891574073 with domain financial
+2025-07-30 11:06:14,412 INFO Starting enhanced job simulation for job_1753891574073 with domain: <starlette.websockets.WebSocket object at 0x000002A8FDFC1A10>
+2025-07-30 11:06:14,412 INFO Job job_1753891574073: Starting stage 1/8 - uploading
+2025-07-30 11:06:14,412 INFO Sent job update for job_1753891574073: uploading (10%)
+2025-07-30 11:06:16,426 INFO Job job_1753891574073: Completed stage uploading
+2025-07-30 11:06:16,426 INFO Job job_1753891574073: Starting stage 2/8 - encoding_detection
+2025-07-30 11:06:16,426 INFO Sent job update for job_1753891574073: encoding_detection (20%)
+2025-07-30 11:06:19,437 INFO Job job_1753891574073: Completed stage encoding_detection
+2025-07-30 11:06:19,438 INFO Job job_1753891574073: Starting stage 3/8 - csv_parsing
+2025-07-30 11:06:19,438 INFO Sent job update for job_1753891574073: csv_parsing (35%)
+2025-07-30 11:06:24,450 INFO Job job_1753891574073: Completed stage csv_parsing
+2025-07-30 11:06:24,450 INFO Job job_1753891574073: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:06:24,450 INFO Sent job update for job_1753891574073: data_quality_analysis (50%)
+2025-07-30 11:06:28,455 INFO Job job_1753891574073: Completed stage data_quality_analysis
+2025-07-30 11:06:28,456 INFO Job job_1753891574073: Starting stage 5/8 - column_labeling
+2025-07-30 11:06:28,456 INFO Sent job update for job_1753891574073: column_labeling (65%)
+2025-07-30 11:06:30,476 INFO Job job_1753891574073: Completed stage column_labeling
+2025-07-30 11:06:30,476 INFO Job job_1753891574073: Starting stage 6/8 - ai_analysis
+2025-07-30 11:06:30,476 INFO Sent job update for job_1753891574073: ai_analysis (80%)
+2025-07-30 11:06:34,623 INFO WebSocket disconnected: None
+2025-07-30 11:06:38,480 INFO Job job_1753891574073: Completed stage ai_analysis
+2025-07-30 11:06:38,480 INFO Job job_1753891574073: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:06:38,480 INFO Sent job update for job_1753891574073: sweetviz_report (90%)
+2025-07-30 11:06:41,472 INFO Job job_1753891574073: Completed stage sweetviz_report
+2025-07-30 11:06:41,472 INFO Job job_1753891574073: Starting stage 8/8 - insights_ready
+2025-07-30 11:06:41,473 INFO Sent job update for job_1753891574073: insights_ready (100%)
+2025-07-30 11:06:42,918 INFO WebSocket connected: None
+2025-07-30 11:06:42,921 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753891602551'}
+2025-07-30 11:06:42,922 INFO Processing subscription for job_id: job_1753891602551
+2025-07-30 11:06:42,922 INFO WebSocket subscribed to job job_1753891602551
+2025-07-30 11:06:42,922 INFO Starting job simulation for job_1753891602551 with domain financial
+2025-07-30 11:06:42,923 INFO Starting enhanced job simulation for job_1753891602551 with domain: <starlette.websockets.WebSocket object at 0x000002A8FDFE4C10>
+2025-07-30 11:06:42,923 INFO Job job_1753891602551: Starting stage 1/8 - uploading
+2025-07-30 11:06:42,923 INFO Sent job update for job_1753891602551: uploading (10%)
+2025-07-30 11:06:43,489 INFO Job job_1753891574073: Completed stage insights_ready
+2025-07-30 11:06:43,489 INFO Job job_1753891574073 completed successfully with comprehensive insights
+2025-07-30 11:06:43,489 INFO Job job_1753891574073: Completed successfully
+2025-07-30 11:06:44,924 INFO Job job_1753891602551: Completed stage uploading
+2025-07-30 11:06:44,924 INFO Job job_1753891602551: Starting stage 2/8 - encoding_detection
+2025-07-30 11:06:44,925 INFO Sent job update for job_1753891602551: encoding_detection (20%)
+2025-07-30 11:06:47,949 INFO Job job_1753891602551: Completed stage encoding_detection
+2025-07-30 11:06:47,949 INFO Job job_1753891602551: Starting stage 3/8 - csv_parsing
+2025-07-30 11:06:47,949 INFO Sent job update for job_1753891602551: csv_parsing (35%)
+2025-07-30 11:06:52,940 INFO Job job_1753891602551: Completed stage csv_parsing
+2025-07-30 11:06:52,941 INFO Job job_1753891602551: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:06:52,941 INFO Sent job update for job_1753891602551: data_quality_analysis (50%)
+2025-07-30 11:06:56,958 INFO Job job_1753891602551: Completed stage data_quality_analysis
+2025-07-30 11:06:56,959 INFO Job job_1753891602551: Starting stage 5/8 - column_labeling
+2025-07-30 11:06:56,959 INFO Sent job update for job_1753891602551: column_labeling (65%)
+2025-07-30 11:06:58,954 INFO Job job_1753891602551: Completed stage column_labeling
+2025-07-30 11:06:58,954 INFO Job job_1753891602551: Starting stage 6/8 - ai_analysis
+2025-07-30 11:06:58,955 INFO Sent job update for job_1753891602551: ai_analysis (80%)
+2025-07-30 11:07:06,968 INFO Job job_1753891602551: Completed stage ai_analysis
+2025-07-30 11:07:06,969 INFO Job job_1753891602551: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:07:06,970 INFO Sent job update for job_1753891602551: sweetviz_report (90%)
+2025-07-30 11:07:09,968 INFO Job job_1753891602551: Completed stage sweetviz_report
+2025-07-30 11:07:09,969 INFO Job job_1753891602551: Starting stage 8/8 - insights_ready
+2025-07-30 11:07:09,969 INFO Sent job update for job_1753891602551: insights_ready (100%)
+2025-07-30 11:07:11,979 INFO Job job_1753891602551: Completed stage insights_ready
+2025-07-30 11:07:11,979 INFO Job job_1753891602551 completed successfully with comprehensive insights
+2025-07-30 11:07:11,979 INFO Job job_1753891602551: Completed successfully
+2025-07-30 11:07:12,924 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:07:42,927 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:08:12,923 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:08:42,924 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:09:12,923 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:09:42,929 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:10:13,422 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:10:43,421 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:11:29,433 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:12:29,426 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:13:29,424 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:14:29,423 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:14:31,821 INFO Starting robust processing of file: sample_financial_data.csv (308 bytes)
+2025-07-30 11:14:31,822 INFO Encoding detection: ascii with confidence: 1.0
+2025-07-30 11:14:31,822 INFO Detected encoding: ascii for file: sample_financial_data.csv
+2025-07-30 11:14:31,822 INFO Trying parsing strategy 1/4
+2025-07-30 11:14:31,822 INFO Trying parsing strategy 2/4
+2025-07-30 11:14:31,823 INFO Trying parsing strategy 3/4
+2025-07-30 11:14:31,823 INFO Most common column count: 7
+2025-07-30 11:14:31,823 INFO Trying parsing strategy 4/4
+2025-07-30 11:14:47,101 INFO Starting robust processing of file: sample_financial_data.csv (308 bytes)
+2025-07-30 11:14:47,101 INFO Encoding detection: ascii with confidence: 1.0
+2025-07-30 11:14:47,101 INFO Detected encoding: ascii for file: sample_financial_data.csv
+2025-07-30 11:14:47,102 INFO Trying parsing strategy 1/4
+2025-07-30 11:14:47,102 INFO Trying parsing strategy 2/4
+2025-07-30 11:14:47,102 INFO Trying parsing strategy 3/4
+2025-07-30 11:14:47,102 INFO Most common column count: 7
+2025-07-30 11:14:47,102 INFO Trying parsing strategy 4/4
+2025-07-30 11:15:26,244 INFO Starting robust processing of file: test.csv (146 bytes)
+2025-07-30 11:15:26,245 INFO Encoding detection: ascii with confidence: 1.0
+2025-07-30 11:15:26,245 INFO Detected encoding: ascii for file: test.csv
+2025-07-30 11:15:26,245 INFO Trying parsing strategy 1/4
+2025-07-30 11:15:26,245 INFO Trying parsing strategy 2/4
+2025-07-30 11:15:26,245 INFO Trying parsing strategy 3/4
+2025-07-30 11:15:26,246 INFO Most common column count: 7
+2025-07-30 11:15:26,246 INFO Trying parsing strategy 4/4
+2025-07-30 11:15:29,423 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:16:29,422 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:17:29,423 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:17:35,672 INFO WebSocket disconnected: None
+2025-07-30 11:17:35,782 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:17:36,958 INFO Matplotlib imported successfully
+2025-07-30 11:17:38,693 INFO Financial router imported successfully
+2025-07-30 11:17:38,696 INFO Enhanced financial router imported successfully
+2025-07-30 11:17:38,760 INFO Auth router imported successfully
+2025-07-30 11:17:38,762 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:17:38,762 INFO Job simulation service imported successfully
+2025-07-30 11:17:38,770 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:17:38,770 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:17:38,770 INFO Financial dashboard WebSocket: True
+2025-07-30 11:17:38,773 INFO WebSocket connected: None
+2025-07-30 11:17:44,438 INFO WebSocket disconnected: None
+2025-07-30 11:17:44,545 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:17:45,541 INFO Matplotlib imported successfully
+2025-07-30 11:17:47,213 INFO Financial router imported successfully
+2025-07-30 11:17:47,215 INFO Enhanced financial router imported successfully
+2025-07-30 11:17:47,279 INFO Auth router imported successfully
+2025-07-30 11:17:47,282 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:17:47,282 INFO Job simulation service imported successfully
+2025-07-30 11:17:47,293 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:17:47,293 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:17:47,293 INFO Financial dashboard WebSocket: True
+2025-07-30 11:17:47,295 INFO WebSocket connected: None
+2025-07-30 11:17:54,501 INFO Starting robust processing of file: test.csv (146 bytes)
+2025-07-30 11:17:54,501 INFO Encoding detection: ascii with confidence: 1.0
+2025-07-30 11:17:54,501 INFO Detected encoding: ascii for file: test.csv
+2025-07-30 11:17:54,501 INFO Trying parsing strategy 1/4
+2025-07-30 11:17:54,526 INFO Successfully parsed with strategy 1
+2025-07-30 11:17:54,526 INFO Successfully parsed 2 rows and 7 columns
+2025-07-30 11:17:56,429 INFO Renamed column 'Date' to 'date' (confidence: 1.00)
+2025-07-30 11:17:56,440 INFO Completed robust processing of test.csv with confidence: 100.0%
+2025-07-30 11:17:56,441 INFO Starting AI analysis for job job_1753892276440
+2025-07-30 11:17:56,873 WARNING Ollama API error: 404
+2025-07-30 11:17:56,906 INFO AI analysis completed for job job_1753892276440
+2025-07-30 11:18:05,993 INFO Starting robust processing of file: test.csv (146 bytes)
+2025-07-30 11:18:06,291 INFO Using cached result for file: test.csv
+2025-07-30 11:18:06,292 INFO Starting AI analysis for job job_1753892286291
+2025-07-30 11:18:06,635 WARNING Ollama API error: 404
+2025-07-30 11:18:06,649 INFO AI analysis completed for job job_1753892286291
+2025-07-30 11:18:12,440 INFO Starting robust processing of file: test.csv (146 bytes)
+2025-07-30 11:18:12,442 INFO Using cached result for file: test.csv
+2025-07-30 11:18:12,443 INFO Starting AI analysis for job job_1753892292443
+2025-07-30 11:18:12,728 WARNING Ollama API error: 404
+2025-07-30 11:18:12,738 INFO AI analysis completed for job job_1753892292443
+2025-07-30 11:18:16,104 INFO Starting robust processing of file: test.csv (146 bytes)
+2025-07-30 11:18:16,108 INFO Using cached result for file: test.csv
+2025-07-30 11:18:16,109 INFO Starting AI analysis for job job_1753892296108
+2025-07-30 11:18:16,393 WARNING Ollama API error: 404
+2025-07-30 11:18:16,404 INFO AI analysis completed for job job_1753892296108
+2025-07-30 11:18:17,430 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:18:30,541 INFO Starting robust processing of file: test.csv (52 bytes)
+2025-07-30 11:18:30,541 INFO Encoding detection: ascii with confidence: 1.0
+2025-07-30 11:18:30,541 INFO Detected encoding: ascii for file: test.csv
+2025-07-30 11:18:30,542 INFO Trying parsing strategy 1/4
+2025-07-30 11:18:30,543 INFO Successfully parsed with strategy 1
+2025-07-30 11:18:30,543 INFO Successfully parsed 2 rows and 3 columns
+2025-07-30 11:18:31,344 INFO Renamed column 'Date' to 'date' (confidence: 1.00)
+2025-07-30 11:18:31,351 INFO Completed robust processing of test.csv with confidence: 100.0%
+2025-07-30 11:18:31,352 INFO Starting AI analysis for job job_1753892311351
+2025-07-30 11:18:31,623 WARNING Ollama API error: 404
+2025-07-30 11:18:31,629 INFO AI analysis completed for job job_1753892311351
+2025-07-30 11:18:32,893 INFO Starting robust processing of file: sample_financial_data.csv (1304 bytes)
+2025-07-30 11:18:32,894 INFO Encoding detection: ascii with confidence: 1.0
+2025-07-30 11:18:32,894 INFO Detected encoding: ascii for file: sample_financial_data.csv
+2025-07-30 11:18:32,895 INFO Trying parsing strategy 1/4
+2025-07-30 11:18:32,897 INFO Successfully parsed with strategy 1
+2025-07-30 11:18:32,897 INFO Successfully parsed 23 rows and 7 columns
+2025-07-30 11:18:35,597 INFO Renamed column 'Date' to 'date' (confidence: 1.00)
+2025-07-30 11:18:35,608 INFO Completed robust processing of sample_financial_data.csv with confidence: 100.0%
+2025-07-30 11:18:35,610 INFO Starting AI analysis for job job_1753892315609
+2025-07-30 11:18:35,881 WARNING Ollama API error: 404
+2025-07-30 11:18:35,898 INFO AI analysis completed for job job_1753892315609
+2025-07-30 11:18:45,260 INFO Starting robust processing of file: sample_financial_data.csv (308 bytes)
+2025-07-30 11:18:45,261 INFO Encoding detection: ascii with confidence: 1.0
+2025-07-30 11:18:45,261 INFO Detected encoding: ascii for file: sample_financial_data.csv
+2025-07-30 11:18:45,261 INFO Trying parsing strategy 1/4
+2025-07-30 11:18:45,263 INFO Successfully parsed with strategy 1
+2025-07-30 11:18:45,263 INFO Successfully parsed 5 rows and 7 columns
+2025-07-30 11:18:46,470 INFO Renamed column 'Date' to 'date' (confidence: 1.00)
+2025-07-30 11:18:46,480 INFO Completed robust processing of sample_financial_data.csv with confidence: 100.0%
+2025-07-30 11:18:46,481 INFO Starting AI analysis for job job_1753892326480
+2025-07-30 11:18:46,513 INFO WebSocket connected: None
+2025-07-30 11:18:46,515 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753892326480', 'domain': 'financial'}
+2025-07-30 11:18:46,515 INFO Processing subscription for job_id: job_1753892326480
+2025-07-30 11:18:46,515 INFO WebSocket subscribed to job job_1753892326480
+2025-07-30 11:18:46,515 INFO Starting job simulation for job_1753892326480 with domain financial
+2025-07-30 11:18:46,516 INFO Starting enhanced job simulation for job_1753892326480 with domain: <starlette.websockets.WebSocket object at 0x000002A5C4694CD0>
+2025-07-30 11:18:46,516 INFO Job job_1753892326480: Starting stage 1/8 - uploading
+2025-07-30 11:18:46,516 INFO Sent job update for job_1753892326480: uploading (10%)
+2025-07-30 11:18:46,797 WARNING Ollama API error: 404
+2025-07-30 11:18:46,834 INFO AI analysis completed for job job_1753892326480
+2025-07-30 11:18:47,424 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:18:48,527 INFO Job job_1753892326480: Completed stage uploading
+2025-07-30 11:18:48,528 INFO Job job_1753892326480: Starting stage 2/8 - encoding_detection
+2025-07-30 11:18:48,528 INFO Sent job update for job_1753892326480: encoding_detection (20%)
+2025-07-30 11:18:51,544 INFO Job job_1753892326480: Completed stage encoding_detection
+2025-07-30 11:18:51,544 INFO Job job_1753892326480: Starting stage 3/8 - csv_parsing
+2025-07-30 11:18:51,545 INFO Sent job update for job_1753892326480: csv_parsing (35%)
+2025-07-30 11:18:56,552 INFO Job job_1753892326480: Completed stage csv_parsing
+2025-07-30 11:18:56,552 INFO Job job_1753892326480: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:18:56,552 INFO Sent job update for job_1753892326480: data_quality_analysis (50%)
+2025-07-30 11:19:00,553 INFO Job job_1753892326480: Completed stage data_quality_analysis
+2025-07-30 11:19:00,554 INFO Job job_1753892326480: Starting stage 5/8 - column_labeling
+2025-07-30 11:19:00,554 INFO Sent job update for job_1753892326480: column_labeling (65%)
+2025-07-30 11:19:02,563 INFO Job job_1753892326480: Completed stage column_labeling
+2025-07-30 11:19:02,564 INFO Job job_1753892326480: Starting stage 6/8 - ai_analysis
+2025-07-30 11:19:02,564 INFO Sent job update for job_1753892326480: ai_analysis (80%)
+2025-07-30 11:19:10,567 INFO Job job_1753892326480: Completed stage ai_analysis
+2025-07-30 11:19:10,568 INFO Job job_1753892326480: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:19:10,568 INFO Sent job update for job_1753892326480: sweetviz_report (90%)
+2025-07-30 11:19:13,585 INFO Job job_1753892326480: Completed stage sweetviz_report
+2025-07-30 11:19:13,586 INFO Job job_1753892326480: Starting stage 8/8 - insights_ready
+2025-07-30 11:19:13,586 INFO Sent job update for job_1753892326480: insights_ready (100%)
+2025-07-30 11:19:15,599 INFO Job job_1753892326480: Completed stage insights_ready
+2025-07-30 11:19:15,599 INFO Job job_1753892326480 completed successfully with comprehensive insights
+2025-07-30 11:19:15,599 INFO Job job_1753892326480: Completed successfully
+2025-07-30 11:19:17,430 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:19:47,425 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:20:17,432 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:20:46,631 INFO WebSocket disconnected: None
+2025-07-30 11:20:47,425 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:21:01,521 INFO WebSocket disconnected: None
+2025-07-30 11:21:01,628 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:21:03,395 INFO Matplotlib imported successfully
+2025-07-30 11:21:05,840 INFO Financial router imported successfully
+2025-07-30 11:21:05,844 INFO Enhanced financial router imported successfully
+2025-07-30 11:21:05,915 INFO Auth router imported successfully
+2025-07-30 11:21:05,917 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:21:05,917 INFO Job simulation service imported successfully
+2025-07-30 11:21:05,927 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:21:05,927 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:21:05,927 INFO Financial dashboard WebSocket: True
+2025-07-30 11:21:05,930 INFO WebSocket connected: None
+2025-07-30 11:21:36,428 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:22:06,418 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:22:29,498 INFO WebSocket disconnected: None
+2025-07-30 11:22:39,760 INFO WebSocket connected: None
+2025-07-30 11:22:39,774 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753892559413'}
+2025-07-30 11:22:39,774 INFO Processing subscription for job_id: job_1753892559413
+2025-07-30 11:22:39,775 INFO WebSocket subscribed to job job_1753892559413
+2025-07-30 11:22:39,776 INFO Starting job simulation for job_1753892559413 with domain financial
+2025-07-30 11:22:39,776 INFO Starting enhanced job simulation for job_1753892559413 with domain: <starlette.websockets.WebSocket object at 0x0000024A57F84250>
+2025-07-30 11:22:39,776 INFO Job job_1753892559413: Starting stage 1/8 - uploading
+2025-07-30 11:22:39,776 INFO Sent job update for job_1753892559413: uploading (10%)
+2025-07-30 11:22:41,768 INFO Job job_1753892559413: Completed stage uploading
+2025-07-30 11:22:41,769 INFO Job job_1753892559413: Starting stage 2/8 - encoding_detection
+2025-07-30 11:22:41,770 INFO Sent job update for job_1753892559413: encoding_detection (20%)
+2025-07-30 11:22:44,771 INFO Job job_1753892559413: Completed stage encoding_detection
+2025-07-30 11:22:44,772 INFO Job job_1753892559413: Starting stage 3/8 - csv_parsing
+2025-07-30 11:22:44,772 INFO Sent job update for job_1753892559413: csv_parsing (35%)
+2025-07-30 11:22:49,770 INFO Job job_1753892559413: Completed stage csv_parsing
+2025-07-30 11:22:49,771 INFO Job job_1753892559413: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:22:49,771 INFO Sent job update for job_1753892559413: data_quality_analysis (50%)
+2025-07-30 11:22:53,787 INFO Job job_1753892559413: Completed stage data_quality_analysis
+2025-07-30 11:22:53,788 INFO Job job_1753892559413: Starting stage 5/8 - column_labeling
+2025-07-30 11:22:53,788 INFO Sent job update for job_1753892559413: column_labeling (65%)
+2025-07-30 11:22:55,793 INFO Job job_1753892559413: Completed stage column_labeling
+2025-07-30 11:22:55,794 INFO Job job_1753892559413: Starting stage 6/8 - ai_analysis
+2025-07-30 11:22:55,794 INFO Sent job update for job_1753892559413: ai_analysis (80%)
+2025-07-30 11:23:03,809 INFO Job job_1753892559413: Completed stage ai_analysis
+2025-07-30 11:23:03,810 INFO Job job_1753892559413: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:23:03,810 INFO Sent job update for job_1753892559413: sweetviz_report (90%)
+2025-07-30 11:23:06,820 INFO Job job_1753892559413: Completed stage sweetviz_report
+2025-07-30 11:23:06,821 INFO Job job_1753892559413: Starting stage 8/8 - insights_ready
+2025-07-30 11:23:06,821 INFO Sent job update for job_1753892559413: insights_ready (100%)
+2025-07-30 11:23:08,825 INFO Job job_1753892559413: Completed stage insights_ready
+2025-07-30 11:23:08,826 INFO Job job_1753892559413 completed successfully with comprehensive insights
+2025-07-30 11:23:08,826 INFO Job job_1753892559413: Completed successfully
+2025-07-30 11:23:09,776 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:23:39,777 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:24:07,750 INFO WebSocket disconnected: None
+2025-07-30 11:24:19,884 INFO WebSocket connected: None
+2025-07-30 11:24:19,890 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753892659556'}
+2025-07-30 11:24:19,890 INFO Processing subscription for job_id: job_1753892659556
+2025-07-30 11:24:19,893 INFO WebSocket subscribed to job job_1753892659556
+2025-07-30 11:24:19,894 INFO Starting job simulation for job_1753892659556 with domain financial
+2025-07-30 11:24:19,894 INFO Starting enhanced job simulation for job_1753892659556 with domain: <starlette.websockets.WebSocket object at 0x0000024A57F84DD0>
+2025-07-30 11:24:19,896 INFO Job job_1753892659556: Starting stage 1/8 - uploading
+2025-07-30 11:24:19,897 INFO Sent job update for job_1753892659556: uploading (10%)
+2025-07-30 11:24:21,895 INFO Job job_1753892659556: Completed stage uploading
+2025-07-30 11:24:21,896 INFO Job job_1753892659556: Starting stage 2/8 - encoding_detection
+2025-07-30 11:24:21,896 INFO Sent job update for job_1753892659556: encoding_detection (20%)
+2025-07-30 11:24:24,915 INFO Job job_1753892659556: Completed stage encoding_detection
+2025-07-30 11:24:24,916 INFO Job job_1753892659556: Starting stage 3/8 - csv_parsing
+2025-07-30 11:24:24,916 INFO Sent job update for job_1753892659556: csv_parsing (35%)
+2025-07-30 11:24:29,921 INFO Job job_1753892659556: Completed stage csv_parsing
+2025-07-30 11:24:29,922 INFO Job job_1753892659556: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:24:29,926 INFO Sent job update for job_1753892659556: data_quality_analysis (50%)
+2025-07-30 11:24:33,942 INFO Job job_1753892659556: Completed stage data_quality_analysis
+2025-07-30 11:24:33,943 INFO Job job_1753892659556: Starting stage 5/8 - column_labeling
+2025-07-30 11:24:33,943 INFO Sent job update for job_1753892659556: column_labeling (65%)
+2025-07-30 11:24:35,946 INFO Job job_1753892659556: Completed stage column_labeling
+2025-07-30 11:24:35,946 INFO Job job_1753892659556: Starting stage 6/8 - ai_analysis
+2025-07-30 11:24:35,947 INFO Sent job update for job_1753892659556: ai_analysis (80%)
+2025-07-30 11:24:43,947 INFO Job job_1753892659556: Completed stage ai_analysis
+2025-07-30 11:24:43,948 INFO Job job_1753892659556: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:24:43,948 INFO Sent job update for job_1753892659556: sweetviz_report (90%)
+2025-07-30 11:24:46,953 INFO Job job_1753892659556: Completed stage sweetviz_report
+2025-07-30 11:24:46,954 INFO Job job_1753892659556: Starting stage 8/8 - insights_ready
+2025-07-30 11:24:46,954 INFO Sent job update for job_1753892659556: insights_ready (100%)
+2025-07-30 11:24:48,965 INFO Job job_1753892659556: Completed stage insights_ready
+2025-07-30 11:24:48,965 INFO Job job_1753892659556 completed successfully with comprehensive insights
+2025-07-30 11:24:48,965 INFO Job job_1753892659556: Completed successfully
+2025-07-30 11:24:50,422 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:25:17,473 INFO WebSocket disconnected: None
+2025-07-30 11:25:30,142 INFO WebSocket connected: None
+2025-07-30 11:25:30,148 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753892729783'}
+2025-07-30 11:25:30,149 INFO Processing subscription for job_id: job_1753892729783
+2025-07-30 11:25:30,149 INFO WebSocket subscribed to job job_1753892729783
+2025-07-30 11:25:30,149 INFO Starting job simulation for job_1753892729783 with domain financial
+2025-07-30 11:25:30,150 INFO Starting enhanced job simulation for job_1753892729783 with domain: <starlette.websockets.WebSocket object at 0x0000024A57F8DCD0>
+2025-07-30 11:25:30,150 INFO Job job_1753892729783: Starting stage 1/8 - uploading
+2025-07-30 11:25:30,150 INFO Sent job update for job_1753892729783: uploading (10%)
+2025-07-30 11:25:32,140 INFO Job job_1753892729783: Completed stage uploading
+2025-07-30 11:25:32,140 INFO Job job_1753892729783: Starting stage 2/8 - encoding_detection
+2025-07-30 11:25:32,141 INFO Sent job update for job_1753892729783: encoding_detection (20%)
+2025-07-30 11:25:35,162 INFO Job job_1753892729783: Completed stage encoding_detection
+2025-07-30 11:25:35,163 INFO Job job_1753892729783: Starting stage 3/8 - csv_parsing
+2025-07-30 11:25:35,163 INFO Sent job update for job_1753892729783: csv_parsing (35%)
+2025-07-30 11:25:40,163 INFO Job job_1753892729783: Completed stage csv_parsing
+2025-07-30 11:25:40,164 INFO Job job_1753892729783: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:25:40,164 INFO Sent job update for job_1753892729783: data_quality_analysis (50%)
+2025-07-30 11:25:44,166 INFO Job job_1753892729783: Completed stage data_quality_analysis
+2025-07-30 11:25:44,167 INFO Job job_1753892729783: Starting stage 5/8 - column_labeling
+2025-07-30 11:25:44,167 INFO Sent job update for job_1753892729783: column_labeling (65%)
+2025-07-30 11:25:46,182 INFO Job job_1753892729783: Completed stage column_labeling
+2025-07-30 11:25:46,182 INFO Job job_1753892729783: Starting stage 6/8 - ai_analysis
+2025-07-30 11:25:46,183 INFO Sent job update for job_1753892729783: ai_analysis (80%)
+2025-07-30 11:25:54,189 INFO Job job_1753892729783: Completed stage ai_analysis
+2025-07-30 11:25:54,189 INFO Job job_1753892729783: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:25:54,189 INFO Sent job update for job_1753892729783: sweetviz_report (90%)
+2025-07-30 11:25:57,214 INFO Job job_1753892729783: Completed stage sweetviz_report
+2025-07-30 11:25:57,215 INFO Job job_1753892729783: Starting stage 8/8 - insights_ready
+2025-07-30 11:25:57,216 INFO Sent job update for job_1753892729783: insights_ready (100%)
+2025-07-30 11:25:59,226 INFO Job job_1753892729783: Completed stage insights_ready
+2025-07-30 11:25:59,227 INFO Job job_1753892729783 completed successfully with comprehensive insights
+2025-07-30 11:25:59,227 INFO Job job_1753892729783: Completed successfully
+2025-07-30 11:26:00,151 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:26:17,919 INFO WebSocket disconnected: None
+2025-07-30 11:27:06,007 INFO WebSocket connected: None
+2025-07-30 11:27:06,009 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753892825665'}
+2025-07-30 11:27:06,009 INFO Processing subscription for job_id: job_1753892825665
+2025-07-30 11:27:06,010 INFO WebSocket subscribed to job job_1753892825665
+2025-07-30 11:27:06,010 INFO Starting job simulation for job_1753892825665 with domain financial
+2025-07-30 11:27:06,010 INFO Starting enhanced job simulation for job_1753892825665 with domain: <starlette.websockets.WebSocket object at 0x0000024A57F95150>
+2025-07-30 11:27:06,010 INFO Job job_1753892825665: Starting stage 1/8 - uploading
+2025-07-30 11:27:06,010 INFO Sent job update for job_1753892825665: uploading (10%)
+2025-07-30 11:27:08,012 INFO Job job_1753892825665: Completed stage uploading
+2025-07-30 11:27:08,012 INFO Job job_1753892825665: Starting stage 2/8 - encoding_detection
+2025-07-30 11:27:08,012 INFO Sent job update for job_1753892825665: encoding_detection (20%)
+2025-07-30 11:27:11,013 INFO Job job_1753892825665: Completed stage encoding_detection
+2025-07-30 11:27:11,014 INFO Job job_1753892825665: Starting stage 3/8 - csv_parsing
+2025-07-30 11:27:11,015 INFO Sent job update for job_1753892825665: csv_parsing (35%)
+2025-07-30 11:27:16,037 INFO Job job_1753892825665: Completed stage csv_parsing
+2025-07-30 11:27:16,037 INFO Job job_1753892825665: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:27:16,038 INFO Sent job update for job_1753892825665: data_quality_analysis (50%)
+2025-07-30 11:27:20,050 INFO Job job_1753892825665: Completed stage data_quality_analysis
+2025-07-30 11:27:20,051 INFO Job job_1753892825665: Starting stage 5/8 - column_labeling
+2025-07-30 11:27:20,051 INFO Sent job update for job_1753892825665: column_labeling (65%)
+2025-07-30 11:27:22,072 INFO Job job_1753892825665: Completed stage column_labeling
+2025-07-30 11:27:22,072 INFO Job job_1753892825665: Starting stage 6/8 - ai_analysis
+2025-07-30 11:27:22,073 INFO Sent job update for job_1753892825665: ai_analysis (80%)
+2025-07-30 11:27:30,074 INFO Job job_1753892825665: Completed stage ai_analysis
+2025-07-30 11:27:30,075 INFO Job job_1753892825665: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:27:30,075 INFO Sent job update for job_1753892825665: sweetviz_report (90%)
+2025-07-30 11:27:33,085 INFO Job job_1753892825665: Completed stage sweetviz_report
+2025-07-30 11:27:33,086 INFO Job job_1753892825665: Starting stage 8/8 - insights_ready
+2025-07-30 11:27:33,086 INFO Sent job update for job_1753892825665: insights_ready (100%)
+2025-07-30 11:27:35,093 INFO Job job_1753892825665: Completed stage insights_ready
+2025-07-30 11:27:35,094 INFO Job job_1753892825665 completed successfully with comprehensive insights
+2025-07-30 11:27:35,094 INFO Job job_1753892825665: Completed successfully
+2025-07-30 11:27:36,015 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:28:06,018 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:28:36,429 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:29:06,425 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:29:36,423 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:30:06,431 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:31:29,419 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:32:29,428 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:33:29,423 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:34:29,421 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:35:29,432 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:36:29,427 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:37:29,423 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:38:29,432 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:39:29,422 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:40:29,428 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:40:36,784 INFO WebSocket connected: None
+2025-07-30 11:40:36,784 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:40:36,786 INFO WebSocket disconnected: None
+2025-07-30 11:40:36,789 INFO Starting robust processing of file: test_sync.csv (146 bytes)
+2025-07-30 11:40:36,792 INFO Using cached result for file: test_sync.csv
+2025-07-30 11:40:36,795 INFO Starting AI analysis for job job_1753893636792
+2025-07-30 11:40:36,809 INFO WebSocket connected: None
+2025-07-30 11:40:36,811 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753893636792', 'domain': 'financial'}
+2025-07-30 11:40:36,811 INFO Processing subscription for job_id: job_1753893636792
+2025-07-30 11:40:36,811 INFO WebSocket subscribed to job job_1753893636792
+2025-07-30 11:40:36,812 INFO Starting job simulation for job_1753893636792 with domain financial
+2025-07-30 11:40:36,812 INFO Starting enhanced job simulation for job_1753893636792 with domain: <starlette.websockets.WebSocket object at 0x0000024A58001450>
+2025-07-30 11:40:36,812 INFO Job job_1753893636792: Starting stage 1/8 - uploading
+2025-07-30 11:40:36,812 INFO Sent job update for job_1753893636792: uploading (10%)
+2025-07-30 11:40:37,086 WARNING Ollama API error: 404
+2025-07-30 11:40:37,107 INFO AI analysis completed for job job_1753893636792
+2025-07-30 11:40:38,831 INFO Job job_1753893636792: Completed stage uploading
+2025-07-30 11:40:38,831 INFO Job job_1753893636792: Starting stage 2/8 - encoding_detection
+2025-07-30 11:40:38,832 INFO Sent job update for job_1753893636792: encoding_detection (20%)
+2025-07-30 11:40:41,372 INFO WebSocket disconnected: None
+2025-07-30 11:40:41,444 INFO WebSocket disconnected: None
+2025-07-30 11:40:41,552 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:45:04,144 INFO Matplotlib imported successfully
+2025-07-30 11:45:06,301 INFO Financial router imported successfully
+2025-07-30 11:45:06,304 INFO Enhanced financial router imported successfully
+2025-07-30 11:45:06,367 INFO Auth router imported successfully
+2025-07-30 11:45:06,370 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:45:06,370 INFO Job simulation service imported successfully
+2025-07-30 11:45:06,381 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:45:06,381 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:45:06,381 INFO Financial dashboard WebSocket: True
+2025-07-30 11:45:08,739 INFO WebSocket connected: None
+2025-07-30 11:45:29,234 INFO WebSocket connected: None
+2025-07-30 11:45:29,236 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:45:29,237 INFO WebSocket disconnected: None
+2025-07-30 11:45:29,241 INFO Starting robust processing of file: test_sync.csv (146 bytes)
+2025-07-30 11:45:29,245 INFO Using cached result for file: test_sync.csv
+2025-07-30 11:45:29,246 INFO Starting AI analysis for job job_1753893929245
+2025-07-30 11:45:29,260 INFO WebSocket connected: None
+2025-07-30 11:45:29,262 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753893929245', 'domain': 'financial'}
+2025-07-30 11:45:29,262 INFO Processing subscription for job_id: job_1753893929245
+2025-07-30 11:45:29,263 INFO WebSocket subscribed to job job_1753893929245
+2025-07-30 11:45:29,263 INFO Starting job simulation for job_1753893929245 with domain financial
+2025-07-30 11:45:29,263 INFO Starting enhanced job simulation for job_1753893929245 with domain: <starlette.websockets.WebSocket object at 0x00000256744C1F10>
+2025-07-30 11:45:29,263 INFO Job job_1753893929245: Starting stage 1/8 - uploading
+2025-07-30 11:45:29,264 INFO Sent job update for job_1753893929245: uploading (10%)
+2025-07-30 11:45:29,535 WARNING Ollama API error: 404
+2025-07-30 11:45:29,551 INFO AI analysis completed for job job_1753893929245
+2025-07-30 11:45:31,258 INFO Job job_1753893929245: Completed stage uploading
+2025-07-30 11:45:31,258 INFO Job job_1753893929245: Starting stage 2/8 - encoding_detection
+2025-07-30 11:45:31,258 INFO Sent job update for job_1753893929245: encoding_detection (20%)
+2025-07-30 11:45:34,250 INFO Job job_1753893929245: Completed stage encoding_detection
+2025-07-30 11:45:34,250 INFO Job job_1753893929245: Starting stage 3/8 - csv_parsing
+2025-07-30 11:45:34,251 INFO Sent job update for job_1753893929245: csv_parsing (35%)
+2025-07-30 11:45:39,238 INFO Job job_1753893929245: Completed stage csv_parsing
+2025-07-30 11:45:39,238 INFO Job job_1753893929245: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:45:39,238 INFO Sent job update for job_1753893929245: data_quality_analysis (50%)
+2025-07-30 11:45:39,425 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:45:43,238 INFO Job job_1753893929245: Completed stage data_quality_analysis
+2025-07-30 11:45:43,238 INFO Job job_1753893929245: Starting stage 5/8 - column_labeling
+2025-07-30 11:45:43,238 INFO Sent job update for job_1753893929245: column_labeling (65%)
+2025-07-30 11:45:45,255 INFO Job job_1753893929245: Completed stage column_labeling
+2025-07-30 11:45:45,255 INFO Job job_1753893929245: Starting stage 6/8 - ai_analysis
+2025-07-30 11:45:45,255 INFO Sent job update for job_1753893929245: ai_analysis (80%)
+2025-07-30 11:45:53,252 INFO Job job_1753893929245: Completed stage ai_analysis
+2025-07-30 11:45:53,252 INFO Job job_1753893929245: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:45:53,252 INFO Sent job update for job_1753893929245: sweetviz_report (90%)
+2025-07-30 11:45:56,237 INFO Job job_1753893929245: Completed stage sweetviz_report
+2025-07-30 11:45:56,237 INFO Job job_1753893929245: Starting stage 8/8 - insights_ready
+2025-07-30 11:45:56,237 INFO Sent job update for job_1753893929245: insights_ready (100%)
+2025-07-30 11:45:58,248 INFO Job job_1753893929245: Completed stage insights_ready
+2025-07-30 11:45:58,248 INFO Job job_1753893929245 completed successfully with comprehensive insights
+2025-07-30 11:45:58,248 INFO Job job_1753893929245: Completed successfully
+2025-07-30 11:45:59,321 INFO WebSocket disconnected: None
+2025-07-30 11:46:09,426 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:46:39,427 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:47:09,430 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:47:23,547 INFO WebSocket disconnected: None
+2025-07-30 11:47:23,656 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:49:52,849 INFO Matplotlib imported successfully
+2025-07-30 11:49:54,783 INFO Financial router imported successfully
+2025-07-30 11:49:54,786 INFO Enhanced financial router imported successfully
+2025-07-30 11:49:54,849 INFO Auth router imported successfully
+2025-07-30 11:49:54,851 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:49:54,851 INFO Job simulation service imported successfully
+2025-07-30 11:49:54,858 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:49:54,858 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:49:54,859 INFO Financial dashboard WebSocket: True
+2025-07-30 11:50:02,617 INFO WebSocket connected: None
+2025-07-30 11:50:02,619 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:50:02,620 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'test_job_1753894202620', 'domain': 'financial'}
+2025-07-30 11:50:02,620 INFO Processing subscription for job_id: test_job_1753894202620
+2025-07-30 11:50:02,620 INFO WebSocket subscribed to job test_job_1753894202620
+2025-07-30 11:50:02,621 INFO Starting job simulation for test_job_1753894202620 with domain financial
+2025-07-30 11:50:02,621 INFO Starting enhanced job simulation for test_job_1753894202620 with domain: <starlette.websockets.WebSocket object at 0x0000027468531010>
+2025-07-30 11:50:02,621 INFO Job test_job_1753894202620: Starting stage 1/8 - uploading
+2025-07-30 11:50:02,621 INFO Sent job update for test_job_1753894202620: uploading (10%)
+2025-07-30 11:50:04,630 INFO Job test_job_1753894202620: Completed stage uploading
+2025-07-30 11:50:04,631 INFO Job test_job_1753894202620: Starting stage 2/8 - encoding_detection
+2025-07-30 11:50:04,631 INFO Sent job update for test_job_1753894202620: encoding_detection (20%)
+2025-07-30 11:50:07,636 INFO Job test_job_1753894202620: Completed stage encoding_detection
+2025-07-30 11:50:07,637 INFO Job test_job_1753894202620: Starting stage 3/8 - csv_parsing
+2025-07-30 11:50:07,637 INFO Sent job update for test_job_1753894202620: csv_parsing (35%)
+2025-07-30 11:50:12,654 INFO Job test_job_1753894202620: Completed stage csv_parsing
+2025-07-30 11:50:12,654 INFO Job test_job_1753894202620: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:50:12,654 INFO Sent job update for test_job_1753894202620: data_quality_analysis (50%)
+2025-07-30 11:50:16,643 INFO Job test_job_1753894202620: Completed stage data_quality_analysis
+2025-07-30 11:50:16,643 INFO Job test_job_1753894202620: Starting stage 5/8 - column_labeling
+2025-07-30 11:50:16,644 INFO Sent job update for test_job_1753894202620: column_labeling (65%)
+2025-07-30 11:50:18,640 INFO Job test_job_1753894202620: Completed stage column_labeling
+2025-07-30 11:50:18,641 INFO Job test_job_1753894202620: Starting stage 6/8 - ai_analysis
+2025-07-30 11:50:18,642 INFO Sent job update for test_job_1753894202620: ai_analysis (80%)
+2025-07-30 11:50:26,654 INFO Job test_job_1753894202620: Completed stage ai_analysis
+2025-07-30 11:50:26,655 INFO Job test_job_1753894202620: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:50:26,655 INFO Sent job update for test_job_1753894202620: sweetviz_report (90%)
+2025-07-30 11:50:29,670 INFO Job test_job_1753894202620: Completed stage sweetviz_report
+2025-07-30 11:50:29,671 INFO Job test_job_1753894202620: Starting stage 8/8 - insights_ready
+2025-07-30 11:50:29,671 INFO Sent job update for test_job_1753894202620: insights_ready (100%)
+2025-07-30 11:50:31,659 INFO Job test_job_1753894202620: Completed stage insights_ready
+2025-07-30 11:50:31,660 INFO Job test_job_1753894202620 completed successfully with comprehensive insights
+2025-07-30 11:50:31,660 INFO Job test_job_1753894202620: Completed successfully
+2025-07-30 11:50:32,674 INFO WebSocket disconnected: None
+2025-07-30 11:50:48,628 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:50:49,447 INFO Matplotlib imported successfully
+2025-07-30 11:50:51,183 INFO Financial router imported successfully
+2025-07-30 11:50:51,186 INFO Enhanced financial router imported successfully
+2025-07-30 11:50:51,240 INFO Auth router imported successfully
+2025-07-30 11:50:51,242 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:50:51,242 INFO Job simulation service imported successfully
+2025-07-30 11:50:51,250 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:50:51,250 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:50:51,250 INFO Financial dashboard WebSocket: True
+2025-07-30 11:50:56,056 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:50:56,863 INFO Matplotlib imported successfully
+2025-07-30 11:50:58,505 INFO Financial router imported successfully
+2025-07-30 11:50:58,507 INFO Enhanced financial router imported successfully
+2025-07-30 11:50:58,559 INFO Auth router imported successfully
+2025-07-30 11:50:58,561 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:50:58,561 INFO Job simulation service imported successfully
+2025-07-30 11:50:58,569 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:50:58,569 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:50:58,569 INFO Financial dashboard WebSocket: True
+2025-07-30 11:51:06,545 INFO WebSocket connected: None
+2025-07-30 11:51:06,546 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 11:51:06,547 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'test_job_1753894266547', 'domain': 'financial'}
+2025-07-30 11:51:06,547 INFO Processing subscription for job_id: test_job_1753894266547
+2025-07-30 11:51:06,547 INFO WebSocket subscribed to job test_job_1753894266547
+2025-07-30 11:51:06,548 INFO Starting job simulation for test_job_1753894266547 with domain financial
+2025-07-30 11:51:06,548 INFO Starting enhanced job simulation for test_job_1753894266547 with domain: financial
+2025-07-30 11:51:06,548 INFO Job test_job_1753894266547: Starting stage 1/8 - uploading
+2025-07-30 11:51:06,548 INFO Sent job update for test_job_1753894266547: uploading (10%)
+2025-07-30 11:51:08,571 INFO Job test_job_1753894266547: Completed stage uploading
+2025-07-30 11:51:08,572 INFO Job test_job_1753894266547: Starting stage 2/8 - encoding_detection
+2025-07-30 11:51:08,572 INFO Sent job update for test_job_1753894266547: encoding_detection (20%)
+2025-07-30 11:51:11,575 INFO Job test_job_1753894266547: Completed stage encoding_detection
+2025-07-30 11:51:11,575 INFO Job test_job_1753894266547: Starting stage 3/8 - csv_parsing
+2025-07-30 11:51:11,576 INFO Sent job update for test_job_1753894266547: csv_parsing (35%)
+2025-07-30 11:51:16,579 INFO Job test_job_1753894266547: Completed stage csv_parsing
+2025-07-30 11:51:16,580 INFO Job test_job_1753894266547: Starting stage 4/8 - data_quality_analysis
+2025-07-30 11:51:16,580 INFO Sent job update for test_job_1753894266547: data_quality_analysis (50%)
+2025-07-30 11:51:20,604 INFO Job test_job_1753894266547: Completed stage data_quality_analysis
+2025-07-30 11:51:20,605 INFO Job test_job_1753894266547: Starting stage 5/8 - column_labeling
+2025-07-30 11:51:20,605 INFO Sent job update for test_job_1753894266547: column_labeling (65%)
+2025-07-30 11:51:22,609 INFO Job test_job_1753894266547: Completed stage column_labeling
+2025-07-30 11:51:22,609 INFO Job test_job_1753894266547: Starting stage 6/8 - ai_analysis
+2025-07-30 11:51:22,609 INFO Sent job update for test_job_1753894266547: ai_analysis (80%)
+2025-07-30 11:51:30,631 INFO Job test_job_1753894266547: Completed stage ai_analysis
+2025-07-30 11:51:30,631 INFO Job test_job_1753894266547: Starting stage 7/8 - sweetviz_report
+2025-07-30 11:51:30,632 INFO Sent job update for test_job_1753894266547: sweetviz_report (90%)
+2025-07-30 11:51:33,629 INFO Job test_job_1753894266547: Completed stage sweetviz_report
+2025-07-30 11:51:33,630 INFO Job test_job_1753894266547: Starting stage 8/8 - insights_ready
+2025-07-30 11:51:33,630 INFO Sent job update for test_job_1753894266547: insights_ready (100%)
+2025-07-30 11:51:35,632 INFO Job test_job_1753894266547: Completed stage insights_ready
+2025-07-30 11:51:35,632 INFO Job test_job_1753894266547 completed successfully with comprehensive insights
+2025-07-30 11:51:35,632 INFO Job test_job_1753894266547: Completed successfully
+2025-07-30 11:51:36,612 INFO WebSocket disconnected: None
+2025-07-30 11:51:39,812 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 11:51:40,787 INFO Matplotlib imported successfully
+2025-07-30 11:51:42,658 INFO Financial router imported successfully
+2025-07-30 11:51:42,661 INFO Enhanced financial router imported successfully
+2025-07-30 11:51:42,718 INFO Auth router imported successfully
+2025-07-30 11:51:42,720 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 11:51:42,720 INFO Job simulation service imported successfully
+2025-07-30 11:51:42,727 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 11:51:42,728 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 11:51:42,728 INFO Financial dashboard WebSocket: True
+2025-07-30 11:52:23,007 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 12:00:10,993 INFO Matplotlib imported successfully
+2025-07-30 12:00:12,744 INFO Financial router imported successfully
+2025-07-30 12:00:12,747 INFO Enhanced financial router imported successfully
+2025-07-30 12:00:12,799 INFO Auth router imported successfully
+2025-07-30 12:00:12,800 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 12:00:12,801 INFO Job simulation service imported successfully
+2025-07-30 12:00:12,809 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 12:00:12,809 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 12:00:12,810 INFO Financial dashboard WebSocket: True
+2025-07-30 12:01:03,523 INFO WebSocket connected: None
+2025-07-30 12:01:03,524 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 12:01:03,526 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'test_job_1753894863525', 'domain': 'financial'}
+2025-07-30 12:01:03,526 INFO Processing subscription for job_id: test_job_1753894863525
+2025-07-30 12:01:03,526 INFO WebSocket subscribed to job test_job_1753894863525
+2025-07-30 12:01:03,526 INFO Starting job simulation for test_job_1753894863525 with domain financial
+2025-07-30 12:01:03,527 INFO Starting enhanced job simulation for test_job_1753894863525 with domain: financial
+2025-07-30 12:01:03,527 INFO Job test_job_1753894863525: Starting stage 1/8 - uploading
+2025-07-30 12:01:03,527 INFO Sent job update for test_job_1753894863525: uploading (10%)
+2025-07-30 12:01:05,519 INFO Job test_job_1753894863525: Completed stage uploading
+2025-07-30 12:01:05,520 INFO Job test_job_1753894863525: Starting stage 2/8 - encoding_detection
+2025-07-30 12:01:05,520 INFO Sent job update for test_job_1753894863525: encoding_detection (20%)
+2025-07-30 12:01:08,531 INFO Job test_job_1753894863525: Completed stage encoding_detection
+2025-07-30 12:01:08,531 INFO Job test_job_1753894863525: Starting stage 3/8 - csv_parsing
+2025-07-30 12:01:08,532 INFO Sent job update for test_job_1753894863525: csv_parsing (35%)
+2025-07-30 12:01:13,546 INFO Job test_job_1753894863525: Completed stage csv_parsing
+2025-07-30 12:01:13,546 INFO Job test_job_1753894863525: Starting stage 4/8 - data_quality_analysis
+2025-07-30 12:01:13,546 INFO Sent job update for test_job_1753894863525: data_quality_analysis (50%)
+2025-07-30 12:01:17,567 INFO Job test_job_1753894863525: Completed stage data_quality_analysis
+2025-07-30 12:01:17,568 INFO Job test_job_1753894863525: Starting stage 5/8 - column_labeling
+2025-07-30 12:01:17,568 INFO Sent job update for test_job_1753894863525: column_labeling (65%)
+2025-07-30 12:01:19,565 INFO Job test_job_1753894863525: Completed stage column_labeling
+2025-07-30 12:01:19,566 INFO Job test_job_1753894863525: Starting stage 6/8 - ai_analysis
+2025-07-30 12:01:19,566 INFO Sent job update for test_job_1753894863525: ai_analysis (80%)
+2025-07-30 12:01:27,584 INFO Job test_job_1753894863525: Completed stage ai_analysis
+2025-07-30 12:01:27,585 INFO Job test_job_1753894863525: Starting stage 7/8 - sweetviz_report
+2025-07-30 12:01:27,585 INFO Sent job update for test_job_1753894863525: sweetviz_report (90%)
+2025-07-30 12:01:30,598 INFO Job test_job_1753894863525: Completed stage sweetviz_report
+2025-07-30 12:01:30,599 INFO Job test_job_1753894863525: Starting stage 8/8 - insights_ready
+2025-07-30 12:01:30,599 INFO Sent job update for test_job_1753894863525: insights_ready (100%)
+2025-07-30 12:01:32,609 INFO Job test_job_1753894863525: Completed stage insights_ready
+2025-07-30 12:01:32,610 INFO Job test_job_1753894863525 completed successfully with comprehensive insights
+2025-07-30 12:01:32,610 INFO Job test_job_1753894863525: Completed successfully
+2025-07-30 12:01:33,549 INFO WebSocket disconnected: None
+2025-07-30 12:01:52,432 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 12:01:53,257 INFO Matplotlib imported successfully
+2025-07-30 12:01:55,092 INFO Financial router imported successfully
+2025-07-30 12:01:55,095 INFO Enhanced financial router imported successfully
+2025-07-30 12:01:55,147 INFO Auth router imported successfully
+2025-07-30 12:01:55,149 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 12:01:55,149 INFO Job simulation service imported successfully
+2025-07-30 12:01:55,158 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 12:01:55,158 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 12:01:55,158 INFO Financial dashboard WebSocket: True
+2025-07-30 12:02:00,926 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 12:02:01,835 INFO Matplotlib imported successfully
+2025-07-30 12:02:03,490 INFO Financial router imported successfully
+2025-07-30 12:02:03,493 INFO Enhanced financial router imported successfully
+2025-07-30 12:02:03,548 INFO Auth router imported successfully
+2025-07-30 12:02:03,550 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 12:02:03,550 INFO Job simulation service imported successfully
+2025-07-30 12:02:03,557 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 12:02:03,557 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 12:02:03,558 INFO Financial dashboard WebSocket: True
+2025-07-30 12:02:10,640 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 12:02:11,488 INFO Matplotlib imported successfully
+2025-07-30 12:02:13,233 INFO Financial router imported successfully
+2025-07-30 12:02:13,236 INFO Enhanced financial router imported successfully
+2025-07-30 12:02:13,285 INFO Auth router imported successfully
+2025-07-30 12:02:13,286 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 12:02:13,286 INFO Job simulation service imported successfully
+2025-07-30 12:02:13,295 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 12:02:13,295 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 12:02:13,295 INFO Financial dashboard WebSocket: True
+2025-07-30 12:02:21,604 INFO WebSocket connected: None
+2025-07-30 12:02:21,605 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 12:02:21,606 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'test_job_1753894941606', 'domain': 'financial'}
+2025-07-30 12:02:21,606 INFO Processing subscription for job_id: test_job_1753894941606
+2025-07-30 12:02:21,606 INFO WebSocket subscribed to job test_job_1753894941606
+2025-07-30 12:02:21,607 INFO Starting job simulation for test_job_1753894941606 with domain financial
+2025-07-30 12:02:21,607 INFO Starting enhanced job simulation for test_job_1753894941606 with domain: financial
+2025-07-30 12:02:21,607 INFO Job test_job_1753894941606: Starting stage 1/8 - uploading
+2025-07-30 12:02:21,607 INFO Sent job update for test_job_1753894941606: uploading (10%)
+2025-07-30 12:02:21,608 INFO Broadcasted job update for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:23,603 INFO Job test_job_1753894941606: Completed stage uploading
+2025-07-30 12:02:23,603 INFO Job test_job_1753894941606: Starting stage 2/8 - encoding_detection
+2025-07-30 12:02:23,603 INFO Sent job update for test_job_1753894941606: encoding_detection (20%)
+2025-07-30 12:02:23,604 INFO Broadcasted job update for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:26,599 INFO Job test_job_1753894941606: Completed stage encoding_detection
+2025-07-30 12:02:26,599 INFO Job test_job_1753894941606: Starting stage 3/8 - csv_parsing
+2025-07-30 12:02:26,599 INFO Sent job update for test_job_1753894941606: csv_parsing (35%)
+2025-07-30 12:02:26,600 INFO Broadcasted job update for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:31,618 INFO Job test_job_1753894941606: Completed stage csv_parsing
+2025-07-30 12:02:31,618 INFO Job test_job_1753894941606: Starting stage 4/8 - data_quality_analysis
+2025-07-30 12:02:31,620 INFO Sent job update for test_job_1753894941606: data_quality_analysis (50%)
+2025-07-30 12:02:31,621 INFO Broadcasted job update for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:35,639 INFO Job test_job_1753894941606: Completed stage data_quality_analysis
+2025-07-30 12:02:35,640 INFO Job test_job_1753894941606: Starting stage 5/8 - column_labeling
+2025-07-30 12:02:35,640 INFO Sent job update for test_job_1753894941606: column_labeling (65%)
+2025-07-30 12:02:35,641 INFO Broadcasted job update for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:37,645 INFO Job test_job_1753894941606: Completed stage column_labeling
+2025-07-30 12:02:37,645 INFO Job test_job_1753894941606: Starting stage 6/8 - ai_analysis
+2025-07-30 12:02:37,645 INFO Sent job update for test_job_1753894941606: ai_analysis (80%)
+2025-07-30 12:02:37,646 INFO Broadcasted job update for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:45,663 INFO Job test_job_1753894941606: Completed stage ai_analysis
+2025-07-30 12:02:45,664 INFO Job test_job_1753894941606: Starting stage 7/8 - sweetviz_report
+2025-07-30 12:02:45,665 INFO Sent job update for test_job_1753894941606: sweetviz_report (90%)
+2025-07-30 12:02:45,666 INFO Broadcasted job update for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:48,676 INFO Job test_job_1753894941606: Completed stage sweetviz_report
+2025-07-30 12:02:48,676 INFO Job test_job_1753894941606: Starting stage 8/8 - insights_ready
+2025-07-30 12:02:48,677 INFO Sent job update for test_job_1753894941606: insights_ready (100%)
+2025-07-30 12:02:48,677 INFO Broadcasted job update for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:50,676 INFO Job test_job_1753894941606: Completed stage insights_ready
+2025-07-30 12:02:50,677 INFO Job test_job_1753894941606 completed successfully with comprehensive insights
+2025-07-30 12:02:50,678 INFO Broadcasted job completion for test_job_1753894941606 to 1 subscribers
+2025-07-30 12:02:50,679 INFO Job test_job_1753894941606: Completed successfully
+2025-07-30 12:02:55,692 INFO WebSocket disconnected: None
+2025-07-30 12:03:04,917 INFO WebSocket connected: None
+2025-07-30 12:03:04,919 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-30 12:03:04,920 INFO WebSocket disconnected: None
+2025-07-30 12:03:04,922 INFO Starting robust processing of file: test_sync.csv (146 bytes)
+2025-07-30 12:03:04,939 INFO Using cached result for file: test_sync.csv
+2025-07-30 12:03:04,941 INFO Starting AI analysis for job job_1753894984940
+2025-07-30 12:03:04,958 INFO WebSocket connected: None
+2025-07-30 12:03:04,960 INFO Received WebSocket message: {'type': 'subscribe_job', 'job_id': 'job_1753894984940', 'domain': 'financial'}
+2025-07-30 12:03:04,960 INFO Processing subscription for job_id: job_1753894984940
+2025-07-30 12:03:04,960 INFO WebSocket subscribed to job job_1753894984940
+2025-07-30 12:03:04,961 INFO Starting job simulation for job_1753894984940 with domain financial
+2025-07-30 12:03:04,961 INFO Starting enhanced job simulation for job_1753894984940 with domain: financial
+2025-07-30 12:03:04,961 INFO Job job_1753894984940: Starting stage 1/8 - uploading
+2025-07-30 12:03:04,961 INFO Sent job update for job_1753894984940: uploading (10%)
+2025-07-30 12:03:04,962 INFO Broadcasted job update for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:05,225 WARNING Ollama API error: 404
+2025-07-30 12:03:05,252 INFO AI analysis completed for job job_1753894984940
+2025-07-30 12:03:06,957 INFO Job job_1753894984940: Completed stage uploading
+2025-07-30 12:03:06,957 INFO Job job_1753894984940: Starting stage 2/8 - encoding_detection
+2025-07-30 12:03:06,958 INFO Sent job update for job_1753894984940: encoding_detection (20%)
+2025-07-30 12:03:06,958 INFO Broadcasted job update for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:09,956 INFO Job job_1753894984940: Completed stage encoding_detection
+2025-07-30 12:03:09,957 INFO Job job_1753894984940: Starting stage 3/8 - csv_parsing
+2025-07-30 12:03:09,957 INFO Sent job update for job_1753894984940: csv_parsing (35%)
+2025-07-30 12:03:09,958 INFO Broadcasted job update for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:14,967 INFO Job job_1753894984940: Completed stage csv_parsing
+2025-07-30 12:03:14,967 INFO Job job_1753894984940: Starting stage 4/8 - data_quality_analysis
+2025-07-30 12:03:14,968 INFO Sent job update for job_1753894984940: data_quality_analysis (50%)
+2025-07-30 12:03:14,968 INFO Broadcasted job update for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:18,985 INFO Job job_1753894984940: Completed stage data_quality_analysis
+2025-07-30 12:03:18,986 INFO Job job_1753894984940: Starting stage 5/8 - column_labeling
+2025-07-30 12:03:18,987 INFO Sent job update for job_1753894984940: column_labeling (65%)
+2025-07-30 12:03:18,988 INFO Broadcasted job update for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:20,995 INFO Job job_1753894984940: Completed stage column_labeling
+2025-07-30 12:03:20,995 INFO Job job_1753894984940: Starting stage 6/8 - ai_analysis
+2025-07-30 12:03:20,996 INFO Sent job update for job_1753894984940: ai_analysis (80%)
+2025-07-30 12:03:20,997 INFO Broadcasted job update for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:29,012 INFO Job job_1753894984940: Completed stage ai_analysis
+2025-07-30 12:03:29,012 INFO Job job_1753894984940: Starting stage 7/8 - sweetviz_report
+2025-07-30 12:03:29,013 INFO Sent job update for job_1753894984940: sweetviz_report (90%)
+2025-07-30 12:03:29,013 INFO Broadcasted job update for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:32,003 INFO Job job_1753894984940: Completed stage sweetviz_report
+2025-07-30 12:03:32,003 INFO Job job_1753894984940: Starting stage 8/8 - insights_ready
+2025-07-30 12:03:32,003 INFO Sent job update for job_1753894984940: insights_ready (100%)
+2025-07-30 12:03:32,004 INFO Broadcasted job update for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:34,014 INFO Job job_1753894984940: Completed stage insights_ready
+2025-07-30 12:03:34,015 INFO Job job_1753894984940 completed successfully with comprehensive insights
+2025-07-30 12:03:34,015 INFO Broadcasted job completion for job_1753894984940 to 1 subscribers
+2025-07-30 12:03:34,016 INFO Job job_1753894984940: Completed successfully
+2025-07-30 12:03:39,019 INFO WebSocket disconnected: None
+2025-07-30 12:03:49,994 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 12:03:50,894 INFO Matplotlib imported successfully
+2025-07-30 12:03:53,947 INFO Financial router imported successfully
+2025-07-30 12:03:53,950 INFO Enhanced financial router imported successfully
+2025-07-30 12:03:54,002 INFO Auth router imported successfully
+2025-07-30 12:03:54,004 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 12:03:54,004 INFO Job simulation service imported successfully
+2025-07-30 12:03:54,012 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 12:03:54,012 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 12:03:54,013 INFO Financial dashboard WebSocket: True
+2025-07-30 14:31:17,996 INFO Matplotlib imported successfully
+2025-07-30 14:31:21,362 INFO Financial router imported successfully
+2025-07-30 14:31:21,366 INFO Enhanced financial router imported successfully
+2025-07-30 14:31:21,460 INFO Auth router imported successfully
+2025-07-30 14:31:21,465 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 14:31:21,466 INFO Job simulation service imported successfully
+2025-07-30 14:31:21,482 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 14:31:21,482 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 14:31:21,482 INFO Financial dashboard WebSocket: True
+2025-07-30 14:34:46,667 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 14:34:47,884 INFO Matplotlib imported successfully
+2025-07-30 14:34:51,163 INFO Financial router imported successfully
+2025-07-30 14:34:51,166 INFO Enhanced financial router imported successfully
+2025-07-30 14:34:51,252 INFO Auth router imported successfully
+2025-07-30 14:34:51,255 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 14:34:51,255 INFO Job simulation service imported successfully
+2025-07-30 14:34:51,271 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 14:34:51,271 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 14:34:51,272 INFO Financial dashboard WebSocket: True
+2025-07-30 14:34:56,054 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 14:34:57,244 INFO Matplotlib imported successfully
+2025-07-30 14:35:00,859 INFO Financial router imported successfully
+2025-07-30 14:35:00,862 INFO Enhanced financial router imported successfully
+2025-07-30 14:35:00,999 INFO Auth router imported successfully
+2025-07-30 14:35:01,014 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 14:35:01,015 INFO Job simulation service imported successfully
+2025-07-30 14:35:01,052 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 14:35:01,052 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 14:35:01,052 INFO Financial dashboard WebSocket: True
+2025-07-30 14:36:57,988 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 14:36:59,225 INFO Matplotlib imported successfully
+2025-07-30 14:37:03,074 INFO Financial router imported successfully
+2025-07-30 14:37:03,078 INFO Enhanced financial router imported successfully
+2025-07-30 14:37:03,166 INFO Auth router imported successfully
+2025-07-30 14:37:03,170 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 14:37:03,170 INFO Job simulation service imported successfully
+2025-07-30 14:37:03,185 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 14:37:03,185 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 14:37:03,186 INFO Financial dashboard WebSocket: True
+2025-07-30 14:37:05,949 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 14:37:07,426 INFO Matplotlib imported successfully
+2025-07-30 14:37:10,380 INFO Financial router imported successfully
+2025-07-30 14:37:10,384 INFO Enhanced financial router imported successfully
+2025-07-30 14:37:10,480 INFO Auth router imported successfully
+2025-07-30 14:37:10,484 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 14:37:10,484 INFO Job simulation service imported successfully
+2025-07-30 14:37:10,502 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 14:37:10,502 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 14:37:10,502 INFO Financial dashboard WebSocket: True
+2025-07-30 14:37:58,112 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 14:38:09,273 INFO Matplotlib imported successfully
+2025-07-30 14:38:19,055 INFO Financial router imported successfully
+2025-07-30 14:38:19,058 INFO Enhanced financial router imported successfully
+2025-07-30 14:38:19,624 INFO Auth router imported successfully
+2025-07-30 14:38:19,625 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 14:38:19,626 INFO Job simulation service imported successfully
+2025-07-30 14:38:19,639 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 14:38:19,639 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 14:38:19,640 INFO Financial dashboard WebSocket: True
+2025-07-30 14:39:33,935 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 14:39:35,183 INFO Matplotlib imported successfully
+2025-07-30 14:39:37,623 INFO Financial router imported successfully
+2025-07-30 14:39:37,625 INFO Enhanced financial router imported successfully
+2025-07-30 14:39:37,697 INFO Auth router imported successfully
+2025-07-30 14:39:37,699 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 14:39:37,699 INFO Job simulation service imported successfully
+2025-07-30 14:39:37,712 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 14:39:37,713 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 14:39:37,713 INFO Financial dashboard WebSocket: True
+2025-07-30 14:40:21,184 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 14:40:22,507 INFO Matplotlib imported successfully
+2025-07-30 14:40:25,226 INFO Financial router imported successfully
+2025-07-30 14:40:25,230 INFO Enhanced financial router imported successfully
+2025-07-30 14:40:25,313 INFO Auth router imported successfully
+2025-07-30 14:40:25,316 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 14:40:25,316 INFO Job simulation service imported successfully
+2025-07-30 14:40:25,334 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 14:40:25,334 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 14:40:25,334 INFO Financial dashboard WebSocket: True
+2025-07-30 15:42:45,456 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:42:46,474 INFO Matplotlib imported successfully
+2025-07-30 15:42:48,473 INFO Financial router imported successfully
+2025-07-30 15:42:48,477 INFO Enhanced financial router imported successfully
+2025-07-30 15:42:48,528 INFO Auth router imported successfully
+2025-07-30 15:42:48,530 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:42:48,530 INFO Job simulation service imported successfully
+2025-07-30 15:42:48,540 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:42:48,540 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:42:48,540 INFO Financial dashboard WebSocket: True
+2025-07-30 15:45:25,061 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:45:26,266 INFO Matplotlib imported successfully
+2025-07-30 15:45:28,799 INFO Financial router imported successfully
+2025-07-30 15:45:28,802 INFO Enhanced financial router imported successfully
+2025-07-30 15:45:28,871 INFO Auth router imported successfully
+2025-07-30 15:45:28,874 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:45:28,874 INFO Job simulation service imported successfully
+2025-07-30 15:45:28,890 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:45:28,891 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:45:28,891 INFO Financial dashboard WebSocket: True
+2025-07-30 15:46:14,025 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:46:15,181 INFO Matplotlib imported successfully
+2025-07-30 15:46:17,697 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:46:17,703 INFO Financial router imported successfully
+2025-07-30 15:46:17,705 INFO Enhanced financial router imported successfully
+2025-07-30 15:46:17,775 INFO Auth router imported successfully
+2025-07-30 15:46:17,777 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:46:17,777 INFO Job simulation service imported successfully
+2025-07-30 15:46:17,790 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:46:17,790 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:46:17,790 INFO Financial dashboard WebSocket: True
+2025-07-30 15:46:26,835 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:46:28,075 INFO Matplotlib imported successfully
+2025-07-30 15:46:30,632 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:46:30,637 INFO Financial router imported successfully
+2025-07-30 15:46:30,640 INFO Enhanced financial router imported successfully
+2025-07-30 15:46:30,727 INFO Auth router imported successfully
+2025-07-30 15:46:30,729 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:46:30,729 INFO Job simulation service imported successfully
+2025-07-30 15:46:30,745 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:46:30,745 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:46:30,745 INFO Financial dashboard WebSocket: True
+2025-07-30 15:51:53,251 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:51:54,960 INFO Matplotlib imported successfully
+2025-07-30 15:51:57,686 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:51:57,692 INFO Financial router imported successfully
+2025-07-30 15:51:57,694 INFO Enhanced financial router imported successfully
+2025-07-30 15:51:57,780 INFO Auth router imported successfully
+2025-07-30 15:51:57,783 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:51:57,784 INFO Job simulation service imported successfully
+2025-07-30 15:51:57,797 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:51:57,797 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:51:57,798 INFO Financial dashboard WebSocket: True
+2025-07-30 15:55:31,571 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:55:33,651 INFO Matplotlib imported successfully
+2025-07-30 15:55:39,873 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:55:39,880 INFO Financial router imported successfully
+2025-07-30 15:55:39,883 INFO Enhanced financial router imported successfully
+2025-07-30 15:55:39,976 INFO Auth router imported successfully
+2025-07-30 15:55:39,978 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:55:39,978 INFO Job simulation service imported successfully
+2025-07-30 15:55:39,993 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:55:39,993 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:55:39,993 INFO Financial dashboard WebSocket: True
+2025-07-30 15:57:05,669 INFO Matplotlib imported successfully
+2025-07-30 15:57:12,171 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 15:57:12,214 INFO Enhanced financial router imported successfully
+2025-07-30 15:57:12,410 INFO Auth router imported successfully
+2025-07-30 15:57:12,423 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:57:12,473 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 15:57:12,491 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 15:57:45,680 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:57:51,851 INFO Matplotlib imported successfully
+2025-07-30 15:58:02,776 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:58:02,816 INFO Financial router imported successfully
+2025-07-30 15:58:02,842 INFO Enhanced financial router imported successfully
+2025-07-30 15:58:03,502 INFO Auth router imported successfully
+2025-07-30 15:58:03,549 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:58:03,632 INFO Job simulation service imported successfully
+2025-07-30 15:58:03,783 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:58:03,799 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:58:03,805 INFO Financial dashboard WebSocket: True
+2025-07-30 15:58:03,860 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:58:08,127 INFO Matplotlib imported successfully
+2025-07-30 15:58:16,286 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:58:16,306 INFO Financial router imported successfully
+2025-07-30 15:58:16,320 INFO Enhanced financial router imported successfully
+2025-07-30 15:58:16,494 INFO Auth router imported successfully
+2025-07-30 15:58:16,508 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:58:16,515 INFO Job simulation service imported successfully
+2025-07-30 15:58:16,650 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:58:16,659 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:58:16,679 INFO Financial dashboard WebSocket: True
+2025-07-30 15:58:16,709 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:58:22,734 INFO Matplotlib imported successfully
+2025-07-30 15:58:29,771 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:58:29,801 ERROR Failed to import financial router: cannot import name 'job_status_manager' from partially initialized module 'api.main' (most likely due to a circular import) (C:\Abbasai\Sygnify V2\backend\api\main.py)
+2025-07-30 15:58:29,826 INFO Enhanced financial router imported successfully
+2025-07-30 15:58:30,079 INFO Auth router imported successfully
+2025-07-30 15:58:30,147 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:58:30,183 INFO Job simulation service imported successfully
+2025-07-30 15:58:30,283 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:58:30,290 INFO Available routers: financial=False, enhanced_financial=True, auth=True
+2025-07-30 15:58:30,319 INFO Financial dashboard WebSocket: True
+2025-07-30 15:58:30,374 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:58:36,298 INFO Matplotlib imported successfully
+2025-07-30 15:58:44,235 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:58:44,243 ERROR Failed to import financial router: cannot import name 'job_status_manager' from partially initialized module 'api.main' (most likely due to a circular import) (C:\Abbasai\Sygnify V2\backend\api\main.py)
+2025-07-30 15:58:44,255 INFO Enhanced financial router imported successfully
+2025-07-30 15:58:44,654 INFO Auth router imported successfully
+2025-07-30 15:58:44,694 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:58:44,711 INFO Job simulation service imported successfully
+2025-07-30 15:58:44,835 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:58:44,893 INFO Available routers: financial=False, enhanced_financial=True, auth=True
+2025-07-30 15:58:44,905 INFO Financial dashboard WebSocket: True
+2025-07-30 15:58:44,957 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:58:52,539 INFO Matplotlib imported successfully
+2025-07-30 15:59:02,059 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:59:02,101 ERROR Failed to import financial router: cannot import name 'job_status_manager' from partially initialized module 'api.main' (most likely due to a circular import) (C:\Abbasai\Sygnify V2\backend\api\main.py)
+2025-07-30 15:59:02,143 INFO Enhanced financial router imported successfully
+2025-07-30 15:59:02,379 INFO Auth router imported successfully
+2025-07-30 15:59:02,427 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:59:02,474 INFO Job simulation service imported successfully
+2025-07-30 15:59:02,594 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:59:02,598 INFO Available routers: financial=False, enhanced_financial=True, auth=True
+2025-07-30 15:59:02,620 INFO Financial dashboard WebSocket: True
+2025-07-30 15:59:02,673 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:59:08,810 INFO Matplotlib imported successfully
+2025-07-30 15:59:16,837 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:59:16,904 ERROR Failed to import financial router: cannot import name 'job_status_manager' from partially initialized module 'api.main' (most likely due to a circular import) (C:\Abbasai\Sygnify V2\backend\api\main.py)
+2025-07-30 15:59:16,953 INFO Enhanced financial router imported successfully
+2025-07-30 15:59:17,196 INFO Auth router imported successfully
+2025-07-30 15:59:17,226 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:59:17,243 INFO Job simulation service imported successfully
+2025-07-30 15:59:17,369 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:59:17,382 INFO Available routers: financial=False, enhanced_financial=True, auth=True
+2025-07-30 15:59:17,421 INFO Financial dashboard WebSocket: True
+2025-07-30 15:59:17,508 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:59:25,762 INFO Matplotlib imported successfully
+2025-07-30 15:59:34,726 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:59:34,803 ERROR Failed to import financial router: cannot import name 'job_status_manager' from partially initialized module 'api.main' (most likely due to a circular import) (C:\Abbasai\Sygnify V2\backend\api\main.py)
+2025-07-30 15:59:34,836 INFO Enhanced financial router imported successfully
+2025-07-30 15:59:35,378 INFO Auth router imported successfully
+2025-07-30 15:59:35,458 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:59:35,519 INFO Job simulation service imported successfully
+2025-07-30 15:59:35,659 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:59:35,704 INFO Available routers: financial=False, enhanced_financial=True, auth=True
+2025-07-30 15:59:35,764 INFO Financial dashboard WebSocket: True
+2025-07-30 15:59:35,859 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 15:59:42,317 INFO Matplotlib imported successfully
+2025-07-30 15:59:45,788 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 15:59:45,797 INFO Financial router imported successfully
+2025-07-30 15:59:45,800 INFO Enhanced financial router imported successfully
+2025-07-30 15:59:45,855 INFO Auth router imported successfully
+2025-07-30 15:59:45,856 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 15:59:45,856 INFO Job simulation service imported successfully
+2025-07-30 15:59:45,868 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 15:59:45,868 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 15:59:45,868 INFO Financial dashboard WebSocket: True
+2025-07-30 16:00:53,232 INFO Matplotlib imported successfully
+2025-07-30 16:00:55,452 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 16:00:55,462 INFO Enhanced financial router imported successfully
+2025-07-30 16:00:55,545 INFO Auth router imported successfully
+2025-07-30 16:00:55,612 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:00:55,616 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 16:00:55,621 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 16:03:28,590 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:03:29,728 INFO Matplotlib imported successfully
+2025-07-30 16:03:32,438 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 16:03:32,445 INFO Financial router imported successfully
+2025-07-30 16:03:32,448 INFO Enhanced financial router imported successfully
+2025-07-30 16:03:32,520 INFO Auth router imported successfully
+2025-07-30 16:03:32,521 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:03:32,521 INFO Job simulation service imported successfully
+2025-07-30 16:03:32,537 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:03:32,538 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:03:32,538 INFO Financial dashboard WebSocket: True
+2025-07-30 16:06:27,679 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:06:28,985 INFO Matplotlib imported successfully
+2025-07-30 16:06:31,601 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 16:06:31,610 INFO Financial router imported successfully
+2025-07-30 16:06:31,614 INFO Enhanced financial router imported successfully
+2025-07-30 16:06:31,708 INFO Auth router imported successfully
+2025-07-30 16:06:31,710 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:06:31,710 INFO Job simulation service imported successfully
+2025-07-30 16:06:31,731 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:06:31,731 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:06:31,731 INFO Financial dashboard WebSocket: True
+2025-07-30 16:07:25,775 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:07:26,907 INFO Matplotlib imported successfully
+2025-07-30 16:07:29,458 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 16:07:29,508 INFO Financial router imported successfully
+2025-07-30 16:07:29,538 INFO Enhanced financial router imported successfully
+2025-07-30 16:07:29,693 INFO Auth router imported successfully
+2025-07-30 16:07:29,700 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:07:29,700 INFO Job simulation service imported successfully
+2025-07-30 16:07:29,728 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:07:29,728 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:07:29,728 INFO Financial dashboard WebSocket: True
+2025-07-30 16:07:35,966 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:07:37,317 INFO Matplotlib imported successfully
+2025-07-30 16:07:39,983 WARNING Job simulator: Could not import global job_status, using empty dict
+2025-07-30 16:07:39,990 INFO Financial router imported successfully
+2025-07-30 16:07:39,993 INFO Enhanced financial router imported successfully
+2025-07-30 16:07:40,065 INFO Auth router imported successfully
+2025-07-30 16:07:40,066 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:07:40,066 INFO Job simulation service imported successfully
+2025-07-30 16:07:40,081 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:07:40,081 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:07:40,082 INFO Financial dashboard WebSocket: True
+2025-07-30 16:10:51,634 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:10:52,779 INFO Matplotlib imported successfully
+2025-07-30 16:10:55,261 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 16:10:55,270 INFO Financial router imported successfully
+2025-07-30 16:10:55,274 INFO Enhanced financial router imported successfully
+2025-07-30 16:10:55,390 INFO Auth router imported successfully
+2025-07-30 16:10:55,395 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:10:55,395 INFO Job simulation service imported successfully
+2025-07-30 16:10:55,461 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:10:55,484 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:10:55,512 INFO Financial dashboard WebSocket: True
+2025-07-30 16:11:00,436 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:11:01,491 INFO Matplotlib imported successfully
+2025-07-30 16:11:05,402 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 16:11:05,416 INFO Financial router imported successfully
+2025-07-30 16:11:05,419 INFO Enhanced financial router imported successfully
+2025-07-30 16:11:05,507 INFO Auth router imported successfully
+2025-07-30 16:11:05,508 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:11:05,509 INFO Job simulation service imported successfully
+2025-07-30 16:11:05,524 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:11:05,525 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:11:05,525 INFO Financial dashboard WebSocket: True
+2025-07-30 16:11:11,298 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:11:12,436 INFO Matplotlib imported successfully
+2025-07-30 16:11:15,181 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 16:11:15,188 INFO Financial router imported successfully
+2025-07-30 16:11:15,191 INFO Enhanced financial router imported successfully
+2025-07-30 16:11:15,264 INFO Auth router imported successfully
+2025-07-30 16:11:15,266 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:11:15,267 INFO Job simulation service imported successfully
+2025-07-30 16:11:15,284 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:11:15,284 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:11:15,284 INFO Financial dashboard WebSocket: True
+2025-07-30 16:12:15,406 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:12:17,249 INFO Matplotlib imported successfully
+2025-07-30 16:12:20,445 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 16:12:20,453 INFO Financial router imported successfully
+2025-07-30 16:12:20,456 INFO Enhanced financial router imported successfully
+2025-07-30 16:12:20,524 INFO Auth router imported successfully
+2025-07-30 16:12:20,526 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:12:20,526 INFO Job simulation service imported successfully
+2025-07-30 16:12:20,544 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:12:20,544 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:12:20,544 INFO Financial dashboard WebSocket: True
+2025-07-30 16:17:21,426 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:17:23,402 INFO Matplotlib imported successfully
+2025-07-30 16:17:25,659 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 16:17:25,664 INFO Financial router imported successfully
+2025-07-30 16:17:25,666 INFO Enhanced financial router imported successfully
+2025-07-30 16:17:25,722 INFO Auth router imported successfully
+2025-07-30 16:17:25,725 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:17:25,726 INFO Job simulation service imported successfully
+2025-07-30 16:17:25,742 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:17:25,743 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:17:25,743 INFO Financial dashboard WebSocket: True
+2025-07-30 16:18:59,430 INFO Matplotlib imported successfully
+2025-07-30 16:19:01,209 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 16:19:01,212 INFO Enhanced financial router imported successfully
+2025-07-30 16:19:01,244 INFO Auth router imported successfully
+2025-07-30 16:19:01,247 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:19:01,256 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 16:19:01,268 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 16:24:04,099 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:24:05,188 INFO Matplotlib imported successfully
+2025-07-30 16:24:07,132 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 16:24:07,137 INFO Financial router imported successfully
+2025-07-30 16:24:07,139 INFO Enhanced financial router imported successfully
+2025-07-30 16:24:07,188 INFO Auth router imported successfully
+2025-07-30 16:24:07,189 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:24:07,189 INFO Job simulation service imported successfully
+2025-07-30 16:24:07,204 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:24:07,204 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:24:07,204 INFO Financial dashboard WebSocket: True
+2025-07-30 16:24:07,205 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:24:07,991 INFO Matplotlib imported successfully
+2025-07-30 16:24:09,905 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 16:24:09,913 INFO Financial router imported successfully
+2025-07-30 16:24:09,915 INFO Enhanced financial router imported successfully
+2025-07-30 16:24:09,971 INFO Auth router imported successfully
+2025-07-30 16:24:09,972 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:24:09,972 INFO Job simulation service imported successfully
+2025-07-30 16:24:09,984 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:24:09,984 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:24:09,984 INFO Financial dashboard WebSocket: True
+2025-07-30 16:27:05,417 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 16:27:07,065 INFO Matplotlib imported successfully
+2025-07-30 16:27:09,045 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 16:27:09,049 INFO Financial router imported successfully
+2025-07-30 16:27:09,051 INFO Enhanced financial router imported successfully
+2025-07-30 16:27:09,100 INFO Auth router imported successfully
+2025-07-30 16:27:09,101 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:27:09,102 INFO Job simulation service imported successfully
+2025-07-30 16:27:09,113 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 16:27:09,113 INFO Available routers: financial=True, enhanced_financial=True, auth=True
+2025-07-30 16:27:09,113 INFO Financial dashboard WebSocket: True
+2025-07-30 16:30:50,239 INFO Matplotlib imported successfully
+2025-07-30 16:30:51,529 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 16:30:51,532 INFO Enhanced financial router imported successfully
+2025-07-30 16:30:51,556 INFO Auth router imported successfully
+2025-07-30 16:30:51,557 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 16:30:51,565 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 16:30:51,575 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 23:19:06,299 INFO Matplotlib imported successfully
+2025-07-30 23:19:13,887 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 23:19:13,897 INFO Enhanced financial router imported successfully
+2025-07-30 23:19:14,193 INFO Auth router imported successfully
+2025-07-30 23:19:14,193 INFO Market data router imported successfully
+2025-07-30 23:19:14,211 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:19:14,229 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 23:19:14,241 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 23:21:30,178 INFO Matplotlib imported successfully
+2025-07-30 23:21:31,393 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 23:21:31,402 INFO Enhanced financial router imported successfully
+2025-07-30 23:21:31,428 INFO Auth router imported successfully
+2025-07-30 23:21:31,433 INFO Market data router imported successfully
+2025-07-30 23:21:31,441 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:21:31,443 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 23:21:31,446 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 23:23:07,267 INFO Matplotlib imported successfully
+2025-07-30 23:23:08,636 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 23:23:08,638 INFO Enhanced financial router imported successfully
+2025-07-30 23:23:08,664 INFO Auth router imported successfully
+2025-07-30 23:23:08,670 INFO Market data router imported successfully
+2025-07-30 23:23:08,672 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:23:08,674 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 23:23:08,676 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 23:23:14,606 INFO Matplotlib imported successfully
+2025-07-30 23:23:15,783 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 23:23:15,785 INFO Enhanced financial router imported successfully
+2025-07-30 23:23:15,810 INFO Auth router imported successfully
+2025-07-30 23:23:15,816 INFO Market data router imported successfully
+2025-07-30 23:23:15,817 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:23:15,819 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 23:23:15,820 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 23:24:22,573 INFO Matplotlib imported successfully
+2025-07-30 23:24:23,714 ERROR Failed to import financial router: No module named 'chardet'
+2025-07-30 23:24:23,717 INFO Enhanced financial router imported successfully
+2025-07-30 23:24:23,738 INFO Auth router imported successfully
+2025-07-30 23:24:23,742 INFO Market data router imported successfully
+2025-07-30 23:24:23,744 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:24:23,746 ERROR Failed to import job simulation service: No module named 'chardet'
+2025-07-30 23:24:23,748 ERROR Failed to initialize job simulation service: No module named 'chardet'
+2025-07-30 23:24:23,771 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 23:24:23,772 INFO Available routers: financial=False, enhanced_financial=True, auth=True, market_data=True
+2025-07-30 23:24:23,772 INFO Financial dashboard WebSocket: True
+2025-07-30 23:24:23,774 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 23:27:08,573 INFO Matplotlib imported successfully
+2025-07-30 23:27:12,412 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 23:27:12,416 INFO Financial router imported successfully
+2025-07-30 23:27:12,417 INFO Enhanced financial router imported successfully
+2025-07-30 23:27:12,441 INFO Auth router imported successfully
+2025-07-30 23:27:12,446 INFO Market data router imported successfully
+2025-07-30 23:27:12,447 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:27:12,448 INFO Job simulation service imported successfully
+2025-07-30 23:28:17,043 INFO Matplotlib imported successfully
+2025-07-30 23:28:18,746 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 23:28:18,751 INFO Financial router imported successfully
+2025-07-30 23:28:18,753 INFO Enhanced financial router imported successfully
+2025-07-30 23:28:18,775 INFO Auth router imported successfully
+2025-07-30 23:28:18,780 INFO Market data router imported successfully
+2025-07-30 23:28:18,781 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:28:18,782 INFO Job simulation service imported successfully
+2025-07-30 23:28:18,793 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 23:28:18,793 INFO Available routers: financial=True, enhanced_financial=True, auth=True, market_data=True
+2025-07-30 23:28:18,794 INFO Financial dashboard WebSocket: True
+2025-07-30 23:28:28,246 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 23:29:23,432 INFO Matplotlib imported successfully
+2025-07-30 23:29:25,033 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 23:29:25,039 INFO Financial router imported successfully
+2025-07-30 23:29:25,040 INFO Enhanced financial router imported successfully
+2025-07-30 23:29:25,064 INFO Auth router imported successfully
+2025-07-30 23:29:25,070 INFO Market data router imported successfully
+2025-07-30 23:29:25,071 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:29:25,071 INFO Job simulation service imported successfully
+2025-07-30 23:29:25,085 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 23:29:25,085 INFO Available routers: financial=True, enhanced_financial=True, auth=True, market_data=True
+2025-07-30 23:29:25,085 INFO Financial dashboard WebSocket: True
+2025-07-30 23:29:25,087 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 23:30:48,401 INFO Matplotlib imported successfully
+2025-07-30 23:30:50,131 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 23:30:50,135 INFO Financial router imported successfully
+2025-07-30 23:30:50,137 INFO Enhanced financial router imported successfully
+2025-07-30 23:30:50,163 INFO Auth router imported successfully
+2025-07-30 23:30:50,168 INFO Market data router imported successfully
+2025-07-30 23:30:50,169 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:30:50,170 INFO Job simulation service imported successfully
+2025-07-30 23:31:07,536 INFO Matplotlib imported successfully
+2025-07-30 23:31:09,667 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 23:31:09,671 INFO Financial router imported successfully
+2025-07-30 23:31:09,673 INFO Enhanced financial router imported successfully
+2025-07-30 23:31:09,704 INFO Auth router imported successfully
+2025-07-30 23:31:09,710 INFO Market data router imported successfully
+2025-07-30 23:31:09,712 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:31:09,712 INFO Job simulation service imported successfully
+2025-07-30 23:31:09,989 INFO HTTP Request: GET http://testserver/market/health "HTTP/1.1 200 OK"
+2025-07-30 23:31:11,155 INFO HTTP Request: GET http://testserver/market/comprehensive "HTTP/1.1 200 OK"
+2025-07-30 23:31:11,531 INFO HTTP Request: GET http://testserver/market/indices "HTTP/1.1 200 OK"
+2025-07-30 23:31:38,064 INFO Matplotlib imported successfully
+2025-07-30 23:31:40,423 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 23:31:40,436 INFO Financial router imported successfully
+2025-07-30 23:31:40,437 INFO Enhanced financial router imported successfully
+2025-07-30 23:31:40,476 INFO Auth router imported successfully
+2025-07-30 23:31:40,486 INFO Market data router imported successfully
+2025-07-30 23:31:40,488 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:31:40,488 INFO Job simulation service imported successfully
+2025-07-30 23:31:40,506 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 23:31:40,506 INFO Available routers: financial=True, enhanced_financial=True, auth=True, market_data=True
+2025-07-30 23:31:40,506 INFO Financial dashboard WebSocket: True
+2025-07-30 23:31:40,507 INFO Sygnify Financial Analytics API shutting down...
+2025-07-30 23:41:08,599 INFO Matplotlib imported successfully
+2025-07-30 23:41:10,461 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 23:41:10,467 INFO Financial router imported successfully
+2025-07-30 23:41:10,470 INFO Enhanced financial router imported successfully
+2025-07-30 23:41:10,512 INFO Auth router imported successfully
+2025-07-30 23:41:10,518 INFO Market data router imported successfully
+2025-07-30 23:41:10,520 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:41:10,531 INFO Real-time market WebSocket handler imported successfully
+2025-07-30 23:41:10,532 INFO Job simulation service imported successfully
+2025-07-30 23:41:10,597 INFO HTTP Request: GET http://testserver/market/health "HTTP/1.1 200 OK"
+2025-07-30 23:41:11,652 INFO HTTP Request: GET http://testserver/market/comprehensive "HTTP/1.1 200 OK"
+2025-07-30 23:41:12,042 INFO HTTP Request: GET http://testserver/market/indices "HTTP/1.1 200 OK"
+2025-07-30 23:42:14,705 INFO Matplotlib imported successfully
+2025-07-30 23:42:16,327 INFO Job simulator: Successfully imported global job status manager with 0 existing jobs
+2025-07-30 23:42:16,332 INFO Financial router imported successfully
+2025-07-30 23:42:16,334 INFO Enhanced financial router imported successfully
+2025-07-30 23:42:16,363 INFO Auth router imported successfully
+2025-07-30 23:42:16,368 INFO Market data router imported successfully
+2025-07-30 23:42:16,369 INFO Financial dashboard WebSocket handler imported successfully
+2025-07-30 23:42:16,389 INFO Real-time market WebSocket handler imported successfully
+2025-07-30 23:42:16,389 INFO Job simulation service imported successfully
+2025-07-30 23:42:16,400 INFO Sygnify Financial Analytics API starting up...
+2025-07-30 23:42:16,401 INFO Available routers: financial=True, enhanced_financial=True, auth=True, market_data=True
+2025-07-30 23:42:16,401 INFO Financial dashboard WebSocket: True
+2025-07-30 23:42:16,401 INFO Real-time market WebSocket: True
+2025-07-30 23:43:02,173 INFO Sygnify Financial Analytics API shutting down...

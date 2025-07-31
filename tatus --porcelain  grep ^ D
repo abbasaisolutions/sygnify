@@ -1,0 +1,10 @@
+[33m028731c8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mv1.0[m[33m)[m 🚀 Sygnify Financial Analytics Platform v1.0 - Production Ready
+[33mbc17285f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix Python syntax error in smart_labeler.py: Correct if-elif chain structure for customer banking columns
+[33ma82cc223[m Enhance smart labeler for customer banking data: Add recognition for CreditScore, Balance, Age, Tenure, NumOfProducts, HasCrCard, IsActiveMember, Geography, Gender, Surname, CustomerId columns with proper categorization and importance scoring
+[33m7035d770[m Fix file size limits: Increase upload limits from 10MB/50MB to 100MB across all upload handlers and add body parser limits
+[33m7e0436a4[m Fix critical bugs: Python indentation error in smart_labeler.py and JavaScript data.map error in AIInsightEngine.js
+[33med431d4a[m Update README for v2.1: Enhance feature descriptions, add financial analytics and ML integration sections, improve data quality metrics, and include recent updates. Update installation instructions and add testing commands. Update database and binary files for new features.
+[33mf326eff0[m Add initial project files including environment configurations, package management, and frontend components
+[33mf5bcd558[m Add files via upload
+[33mfb1d1e62[m Update README.md
+[33m26203c80[m Initial commit

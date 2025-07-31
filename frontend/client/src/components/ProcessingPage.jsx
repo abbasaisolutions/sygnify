@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Brain, Cpu, Database, Network, TrendingUp, Users, Truck, 
-  Settings, Globe, Sparkles, Zap, Activity, BarChart3, 
-  CheckCircle, Clock, AlertCircle, Loader, Wifi, WifiOff,
-  DollarSign, Target, TrendingDown, Lightbulb, BarChart2,
-  ActivitySquare, Target as TargetIcon, Zap as ZapIcon, 
-  AlertTriangle, Info, Eye, EyeOff
+  TrendingUp, TrendingDown, DollarSign, BarChart3, Activity,
+  AlertTriangle, CheckCircle, Clock, Eye, EyeOff, RefreshCw,
+  Target, Zap, Brain, Database, AlertCircle, Info,
+  TrendingUp as TrendingUpIcon, TrendingDown as TrendingDownIcon,
+  DollarSign as DollarSignIcon, BarChart3 as BarChart3Icon,
+  Activity as ActivityIcon, Target as TargetIcon, Zap as ZapIcon,
+  Users, Truck, Settings, Globe, Wifi, WifiOff,
+  BarChart2, ActivitySquare, Brain as BrainIcon, Cpu,
+  Network, Database as DatabaseIcon, Code, GitBranch,
+  Sparkles, MessageCircle, Briefcase, PlugZap, CloudUpload,
+  Loader, Tag, FileText
 } from 'lucide-react';
 import axios from 'axios';
 import websocketService from '../services/websocketService.js';
 import { ENDPOINTS } from '../config/api.js';
+import Dashboard from './Dashboard.jsx';
 
 // Domain-specific processing animations and colors
 const DOMAIN_META = {
@@ -156,102 +162,86 @@ const MLPromptCard = ({ prompt, index }) => (
 );
 
 const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) => {
-  const [currentStage, setCurrentStage] = useState(0);
-  const [jobStatus, setJobStatus] = useState(null);
   const [progress, setProgress] = useState(0);
-  const [error, setError] = useState(null);
+  const [currentStage, setCurrentStage] = useState(0);
+  const [currentMessage, setCurrentMessage] = useState('Initializing analysis...');
+  const [jobStatus, setJobStatus] = useState('processing');
   const [isComplete, setIsComplete] = useState(false);
   const [analysisResults, setAnalysisResults] = useState(null);
+  const [error, setError] = useState(null);
   const [wsConnected, setWsConnected] = useState(false);
-  const [wsStatus, setWsStatus] = useState('connecting');
-  const [financialKPIs, setFinancialKPIs] = useState({});
-  const [mlPrompts, setMLPrompts] = useState([]);
-  const [showKPIs, setShowKPIs] = useState(false);
-  const [showPrompts, setShowPrompts] = useState(false);
+  const [wsStatus, setWsStatus] = useState('disconnected');
+  const [jobCompletionData, setJobCompletionData] = useState(null);
+  const [hasTransitioned, setHasTransitioned] = useState(false); // Add deduplication flag
+  const [isFetchingResults, setIsFetchingResults] = useState(false); // Add fetching state
 
   const domainConfig = DOMAIN_META[selectedDomain] || DOMAIN_META.general;
 
   // Initialize WebSocket connection
-  useEffect(() => {
-    const initializeWebSocket = async () => {
-      try {
-        setWsStatus('connecting');
-        console.log('Initializing WebSocket connection...');
+  const initializeWebSocket = async () => {
+    try {
+      setWsStatus('connecting');
+      
+      await websocketService.connect();
+      setWsConnected(true);
+      setWsStatus('connected');
+      
+      // Test the connection
+      console.log('🔧 Testing WebSocket connection...');
+      websocketService.testConnection();
+      
+      // Subscribe to job updates if jobId exists
+      if (jobId) {
+        websocketService.subscribeToJob(jobId);
         
-        await websocketService.connect();
-        setWsConnected(true);
-        setWsStatus('connected');
-        console.log('WebSocket connected successfully');
-        
-        // Subscribe to job updates if jobId exists
-        if (jobId) {
-          console.log('Subscribing to job updates for jobId:', jobId);
-          websocketService.subscribeToJob(jobId);
+        // Set up WebSocket event listeners
+        websocketService.onJobUpdate(jobId, (data) => {
+          setJobStatus(data.status);
+          setProgress(data.progress || 0);
+          setCurrentStage(data.stage || 'processing');
+          setCurrentMessage(data.message || 'Processing...');
           
-          // Add event listeners for job updates
-          websocketService.addJobEventListener(jobId, 'update', (data) => {
-            console.log('Job update received:', data);
-            setJobStatus(data);
-            setProgress(data.progress || 0);
-            
-            // Map backend stages to frontend stages
-            if (data.stage === 'uploading') setCurrentStage(0);
-            else if (data.stage === 'profiling') setCurrentStage(1);
-            else if (data.stage === 'ai_analysis') setCurrentStage(2);
-            else if (data.stage === 'predictive_modeling') setCurrentStage(2);
-            else if (data.stage === 'anomaly_detection') setCurrentStage(3);
-            else if (data.stage === 'financial_kpis') setCurrentStage(3);
-            else if (data.stage === 'insights_ready') setCurrentStage(4);
-          });
+          // Map backend stage names to frontend stage numbers for the step indicators
+          const stageMapping = {
+            'uploading': 0,
+            'encoding_detection': 1,
+            'csv_parsing': 2,
+            'data_quality_analysis': 3,
+            'column_labeling': 4,
+            'ai_analysis': 5,
+            'sweetviz_report': 6,
+            'insights_ready': 7
+          };
           
-          websocketService.addJobEventListener(jobId, 'complete', (data) => {
-            console.log('Job completed:', data);
-            setJobStatus(data);
-            setProgress(100);
-            setCurrentStage(4);
-            setIsComplete(true);
-            
-            if (data.insights) {
-              setAnalysisResults(data.insights);
-              // Extract financial KPIs and ML prompts
-              if (data.insights.financial_kpis) {
-                setFinancialKPIs(data.insights.financial_kpis);
-              }
-              if (data.insights.ml_prompts) {
-                setMLPrompts(data.insights.ml_prompts);
-              }
-            } else {
-              fetchAnalysisResults();
-            }
-          });
-          
-          websocketService.addJobEventListener(jobId, 'error', (data) => {
-            console.log('Job error:', data);
-            setError(data.message || 'Processing failed');
-            setJobStatus(data);
-          });
-        }
-        
-      } catch (error) {
-        console.error('WebSocket connection failed:', error);
-        setWsStatus('failed');
-        setWsConnected(false);
-        // Fallback to polling if WebSocket fails
-        console.log('Falling back to polling mechanism');
-        startPolling();
-      }
-    };
+          const stageNumber = stageMapping[data.stage] || 0;
+          setCurrentStage(stageNumber);
+        });
 
+        websocketService.onJobComplete(jobId, handleJobComplete);
+
+        websocketService.onJobError(jobId, (error) => {
+          setJobStatus('error');
+          setCurrentMessage(`Error: ${error.message || 'Unknown error occurred'}`);
+        });
+      }
+      
+    } catch (error) {
+      setWsStatus('failed');
+      setWsConnected(false);
+      // Fallback to polling if WebSocket fails
+      startPolling();
+    }
+  };
+
+  useEffect(() => {
     initializeWebSocket();
 
     // Cleanup on unmount
     return () => {
       if (jobId) {
-        console.log('Cleaning up WebSocket listeners for jobId:', jobId);
+        console.log('🧹 Cleaning up WebSocket listeners for job:', jobId);
         websocketService.unsubscribeFromJob(jobId);
-        websocketService.removeJobEventListener(jobId, 'update');
-        websocketService.removeJobEventListener(jobId, 'complete');
-        websocketService.removeJobEventListener(jobId, 'error');
+        websocketService.cleanupJobListeners(jobId);
       }
     };
   }, [jobId]);
@@ -263,7 +253,6 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
       const isHealthy = websocketService.isConnectionHealthy();
       
       if (!isHealthy && wsConnected) {
-        console.warn('WebSocket connection unhealthy, attempting reconnection...');
         setWsStatus('reconnecting');
         setWsConnected(false);
         
@@ -271,9 +260,7 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
         websocketService.connect().then(() => {
           setWsConnected(true);
           setWsStatus('connected');
-          console.log('WebSocket reconnected successfully');
         }).catch((error) => {
-          console.error('WebSocket reconnection failed:', error);
           setWsStatus('failed');
           setWsConnected(false);
         });
@@ -287,10 +274,9 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
   const startPolling = () => {
     if (!jobId) return;
 
-    console.log('Starting fallback polling for jobId:', jobId);
     const pollJobStatus = async () => {
       try {
-        const response = await axios.get(`/financial/status/${jobId}`);
+        const response = await axios.get(`http://localhost:8000/financial/status/${jobId}`);
         const status = response.data;
         setJobStatus(status);
 
@@ -314,7 +300,6 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
           setError(status.message || 'Processing failed');
         }
       } catch (err) {
-        console.error('Error polling job status:', err);
         setError('Failed to get job status');
       }
     };
@@ -328,124 +313,116 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
     return () => clearInterval(interval);
   };
 
-  // Fetch analysis results when job completes
-  const fetchAnalysisResults = async () => {
+  const fetchAnalysisResults = async (retryCount = 0) => {
+    // Prevent multiple simultaneous fetches
+    if (isFetchingResults) {
+      console.log('🔄 Already fetching results, skipping...');
+      return;
+    }
+
+    setIsFetchingResults(true);
+    
     try {
-      console.log('Fetching analysis results...');
+      console.log(`🔍 Fetching analysis results for job: ${jobId} (attempt ${retryCount + 1})`);
       
-      // Try to get insights first
-      const insightsResponse = await axios.get(ENDPOINTS.insights);
-      console.log('Insights response:', insightsResponse.data);
+      const response = await axios.get(`http://localhost:8000/financial/results/${jobId}`);
       
-      if (insightsResponse.data && Object.keys(insightsResponse.data).length > 0) {
-        console.log('Setting analysis results from insights:', insightsResponse.data);
-        // Ensure we have the correct data structure for the Dashboard
-        const formattedResults = {
-          ...insightsResponse.data,
-          domain: selectedDomain,
-          timestamp: new Date().toISOString(),
-          status: 'completed'
-        };
-        setAnalysisResults(formattedResults);
+      if (response.data && response.data.status === 'success') {
+        console.log('✅ Analysis results fetched successfully:', response.data);
         
-        // Extract financial KPIs and ML prompts
-        if (formattedResults.financial_kpis) {
-          setFinancialKPIs(formattedResults.financial_kpis);
-        }
-        if (formattedResults.ml_prompts) {
-          setMLPrompts(formattedResults.ml_prompts);
-        }
-        return;
-      }
-
-      // Fallback to results endpoint
-      const resultsResponse = await axios.get(ENDPOINTS.analyze);
-      console.log('Results response:', resultsResponse.data);
-      
-      if (resultsResponse.data && (resultsResponse.data.key_insights || resultsResponse.data.results)) {
-        console.log('Setting analysis results from results:', resultsResponse.data);
         const formattedResults = {
-          ...resultsResponse.data,
           domain: selectedDomain,
           timestamp: new Date().toISOString(),
-          status: 'completed'
+          status: 'success',
+          financial_kpis: response.data.insights?.financial_kpis || {},
+          ml_prompts: response.data.insights?.ml_prompts || [],
+          market_context: response.data.market_context || {},
+          statistical_analysis: response.data.statistical_analysis || {},
+          ai_analysis: response.data.ai_analysis || {},
+          risk_metrics: response.data.risk_metrics || {},
+          recommendations: response.data.recommendations || []
         };
-        setAnalysisResults(formattedResults);
-        return;
-      }
 
-      // If no real data from backend, create a fallback result
-      console.log('No real data from backend, creating fallback analysis results');
-      setAnalysisResults({
-        domain: selectedDomain,
-        timestamp: new Date().toISOString(),
-        status: 'completed',
-        key_insights: [
-          {
-            category: "Data Analysis",
-            insight: `AI analysis complete for ${domainConfig.label.toLowerCase()} data. Key insights and recommendations have been generated.`,
-            metric1: "Data Quality",
-            metric2: "Processing",
-            correlation: 0.85,
-            impact: "high",
-            confidence: 0.92
-          },
-          {
-            category: "Pattern Recognition",
-            insight: "Pattern recognition algorithms have identified key trends and correlations in your data.",
-            metric1: "Patterns",
-            metric2: "Accuracy",
-            correlation: 0.78,
-            impact: "medium",
-            confidence: 0.88
-          }
-        ],
-        external_context: [
-          {
-            title: "Market Analysis",
-            source: "AI Analysis",
-            insight: "Market conditions are favorable for the analyzed domain.",
-            impact_description: "Positive market indicators support current strategies",
-            impact: "medium",
-            confidence: 0.82
-          }
-        ],
-        llama3_narrative: `Analysis completed successfully for ${domainConfig.label.toLowerCase()} domain. The AI has processed your data and generated comprehensive insights including key performance indicators, trend analysis, and strategic recommendations.`,
-        financial_kpis: {},
-        ml_prompts: []
-      });
-    } catch (err) {
-      console.error('Error fetching analysis results:', err);
-      // Create fallback data with correct structure
-      setAnalysisResults({
-        domain: selectedDomain,
-        timestamp: new Date().toISOString(),
-        status: 'completed',
-        key_insights: [
-          {
-            category: "Analysis Complete",
-            insight: `Analysis completed for ${domainConfig.label.toLowerCase()} domain.`,
-            metric1: "Status",
-            metric2: "Completion",
-            correlation: 1.0,
-            impact: "high",
-            confidence: 1.0
-          }
-        ],
-        external_context: [],
-        llama3_narrative: `Analysis completed successfully for ${domainConfig.label.toLowerCase()} domain.`,
-        financial_kpis: {},
-        ml_prompts: []
-      });
+        setAnalysisResults(formattedResults);
+        setIsComplete(true);
+        setJobStatus('completed');
+        
+        // Clean up WebSocket listeners
+        websocketService.cleanupJobListeners(jobId);
+        
+        // Only transition once
+        if (!hasTransitioned) {
+          setHasTransitioned(true);
+          setTimeout(() => {
+            console.log('🚀 Transitioning to dashboard with results:', formattedResults);
+            if (onComplete) {
+              onComplete(formattedResults);
+            }
+          }, 2000); // Give user time to see completion message
+        }
+        
+        return formattedResults;
+      }
+    } catch (error) {
+      console.error(`❌ Error fetching analysis results (attempt ${retryCount + 1}):`, error);
+      
+      // If it's a 404 error and we have WebSocket completion data, use that instead
+      if (error.response?.status === 404 && jobCompletionData?.insights) {
+        console.log('📊 API endpoint not found, using WebSocket completion data as fallback');
+        const formattedResults = {
+          domain: selectedDomain,
+          timestamp: new Date().toISOString(),
+          status: 'success',
+          financial_kpis: jobCompletionData.insights.financial_kpis || {},
+          ml_prompts: jobCompletionData.insights.ml_prompts || [],
+          market_context: jobCompletionData.insights.market_context || {},
+          statistical_analysis: jobCompletionData.insights.statistical_analysis || {},
+          ai_analysis: jobCompletionData.insights.ai_insights || {},
+          risk_metrics: jobCompletionData.insights.risk_assessment || {},
+          recommendations: jobCompletionData.insights.recommendations || []
+        };
+
+        setAnalysisResults(formattedResults);
+        setIsComplete(true);
+        setJobStatus('completed');
+        
+        // Clean up WebSocket listeners
+        websocketService.cleanupJobListeners(jobId);
+        
+        // Only transition once
+        if (!hasTransitioned) {
+          setHasTransitioned(true);
+          setTimeout(() => {
+            console.log('🚀 Transitioning to dashboard with WebSocket fallback results:', formattedResults);
+            if (onComplete) {
+              onComplete(formattedResults);
+            }
+          }, 2000);
+        }
+        
+        return formattedResults;
+      }
+      
+      // If we have retries left, try again
+      if (retryCount < 3) {
+        setTimeout(() => {
+          fetchAnalysisResults(retryCount + 1);
+        }, 3000);
+      } else {
+        setError('Failed to fetch analysis results after multiple attempts');
+        setJobStatus('error');
+      }
+    } finally {
+      setIsFetchingResults(false);
     }
   };
 
+  // Single useEffect to handle completion
   useEffect(() => {
-    if (isComplete && !analysisResults) {
-      console.log('Job completed, fetching analysis results...');
-      fetchAnalysisResults();
+    if (isComplete && !analysisResults && !hasTransitioned) {
+      fetchAnalysisResults(0); // Start with retry count 0
     }
-  }, [isComplete, analysisResults]);
+  }, [isComplete, analysisResults, hasTransitioned]);
 
   // Simulate stage progression for demo (remove when backend is fully integrated)
   useEffect(() => {
@@ -469,15 +446,74 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
   }, [jobId, wsConnected]);
 
   const handleContinue = () => {
-    console.log('handleContinue called with analysisResults:', analysisResults);
     if (onComplete) {
-      // Pass analysis results to the dashboard
-      console.log('Calling onComplete with:', analysisResults);
       onComplete(analysisResults);
     }
   };
 
+  const handleBackToLanding = () => {
+    // This would typically navigate back to the landing page
+    window.location.href = '/';
+  };
 
+  const handleJobComplete = (data) => {
+    console.log('🎉 Job completed via WebSocket:', data);
+    
+    // Prevent duplicate handling
+    if (isComplete) {
+      console.log('⚠️ Job already completed, ignoring duplicate completion event');
+      return;
+    }
+    
+    setJobStatus('completed');
+    setProgress(100);
+    setCurrentStage('insights_ready');
+    setCurrentMessage('Analysis complete! Your insights are ready.');
+    setIsComplete(true);
+    
+    // Store the completion data for immediate access
+    setJobCompletionData(data);
+    
+    // Use the analysis data that's already available in the WebSocket message
+    if (data.insights) {
+      console.log('📊 Using analysis data from WebSocket message');
+      const formattedResults = {
+        domain: selectedDomain,
+        timestamp: new Date().toISOString(),
+        status: 'success',
+        financial_kpis: data.insights.financial_kpis || {},
+        ml_prompts: data.insights.ml_prompts || [],
+        market_context: data.insights.market_context || {},
+        statistical_analysis: data.insights.statistical_analysis || {},
+        ai_analysis: data.insights.ai_insights || {},
+        risk_metrics: data.insights.risk_assessment || {},
+        recommendations: data.insights.recommendations || []
+      };
+
+      setAnalysisResults(formattedResults);
+      
+      // Clean up WebSocket listeners
+      websocketService.cleanupJobListeners(jobId);
+      
+      // Only transition once
+      if (!hasTransitioned) {
+        setHasTransitioned(true);
+        setTimeout(() => {
+          console.log('🚀 Transitioning to dashboard with results from WebSocket:', formattedResults);
+          if (onComplete) {
+            onComplete(formattedResults);
+          }
+        }, 2000); // Give user time to see completion message
+      }
+    } else {
+      // Fallback to fetching results if insights are not in the WebSocket message
+      console.log('📊 Insights not in WebSocket message, falling back to API fetch');
+      setTimeout(() => {
+        console.log('🔍 Starting to fetch analysis results...');
+        fetchAnalysisResults();
+      }, 1000);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0a0f] via-[#1a1a2e] to-[#16213e] text-white overflow-x-hidden relative">
@@ -570,6 +606,36 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
               </div>
             )}
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            
+            {/* Debug Button */}
+            <button
+              onClick={() => {
+                console.log('🔧 Manual WebSocket test triggered');
+                const serviceInfo = websocketService.getServiceInfo();
+                console.log('🔧 WebSocket Service Info:', serviceInfo);
+                websocketService.testConnection();
+                websocketService.sendTestMessage();
+              }}
+              className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+              title="Test WebSocket Connection"
+            >
+              Test WS
+            </button>
+            
+            {/* Force Reload Button */}
+            <button
+              onClick={() => {
+                console.log('🔄 Force reloading WebSocket service...');
+                websocketService.forceReload();
+                setTimeout(() => {
+                  initializeWebSocket();
+                }, 1000);
+              }}
+              className="px-2 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+              title="Force Reload WebSocket"
+            >
+              Reload
+            </button>
           </div>
         </div>
       </header>
@@ -615,17 +681,26 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
             Processing Your Data
           </h2>
           <p className="text-lg text-cyan-200 max-w-2xl mx-auto">
-            {jobStatus?.message || `Analyzing ${domainConfig.label.toLowerCase()} data with advanced AI algorithms`}
+            {currentMessage || `Analyzing ${domainConfig.label.toLowerCase()} data with advanced AI algorithms`}
           </p>
         </motion.div>
 
         {/* Processing Pipeline */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-12">
-            {domainConfig.processingSteps.map((step, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-8 gap-4 mb-12">
+            {[
+              { name: 'Uploading', icon: <Database />, description: 'Processing your data files' },
+              { name: 'Encoding', icon: <Code />, description: 'Detecting file encoding' },
+              { name: 'Parsing', icon: <BarChart3 />, description: 'Parsing CSV data' },
+              { name: 'Quality', icon: <Activity />, description: 'Analyzing data quality' },
+              { name: 'Labeling', icon: <Tag />, description: 'Smart column labeling' },
+              { name: 'AI Analysis', icon: <Brain />, description: 'Running AI algorithms' },
+              { name: 'Reports', icon: <FileText />, description: 'Generating reports' },
+              { name: 'Complete', icon: <CheckCircle />, description: 'Insights ready' }
+            ].map((step, index) => (
               <motion.div
                 key={index}
-                className={`relative rounded-2xl p-6 border-2 transition-all duration-500 ${
+                className={`relative rounded-2xl p-4 border-2 transition-all duration-500 ${
                   index < currentStage
                     ? 'bg-green-500/20 border-green-400/50 shadow-lg'
                     : index === currentStage
@@ -634,11 +709,11 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
                 }`}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 {/* Step Icon */}
-                <div className="flex items-center justify-center mb-4">
-                  <div className={`p-4 rounded-2xl ${
+                <div className="flex items-center justify-center mb-3">
+                  <div className={`p-3 rounded-xl ${
                     index < currentStage
                       ? 'bg-green-500/20 text-green-400'
                       : index === currentStage
@@ -646,13 +721,13 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
                       : 'bg-slate-700/50 text-slate-400'
                   }`}>
                     {index < currentStage ? (
-                      <CheckCircle className="w-8 h-8" />
+                      <CheckCircle className="w-6 h-6" />
                     ) : index === currentStage ? (
                       <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                       >
-                        <Loader className="w-8 h-8" />
+                        <Loader className="w-6 h-6" />
                       </motion.div>
                     ) : (
                       step.icon
@@ -661,12 +736,12 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
                 </div>
 
                 {/* Step Content */}
-                <h3 className={`text-lg font-bold mb-2 ${
+                <h3 className={`text-sm font-bold mb-1 ${
                   index <= currentStage ? 'text-white' : 'text-slate-400'
                 }`}>
                   {step.name}
                 </h3>
-                <p className={`text-sm ${
+                <p className={`text-xs ${
                   index <= currentStage ? 'text-white/80' : 'text-slate-500'
                 }`}>
                   {step.description}
@@ -675,7 +750,7 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
                 {/* Progress Indicator */}
                 {index === currentStage && (
                   <motion.div
-                    className="mt-4 w-full bg-white/20 rounded-full h-2 overflow-hidden"
+                    className="mt-3 w-full bg-white/20 rounded-full h-1 overflow-hidden"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                   >
@@ -691,13 +766,13 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
                 {/* Status Badge */}
                 {index < currentStage && (
                   <motion.div
-                    className="absolute top-4 right-4"
+                    className="absolute top-2 right-2"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   >
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-3 h-3 text-white" />
+                    <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-2 h-2 text-white" />
                     </div>
                   </motion.div>
                 )}
@@ -726,11 +801,14 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
                 />
               </div>
               <div className="flex justify-between mt-2 text-xs text-slate-400">
-                <span>Data Upload</span>
-                <span>Analysis</span>
-                <span>AI Processing</span>
-                <span>KPIs</span>
-                <span>Insights Ready</span>
+                <span>Upload</span>
+                <span>Encode</span>
+                <span>Parse</span>
+                <span>Quality</span>
+                <span>Label</span>
+                <span>AI</span>
+                <span>Reports</span>
+                <span>Complete</span>
               </div>
             </div>
           </motion.div>
@@ -748,87 +826,9 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                   <div>
                     <h4 className="text-white font-semibold">Real-time Status</h4>
-                    <p className="text-cyan-200 text-sm">{jobStatus.message}</p>
+                    <p className="text-cyan-200 text-sm">{currentMessage}</p>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Financial KPIs Section */}
-          {(currentStage >= 3 || Object.keys(financialKPIs).length > 0) && (
-            <motion.div 
-              className="max-w-4xl mx-auto mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-            >
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <DollarSign className="w-5 h-5 text-green-400" />
-                    Financial KPIs
-                  </h3>
-                  <button
-                    onClick={() => setShowKPIs(!showKPIs)}
-                    className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
-                  >
-                    {showKPIs ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                    {showKPIs ? 'Hide' : 'Show'} KPIs
-                  </button>
-                </div>
-                
-                {showKPIs && (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {Object.entries(financialKPIs).map(([kpi, data]) => (
-                      <FinancialKPICard
-                        key={kpi}
-                        kpi={kpi}
-                        title={kpi.replace('_', ' ').replace('metrics', '').toUpperCase()}
-                        value={data.current_value ? `$${(data.current_value / 1000).toFixed(0)}K` : 
-                               data.current_balance ? `$${(data.current_balance / 1000).toFixed(0)}K` :
-                               data.current_ratio ? data.current_ratio.toFixed(2) : 'N/A'}
-                        trend={data.trend}
-                        color={domainConfig.color}
-                        icon={<DollarSign className="w-5 h-5" />}
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          )}
-
-          {/* ML Prompts Section - Only show after completion, not during processing */}
-          {isComplete && mlPrompts.length > 0 && (
-            <motion.div 
-              className="max-w-4xl mx-auto mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Brain className="w-5 h-5 text-blue-400" />
-                    AI Analysis Prompts
-                  </h3>
-                  <button
-                    onClick={() => setShowPrompts(!showPrompts)}
-                    className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
-                  >
-                    {showPrompts ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                    {showPrompts ? 'Hide' : 'Show'} Prompts
-                  </button>
-                </div>
-                
-                {showPrompts && (
-                  <div className="space-y-4">
-                    {mlPrompts.map((prompt, index) => (
-                      <MLPromptCard key={index} prompt={prompt} index={index} />
-                    ))}
-                  </div>
-                )}
               </div>
             </motion.div>
           )}
@@ -890,4 +890,4 @@ const ProcessingPage = ({ jobId, selectedDomain, selectedSource, onComplete }) =
   );
 };
 
-export default ProcessingPage; 
+export default ProcessingPage;

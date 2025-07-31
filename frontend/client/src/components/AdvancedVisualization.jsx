@@ -8,7 +8,6 @@ import {
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82CA9D'];
 
 const AdvancedVisualization = ({ analysisData }) => {
-  console.log("analysisData received by dashboard:", analysisData);
   const [activeTab, setActiveTab] = useState('overview');
   const [selectedAnomaly, setSelectedAnomaly] = useState(null);
   const [revenueScenario, setRevenueScenario] = useState(100);
