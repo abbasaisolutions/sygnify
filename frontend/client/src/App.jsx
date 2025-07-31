@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import FileUpload from './components/FileUpload';
 import Dashboard from './components/Dashboard';
+import EnhancedDashboard from './components/EnhancedDashboard';
 import Login from './components/Login';
 import Subscription from './components/Subscription';
 import LandingPage from './components/LandingPage';
@@ -21,6 +22,7 @@ function App() {
   };
 
   const handleProcessingComplete = (results) => {
+    console.log('App: handleProcessingComplete called with results:', results);
     setAnalysisResults(results);
     setCurrentStep('dashboard');
   };
@@ -60,7 +62,7 @@ function App() {
               </div>
             </header>
             <main className="p-6 max-w-7xl mx-auto">
-              <Dashboard 
+              <EnhancedDashboard 
                 analysisResults={analysisResults}
                 selectedDomain={jobData?.selectedDomain}
                 selectedSource={jobData?.selectedSource}

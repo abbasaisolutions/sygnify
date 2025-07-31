@@ -65,3 +65,240 @@
 2025-07-25 23:09:06,505 INFO Using cached market insights
 2025-07-25 23:09:06,554 INFO Job 11434158-7ec6-49f9-b9d1-5655f9f47c55 processed successfully with real ML analysis
 2025-07-25 23:09:42,179 INFO Cache hit for file 6d20d107...
+2025-07-27 09:21:26,929 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 09:22:48,885 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 09:22:51,400 ERROR Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-07-27 09:22:58,070 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 09:23:00,229 ERROR Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-07-27 09:23:21,091 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 09:23:37,358 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 09:23:37,382 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 09:29:20,130 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 10:52:19,534 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 10:59:15,031 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 10:59:15,202 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 10:59:22,077 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 10:59:49,523 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:04:46,932 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:04:47,749 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:05:13,190 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:00:10,167 INFO Matplotlib imported successfully
+2025-07-27 13:00:15,351 ERROR Failed to import financial router: No module named 'requests'
+2025-07-27 13:00:17,062 ERROR Failed to import auth router: No module named 'passlib'
+2025-07-27 13:00:36,926 INFO Matplotlib imported successfully
+2025-07-27 13:00:38,657 ERROR Failed to import financial router: No module named 'yfinance'
+2025-07-27 13:00:39,481 ERROR Failed to import auth router: No module named 'jwt'
+2025-07-27 13:02:19,974 INFO Matplotlib imported successfully
+2025-07-27 13:02:23,090 ERROR Failed to import financial router: No module named 'pymongo'
+2025-07-27 13:02:23,489 INFO Auth router imported successfully
+2025-07-27 13:02:41,156 INFO Matplotlib imported successfully
+2025-07-27 13:02:44,242 ERROR Failed to import financial router: No module named 'aiohttp'
+2025-07-27 13:02:44,368 INFO Auth router imported successfully
+2025-07-27 13:03:11,254 INFO Matplotlib imported successfully
+2025-07-27 13:03:14,449 ERROR Failed to import financial router: No module named 'prophet'
+2025-07-27 13:03:14,590 INFO Auth router imported successfully
+2025-07-27 13:03:41,077 INFO Matplotlib imported successfully
+2025-07-27 13:03:55,049 ERROR Failed to import financial router: No module named 'pkg_resources'
+2025-07-27 13:03:55,159 INFO Auth router imported successfully
+2025-07-27 13:17:05,737 INFO Matplotlib imported successfully
+2025-07-27 13:17:10,353 INFO Financial router imported successfully
+2025-07-27 13:17:10,505 INFO Auth router imported successfully
+2025-07-27 22:04:55,396 INFO Matplotlib imported successfully
+2025-07-27 22:04:55,666 ERROR Failed to import financial router: No module named 'backend'
+2025-07-27 22:04:55,666 ERROR Failed to import auth router: No module named 'backend'
+2025-07-27 22:05:33,269 INFO WebSocket connected: client_1753671933.269122
+2025-07-28 07:12:28,285 INFO Matplotlib imported successfully
+2025-07-28 07:12:29,473 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:12:29,475 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:17:02,871 INFO Matplotlib imported successfully
+2025-07-28 07:17:03,490 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:17:03,492 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:17:24,744 INFO Matplotlib imported successfully
+2025-07-28 07:17:25,375 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:17:25,376 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:24:31,617 INFO Matplotlib imported successfully
+2025-07-28 07:24:32,134 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:24:32,134 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:41:20,250 INFO Matplotlib imported successfully
+2025-07-28 07:41:20,934 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:41:20,935 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:43:26,019 INFO Matplotlib imported successfully
+2025-07-28 07:43:26,585 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:43:26,586 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:44:04,463 INFO Matplotlib imported successfully
+2025-07-28 07:44:06,236 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:44:06,237 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:44:33,337 INFO Matplotlib imported successfully
+2025-07-28 07:44:34,040 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:44:34,042 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:45:40,617 INFO Matplotlib imported successfully
+2025-07-28 07:45:50,447 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:45:50,589 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:48:28,949 INFO Matplotlib imported successfully
+2025-07-28 07:48:30,085 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:48:30,086 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:55:23,993 INFO Matplotlib imported successfully
+2025-07-28 07:55:24,489 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:55:24,490 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:56:41,532 INFO Matplotlib imported successfully
+2025-07-28 07:56:41,944 ERROR Failed to import financial router: No module named 'backend'
+2025-07-28 07:56:41,945 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 07:59:39,458 INFO Matplotlib imported successfully
+2025-07-28 07:59:44,938 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:59:55,249 INFO Financial router imported successfully
+2025-07-28 07:59:55,457 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 08:02:51,997 INFO Matplotlib imported successfully
+2025-07-28 08:02:54,957 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 08:02:56,332 INFO Financial router imported successfully
+2025-07-28 08:02:56,416 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 08:09:23,481 INFO Matplotlib imported successfully
+2025-07-28 08:09:25,602 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 08:09:27,005 INFO Financial router imported successfully
+2025-07-28 08:09:27,092 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 08:13:04,934 INFO Matplotlib imported successfully
+2025-07-28 08:13:07,138 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 08:13:08,542 INFO Financial router imported successfully
+2025-07-28 08:13:08,626 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 08:16:12,245 INFO Matplotlib imported successfully
+2025-07-28 08:16:14,425 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 08:16:15,982 INFO Financial router imported successfully
+2025-07-28 08:16:16,078 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 08:18:18,931 INFO Matplotlib imported successfully
+2025-07-28 08:18:21,096 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 08:18:22,463 INFO Financial router imported successfully
+2025-07-28 08:18:22,463 INFO Financial router object: <fastapi.routing.APIRouter object at 0x00000261D284E750>
+2025-07-28 08:18:22,464 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 08:18:22,546 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 08:18:22,546 INFO Including financial router in app
+2025-07-28 08:18:22,559 INFO Financial router included successfully
+2025-07-28 08:22:30,089 INFO Matplotlib imported successfully
+2025-07-28 08:22:32,300 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 08:22:33,726 INFO Financial router imported successfully
+2025-07-28 08:22:33,726 INFO Financial router object: <fastapi.routing.APIRouter object at 0x00000262B423CE90>
+2025-07-28 08:22:33,727 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 08:22:33,805 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 08:22:33,806 INFO Including financial router in app
+2025-07-28 08:22:33,815 INFO Financial router included successfully
+2025-07-28 08:26:36,914 INFO Matplotlib imported successfully
+2025-07-28 08:26:39,043 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 08:26:40,433 INFO Financial router imported successfully
+2025-07-28 08:26:40,433 INFO Financial router object: <fastapi.routing.APIRouter object at 0x000002BA3457E650>
+2025-07-28 08:26:40,433 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 08:26:40,513 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 08:26:40,514 INFO Including financial router in app
+2025-07-28 08:26:40,528 INFO Financial router included successfully
+2025-07-28 08:27:08,077 INFO Successfully read file with utf-8 encoding
+2025-07-28 08:27:08,079 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.3
+2025-07-28 08:27:08,080 INFO Running comprehensive data profiling...
+2025-07-28 08:27:08,174 INFO Performing intelligent data preparation...
+2025-07-28 08:27:08,180 INFO Running domain-specific financial analysis...
+2025-07-28 08:27:08,180 INFO Running advanced ML analysis...
+2025-07-28 08:27:08,181 INFO Generating chart recommendations...
+2025-07-28 08:27:22,937 INFO Successfully read file with utf-8 encoding
+2025-07-28 08:27:22,941 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.3
+2025-07-28 08:27:22,941 INFO Running comprehensive data profiling...
+2025-07-28 08:27:23,037 INFO Performing intelligent data preparation...
+2025-07-28 08:27:23,048 INFO Running domain-specific financial analysis...
+2025-07-28 08:27:23,052 INFO Running advanced ML analysis...
+2025-07-28 08:27:23,055 WARNING Model KMeans training failed: Input X contains NaN.
+KMeans does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+2025-07-28 08:27:23,055 INFO Generating chart recommendations...
+2025-07-28 08:28:00,617 INFO WebSocket connected: client_1753709280.616351
+2025-07-28 08:28:00,624 INFO Subscribed to job 2cce0844-7919-43d6-a151-994e6981cd10
+2025-07-28 08:28:02,386 INFO Successfully read file with utf-8 encoding
+2025-07-28 08:28:02,453 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.3
+2025-07-28 08:28:02,453 INFO Running comprehensive data profiling...
+2025-07-28 08:28:02,956 INFO Performing intelligent data preparation...
+2025-07-28 08:28:03,203 INFO Running domain-specific financial analysis...
+2025-07-28 08:28:03,227 INFO Running advanced ML analysis...
+2025-07-28 08:28:03,269 WARNING Model KMeans training failed: Input X contains NaN.
+KMeans does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+2025-07-28 08:28:03,271 INFO Generating chart recommendations...
+2025-07-28 08:28:03,409 ERROR Error broadcasting to job 2cce0844-7919-43d6-a151-994e6981cd10: Object of type DataFrame is not JSON serializable
+2025-07-28 08:28:03,409 INFO Removed empty job subscription for 2cce0844-7919-43d6-a151-994e6981cd10
+2025-07-28 08:34:11,144 INFO WebSocket disconnected: client_1753709280.616351
+2025-07-28 09:09:37,991 INFO Successfully read file with utf-8 encoding
+2025-07-28 09:09:37,994 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.3
+2025-07-28 09:09:37,994 INFO Running comprehensive data profiling...
+2025-07-28 09:09:38,125 INFO Performing intelligent data preparation...
+2025-07-28 09:09:38,134 INFO Running domain-specific financial analysis...
+2025-07-28 09:09:38,135 INFO Running advanced ML analysis...
+2025-07-28 09:09:38,136 INFO Generating chart recommendations...
+2025-07-28 09:10:15,591 INFO Successfully read file with utf-8 encoding
+2025-07-28 09:10:15,594 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.3
+2025-07-28 09:10:15,595 INFO Running comprehensive data profiling...
+2025-07-28 09:10:15,724 INFO Performing intelligent data preparation...
+2025-07-28 09:10:15,733 INFO Running domain-specific financial analysis...
+2025-07-28 09:10:15,738 INFO Running advanced ML analysis...
+2025-07-28 09:10:15,740 INFO Generating chart recommendations...
+2025-07-28 09:12:57,034 INFO Successfully read file with utf-8 encoding
+2025-07-28 09:12:57,037 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.3
+2025-07-28 09:12:57,038 INFO Running comprehensive data profiling...
+2025-07-28 09:12:57,182 INFO Performing intelligent data preparation...
+2025-07-28 09:12:57,185 INFO Running domain-specific financial analysis...
+2025-07-28 09:12:57,186 INFO Running advanced ML analysis...
+2025-07-28 09:12:57,187 INFO Generating chart recommendations...
+2025-07-28 09:17:03,348 INFO Matplotlib imported successfully
+2025-07-28 09:17:07,432 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 09:17:09,802 INFO Financial router imported successfully
+2025-07-28 09:17:09,803 INFO Financial router object: <fastapi.routing.APIRouter object at 0x000001ED66CC3290>
+2025-07-28 09:17:09,803 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 09:17:09,940 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 09:17:09,941 INFO Including financial router in app
+2025-07-28 09:17:09,955 INFO Financial router included successfully
+2025-07-28 09:29:46,852 INFO Matplotlib imported successfully
+2025-07-28 09:29:50,235 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 09:29:53,228 INFO Financial router imported successfully
+2025-07-28 09:29:53,228 INFO Financial router object: <fastapi.routing.APIRouter object at 0x000002A9DFF1E750>
+2025-07-28 09:29:53,229 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 09:29:53,385 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 09:29:53,386 INFO Including financial router in app
+2025-07-28 09:29:53,409 INFO Financial router included successfully
+2025-07-28 09:31:27,797 INFO Matplotlib imported successfully
+2025-07-28 09:31:31,096 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 09:31:33,289 INFO Financial router imported successfully
+2025-07-28 09:31:33,289 INFO Financial router object: <fastapi.routing.APIRouter object at 0x0000014991175E90>
+2025-07-28 09:31:33,290 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 09:31:33,399 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 09:31:33,400 INFO Including financial router in app
+2025-07-28 09:31:33,425 INFO Financial router included successfully
+2025-07-28 09:41:31,690 INFO Matplotlib imported successfully
+2025-07-28 09:41:35,906 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 09:41:39,465 INFO Financial router imported successfully
+2025-07-28 09:41:39,465 INFO Financial router object: <fastapi.routing.APIRouter object at 0x000001E97F991010>
+2025-07-28 09:41:39,466 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 09:41:39,610 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 09:41:39,611 INFO Including financial router in app
+2025-07-28 09:41:39,632 INFO Financial router included successfully
+2025-07-28 09:42:08,397 INFO Matplotlib imported successfully
+2025-07-28 09:42:11,753 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 09:42:14,055 INFO Financial router imported successfully
+2025-07-28 09:42:14,055 INFO Financial router object: <fastapi.routing.APIRouter object at 0x0000024E0ED2AE10>
+2025-07-28 09:42:14,055 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 09:42:14,226 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 09:42:14,238 INFO Including financial router in app
+2025-07-28 09:42:14,283 INFO Financial router included successfully
+2025-07-28 09:45:42,096 INFO Matplotlib imported successfully
+2025-07-28 09:45:45,757 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 09:45:48,036 INFO Financial router imported successfully
+2025-07-28 09:45:48,037 INFO Financial router object: <fastapi.routing.APIRouter object at 0x000002BA93B7AB10>
+2025-07-28 09:45:48,037 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 09:45:48,455 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 09:45:48,519 INFO Including financial router in app
+2025-07-28 09:45:48,548 INFO Financial router included successfully
+2025-07-28 09:47:11,774 INFO Matplotlib imported successfully
+2025-07-28 09:47:15,248 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 09:47:16,992 INFO Financial router imported successfully
+2025-07-28 09:47:16,992 INFO Financial router object: <fastapi.routing.APIRouter object at 0x000001D8975AA3D0>
+2025-07-28 09:47:16,993 INFO Financial router type: <class 'fastapi.routing.APIRouter'>
+2025-07-28 09:47:17,096 ERROR Failed to import auth router: No module named 'backend'
+2025-07-28 09:47:17,097 INFO Including financial router in app
+2025-07-28 09:47:17,115 INFO Financial router included successfully

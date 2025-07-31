@@ -6,8 +6,48 @@ import {
   Sparkles, Zap, CheckCircle, AlertTriangle, Info, 
   Download, Share2, RefreshCw, Eye, EyeOff, DollarSign,
   TrendingDown, AlertCircle, Lightbulb, BarChart2, 
-  ActivitySquare, Target as TargetIcon, Zap as ZapIcon
+  ActivitySquare, Target as TargetIcon, Zap as ZapIcon, Wifi
 } from 'lucide-react';
+import RealTimeDashboard from './RealTimeDashboard.jsx';
+
+// Simple Chart Component
+const SimpleChart = ({ data, title, type = 'bar' }) => {
+  if (!data || data.length === 0) {
+    return (
+      <div className="bg-white rounded-xl p-6 text-center">
+        <BarChart3 className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
+        <p className="text-gray-600">No data available for visualization</p>
+      </div>
+    );
+  }
+
+  const maxValue = Math.max(...data.map(d => d.value));
+  
+  return (
+    <div className="bg-white rounded-xl p-6">
+      <h3 className="text-lg font-semibold text-gray-800 mb-4">{title}</h3>
+      <div className="space-y-3">
+        {data.map((item, index) => (
+          <div key={index} className="flex items-center gap-3">
+            <div className="flex-1">
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-gray-700">{item.name}</span>
+                <span className="text-gray-600">{item.value}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div 
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full transition-all duration-500"
+                  style={{ width: `${(item.value / maxValue) * 100}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 // Domain-specific configurations
 const DOMAIN_CONFIG = {
@@ -82,6 +122,14 @@ const Dashboard = ({ analysisResults, selectedDomain, selectedSource }) => {
   const [activeTab, setActiveTab] = useState('overview');
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
+
+  // Debug logging
+  useEffect(() => {
+    console.log('Dashboard received analysisResults:', analysisResults);
+    console.log('Key insights:', analysisResults?.key_insights);
+    console.log('External context:', analysisResults?.external_context);
+    console.log('LLaMA3 narrative:', analysisResults?.llama3_narrative);
+  }, [analysisResults]);
 
   const domainConfig = DOMAIN_CONFIG[selectedDomain] || DOMAIN_CONFIG.general;
 
@@ -225,6 +273,7 @@ const Dashboard = ({ analysisResults, selectedDomain, selectedSource }) => {
               { id: 'insights', label: 'AI Insights', icon: <Brain className="w-5 h-5" /> },
               { id: 'market', label: 'Market Context', icon: <TrendingUp className="w-5 h-5" /> },
               { id: 'narrative', label: 'AI Narrative', icon: <Lightbulb className="w-5 h-5" /> },
+              { id: 'realtime', label: 'Real-Time Monitor', icon: <Wifi className="w-5 h-5" /> },
               { id: 'advanced', label: 'Advanced Analytics', icon: <Activity className="w-5 h-5" /> }
             ].map((tab) => (
               <button
@@ -330,6 +379,24 @@ const Dashboard = ({ analysisResults, selectedDomain, selectedSource }) => {
               </motion.div>
       </div>
       
+            {/* Visualizations */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <SimpleChart 
+                data={analysisResults?.key_insights?.map(insight => ({
+                  name: insight.category,
+                  value: Math.round((insight.confidence || 0) * 100)
+                })) || []}
+                title="Insight Confidence Levels"
+              />
+              <SimpleChart 
+                data={analysisResults?.external_context?.map(context => ({
+                  name: context.title,
+                  value: Math.round((context.confidence || 0) * 100)
+                })) || []}
+                title="Market Context Confidence"
+              />
+            </div>
+
             {/* Quick Actions */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Actions</h3>
@@ -553,6 +620,18 @@ const Dashboard = ({ analysisResults, selectedDomain, selectedSource }) => {
                 <p className="text-gray-600">Complete an analysis to view LLaMA3 narrative</p>
               </div>
             )}
+          </motion.div>
+        )}
+
+        {activeTab === 'realtime' && (
+          <motion.div
+            key="realtime"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <RealTimeDashboard />
           </motion.div>
         )}
 

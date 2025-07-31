@@ -7,13 +7,13 @@ Authentication API Router
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
-from ...database.models import User
+from backend.database.models import User
 from passlib.context import CryptContext
 import jwt
 import os
 from datetime import datetime, timedelta
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from ...database.models import Base
+from backend.database.models import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 

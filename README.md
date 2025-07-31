@@ -16,7 +16,7 @@
 - **Domain-Specific Branding**: Custom themes for Finance, HR, Operations, Supply Chain, and Advertising
 - **Real-time Processing**: Animated progress tracking with domain-specific animations
 - **Responsive Design**: Modern UI with Tailwind CSS and Framer Motion animations
-- **Interactive Dashboard**: Multi-tab interface with Overview, AI Insights, Market Context, AI Narrative, and Advanced Analytics
+- **Interactive Dashboard**: Multi-tab interface with Overview, AI Insights, Market Context, AI Narrative, Real-Time Monitor, and Advanced Analytics
 
 ### 🤖 **Advanced AI & ML Integration**
 - **LLaMA3 Integration**: Real AI analysis with Ollama service integration
@@ -45,10 +45,19 @@
 ### 🔄 **Production-Ready Architecture**
 - **FastAPI Backend**: High-performance Python backend with automatic API documentation
 - **React Frontend**: Modern React application with Vite build system
-- **Job Management**: Background task processing with status tracking
+- **WebSocket Integration**: Real-time bidirectional communication for live updates
+- **Job Management**: Background task processing with real-time status tracking
 - **Caching System**: Intelligent caching for performance optimization
 - **Error Handling**: Comprehensive error handling with graceful degradation
 - **Scalable Design**: Containerized architecture with Docker support
+
+### 🌐 **Real-Time Capabilities**
+- **WebSocket Communication**: Live bidirectional data exchange between frontend and backend
+- **Real-Time Progress Tracking**: Instant updates during file processing and analysis
+- **Live System Monitoring**: Real-time dashboard for system health and performance metrics
+- **Interactive User Experience**: No page refreshes needed for updates
+- **Connection Management**: Automatic reconnection and heartbeat monitoring
+- **Event-Driven Architecture**: Subscribe to specific events and job updates
 
 ## 🚀 Quick Start
 
@@ -58,6 +67,22 @@
 - **Ollama** (for AI analysis)
 
 ### **One-Command Setup & Launch**
+
+#### **Option 1: Real-Time Features (Recommended)**
+```bash
+# Clone the repository
+git clone <repository-url>
+cd Sygnify-V2
+
+# Start with real-time capabilities
+# Windows:
+scripts/start-realtime.bat
+
+# Linux/Mac:
+./scripts/start-realtime.sh
+```
+
+#### **Option 2: Standard Setup**
 ```bash
 # Clone the repository
 git clone <repository-url>
@@ -113,7 +138,7 @@ ollama pull llama3.2:3b-q4_0
 
 ## 🌐 Access URLs
 
-- **Frontend Dashboard**: http://localhost:3001 (or available port)
+- **Frontend Dashboard**: http://localhost:3001 (or 3002 if 3001 is in use)
 - **Backend API**: http://localhost:8000
 - **API Documentation**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health

@@ -98,3 +98,1976 @@
 2025-07-27 08:04:30,408 INFO Job 220fad46-972f-4c06-a70c-b5c5a277ede2 processed successfully with real ML analysis
 2025-07-27 08:05:28,701 INFO Successfully read file with utf-8 encoding
 2025-07-27 08:06:34,251 INFO Job 9ffd53a5-8357-42e8-97dc-7b2b3bade74a processed successfully with real ML analysis
+2025-07-27 08:27:37,334 INFO Successfully read file with utf-8 encoding
+2025-07-27 08:28:41,243 INFO Job d3b53440-01b0-4b7a-86fe-95e1700a39a3 processed successfully with real ML analysis
+2025-07-27 10:53:11,934 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 10:54:47,711 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:07:30,287 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:07:41,114 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:28:43,235 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:28:55,494 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:46:49,140 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:55:27,831 INFO Successfully read file with utf-8 encoding
+2025-07-27 11:55:29,464 ERROR File processing failed in job 5ebb5d2c-3bbe-4e0a-88f5-72b1831d970d: could not convert string to float: 'TXN001'
+2025-07-27 11:55:52,858 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:56:04,589 INFO Successfully read file with utf-8 encoding
+2025-07-27 11:56:07,056 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 11:56:07,057 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 11:56:07,057 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 11:56:43,881 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 11:58:49,025 INFO Successfully read file with utf-8 encoding
+2025-07-27 11:58:54,733 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 11:58:54,733 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 11:58:54,734 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 12:00:30,125 INFO Successfully read file with utf-8 encoding
+2025-07-27 12:00:30,172 INFO Skipping full Sweetviz profiling for large file
+2025-07-27 12:00:30,260 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 12:00:30,260 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 12:00:30,261 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 12:04:54,769 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:07:37,929 INFO Successfully read file with utf-8 encoding
+2025-07-27 12:07:37,980 INFO Skipping full Sweetviz profiling for large file
+2025-07-27 12:07:42,080 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 12:07:42,081 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 12:07:42,081 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 12:10:19,636 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:10:47,627 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:13:27,987 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:14:23,205 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:28:26,480 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:29:24,076 ERROR Job processing failed: no running event loop
+2025-07-27 12:29:24,429 INFO WebSocket connected: client_1753637364.42914
+2025-07-27 12:29:24,435 INFO Subscribed to job 16f4f1c7-b2d8-4349-bd42-8271ba4a9fa6
+2025-07-27 12:32:16,323 INFO WebSocket disconnected: client_1753637364.42914
+2025-07-27 12:36:05,457 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:40:10,155 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:41:18,546 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:41:26,664 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:41:35,126 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:41:46,222 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:41:57,401 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:42:05,571 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:42:13,472 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:42:28,082 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:42:36,436 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:42:57,646 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:43:06,915 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:43:15,530 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:43:25,422 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:43:53,519 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:44:04,736 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:44:13,131 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 12:48:18,591 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:52:57,297 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:54:57,348 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:55:57,513 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:57:03,326 INFO Matplotlib imported successfully
+2025-07-27 12:57:04,540 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:57:09,282 INFO Financial router imported successfully
+2025-07-27 12:57:09,450 INFO Auth router imported successfully
+2025-07-27 12:57:16,364 INFO Matplotlib imported successfully
+2025-07-27 12:57:17,362 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:57:23,261 INFO Financial router imported successfully
+2025-07-27 12:57:23,438 INFO Auth router imported successfully
+2025-07-27 12:57:24,896 INFO Matplotlib imported successfully
+2025-07-27 12:57:26,076 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:57:31,087 INFO Financial router imported successfully
+2025-07-27 12:57:31,331 INFO Auth router imported successfully
+2025-07-27 12:57:36,361 INFO Matplotlib imported successfully
+2025-07-27 12:57:37,677 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:57:42,945 INFO Financial router imported successfully
+2025-07-27 12:57:43,121 INFO Auth router imported successfully
+2025-07-27 12:58:06,142 INFO Matplotlib imported successfully
+2025-07-27 12:58:07,447 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:58:12,481 INFO Financial router imported successfully
+2025-07-27 12:58:12,668 INFO Auth router imported successfully
+2025-07-27 12:58:15,277 INFO Matplotlib imported successfully
+2025-07-27 12:58:16,457 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:58:20,975 INFO Financial router imported successfully
+2025-07-27 12:58:21,150 INFO Auth router imported successfully
+2025-07-27 12:59:02,219 INFO Matplotlib imported successfully
+2025-07-27 12:59:03,022 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:59:05,926 INFO Financial router imported successfully
+2025-07-27 12:59:06,054 INFO Auth router imported successfully
+2025-07-27 12:59:50,504 INFO Matplotlib imported successfully
+2025-07-27 12:59:51,293 INFO NumExpr defaulting to 8 threads.
+2025-07-27 12:59:54,468 INFO Financial router imported successfully
+2025-07-27 12:59:54,600 INFO Auth router imported successfully
+2025-07-27 13:01:03,385 INFO Matplotlib imported successfully
+2025-07-27 13:01:05,022 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:01:10,467 INFO Financial router imported successfully
+2025-07-27 13:01:10,681 INFO Auth router imported successfully
+2025-07-27 13:02:02,484 INFO Matplotlib imported successfully
+2025-07-27 13:02:03,413 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:02:07,534 INFO Financial router imported successfully
+2025-07-27 13:02:07,686 INFO Auth router imported successfully
+2025-07-27 13:02:09,192 INFO Matplotlib imported successfully
+2025-07-27 13:02:10,179 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:02:13,448 INFO Financial router imported successfully
+2025-07-27 13:02:13,592 INFO Auth router imported successfully
+2025-07-27 13:02:46,757 INFO Matplotlib imported successfully
+2025-07-27 13:02:48,009 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:02:53,978 INFO Financial router imported successfully
+2025-07-27 13:02:54,553 INFO Auth router imported successfully
+2025-07-27 13:03:03,095 INFO Matplotlib imported successfully
+2025-07-27 13:03:04,198 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:03:08,732 INFO Financial router imported successfully
+2025-07-27 13:03:08,905 INFO Auth router imported successfully
+2025-07-27 13:04:02,998 INFO Matplotlib imported successfully
+2025-07-27 13:04:04,246 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:04:09,269 INFO Financial router imported successfully
+2025-07-27 13:04:09,462 INFO Auth router imported successfully
+2025-07-27 13:04:10,662 INFO Matplotlib imported successfully
+2025-07-27 13:04:11,427 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:04:14,375 INFO Financial router imported successfully
+2025-07-27 13:04:14,505 INFO Auth router imported successfully
+2025-07-27 13:05:27,330 INFO Matplotlib imported successfully
+2025-07-27 13:05:31,564 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:05:34,364 INFO Financial router imported successfully
+2025-07-27 13:05:34,585 INFO Auth router imported successfully
+2025-07-27 13:06:36,514 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:06:36,550 INFO Skipping full Sweetviz profiling for large file
+2025-07-27 13:06:39,169 ERROR File processing failed in job 16dc2723-4218-449b-85ef-d777df669a06: Too Many Requests. Rate limited. Try after a while.
+2025-07-27 13:06:40,348 INFO Matplotlib imported successfully
+2025-07-27 13:06:41,182 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:06:44,426 INFO Financial router imported successfully
+2025-07-27 13:06:44,583 INFO Auth router imported successfully
+2025-07-27 13:06:44,609 INFO WebSocket connected: client_1753639604.609882
+2025-07-27 13:06:44,613 INFO Subscribed to job 16dc2723-4218-449b-85ef-d777df669a06
+2025-07-27 13:08:35,534 INFO Matplotlib imported successfully
+2025-07-27 13:08:38,358 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:08:40,235 INFO Financial router imported successfully
+2025-07-27 13:08:40,935 INFO Auth router imported successfully
+2025-07-27 13:09:24,128 INFO WebSocket connected: client_1753639764.127318
+2025-07-27 13:09:57,665 INFO WebSocket disconnected: client_1753639764.127318
+2025-07-27 13:10:20,350 INFO Matplotlib imported successfully
+2025-07-27 13:10:22,307 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:10:23,537 INFO Financial router imported successfully
+2025-07-27 13:10:23,657 INFO Auth router imported successfully
+2025-07-27 13:10:25,132 INFO WebSocket connected: client_1753639825.131271
+2025-07-27 13:10:51,793 INFO Matplotlib imported successfully
+2025-07-27 13:10:54,036 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:10:55,295 INFO Financial router imported successfully
+2025-07-27 13:10:55,419 INFO Auth router imported successfully
+2025-07-27 13:12:06,139 INFO Matplotlib imported successfully
+2025-07-27 13:12:08,038 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:12:09,180 INFO Financial router imported successfully
+2025-07-27 13:12:09,302 INFO Auth router imported successfully
+2025-07-27 13:12:15,325 INFO WebSocket disconnected: client_1753639825.131271
+2025-07-27 13:12:31,721 INFO WebSocket connected: client_1753639951.721589
+2025-07-27 13:12:31,725 INFO Subscribed to job 4d955961-c494-4ec9-a3d3-deb95fb9da0b
+2025-07-27 13:12:33,560 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:12:33,603 INFO Skipping full Sweetviz profiling for large file
+2025-07-27 13:12:34,578 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 13:12:34,579 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 13:12:34,580 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 13:12:37,553 INFO Unsubscribed from job 4d955961-c494-4ec9-a3d3-deb95fb9da0b
+2025-07-27 13:12:58,462 INFO WebSocket connected: client_1753639978.461466
+2025-07-27 13:13:29,267 INFO WebSocket connected: client_1753640009.266448
+2025-07-27 13:13:29,269 INFO Subscribed to job 7e30def2-a996-46c9-81e8-5af818eb8a94
+2025-07-27 13:13:30,952 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:13:33,612 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 13:13:33,612 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 13:13:33,613 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 13:13:48,532 INFO Unsubscribed from job 7e30def2-a996-46c9-81e8-5af818eb8a94
+2025-07-27 13:14:02,783 INFO WebSocket connected: client_1753640042.782525
+2025-07-27 13:15:18,209 INFO WebSocket disconnected: client_1753640009.266448
+2025-07-27 13:15:18,212 INFO WebSocket disconnected: client_1753640042.782525
+2025-07-27 13:15:18,213 INFO WebSocket disconnected: client_1753639951.721589
+2025-07-27 13:15:18,213 INFO WebSocket disconnected: client_1753639978.461466
+2025-07-27 13:15:19,452 INFO Matplotlib imported successfully
+2025-07-27 13:15:19,490 INFO Matplotlib imported successfully
+2025-07-27 13:15:21,740 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:15:21,741 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:15:23,319 INFO Financial router imported successfully
+2025-07-27 13:15:23,336 INFO Financial router imported successfully
+2025-07-27 13:15:23,501 INFO Auth router imported successfully
+2025-07-27 13:15:23,522 INFO Auth router imported successfully
+2025-07-27 13:15:23,542 INFO WebSocket connected: client_1753640123.542599
+2025-07-27 13:15:23,566 INFO WebSocket connected: client_1753640123.566154
+2025-07-27 13:15:23,581 INFO WebSocket connected: client_1753640123.580669
+2025-07-27 13:15:23,597 INFO WebSocket connected: client_1753640123.596375
+2025-07-27 13:15:30,207 INFO WebSocket disconnected: client_1753640123.596375
+2025-07-27 13:15:30,208 INFO WebSocket disconnected: client_1753640123.566154
+2025-07-27 13:15:30,209 INFO WebSocket disconnected: client_1753640123.542599
+2025-07-27 13:15:30,209 INFO WebSocket disconnected: client_1753640123.580669
+2025-07-27 13:15:31,572 INFO Matplotlib imported successfully
+2025-07-27 13:15:31,622 INFO Matplotlib imported successfully
+2025-07-27 13:15:33,979 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:15:33,983 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:15:35,766 INFO Financial router imported successfully
+2025-07-27 13:15:35,767 INFO Financial router imported successfully
+2025-07-27 13:15:35,936 INFO Auth router imported successfully
+2025-07-27 13:15:35,937 INFO Auth router imported successfully
+2025-07-27 13:15:35,960 INFO WebSocket connected: client_1753640135.960682
+2025-07-27 13:15:35,983 INFO WebSocket connected: client_1753640135.983848
+2025-07-27 13:15:35,999 INFO WebSocket connected: client_1753640135.999985
+2025-07-27 13:15:36,016 INFO WebSocket connected: client_1753640136.01652
+2025-07-27 13:15:39,033 INFO WebSocket connected: client_1753640139.033437
+2025-07-27 13:15:40,048 INFO WebSocket connected: client_1753640140.048281
+2025-07-27 13:15:41,043 INFO WebSocket connected: client_1753640141.043437
+2025-07-27 13:15:42,042 INFO WebSocket connected: client_1753640142.041523
+2025-07-27 13:18:13,674 INFO Matplotlib imported successfully
+2025-07-27 13:18:15,705 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:18:16,832 INFO Financial router imported successfully
+2025-07-27 13:18:16,953 INFO Auth router imported successfully
+2025-07-27 13:18:24,280 INFO Matplotlib imported successfully
+2025-07-27 13:18:25,283 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:18:29,192 INFO Financial router imported successfully
+2025-07-27 13:18:29,341 INFO Auth router imported successfully
+2025-07-27 13:19:49,712 INFO Matplotlib imported successfully
+2025-07-27 13:19:51,748 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:19:53,309 INFO Financial router imported successfully
+2025-07-27 13:19:53,446 INFO Auth router imported successfully
+2025-07-27 13:19:53,808 INFO Matplotlib imported successfully
+2025-07-27 13:19:54,551 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:19:57,610 INFO Financial router imported successfully
+2025-07-27 13:19:57,736 INFO Auth router imported successfully
+2025-07-27 13:20:17,458 INFO WebSocket connected: client_1753640417.458911
+2025-07-27 13:20:17,466 INFO Subscribed to job 002deb33-3f4d-4ea4-85d7-f3f69e9dc389
+2025-07-27 13:20:19,330 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:20:19,360 INFO Skipping full Sweetviz profiling for large file
+2025-07-27 13:20:20,557 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 13:20:20,558 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 13:20:20,558 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 13:20:22,657 INFO Unsubscribed from job 002deb33-3f4d-4ea4-85d7-f3f69e9dc389
+2025-07-27 13:20:40,549 INFO WebSocket connected: client_1753640440.548941
+2025-07-27 13:21:02,115 INFO WebSocket connected: client_1753640462.115404
+2025-07-27 13:21:02,120 INFO Subscribed to job fffdca4d-b657-4fc1-a264-3fb729b0c8bd
+2025-07-27 13:21:03,805 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:21:06,181 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 13:21:06,181 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 13:21:06,182 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 13:21:18,842 INFO Unsubscribed from job fffdca4d-b657-4fc1-a264-3fb729b0c8bd
+2025-07-27 13:26:15,941 INFO WebSocket disconnected: client_1753640462.115404
+2025-07-27 13:26:15,942 INFO WebSocket disconnected: client_1753640440.548941
+2025-07-27 13:26:15,942 INFO WebSocket disconnected: client_1753640417.458911
+2025-07-27 13:26:17,003 INFO Matplotlib imported successfully
+2025-07-27 13:26:18,772 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:26:19,865 INFO Financial router imported successfully
+2025-07-27 13:26:19,989 INFO Auth router imported successfully
+2025-07-27 13:26:20,002 INFO WebSocket connected: client_1753640780.002307
+2025-07-27 13:26:20,024 INFO WebSocket connected: client_1753640780.023576
+2025-07-27 13:26:20,132 INFO WebSocket connected: client_1753640780.131717
+2025-07-27 13:26:24,199 INFO Matplotlib imported successfully
+2025-07-27 13:26:24,968 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:26:28,015 INFO Financial router imported successfully
+2025-07-27 13:26:28,153 INFO Auth router imported successfully
+2025-07-27 13:27:11,889 INFO WebSocket disconnected: client_1753640780.131717
+2025-07-27 13:27:11,890 INFO WebSocket disconnected: client_1753640780.002307
+2025-07-27 13:27:11,890 INFO WebSocket disconnected: client_1753640780.023576
+2025-07-27 13:27:13,029 INFO Matplotlib imported successfully
+2025-07-27 13:27:14,331 INFO Matplotlib imported successfully
+2025-07-27 13:27:15,027 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:27:15,053 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:27:16,225 INFO Financial router imported successfully
+2025-07-27 13:27:16,347 INFO Auth router imported successfully
+2025-07-27 13:27:16,362 INFO WebSocket connected: client_1753640836.362684
+2025-07-27 13:27:16,385 INFO WebSocket connected: client_1753640836.384693
+2025-07-27 13:27:16,400 INFO WebSocket connected: client_1753640836.399856
+2025-07-27 13:27:17,858 INFO Financial router imported successfully
+2025-07-27 13:27:17,979 INFO Auth router imported successfully
+2025-07-27 13:28:39,160 INFO WebSocket connected: client_1753640919.159374
+2025-07-27 13:28:39,164 INFO Subscribed to job fd312ef1-6bda-4b3e-8b66-f5cf1fcc3593
+2025-07-27 13:28:40,867 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:28:44,386 ERROR LLaMA3 analysis failed: 'structure'
+2025-07-27 13:28:44,386 WARNING Predictive analytics failed: 'PredictiveAnalytics' object has no attribute 'generate_forecasts'
+2025-07-27 13:28:44,386 WARNING Anomaly detection failed: 'AnomalyDetector' object has no attribute 'detect_anomalies'
+2025-07-27 13:29:12,024 INFO Unsubscribed from job fd312ef1-6bda-4b3e-8b66-f5cf1fcc3593
+2025-07-27 13:32:12,187 INFO WebSocket disconnected: client_1753640836.384693
+2025-07-27 13:32:12,190 INFO WebSocket disconnected: client_1753640836.362684
+2025-07-27 13:32:12,191 INFO WebSocket disconnected: client_1753640836.399856
+2025-07-27 13:32:12,191 INFO WebSocket disconnected: client_1753640919.159374
+2025-07-27 13:32:13,257 INFO Matplotlib imported successfully
+2025-07-27 13:32:14,921 INFO Matplotlib imported successfully
+2025-07-27 13:32:15,245 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:32:15,738 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:32:16,521 INFO Financial router imported successfully
+2025-07-27 13:32:16,659 INFO Auth router imported successfully
+2025-07-27 13:32:16,678 INFO WebSocket connected: client_1753641136.67827
+2025-07-27 13:32:16,704 INFO WebSocket connected: client_1753641136.703789
+2025-07-27 13:32:16,720 INFO WebSocket connected: client_1753641136.719798
+2025-07-27 13:32:16,736 INFO WebSocket connected: client_1753641136.736541
+2025-07-27 13:32:18,813 INFO Financial router imported successfully
+2025-07-27 13:32:18,956 INFO Auth router imported successfully
+2025-07-27 13:45:43,183 INFO WebSocket disconnected: client_1753641136.736541
+2025-07-27 13:45:43,190 INFO WebSocket disconnected: client_1753641136.719798
+2025-07-27 13:45:43,191 INFO WebSocket disconnected: client_1753641136.67827
+2025-07-27 13:45:43,192 INFO WebSocket disconnected: client_1753641136.703789
+2025-07-27 13:46:50,496 INFO WebSocket connected: client_1753642010.491281
+2025-07-27 13:46:50,545 INFO WebSocket connected: client_1753642010.521804
+2025-07-27 13:46:50,612 INFO WebSocket connected: client_1753642010.602608
+2025-07-27 13:46:50,676 INFO WebSocket connected: client_1753642010.662091
+2025-07-27 13:46:53,516 INFO WebSocket disconnected: client_1753642010.521804
+2025-07-27 13:46:53,517 INFO WebSocket disconnected: client_1753642010.491281
+2025-07-27 13:46:53,518 INFO WebSocket disconnected: client_1753642010.602608
+2025-07-27 13:46:53,519 INFO WebSocket disconnected: client_1753642010.662091
+2025-07-27 13:49:02,504 INFO Matplotlib imported successfully
+2025-07-27 13:49:03,339 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:49:06,601 INFO Financial router imported successfully
+2025-07-27 13:49:06,746 INFO Auth router imported successfully
+2025-07-27 13:49:12,184 INFO Matplotlib imported successfully
+2025-07-27 13:49:16,810 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:49:24,180 INFO Financial router imported successfully
+2025-07-27 13:49:24,335 INFO Auth router imported successfully
+2025-07-27 13:49:38,315 INFO WebSocket connected: client_1753642178.315785
+2025-07-27 13:49:38,320 INFO Subscribed to job 35d9e5a5-bf4b-4826-b371-921869838892
+2025-07-27 13:49:40,007 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:49:45,462 ERROR File processing failed in job 35d9e5a5-bf4b-4826-b371-921869838892: Too Many Requests. Rate limited. Try after a while.
+2025-07-27 13:50:47,676 INFO Matplotlib imported successfully
+2025-07-27 13:50:50,791 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:50:53,077 INFO Financial router imported successfully
+2025-07-27 13:50:53,354 INFO Auth router imported successfully
+2025-07-27 13:50:56,071 INFO Matplotlib imported successfully
+2025-07-27 13:50:58,713 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:51:00,784 INFO Financial router imported successfully
+2025-07-27 13:51:01,003 INFO Auth router imported successfully
+2025-07-27 13:51:34,158 INFO WebSocket disconnected: client_1753642178.315785
+2025-07-27 13:51:41,143 INFO Matplotlib imported successfully
+2025-07-27 13:51:44,777 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:51:56,342 INFO Matplotlib imported successfully
+2025-07-27 13:52:05,997 INFO Financial router imported successfully
+2025-07-27 13:52:06,762 INFO Auth router imported successfully
+2025-07-27 13:52:14,707 INFO Matplotlib imported successfully
+2025-07-27 13:52:20,575 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:52:23,463 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:52:42,208 INFO Financial router imported successfully
+2025-07-27 13:52:44,446 INFO Auth router imported successfully
+2025-07-27 13:52:47,928 INFO Matplotlib imported successfully
+2025-07-27 13:52:47,929 INFO Financial router imported successfully
+2025-07-27 13:52:48,176 INFO Auth router imported successfully
+2025-07-27 13:52:48,266 INFO WebSocket connected: client_1753642368.266152
+2025-07-27 13:52:50,794 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:52:52,689 INFO Financial router imported successfully
+2025-07-27 13:52:52,992 INFO Auth router imported successfully
+2025-07-27 13:53:03,578 INFO Matplotlib imported successfully
+2025-07-27 13:53:06,600 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:53:08,374 INFO Financial router imported successfully
+2025-07-27 13:53:08,539 INFO Auth router imported successfully
+2025-07-27 13:53:22,732 INFO WebSocket disconnected: client_1753642368.266152
+2025-07-27 13:53:24,270 INFO Matplotlib imported successfully
+2025-07-27 13:53:25,372 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:53:29,404 INFO Financial router imported successfully
+2025-07-27 13:53:29,584 INFO Auth router imported successfully
+2025-07-27 13:53:29,616 INFO WebSocket connected: client_1753642409.615603
+2025-07-27 13:54:21,568 INFO WebSocket disconnected: client_1753642409.615603
+2025-07-27 13:54:33,840 INFO WebSocket connected: client_1753642473.83932
+2025-07-27 13:54:33,846 INFO Subscribed to job e13976b6-43ee-429c-bc4d-4fad0cdaaa05
+2025-07-27 13:54:35,518 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:54:35,520 INFO Processing data analysis within Sygnify app
+2025-07-27 13:54:38,256 ERROR File processing failed in job e13976b6-43ee-429c-bc4d-4fad0cdaaa05: Too Many Requests. Rate limited. Try after a while.
+2025-07-27 13:54:53,291 INFO Unsubscribed from job e13976b6-43ee-429c-bc4d-4fad0cdaaa05
+2025-07-27 13:55:09,221 INFO WebSocket connected: client_1753642509.220198
+2025-07-27 13:57:14,658 INFO Matplotlib imported successfully
+2025-07-27 13:57:16,670 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:57:18,221 INFO Financial router imported successfully
+2025-07-27 13:57:18,401 INFO Auth router imported successfully
+2025-07-27 13:57:28,045 INFO Matplotlib imported successfully
+2025-07-27 13:57:29,809 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:57:30,850 INFO Financial router imported successfully
+2025-07-27 13:57:30,959 INFO Auth router imported successfully
+2025-07-27 13:57:33,439 INFO WebSocket disconnected: client_1753642473.83932
+2025-07-27 13:57:33,440 INFO WebSocket disconnected: client_1753642509.220198
+2025-07-27 13:57:34,702 INFO Matplotlib imported successfully
+2025-07-27 13:57:35,570 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:57:39,131 INFO Financial router imported successfully
+2025-07-27 13:57:39,272 INFO Auth router imported successfully
+2025-07-27 13:57:40,421 INFO Matplotlib imported successfully
+2025-07-27 13:57:41,249 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:57:44,625 INFO Financial router imported successfully
+2025-07-27 13:57:44,779 INFO Auth router imported successfully
+2025-07-27 13:57:44,803 INFO WebSocket connected: client_1753642664.80263
+2025-07-27 13:57:44,817 INFO WebSocket connected: client_1753642664.816636
+2025-07-27 13:57:52,134 INFO Matplotlib imported successfully
+2025-07-27 13:57:54,097 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:57:55,350 INFO Financial router imported successfully
+2025-07-27 13:57:55,530 INFO Auth router imported successfully
+2025-07-27 13:58:09,938 INFO WebSocket disconnected: client_1753642664.80263
+2025-07-27 13:58:09,938 INFO WebSocket disconnected: client_1753642664.816636
+2025-07-27 13:58:10,086 INFO Matplotlib imported successfully
+2025-07-27 13:58:11,242 INFO Matplotlib imported successfully
+2025-07-27 13:58:12,103 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:58:12,290 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 13:58:13,603 INFO Financial router imported successfully
+2025-07-27 13:58:13,767 INFO Auth router imported successfully
+2025-07-27 13:58:15,234 INFO Financial router imported successfully
+2025-07-27 13:58:15,368 INFO Auth router imported successfully
+2025-07-27 13:58:16,392 INFO Matplotlib imported successfully
+2025-07-27 13:58:17,102 INFO NumExpr defaulting to 8 threads.
+2025-07-27 13:58:20,235 INFO Financial router imported successfully
+2025-07-27 13:58:20,382 INFO Auth router imported successfully
+2025-07-27 13:58:20,406 INFO WebSocket connected: client_1753642700.406839
+2025-07-27 13:58:20,427 INFO WebSocket connected: client_1753642700.427871
+2025-07-27 13:58:33,671 INFO WebSocket connected: client_1753642713.671397
+2025-07-27 13:58:33,674 INFO Subscribed to job 2a33fe12-1f83-46cb-8109-1966ab8c532f
+2025-07-27 13:58:35,564 INFO Successfully read file with utf-8 encoding
+2025-07-27 13:58:35,596 INFO Processing real data analysis within Sygnify app
+2025-07-27 13:58:35,660 ERROR Error broadcasting to job 2a33fe12-1f83-46cb-8109-1966ab8c532f: Object of type ObjectDType is not JSON serializable
+2025-07-27 13:58:35,660 INFO Removed empty job subscription for 2a33fe12-1f83-46cb-8109-1966ab8c532f
+2025-07-27 14:00:20,645 INFO Matplotlib imported successfully
+2025-07-27 14:00:22,436 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 14:00:23,511 INFO Financial router imported successfully
+2025-07-27 14:00:23,629 INFO Auth router imported successfully
+2025-07-27 14:00:26,030 INFO WebSocket disconnected: client_1753642700.406839
+2025-07-27 14:00:26,031 INFO WebSocket disconnected: client_1753642700.427871
+2025-07-27 14:00:26,032 INFO WebSocket disconnected: client_1753642713.671397
+2025-07-27 14:00:27,299 INFO Matplotlib imported successfully
+2025-07-27 14:00:28,091 INFO NumExpr defaulting to 8 threads.
+2025-07-27 14:00:31,065 INFO Financial router imported successfully
+2025-07-27 14:00:31,190 INFO Auth router imported successfully
+2025-07-27 14:00:31,210 INFO WebSocket connected: client_1753642831.210223
+2025-07-27 14:00:31,233 INFO WebSocket connected: client_1753642831.232217
+2025-07-27 14:00:31,247 INFO WebSocket connected: client_1753642831.247386
+2025-07-27 14:00:38,356 INFO Matplotlib imported successfully
+2025-07-27 14:00:40,212 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 14:00:41,311 INFO Financial router imported successfully
+2025-07-27 14:00:41,420 INFO Auth router imported successfully
+2025-07-27 14:01:13,138 INFO WebSocket disconnected: client_1753642831.210223
+2025-07-27 14:01:13,139 INFO WebSocket disconnected: client_1753642831.232217
+2025-07-27 14:01:13,140 INFO WebSocket disconnected: client_1753642831.247386
+2025-07-27 14:01:15,614 INFO Matplotlib imported successfully
+2025-07-27 14:01:17,220 INFO NumExpr defaulting to 8 threads.
+2025-07-27 14:01:23,446 INFO Financial router imported successfully
+2025-07-27 14:01:23,644 INFO Auth router imported successfully
+2025-07-27 14:01:25,953 INFO WebSocket connected: client_1753642885.95239
+2025-07-27 14:01:25,955 INFO Subscribed to job 50efa1e3-d628-49fc-ba73-aa31d1a1069f
+2025-07-27 14:01:27,842 INFO Successfully read file with utf-8 encoding
+2025-07-27 14:01:27,876 INFO Processing real data analysis within Sygnify app
+2025-07-27 14:01:31,137 INFO Unsubscribed from job 50efa1e3-d628-49fc-ba73-aa31d1a1069f
+2025-07-27 14:01:54,919 INFO WebSocket connected: client_1753642914.918333
+2025-07-27 14:18:43,199 INFO WebSocket disconnected: client_1753642914.918333
+2025-07-27 14:18:43,216 INFO WebSocket disconnected: client_1753642885.95239
+2025-07-27 15:30:37,345 INFO WebSocket connected: client_1753648237.336254
+2025-07-27 15:30:37,380 INFO WebSocket connected: client_1753648237.368286
+2025-07-27 15:30:37,580 INFO WebSocket disconnected: client_1753648237.336254
+2025-07-27 15:30:37,598 INFO WebSocket disconnected: client_1753648237.368286
+2025-07-27 15:31:57,598 INFO WebSocket connected: client_1753648317.597403
+2025-07-27 15:31:57,600 INFO Subscribed to job 7e1252cf-5fcf-4147-a35c-d6727426ae9e
+2025-07-27 15:31:59,334 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:31:59,347 INFO Processing real data analysis within Sygnify app
+2025-07-27 15:32:02,487 INFO Unsubscribed from job 7e1252cf-5fcf-4147-a35c-d6727426ae9e
+2025-07-27 15:32:59,776 INFO WebSocket connected: client_1753648379.775889
+2025-07-27 15:32:59,778 INFO Subscribed to job 856d23bf-eb8d-4695-94f8-e466b1e2a60b
+2025-07-27 15:33:11,367 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:33:13,619 INFO Processing real data analysis within Sygnify app
+2025-07-27 15:33:22,432 INFO Unsubscribed from job 856d23bf-eb8d-4695-94f8-e466b1e2a60b
+2025-07-27 15:34:51,107 INFO WebSocket connected: client_1753648491.10749
+2025-07-27 15:34:51,116 INFO Subscribed to job d2872546-0c18-405f-a8fe-ee8ade18271a
+2025-07-27 15:34:52,996 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:34:53,027 INFO Processing real data analysis within Sygnify app
+2025-07-27 15:34:54,909 INFO Unsubscribed from job d2872546-0c18-405f-a8fe-ee8ade18271a
+2025-07-27 15:35:10,514 INFO WebSocket connected: client_1753648510.513439
+2025-07-27 15:41:19,229 INFO Matplotlib imported successfully
+2025-07-27 15:41:22,472 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:41:25,272 INFO Financial router imported successfully
+2025-07-27 15:41:25,505 INFO Auth router imported successfully
+2025-07-27 15:41:33,831 INFO Matplotlib imported successfully
+2025-07-27 15:41:36,448 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:41:38,474 INFO Financial router imported successfully
+2025-07-27 15:41:38,632 INFO Auth router imported successfully
+2025-07-27 15:42:44,976 INFO Matplotlib imported successfully
+2025-07-27 15:42:47,715 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:42:49,696 INFO Financial router imported successfully
+2025-07-27 15:42:49,856 INFO Auth router imported successfully
+2025-07-27 15:43:28,853 INFO Matplotlib imported successfully
+2025-07-27 15:43:32,139 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:43:34,086 INFO Financial router imported successfully
+2025-07-27 15:43:34,251 INFO Auth router imported successfully
+2025-07-27 15:44:33,114 INFO Matplotlib imported successfully
+2025-07-27 15:44:36,100 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:44:39,131 INFO Financial router imported successfully
+2025-07-27 15:44:39,322 INFO Auth router imported successfully
+2025-07-27 15:45:01,425 INFO WebSocket disconnected: client_1753648379.775889
+2025-07-27 15:45:01,436 INFO WebSocket disconnected: client_1753648317.597403
+2025-07-27 15:45:01,461 INFO WebSocket disconnected: client_1753648510.513439
+2025-07-27 15:45:01,474 INFO WebSocket disconnected: client_1753648491.10749
+2025-07-27 15:45:04,131 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:45:04,185 INFO Processing real data analysis within Sygnify app
+2025-07-27 15:45:07,547 INFO Matplotlib imported successfully
+2025-07-27 15:45:08,757 INFO NumExpr defaulting to 8 threads.
+2025-07-27 15:45:14,176 INFO Financial router imported successfully
+2025-07-27 15:45:14,370 INFO Auth router imported successfully
+2025-07-27 15:45:14,400 INFO WebSocket connected: client_1753649114.400919
+2025-07-27 15:45:14,425 INFO WebSocket connected: client_1753649114.425654
+2025-07-27 15:45:14,449 INFO WebSocket connected: client_1753649114.448723
+2025-07-27 15:45:14,465 INFO WebSocket connected: client_1753649114.465768
+2025-07-27 15:45:14,481 INFO WebSocket connected: client_1753649114.481799
+2025-07-27 15:47:29,759 INFO WebSocket disconnected: client_1753649114.400919
+2025-07-27 15:47:29,763 INFO WebSocket disconnected: client_1753649114.425654
+2025-07-27 15:47:29,768 INFO WebSocket disconnected: client_1753649114.448723
+2025-07-27 15:47:29,772 INFO WebSocket disconnected: client_1753649114.481799
+2025-07-27 15:47:29,779 INFO WebSocket disconnected: client_1753649114.465768
+2025-07-27 15:47:39,258 INFO WebSocket connected: client_1753649259.257191
+2025-07-27 15:47:39,260 INFO Subscribed to job 08934c22-95a3-4abf-9946-65f62e128744
+2025-07-27 15:47:41,014 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:47:41,021 INFO Processing real data analysis within Sygnify app
+2025-07-27 15:47:43,149 INFO Unsubscribed from job 08934c22-95a3-4abf-9946-65f62e128744
+2025-07-27 15:48:06,647 INFO WebSocket connected: client_1753649286.647473
+2025-07-27 15:48:06,649 INFO Subscribed to job 73384ca8-f45a-4b7a-a5df-1e8f36e97d23
+2025-07-27 15:48:08,451 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:48:08,479 INFO Processing real data analysis within Sygnify app
+2025-07-27 15:48:10,243 INFO Unsubscribed from job 73384ca8-f45a-4b7a-a5df-1e8f36e97d23
+2025-07-27 15:48:45,885 INFO Matplotlib imported successfully
+2025-07-27 15:48:48,743 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:48:50,823 INFO Financial router imported successfully
+2025-07-27 15:48:51,008 INFO Auth router imported successfully
+2025-07-27 15:48:59,374 INFO WebSocket disconnected: client_1753649259.257191
+2025-07-27 15:48:59,376 INFO WebSocket disconnected: client_1753649286.647473
+2025-07-27 15:50:12,214 INFO WebSocket connected: client_1753649412.214639
+2025-07-27 15:50:12,217 INFO Subscribed to job 173d3204-3726-40d6-bb2d-49bfe06deacc
+2025-07-27 15:50:14,029 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:50:15,255 INFO Unsubscribed from job 173d3204-3726-40d6-bb2d-49bfe06deacc
+2025-07-27 15:52:12,582 INFO Matplotlib imported successfully
+2025-07-27 15:52:16,825 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:52:19,061 INFO Financial router imported successfully
+2025-07-27 15:52:19,249 INFO Auth router imported successfully
+2025-07-27 15:52:48,362 INFO Matplotlib imported successfully
+2025-07-27 15:52:51,404 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:52:53,584 INFO Financial router imported successfully
+2025-07-27 15:52:53,782 INFO Auth router imported successfully
+2025-07-27 15:53:06,578 INFO Matplotlib imported successfully
+2025-07-27 15:53:09,226 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:53:11,546 INFO Financial router imported successfully
+2025-07-27 15:53:11,735 INFO Auth router imported successfully
+2025-07-27 15:53:11,813 INFO WebSocket disconnected: client_1753649412.214639
+2025-07-27 15:53:13,825 INFO Matplotlib imported successfully
+2025-07-27 15:53:15,302 INFO NumExpr defaulting to 8 threads.
+2025-07-27 15:53:20,040 INFO Financial router imported successfully
+2025-07-27 15:53:20,212 INFO Auth router imported successfully
+2025-07-27 15:53:20,307 INFO WebSocket connected: client_1753649600.292197
+2025-07-27 15:53:24,966 INFO Matplotlib imported successfully
+2025-07-27 15:53:27,536 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:53:29,745 INFO Financial router imported successfully
+2025-07-27 15:53:29,934 INFO Auth router imported successfully
+2025-07-27 15:54:19,527 INFO Matplotlib imported successfully
+2025-07-27 15:54:22,042 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:54:23,959 INFO WebSocket disconnected: client_1753649600.292197
+2025-07-27 15:54:24,235 INFO Financial router imported successfully
+2025-07-27 15:54:24,440 INFO Auth router imported successfully
+2025-07-27 15:54:26,191 INFO Matplotlib imported successfully
+2025-07-27 15:54:27,409 INFO NumExpr defaulting to 8 threads.
+2025-07-27 15:54:31,385 INFO Financial router imported successfully
+2025-07-27 15:54:31,533 INFO Auth router imported successfully
+2025-07-27 15:54:31,559 INFO WebSocket connected: client_1753649671.559143
+2025-07-27 15:55:00,488 INFO Matplotlib imported successfully
+2025-07-27 15:55:02,916 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:55:05,052 INFO Financial router imported successfully
+2025-07-27 15:55:05,225 INFO Auth router imported successfully
+2025-07-27 15:55:26,528 INFO Matplotlib imported successfully
+2025-07-27 15:55:30,520 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 15:55:33,028 INFO Financial router imported successfully
+2025-07-27 15:55:33,211 INFO Auth router imported successfully
+2025-07-27 15:55:44,272 INFO WebSocket disconnected: client_1753649671.559143
+2025-07-27 15:55:46,474 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:55:46,477 INFO Processing real data analysis within Sygnify app
+2025-07-27 15:55:47,968 INFO Matplotlib imported successfully
+2025-07-27 15:55:49,451 INFO NumExpr defaulting to 8 threads.
+2025-07-27 15:55:54,132 INFO Financial router imported successfully
+2025-07-27 15:55:54,765 INFO Auth router imported successfully
+2025-07-27 15:55:56,550 INFO Matplotlib imported successfully
+2025-07-27 15:55:59,005 INFO NumExpr defaulting to 8 threads.
+2025-07-27 15:56:05,208 INFO Financial router imported successfully
+2025-07-27 15:56:05,397 INFO Auth router imported successfully
+2025-07-27 15:56:05,436 INFO WebSocket connected: client_1753649765.435862
+2025-07-27 15:56:05,451 INFO WebSocket connected: client_1753649765.450956
+2025-07-27 15:56:19,050 INFO WebSocket disconnected: client_1753649765.435862
+2025-07-27 15:56:19,050 INFO WebSocket disconnected: client_1753649765.450956
+2025-07-27 15:56:30,361 INFO WebSocket connected: client_1753649790.361577
+2025-07-27 15:56:30,367 INFO Subscribed to job 409034e1-3e63-4118-85db-442833644ca0
+2025-07-27 15:56:32,033 INFO Successfully read file with utf-8 encoding
+2025-07-27 15:56:32,058 INFO Processing real data analysis within Sygnify app
+2025-07-27 15:56:34,321 INFO Unsubscribed from job 409034e1-3e63-4118-85db-442833644ca0
+2025-07-27 15:59:58,362 INFO Matplotlib imported successfully
+2025-07-27 16:00:01,073 INFO WebSocket disconnected: client_1753649790.361577
+2025-07-27 16:00:03,934 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:00:03,958 INFO Matplotlib imported successfully
+2025-07-27 16:00:05,521 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:00:07,001 INFO Financial router imported successfully
+2025-07-27 16:00:07,261 INFO Auth router imported successfully
+2025-07-27 16:00:11,881 INFO Financial router imported successfully
+2025-07-27 16:00:12,776 INFO Auth router imported successfully
+2025-07-27 16:00:14,625 INFO Matplotlib imported successfully
+2025-07-27 16:00:14,683 INFO Matplotlib imported successfully
+2025-07-27 16:00:16,261 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:00:19,470 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:00:23,350 INFO Financial router imported successfully
+2025-07-27 16:00:23,654 INFO Auth router imported successfully
+2025-07-27 16:00:23,873 INFO Financial router imported successfully
+2025-07-27 16:00:24,079 INFO Auth router imported successfully
+2025-07-27 16:00:25,644 INFO Matplotlib imported successfully
+2025-07-27 16:00:26,093 INFO Matplotlib imported successfully
+2025-07-27 16:00:28,062 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:00:30,451 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:00:33,609 INFO Financial router imported successfully
+2025-07-27 16:00:33,913 INFO Auth router imported successfully
+2025-07-27 16:00:36,020 INFO Financial router imported successfully
+2025-07-27 16:00:36,326 INFO Auth router imported successfully
+2025-07-27 16:00:36,389 INFO WebSocket connected: client_1753650036.389763
+2025-07-27 16:01:05,299 INFO Matplotlib imported successfully
+2025-07-27 16:01:08,315 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:01:10,486 INFO Financial router imported successfully
+2025-07-27 16:01:10,683 INFO Auth router imported successfully
+2025-07-27 16:01:12,405 INFO Matplotlib imported successfully
+2025-07-27 16:01:15,775 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:01:17,744 INFO Financial router imported successfully
+2025-07-27 16:01:17,907 INFO Auth router imported successfully
+2025-07-27 16:01:19,193 INFO Matplotlib imported successfully
+2025-07-27 16:01:22,736 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:01:25,121 INFO Financial router imported successfully
+2025-07-27 16:01:25,351 INFO Auth router imported successfully
+2025-07-27 16:01:26,468 INFO Matplotlib imported successfully
+2025-07-27 16:01:29,329 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:01:31,566 INFO Financial router imported successfully
+2025-07-27 16:01:31,759 INFO Auth router imported successfully
+2025-07-27 16:01:50,646 INFO Matplotlib imported successfully
+2025-07-27 16:01:54,379 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:01:54,519 INFO WebSocket disconnected: client_1753650036.389763
+2025-07-27 16:01:56,900 INFO Financial router imported successfully
+2025-07-27 16:01:56,937 INFO Matplotlib imported successfully
+2025-07-27 16:01:57,135 INFO Auth router imported successfully
+2025-07-27 16:01:57,995 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:02:03,765 INFO Financial router imported successfully
+2025-07-27 16:02:04,268 INFO Auth router imported successfully
+2025-07-27 16:02:04,308 INFO WebSocket connected: client_1753650124.308809
+2025-07-27 16:02:10,260 INFO Matplotlib imported successfully
+2025-07-27 16:02:14,034 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:02:15,892 INFO Financial router imported successfully
+2025-07-27 16:02:16,257 INFO Auth router imported successfully
+2025-07-27 16:03:21,612 INFO WebSocket disconnected: client_1753650124.308809
+2025-07-27 16:03:23,429 INFO Matplotlib imported successfully
+2025-07-27 16:03:24,613 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:03:29,757 INFO Financial router imported successfully
+2025-07-27 16:03:29,912 INFO Auth router imported successfully
+2025-07-27 16:03:29,936 INFO WebSocket connected: client_1753650209.936036
+2025-07-27 16:03:41,718 INFO WebSocket disconnected: client_1753650209.936036
+2025-07-27 16:03:53,184 INFO WebSocket connected: client_1753650233.183588
+2025-07-27 16:03:53,187 INFO Subscribed to job e75b02b5-e042-4791-9513-fd64f66c9394
+2025-07-27 16:03:55,017 INFO Successfully read file with utf-8 encoding
+2025-07-27 16:03:55,087 INFO Processing advanced ML-driven financial analysis within Sygnify app
+2025-07-27 16:03:55,110 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 16:03:55,303 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 16:03:58,926 INFO Unsubscribed from job e75b02b5-e042-4791-9513-fd64f66c9394
+2025-07-27 16:04:56,497 INFO WebSocket connected: client_1753650296.497329
+2025-07-27 16:04:56,500 INFO Subscribed to job f5b6dfa8-9d0d-4d78-a9b4-76f58d078d6c
+2025-07-27 16:04:58,164 INFO Successfully read file with utf-8 encoding
+2025-07-27 16:04:58,167 INFO Processing advanced ML-driven financial analysis within Sygnify app
+2025-07-27 16:04:58,168 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 16:04:58,170 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 16:04:59,636 INFO Unsubscribed from job f5b6dfa8-9d0d-4d78-a9b4-76f58d078d6c
+2025-07-27 16:11:24,799 INFO Matplotlib imported successfully
+2025-07-27 16:11:25,492 INFO WebSocket disconnected: client_1753650296.497329
+2025-07-27 16:11:25,493 INFO WebSocket disconnected: client_1753650233.183588
+2025-07-27 16:11:26,978 INFO Matplotlib imported successfully
+2025-07-27 16:11:27,640 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:11:27,889 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:11:30,135 INFO Financial router imported successfully
+2025-07-27 16:11:30,346 INFO Auth router imported successfully
+2025-07-27 16:11:31,849 INFO Matplotlib imported successfully
+2025-07-27 16:11:33,653 INFO Financial router imported successfully
+2025-07-27 16:11:33,854 INFO Auth router imported successfully
+2025-07-27 16:11:35,000 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:11:35,299 INFO Matplotlib imported successfully
+2025-07-27 16:11:37,058 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:11:37,579 INFO Financial router imported successfully
+2025-07-27 16:11:37,769 INFO Auth router imported successfully
+2025-07-27 16:11:39,128 INFO Matplotlib imported successfully
+2025-07-27 16:11:41,556 INFO Financial router imported successfully
+2025-07-27 16:11:41,728 INFO Auth router imported successfully
+2025-07-27 16:11:41,992 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:11:43,786 INFO Matplotlib imported successfully
+2025-07-27 16:11:44,650 INFO Financial router imported successfully
+2025-07-27 16:11:44,848 INFO Auth router imported successfully
+2025-07-27 16:11:44,854 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:11:48,847 INFO Matplotlib imported successfully
+2025-07-27 16:11:49,852 INFO Financial router imported successfully
+2025-07-27 16:11:50,009 INFO Auth router imported successfully
+2025-07-27 16:11:51,578 INFO Matplotlib imported successfully
+2025-07-27 16:11:52,036 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:11:52,610 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:11:54,250 INFO Financial router imported successfully
+2025-07-27 16:11:54,451 INFO Auth router imported successfully
+2025-07-27 16:11:57,275 INFO Financial router imported successfully
+2025-07-27 16:11:57,550 INFO Auth router imported successfully
+2025-07-27 16:11:57,638 INFO WebSocket connected: client_1753650717.63797
+2025-07-27 16:11:57,656 INFO WebSocket connected: client_1753650717.6535
+2025-07-27 16:12:03,893 INFO Matplotlib imported successfully
+2025-07-27 16:12:06,971 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:12:09,303 INFO Financial router imported successfully
+2025-07-27 16:12:09,497 INFO Auth router imported successfully
+2025-07-27 16:13:23,245 INFO WebSocket disconnected: client_1753650717.63797
+2025-07-27 16:13:23,245 INFO WebSocket disconnected: client_1753650717.6535
+2025-07-27 16:13:24,832 INFO Matplotlib imported successfully
+2025-07-27 16:13:25,767 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:13:30,652 INFO Financial router imported successfully
+2025-07-27 16:13:30,816 INFO Auth router imported successfully
+2025-07-27 16:13:30,842 INFO WebSocket connected: client_1753650810.842792
+2025-07-27 16:13:30,860 INFO WebSocket connected: client_1753650810.860717
+2025-07-27 16:15:41,411 INFO Matplotlib imported successfully
+2025-07-27 16:15:46,566 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 16:15:49,340 INFO Financial router imported successfully
+2025-07-27 16:15:50,020 INFO Auth router imported successfully
+2025-07-27 16:18:23,957 INFO WebSocket disconnected: client_1753650810.860717
+2025-07-27 16:18:23,960 INFO WebSocket disconnected: client_1753650810.842792
+2025-07-27 16:18:25,750 INFO Matplotlib imported successfully
+2025-07-27 16:18:27,354 INFO NumExpr defaulting to 8 threads.
+2025-07-27 16:18:33,399 INFO Financial router imported successfully
+2025-07-27 16:18:33,745 INFO Auth router imported successfully
+2025-07-27 16:18:33,813 INFO WebSocket connected: client_1753651113.813536
+2025-07-27 16:18:33,837 INFO WebSocket connected: client_1753651113.836064
+2025-07-27 16:26:08,768 INFO WebSocket disconnected: client_1753651113.836064
+2025-07-27 16:26:08,772 INFO WebSocket disconnected: client_1753651113.813536
+2025-07-27 20:22:59,134 INFO WebSocket connected: client_1753665779.134026
+2025-07-27 20:22:59,168 INFO WebSocket connected: client_1753665779.168675
+2025-07-27 20:23:15,005 INFO WebSocket disconnected: client_1753665779.168675
+2025-07-27 20:23:15,007 INFO WebSocket disconnected: client_1753665779.134026
+2025-07-27 20:24:09,808 INFO Matplotlib imported successfully
+2025-07-27 20:24:11,763 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:24:13,131 INFO Financial router imported successfully
+2025-07-27 20:24:13,274 INFO Auth router imported successfully
+2025-07-27 20:24:54,685 INFO WebSocket connected: client_1753665894.684388
+2025-07-27 20:24:54,689 INFO Subscribed to job 0c5d32db-930f-43f3-9fb9-063af0f091e1
+2025-07-27 20:24:56,384 INFO Successfully read file with utf-8 encoding
+2025-07-27 20:24:56,386 INFO Processing advanced ML-driven financial analysis within Sygnify app
+2025-07-27 20:24:56,398 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 20:24:56,402 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 20:24:56,437 INFO Advanced financial KPIs calculated successfully
+2025-07-27 20:25:03,853 INFO Unsubscribed from job 0c5d32db-930f-43f3-9fb9-063af0f091e1
+2025-07-27 20:25:24,278 INFO WebSocket connected: client_1753665924.277631
+2025-07-27 20:25:47,433 INFO WebSocket connected: client_1753665947.432033
+2025-07-27 20:25:47,436 INFO Subscribed to job 2b4a5858-cfa7-4243-85ff-7fe852570164
+2025-07-27 20:25:49,199 INFO Successfully read file with utf-8 encoding
+2025-07-27 20:25:49,204 INFO Processing advanced ML-driven financial analysis within Sygnify app
+2025-07-27 20:25:49,204 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 20:25:49,210 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 20:25:49,233 INFO Advanced financial KPIs calculated successfully
+2025-07-27 20:26:44,945 INFO Unsubscribed from job 2b4a5858-cfa7-4243-85ff-7fe852570164
+2025-07-27 20:26:55,067 INFO WebSocket connected: client_1753666015.065905
+2025-07-27 20:27:12,714 INFO WebSocket connected: client_1753666032.713928
+2025-07-27 20:27:12,720 INFO Subscribed to job 1366c476-6ba3-4e26-abf0-b4ddf835c498
+2025-07-27 20:27:14,423 INFO Successfully read file with utf-8 encoding
+2025-07-27 20:27:14,428 INFO Processing advanced ML-driven financial analysis within Sygnify app
+2025-07-27 20:27:14,429 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 20:27:14,436 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 20:27:14,465 INFO Advanced financial KPIs calculated successfully
+2025-07-27 20:29:19,334 INFO Matplotlib imported successfully
+2025-07-27 20:29:20,965 INFO Unsubscribed from job 1366c476-6ba3-4e26-abf0-b4ddf835c498
+2025-07-27 20:29:21,057 INFO WebSocket disconnected: client_1753665894.684388
+2025-07-27 20:29:21,058 INFO WebSocket disconnected: client_1753665947.432033
+2025-07-27 20:29:21,058 INFO WebSocket disconnected: client_1753665924.277631
+2025-07-27 20:29:21,059 INFO WebSocket disconnected: client_1753666032.713928
+2025-07-27 20:29:21,059 INFO WebSocket disconnected: client_1753666015.065905
+2025-07-27 20:29:23,829 INFO Matplotlib imported successfully
+2025-07-27 20:29:23,868 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:29:24,872 INFO NumExpr defaulting to 8 threads.
+2025-07-27 20:29:25,254 INFO Financial router imported successfully
+2025-07-27 20:29:25,373 INFO Auth router imported successfully
+2025-07-27 20:29:26,369 INFO Matplotlib imported successfully
+2025-07-27 20:29:28,036 INFO Financial router imported successfully
+2025-07-27 20:29:28,179 INFO Auth router imported successfully
+2025-07-27 20:29:28,205 INFO WebSocket connected: client_1753666168.205907
+2025-07-27 20:29:28,208 INFO Subscribed to job 1366c476-6ba3-4e26-abf0-b4ddf835c498
+2025-07-27 20:29:28,221 INFO WebSocket connected: client_1753666168.220436
+2025-07-27 20:29:28,235 INFO WebSocket connected: client_1753666168.235951
+2025-07-27 20:29:28,251 INFO WebSocket connected: client_1753666168.251974
+2025-07-27 20:29:28,268 INFO WebSocket connected: client_1753666168.268505
+2025-07-27 20:29:28,285 INFO WebSocket connected: client_1753666168.284206
+2025-07-27 20:29:28,306 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:29:29,466 INFO Financial router imported successfully
+2025-07-27 20:29:29,598 INFO Auth router imported successfully
+2025-07-27 20:32:01,902 INFO Matplotlib imported successfully
+2025-07-27 20:32:03,919 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:32:04,941 INFO Financial router imported successfully
+2025-07-27 20:32:05,050 INFO Auth router imported successfully
+2025-07-27 20:32:05,874 INFO Matplotlib imported successfully
+2025-07-27 20:32:07,676 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:32:08,863 INFO Financial router imported successfully
+2025-07-27 20:32:08,983 INFO Auth router imported successfully
+2025-07-27 20:32:14,444 INFO Matplotlib imported successfully
+2025-07-27 20:32:16,115 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:32:17,083 INFO Financial router imported successfully
+2025-07-27 20:32:17,218 INFO Auth router imported successfully
+2025-07-27 20:32:26,063 INFO Matplotlib imported successfully
+2025-07-27 20:32:27,729 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:32:28,716 INFO Financial router imported successfully
+2025-07-27 20:32:28,838 INFO Auth router imported successfully
+2025-07-27 20:32:44,246 INFO Matplotlib imported successfully
+2025-07-27 20:32:46,018 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:32:47,085 INFO Financial router imported successfully
+2025-07-27 20:32:47,204 INFO Auth router imported successfully
+2025-07-27 20:33:05,990 INFO WebSocket disconnected: client_1753666168.205907
+2025-07-27 20:33:05,993 INFO WebSocket disconnected: client_1753666168.220436
+2025-07-27 20:33:05,993 INFO WebSocket disconnected: client_1753666168.235951
+2025-07-27 20:33:05,994 INFO WebSocket disconnected: client_1753666168.251974
+2025-07-27 20:33:05,995 INFO WebSocket disconnected: client_1753666168.268505
+2025-07-27 20:33:05,995 INFO WebSocket disconnected: client_1753666168.284206
+2025-07-27 20:33:07,265 INFO Matplotlib imported successfully
+2025-07-27 20:33:08,035 INFO NumExpr defaulting to 8 threads.
+2025-07-27 20:33:11,187 INFO Financial router imported successfully
+2025-07-27 20:33:11,343 INFO Auth router imported successfully
+2025-07-27 20:33:12,640 INFO Matplotlib imported successfully
+2025-07-27 20:33:13,586 INFO NumExpr defaulting to 8 threads.
+2025-07-27 20:33:16,787 INFO Financial router imported successfully
+2025-07-27 20:33:16,917 INFO Auth router imported successfully
+2025-07-27 20:34:14,842 INFO Matplotlib imported successfully
+2025-07-27 20:34:16,652 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:34:17,779 INFO Financial router imported successfully
+2025-07-27 20:34:17,891 INFO Auth router imported successfully
+2025-07-27 20:34:26,798 INFO Matplotlib imported successfully
+2025-07-27 20:34:28,542 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:34:29,654 INFO Financial router imported successfully
+2025-07-27 20:34:29,774 INFO Auth router imported successfully
+2025-07-27 20:34:38,784 INFO Matplotlib imported successfully
+2025-07-27 20:34:40,564 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 20:34:41,646 INFO Financial router imported successfully
+2025-07-27 20:34:41,758 INFO Auth router imported successfully
+2025-07-27 20:38:12,961 INFO Matplotlib imported successfully
+2025-07-27 20:38:13,637 INFO NumExpr defaulting to 8 threads.
+2025-07-27 20:38:16,229 INFO Financial router imported successfully
+2025-07-27 20:38:16,345 INFO Auth router imported successfully
+2025-07-27 20:38:17,273 INFO Matplotlib imported successfully
+2025-07-27 20:38:17,936 INFO NumExpr defaulting to 8 threads.
+2025-07-27 20:38:21,721 INFO Financial router imported successfully
+2025-07-27 20:38:21,831 INFO Auth router imported successfully
+2025-07-27 21:06:34,329 INFO Matplotlib imported successfully
+2025-07-27 21:06:35,920 INFO Matplotlib imported successfully
+2025-07-27 21:06:36,467 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:06:36,747 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:06:38,455 INFO Financial router imported successfully
+2025-07-27 21:06:38,585 INFO Auth router imported successfully
+2025-07-27 21:06:40,291 INFO Financial router imported successfully
+2025-07-27 21:06:40,401 INFO Auth router imported successfully
+2025-07-27 21:10:02,959 INFO Matplotlib imported successfully
+2025-07-27 21:10:04,546 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:10:08,067 INFO Financial router imported successfully
+2025-07-27 21:10:08,185 INFO Auth router imported successfully
+2025-07-27 21:10:09,238 INFO Matplotlib imported successfully
+2025-07-27 21:10:09,987 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:10:13,687 INFO Financial router imported successfully
+2025-07-27 21:10:13,844 INFO Auth router imported successfully
+2025-07-27 21:10:14,832 INFO Matplotlib imported successfully
+2025-07-27 21:10:15,583 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:10:18,491 INFO Financial router imported successfully
+2025-07-27 21:10:18,614 INFO Auth router imported successfully
+2025-07-27 21:11:34,308 INFO Matplotlib imported successfully
+2025-07-27 21:11:34,999 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:11:37,658 INFO Financial router imported successfully
+2025-07-27 21:11:37,781 INFO Auth router imported successfully
+2025-07-27 21:13:34,942 INFO Matplotlib imported successfully
+2025-07-27 21:13:35,665 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:13:38,583 INFO Financial router imported successfully
+2025-07-27 21:13:38,710 INFO Auth router imported successfully
+2025-07-27 21:15:15,053 INFO Matplotlib imported successfully
+2025-07-27 21:15:15,967 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:15:18,838 INFO Financial router imported successfully
+2025-07-27 21:15:18,969 INFO Auth router imported successfully
+2025-07-27 21:16:25,164 INFO Matplotlib imported successfully
+2025-07-27 21:16:25,961 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:16:29,092 INFO Financial router imported successfully
+2025-07-27 21:16:29,227 INFO Auth router imported successfully
+2025-07-27 21:16:45,088 INFO Matplotlib imported successfully
+2025-07-27 21:16:45,852 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:16:48,758 INFO Financial router imported successfully
+2025-07-27 21:16:48,889 INFO Auth router imported successfully
+2025-07-27 21:18:02,121 INFO Matplotlib imported successfully
+2025-07-27 21:18:02,976 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:18:05,985 INFO Financial router imported successfully
+2025-07-27 21:18:06,113 INFO Auth router imported successfully
+2025-07-27 21:18:07,138 INFO Matplotlib imported successfully
+2025-07-27 21:18:08,178 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:18:11,307 INFO Financial router imported successfully
+2025-07-27 21:18:11,443 INFO Auth router imported successfully
+2025-07-27 21:19:14,031 INFO Matplotlib imported successfully
+2025-07-27 21:19:14,899 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:19:18,678 INFO Financial router imported successfully
+2025-07-27 21:19:18,829 INFO Auth router imported successfully
+2025-07-27 21:19:20,201 INFO Matplotlib imported successfully
+2025-07-27 21:19:21,161 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:19:25,252 INFO Financial router imported successfully
+2025-07-27 21:19:25,420 INFO Auth router imported successfully
+2025-07-27 21:26:02,217 INFO Matplotlib imported successfully
+2025-07-27 21:26:02,988 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:26:05,732 INFO Financial router imported successfully
+2025-07-27 21:26:05,869 INFO Auth router imported successfully
+2025-07-27 21:26:26,093 INFO Matplotlib imported successfully
+2025-07-27 21:26:27,925 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:26:29,108 INFO Financial router imported successfully
+2025-07-27 21:26:29,230 INFO Auth router imported successfully
+2025-07-27 21:26:31,033 INFO Matplotlib imported successfully
+2025-07-27 21:26:31,751 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:26:34,513 INFO Financial router imported successfully
+2025-07-27 21:26:34,628 INFO Auth router imported successfully
+2025-07-27 21:27:17,852 INFO WebSocket connected: client_1753669637.851574
+2025-07-27 21:27:17,859 INFO Subscribed to job 353fc0eb-0e4d-4152-a91f-8ae344e62cd3
+2025-07-27 21:27:19,630 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:27:19,719 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:27:19,728 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:27:19,737 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:31:05,772 INFO Matplotlib imported successfully
+2025-07-27 21:31:07,564 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:31:08,628 INFO Financial router imported successfully
+2025-07-27 21:31:08,725 INFO Auth router imported successfully
+2025-07-27 21:31:31,665 INFO Matplotlib imported successfully
+2025-07-27 21:31:32,374 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:31:35,177 INFO Financial router imported successfully
+2025-07-27 21:31:35,300 INFO Auth router imported successfully
+2025-07-27 21:31:53,513 INFO Matplotlib imported successfully
+2025-07-27 21:31:55,325 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:31:56,409 INFO Financial router imported successfully
+2025-07-27 21:31:56,517 INFO Auth router imported successfully
+2025-07-27 21:32:25,565 INFO WebSocket disconnected: client_1753669637.851574
+2025-07-27 21:32:26,977 INFO Matplotlib imported successfully
+2025-07-27 21:32:27,827 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:32:31,023 INFO Financial router imported successfully
+2025-07-27 21:32:31,183 INFO Auth router imported successfully
+2025-07-27 21:32:32,527 INFO Matplotlib imported successfully
+2025-07-27 21:32:33,594 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:32:37,279 INFO Financial router imported successfully
+2025-07-27 21:32:37,484 INFO Auth router imported successfully
+2025-07-27 21:32:38,438 INFO WebSocket connected: client_1753669958.437666
+2025-07-27 21:32:38,444 INFO Subscribed to job 3187d8eb-7208-4576-9d6c-5ab171f13db9
+2025-07-27 21:32:40,238 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:32:40,282 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:32:40,283 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:32:40,289 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:32:42,076 INFO Unsubscribed from job 3187d8eb-7208-4576-9d6c-5ab171f13db9
+2025-07-27 21:33:02,077 INFO Matplotlib imported successfully
+2025-07-27 21:33:02,770 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:33:05,752 INFO Financial router imported successfully
+2025-07-27 21:33:05,889 INFO Auth router imported successfully
+2025-07-27 21:33:25,694 INFO WebSocket connected: client_1753670005.69494
+2025-07-27 21:33:25,697 INFO Subscribed to job a0221b9a-2f17-4a0c-80a4-da8afbf318e5
+2025-07-27 21:33:27,746 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:33:27,906 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:33:27,907 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:33:27,926 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:33:48,667 INFO Unsubscribed from job a0221b9a-2f17-4a0c-80a4-da8afbf318e5
+2025-07-27 21:35:43,528 INFO WebSocket connected: client_1753670143.527243
+2025-07-27 21:35:43,533 INFO Subscribed to job 59afff85-843f-474a-9559-1db8b64dd9d6
+2025-07-27 21:35:45,875 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:35:46,207 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:35:46,207 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:35:46,248 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:35:53,283 INFO Unsubscribed from job 59afff85-843f-474a-9559-1db8b64dd9d6
+2025-07-27 21:39:19,505 INFO Matplotlib imported successfully
+2025-07-27 21:39:21,932 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:39:23,239 INFO Financial router imported successfully
+2025-07-27 21:39:23,364 INFO Auth router imported successfully
+2025-07-27 21:39:24,305 INFO Matplotlib imported successfully
+2025-07-27 21:39:26,160 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:39:27,449 INFO Financial router imported successfully
+2025-07-27 21:39:27,597 INFO Auth router imported successfully
+2025-07-27 21:39:47,916 INFO Matplotlib imported successfully
+2025-07-27 21:39:49,062 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:39:53,256 INFO Financial router imported successfully
+2025-07-27 21:39:53,407 INFO Auth router imported successfully
+2025-07-27 21:40:14,149 INFO WebSocket disconnected: client_1753670143.527243
+2025-07-27 21:40:14,150 INFO WebSocket disconnected: client_1753670005.69494
+2025-07-27 21:40:14,151 INFO WebSocket disconnected: client_1753669958.437666
+2025-07-27 21:40:16,461 INFO Matplotlib imported successfully
+2025-07-27 21:40:17,670 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:40:20,947 INFO Financial router imported successfully
+2025-07-27 21:40:21,289 INFO Auth router imported successfully
+2025-07-27 21:40:51,090 INFO Matplotlib imported successfully
+2025-07-27 21:40:53,645 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:40:55,348 INFO Financial router imported successfully
+2025-07-27 21:40:55,483 INFO Auth router imported successfully
+2025-07-27 21:41:08,835 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:41:08,875 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:41:08,886 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:41:08,890 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:41:10,098 INFO Matplotlib imported successfully
+2025-07-27 21:41:10,887 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:41:13,971 INFO Financial router imported successfully
+2025-07-27 21:41:14,103 INFO Auth router imported successfully
+2025-07-27 21:41:14,125 INFO WebSocket connected: client_1753670474.125483
+2025-07-27 21:41:14,128 INFO Subscribed to job 90fe6c30-35ce-4a86-8c19-98dbe499a3b7
+2025-07-27 21:41:15,408 INFO WebSocket disconnected: client_1753670474.125483
+2025-07-27 21:41:35,549 INFO Matplotlib imported successfully
+2025-07-27 21:41:36,194 INFO WebSocket connected: client_1753670496.194638
+2025-07-27 21:41:36,197 INFO Subscribed to job f5999e81-1c21-4092-b914-27e7d9b579d2
+2025-07-27 21:41:36,392 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:41:37,883 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:41:37,909 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:41:37,911 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:41:37,915 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:41:39,584 INFO Financial router imported successfully
+2025-07-27 21:41:39,714 INFO Auth router imported successfully
+2025-07-27 21:41:50,486 INFO Unsubscribed from job f5999e81-1c21-4092-b914-27e7d9b579d2
+2025-07-27 21:47:55,453 INFO Matplotlib imported successfully
+2025-07-27 21:47:57,156 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:47:58,162 INFO Financial router imported successfully
+2025-07-27 21:47:58,278 INFO Auth router imported successfully
+2025-07-27 21:48:07,865 INFO Matplotlib imported successfully
+2025-07-27 21:48:09,548 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:48:10,589 INFO Financial router imported successfully
+2025-07-27 21:48:10,720 INFO Auth router imported successfully
+2025-07-27 21:48:24,465 INFO Matplotlib imported successfully
+2025-07-27 21:48:26,188 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:48:27,229 INFO Financial router imported successfully
+2025-07-27 21:48:27,348 INFO Auth router imported successfully
+2025-07-27 21:48:36,632 INFO Matplotlib imported successfully
+2025-07-27 21:48:38,326 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:48:39,394 INFO Financial router imported successfully
+2025-07-27 21:48:39,515 INFO Auth router imported successfully
+2025-07-27 21:48:46,154 INFO Matplotlib imported successfully
+2025-07-27 21:48:47,893 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:48:48,890 INFO Financial router imported successfully
+2025-07-27 21:48:49,002 INFO Auth router imported successfully
+2025-07-27 21:49:18,400 INFO Matplotlib imported successfully
+2025-07-27 21:49:20,349 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:49:21,436 INFO Financial router imported successfully
+2025-07-27 21:49:21,546 INFO Auth router imported successfully
+2025-07-27 21:49:35,021 INFO WebSocket disconnected: client_1753670496.194638
+2025-07-27 21:49:36,388 INFO Matplotlib imported successfully
+2025-07-27 21:49:37,539 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:49:40,971 INFO Financial router imported successfully
+2025-07-27 21:49:41,119 INFO Auth router imported successfully
+2025-07-27 21:49:42,468 INFO Matplotlib imported successfully
+2025-07-27 21:49:43,512 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:49:47,351 INFO Financial router imported successfully
+2025-07-27 21:49:47,510 INFO Auth router imported successfully
+2025-07-27 21:49:47,883 INFO WebSocket connected: client_1753670987.882996
+2025-07-27 21:49:47,888 INFO Subscribed to job f9ceb409-49bf-4e6b-ae7b-543f71ad082f
+2025-07-27 21:49:49,596 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:49:49,639 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:49:49,641 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:49:49,646 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:49:54,609 INFO Unsubscribed from job f9ceb409-49bf-4e6b-ae7b-543f71ad082f
+2025-07-27 21:50:02,195 INFO Matplotlib imported successfully
+2025-07-27 21:50:02,950 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:50:05,768 INFO Financial router imported successfully
+2025-07-27 21:50:05,886 INFO Auth router imported successfully
+2025-07-27 21:50:06,883 INFO Matplotlib imported successfully
+2025-07-27 21:50:07,599 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:50:09,288 INFO WebSocket disconnected: client_1753670987.882996
+2025-07-27 21:50:10,962 INFO Financial router imported successfully
+2025-07-27 21:50:11,190 INFO Auth router imported successfully
+2025-07-27 21:50:19,204 INFO WebSocket connected: client_1753671019.202926
+2025-07-27 21:50:19,210 INFO Subscribed to job 5d962763-8a7a-4b0c-a408-a7ac50dad9ed
+2025-07-27 21:50:20,980 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:50:21,031 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:50:21,031 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:50:21,036 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:50:34,065 INFO Unsubscribed from job 5d962763-8a7a-4b0c-a408-a7ac50dad9ed
+2025-07-27 21:53:54,591 INFO WebSocket disconnected: client_1753671019.202926
+2025-07-27 21:54:01,039 INFO Matplotlib imported successfully
+2025-07-27 21:54:02,895 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:54:03,980 INFO Financial router imported successfully
+2025-07-27 21:54:04,082 INFO Auth router imported successfully
+2025-07-27 21:54:22,748 INFO Matplotlib imported successfully
+2025-07-27 21:54:24,452 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:54:25,520 INFO Financial router imported successfully
+2025-07-27 21:54:25,640 INFO Auth router imported successfully
+2025-07-27 21:54:34,319 INFO Matplotlib imported successfully
+2025-07-27 21:54:36,094 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:54:37,175 INFO Financial router imported successfully
+2025-07-27 21:54:37,292 INFO Auth router imported successfully
+2025-07-27 21:54:42,731 INFO Matplotlib imported successfully
+2025-07-27 21:54:43,426 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:54:46,129 INFO Financial router imported successfully
+2025-07-27 21:54:46,247 INFO Auth router imported successfully
+2025-07-27 21:54:47,349 INFO Matplotlib imported successfully
+2025-07-27 21:54:48,163 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:54:50,868 INFO Financial router imported successfully
+2025-07-27 21:54:50,984 INFO Auth router imported successfully
+2025-07-27 21:55:02,045 INFO Matplotlib imported successfully
+2025-07-27 21:55:02,730 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:55:05,349 INFO Financial router imported successfully
+2025-07-27 21:55:05,462 INFO Auth router imported successfully
+2025-07-27 21:55:06,370 INFO Matplotlib imported successfully
+2025-07-27 21:55:07,056 INFO NumExpr defaulting to 8 threads.
+2025-07-27 21:55:09,715 INFO Financial router imported successfully
+2025-07-27 21:55:09,827 INFO Auth router imported successfully
+2025-07-27 21:55:30,070 INFO WebSocket connected: client_1753671330.069641
+2025-07-27 21:55:30,077 INFO Subscribed to job 34b2981a-e26d-4803-b651-9855ad1d8382
+2025-07-27 21:55:31,832 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:55:31,876 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:55:31,878 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:55:31,883 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:55:36,504 INFO Unsubscribed from job 34b2981a-e26d-4803-b651-9855ad1d8382
+2025-07-27 21:56:57,550 INFO Matplotlib imported successfully
+2025-07-27 21:56:59,438 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:57:00,762 INFO Financial router imported successfully
+2025-07-27 21:57:00,925 INFO Auth router imported successfully
+2025-07-27 21:57:01,271 INFO WebSocket connected: client_1753671421.271279
+2025-07-27 21:58:01,634 INFO WebSocket disconnected: client_1753671421.271279
+2025-07-27 21:58:11,125 INFO WebSocket connected: client_1753671491.124221
+2025-07-27 21:58:11,129 INFO Subscribed to job 7877f2ae-16db-438d-83a2-6b03d1455bf4
+2025-07-27 21:58:12,901 INFO Successfully read file with utf-8 encoding
+2025-07-27 21:58:12,961 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 21:58:12,967 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 21:58:12,976 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 21:58:14,713 INFO Unsubscribed from job 7877f2ae-16db-438d-83a2-6b03d1455bf4
+2025-07-27 21:58:49,518 INFO WebSocket disconnected: client_1753671491.124221
+2025-07-27 21:58:50,678 INFO Matplotlib imported successfully
+2025-07-27 21:58:52,449 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 21:58:53,480 INFO Financial router imported successfully
+2025-07-27 21:58:53,603 INFO Auth router imported successfully
+2025-07-27 21:58:53,620 INFO WebSocket connected: client_1753671533.620389
+2025-07-27 22:00:38,105 INFO WebSocket disconnected: client_1753671533.620389
+2025-07-27 22:00:39,336 INFO Matplotlib imported successfully
+2025-07-27 22:00:41,054 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 22:00:42,110 INFO Financial router imported successfully
+2025-07-27 22:00:42,234 INFO Auth router imported successfully
+2025-07-27 22:00:42,252 INFO WebSocket connected: client_1753671642.251474
+2025-07-27 22:00:55,643 INFO WebSocket disconnected: client_1753671642.251474
+2025-07-27 22:00:56,614 INFO Matplotlib imported successfully
+2025-07-27 22:00:58,330 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 22:00:59,413 INFO Financial router imported successfully
+2025-07-27 22:00:59,544 INFO Auth router imported successfully
+2025-07-27 22:00:59,563 INFO WebSocket connected: client_1753671659.563237
+2025-07-27 22:01:29,275 INFO WebSocket disconnected: client_1753671659.563237
+2025-07-27 22:01:30,330 INFO Matplotlib imported successfully
+2025-07-27 22:01:32,134 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 22:01:33,256 INFO Financial router imported successfully
+2025-07-27 22:01:33,388 INFO Auth router imported successfully
+2025-07-27 22:01:33,402 INFO WebSocket connected: client_1753671693.402972
+2025-07-27 22:01:54,129 INFO WebSocket disconnected: client_1753671693.402972
+2025-07-27 22:01:55,204 INFO Matplotlib imported successfully
+2025-07-27 22:01:57,000 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 22:01:58,034 INFO Financial router imported successfully
+2025-07-27 22:01:58,173 INFO Auth router imported successfully
+2025-07-27 22:01:58,190 INFO WebSocket connected: client_1753671718.189487
+2025-07-27 22:03:01,706 INFO WebSocket disconnected: client_1753671718.189487
+2025-07-27 22:03:38,159 INFO Matplotlib imported successfully
+2025-07-27 22:03:39,910 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 22:03:40,939 INFO Financial router imported successfully
+2025-07-27 22:03:41,048 INFO Auth router imported successfully
+2025-07-27 22:04:01,439 INFO WebSocket connected: client_1753671841.438092
+2025-07-27 22:04:01,444 INFO Subscribed to job cb7cb991-0ae0-40fe-9a0d-6f29bae63e29
+2025-07-27 22:04:03,190 INFO Successfully read file with utf-8 encoding
+2025-07-27 22:04:03,253 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 22:04:03,255 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 22:04:03,260 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 22:04:06,987 INFO Unsubscribed from job cb7cb991-0ae0-40fe-9a0d-6f29bae63e29
+2025-07-27 22:05:31,589 INFO WebSocket disconnected: client_1753671841.438092
+2025-07-27 22:11:08,384 INFO Matplotlib imported successfully
+2025-07-27 22:11:10,968 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-27 22:11:12,949 INFO Financial router imported successfully
+2025-07-27 22:11:13,196 INFO Auth router imported successfully
+2025-07-27 22:11:30,507 INFO WebSocket connected: client_1753672290.506209
+2025-07-27 22:11:30,509 INFO Subscribed to job 3acb36d7-599e-4b7f-9f99-11d865d1d7b7
+2025-07-27 22:11:32,451 INFO Successfully read file with utf-8 encoding
+2025-07-27 22:11:32,696 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-27 22:11:32,757 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-27 22:11:32,799 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-27 22:11:35,652 INFO Unsubscribed from job 3acb36d7-599e-4b7f-9f99-11d865d1d7b7
+2025-07-27 22:12:35,629 INFO WebSocket disconnected: client_1753672290.506209
+2025-07-28 07:10:09,139 INFO Matplotlib imported successfully
+2025-07-28 07:10:16,241 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:10:25,542 INFO Financial router imported successfully
+2025-07-28 07:10:25,788 INFO Auth router imported successfully
+2025-07-28 07:13:25,043 INFO WebSocket connected: client_1753704805.042838
+2025-07-28 07:13:25,047 INFO Subscribed to job e1156986-0a37-4e92-a230-e2351839ec2b
+2025-07-28 07:13:26,852 INFO Successfully read file with utf-8 encoding
+2025-07-28 07:13:27,012 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 07:13:27,020 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 07:13:27,043 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 07:13:38,070 INFO Unsubscribed from job e1156986-0a37-4e92-a230-e2351839ec2b
+2025-07-28 07:14:47,452 INFO WebSocket connected: client_1753704887.451155
+2025-07-28 07:14:47,455 INFO Subscribed to job 94584cb5-d0b5-4f24-b4d4-d7107c380421
+2025-07-28 07:14:50,789 INFO Successfully read file with utf-8 encoding
+2025-07-28 07:14:51,411 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 07:14:51,412 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 07:14:51,484 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 07:14:56,591 INFO Unsubscribed from job 94584cb5-d0b5-4f24-b4d4-d7107c380421
+2025-07-28 07:16:59,539 INFO WebSocket disconnected: client_1753704805.042838
+2025-07-28 07:16:59,540 INFO WebSocket disconnected: client_1753704887.451155
+2025-07-28 07:17:01,900 INFO Matplotlib imported successfully
+2025-07-28 07:17:06,861 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:17:14,094 INFO Financial router imported successfully
+2025-07-28 07:17:14,392 INFO Auth router imported successfully
+2025-07-28 07:17:14,426 INFO WebSocket connected: client_1753705034.426612
+2025-07-28 07:17:14,444 INFO WebSocket connected: client_1753705034.44391
+2025-07-28 07:17:21,205 INFO WebSocket disconnected: client_1753705034.426612
+2025-07-28 07:17:21,207 INFO WebSocket disconnected: client_1753705034.44391
+2025-07-28 07:17:23,709 INFO Matplotlib imported successfully
+2025-07-28 07:17:28,820 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:17:31,844 INFO Financial router imported successfully
+2025-07-28 07:17:32,132 INFO Auth router imported successfully
+2025-07-28 07:17:34,497 INFO Matplotlib imported successfully
+2025-07-28 07:17:39,702 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:17:43,822 INFO Financial router imported successfully
+2025-07-28 07:17:44,053 INFO Auth router imported successfully
+2025-07-28 07:17:44,097 INFO WebSocket connected: client_1753705064.096407
+2025-07-28 07:17:44,117 INFO WebSocket connected: client_1753705064.116444
+2025-07-28 07:24:24,891 INFO WebSocket disconnected: client_1753705064.116444
+2025-07-28 07:24:24,895 INFO WebSocket disconnected: client_1753705064.096407
+2025-07-28 07:24:27,478 INFO Matplotlib imported successfully
+2025-07-28 07:24:32,161 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:24:34,711 INFO Financial router imported successfully
+2025-07-28 07:24:34,910 INFO Auth router imported successfully
+2025-07-28 07:24:34,945 INFO WebSocket connected: client_1753705474.945022
+2025-07-28 07:24:34,974 INFO WebSocket connected: client_1753705474.974524
+2025-07-28 07:29:02,839 INFO WebSocket disconnected: client_1753705474.945022
+2025-07-28 07:29:02,915 INFO WebSocket disconnected: client_1753705474.974524
+2025-07-28 07:29:13,309 INFO WebSocket connected: client_1753705753.302658
+2025-07-28 07:29:13,321 INFO Subscribed to job 8bd9b324-da07-4e5d-b98d-a29cfe7416c3
+2025-07-28 07:29:15,012 INFO Successfully read file with utf-8 encoding
+2025-07-28 07:29:15,117 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 07:29:15,129 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 07:29:15,174 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 07:29:17,217 INFO Unsubscribed from job 8bd9b324-da07-4e5d-b98d-a29cfe7416c3
+2025-07-28 07:38:48,651 INFO WebSocket disconnected: client_1753705753.302658
+2025-07-28 07:38:53,480 INFO Matplotlib imported successfully
+2025-07-28 07:39:00,967 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:39:04,990 INFO Financial router imported successfully
+2025-07-28 07:39:05,237 INFO Auth router imported successfully
+2025-07-28 07:39:08,088 INFO Matplotlib imported successfully
+2025-07-28 07:39:13,089 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:39:16,844 INFO Financial router imported successfully
+2025-07-28 07:39:17,101 INFO Auth router imported successfully
+2025-07-28 07:39:17,137 INFO WebSocket connected: client_1753706357.137933
+2025-07-28 07:39:36,993 INFO WebSocket disconnected: client_1753706357.137933
+2025-07-28 07:39:40,002 INFO Matplotlib imported successfully
+2025-07-28 07:39:44,595 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:39:46,972 INFO Financial router imported successfully
+2025-07-28 07:39:47,495 INFO Auth router imported successfully
+2025-07-28 07:39:48,138 INFO WebSocket connected: client_1753706388.098646
+2025-07-28 07:40:16,357 INFO WebSocket disconnected: client_1753706388.098646
+2025-07-28 07:40:18,340 INFO Matplotlib imported successfully
+2025-07-28 07:40:22,185 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:40:24,639 INFO Financial router imported successfully
+2025-07-28 07:40:24,880 INFO Auth router imported successfully
+2025-07-28 07:40:24,913 INFO WebSocket connected: client_1753706424.913755
+2025-07-28 07:41:15,785 INFO WebSocket disconnected: client_1753706424.913755
+2025-07-28 07:41:17,639 INFO Matplotlib imported successfully
+2025-07-28 07:41:21,774 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:41:24,611 INFO Financial router imported successfully
+2025-07-28 07:41:24,814 INFO Auth router imported successfully
+2025-07-28 07:41:24,847 INFO WebSocket connected: client_1753706484.846608
+2025-07-28 07:42:13,479 INFO WebSocket disconnected: client_1753706484.846608
+2025-07-28 07:42:16,906 INFO Matplotlib imported successfully
+2025-07-28 07:42:21,452 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:42:24,790 INFO Financial router imported successfully
+2025-07-28 07:42:25,029 INFO Auth router imported successfully
+2025-07-28 07:42:25,064 INFO WebSocket connected: client_1753706545.063487
+2025-07-28 07:42:58,345 INFO WebSocket disconnected: client_1753706545.063487
+2025-07-28 07:43:01,576 INFO Matplotlib imported successfully
+2025-07-28 07:43:06,224 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:43:08,439 INFO Financial router imported successfully
+2025-07-28 07:43:08,664 INFO Auth router imported successfully
+2025-07-28 07:43:08,703 INFO WebSocket connected: client_1753706588.699368
+2025-07-28 07:43:21,741 INFO WebSocket disconnected: client_1753706588.699368
+2025-07-28 07:43:25,126 INFO Matplotlib imported successfully
+2025-07-28 07:43:29,472 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:43:34,262 INFO Financial router imported successfully
+2025-07-28 07:43:34,530 INFO Auth router imported successfully
+2025-07-28 07:43:36,719 INFO Matplotlib imported successfully
+2025-07-28 07:43:42,629 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:43:45,122 INFO Financial router imported successfully
+2025-07-28 07:43:45,302 INFO Auth router imported successfully
+2025-07-28 07:43:45,327 INFO WebSocket connected: client_1753706625.327265
+2025-07-28 07:44:01,317 INFO WebSocket disconnected: client_1753706625.327265
+2025-07-28 07:44:03,464 INFO Matplotlib imported successfully
+2025-07-28 07:44:08,077 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:44:10,346 INFO Financial router imported successfully
+2025-07-28 07:44:11,124 INFO Auth router imported successfully
+2025-07-28 07:44:11,157 INFO WebSocket connected: client_1753706651.157743
+2025-07-28 07:44:30,717 INFO WebSocket disconnected: client_1753706651.157743
+2025-07-28 07:44:33,241 INFO Matplotlib imported successfully
+2025-07-28 07:44:39,479 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:44:57,421 INFO Financial router imported successfully
+2025-07-28 07:45:04,624 INFO Auth router imported successfully
+2025-07-28 07:45:05,061 INFO WebSocket connected: client_1753706705.008886
+2025-07-28 07:45:21,929 INFO WebSocket disconnected: client_1753706705.008886
+2025-07-28 07:45:54,960 INFO Matplotlib imported successfully
+2025-07-28 07:47:03,157 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:47:12,518 INFO Financial router imported successfully
+2025-07-28 07:47:13,286 INFO Auth router imported successfully
+2025-07-28 07:47:21,109 INFO Matplotlib imported successfully
+2025-07-28 07:47:32,402 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:47:42,619 INFO Financial router imported successfully
+2025-07-28 07:47:45,049 INFO Auth router imported successfully
+2025-07-28 07:47:45,913 INFO WebSocket connected: client_1753706865.721368
+2025-07-28 07:47:46,046 INFO WebSocket disconnected: client_1753706865.721368
+2025-07-28 07:47:50,806 INFO WebSocket connected: client_1753706870.779555
+2025-07-28 07:47:50,898 INFO Subscribed to job 9a8d9422-3ff4-4aef-8353-54409851e936
+2025-07-28 07:47:53,198 INFO Successfully read file with utf-8 encoding
+2025-07-28 07:47:54,423 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.3
+2025-07-28 07:47:54,467 INFO Running comprehensive data profiling...
+2025-07-28 07:47:58,187 INFO Performing intelligent data preparation...
+2025-07-28 07:48:01,170 INFO Running domain-specific financial analysis...
+2025-07-28 07:48:01,505 INFO Running advanced ML analysis...
+2025-07-28 07:48:01,781 WARNING Model KMeans training failed: Input X contains NaN.
+KMeans does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+2025-07-28 07:48:01,819 INFO Generating chart recommendations...
+2025-07-28 07:48:02,671 ERROR Error broadcasting to job 9a8d9422-3ff4-4aef-8353-54409851e936: Object of type DataFrame is not JSON serializable
+2025-07-28 07:48:02,687 INFO Removed empty job subscription for 9a8d9422-3ff4-4aef-8353-54409851e936
+2025-07-28 07:48:26,098 INFO WebSocket disconnected: client_1753706870.779555
+2025-07-28 07:48:28,107 INFO Matplotlib imported successfully
+2025-07-28 07:48:32,309 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:48:34,825 INFO Financial router imported successfully
+2025-07-28 07:48:35,032 INFO Auth router imported successfully
+2025-07-28 07:48:35,071 INFO WebSocket connected: client_1753706915.071273
+2025-07-28 07:49:39,177 INFO WebSocket disconnected: client_1753706915.071273
+2025-07-28 07:50:23,018 INFO Matplotlib imported successfully
+2025-07-28 07:50:27,965 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 07:50:31,128 INFO Financial router imported successfully
+2025-07-28 07:50:31,362 INFO Auth router imported successfully
+2025-07-28 08:08:24,510 INFO Matplotlib imported successfully
+2025-07-28 08:08:24,819 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:08:24,820 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:10:55,376 INFO Matplotlib imported successfully
+2025-07-28 08:10:55,874 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:10:55,875 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:11:52,297 INFO Matplotlib imported successfully
+2025-07-28 08:11:52,542 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:11:52,543 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:12:04,145 INFO Matplotlib imported successfully
+2025-07-28 08:12:04,409 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:12:04,410 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:13:38,408 INFO Matplotlib imported successfully
+2025-07-28 08:13:38,688 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:13:38,688 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:14:46,483 INFO Matplotlib imported successfully
+2025-07-28 08:14:46,815 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:14:46,816 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:15:41,812 INFO Matplotlib imported successfully
+2025-07-28 08:15:42,137 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:15:42,137 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:17:40,250 INFO Matplotlib imported successfully
+2025-07-28 08:17:40,494 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:17:40,495 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:17:48,132 INFO Matplotlib imported successfully
+2025-07-28 08:17:48,380 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:17:48,381 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:17:48,381 WARNING Financial router is None, not including in app
+2025-07-28 08:19:13,079 INFO Matplotlib imported successfully
+2025-07-28 08:19:13,362 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:19:13,363 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:19:13,363 WARNING Financial router is None, not including in app
+2025-07-28 08:20:34,797 INFO Matplotlib imported successfully
+2025-07-28 08:20:35,351 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:20:35,352 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:20:35,352 WARNING Financial router is None, not including in app
+2025-07-28 08:20:36,114 INFO Matplotlib imported successfully
+2025-07-28 08:20:36,375 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:20:36,376 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:20:36,376 WARNING Financial router is None, not including in app
+2025-07-28 08:21:19,840 INFO Matplotlib imported successfully
+2025-07-28 08:21:20,090 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:21:20,091 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:21:20,091 WARNING Financial router is None, not including in app
+2025-07-28 08:21:27,284 INFO Matplotlib imported successfully
+2025-07-28 08:21:27,848 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:21:27,849 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:21:27,850 WARNING Financial router is None, not including in app
+2025-07-28 08:22:15,323 INFO Matplotlib imported successfully
+2025-07-28 08:22:15,791 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 08:22:15,793 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 08:22:15,793 WARNING Financial router is None, not including in app
+2025-07-28 09:19:18,481 INFO Matplotlib imported successfully
+2025-07-28 09:19:20,687 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:19:20,689 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:19:20,691 WARNING Financial router is None, not including in app
+2025-07-28 09:36:27,027 INFO Matplotlib imported successfully
+2025-07-28 09:36:27,523 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:36:27,524 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:36:27,525 WARNING Financial router is None, not including in app
+2025-07-28 09:42:53,698 INFO Matplotlib imported successfully
+2025-07-28 09:42:54,108 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:42:54,108 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:42:54,109 WARNING Financial router is None, not including in app
+2025-07-28 09:45:02,965 INFO Matplotlib imported successfully
+2025-07-28 09:45:03,551 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:45:03,552 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:45:03,553 WARNING Financial router is None, not including in app
+2025-07-28 09:45:04,404 INFO Matplotlib imported successfully
+2025-07-28 09:45:04,800 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:45:04,801 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:45:04,801 WARNING Financial router is None, not including in app
+2025-07-28 09:45:57,836 INFO Matplotlib imported successfully
+2025-07-28 09:45:58,322 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:45:58,323 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:45:58,323 WARNING Financial router is None, not including in app
+2025-07-28 09:48:41,715 INFO Matplotlib imported successfully
+2025-07-28 09:48:42,495 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:48:42,507 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:48:42,513 WARNING Financial router is None, not including in app
+2025-07-28 09:50:12,813 INFO Matplotlib imported successfully
+2025-07-28 09:50:13,741 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:50:13,742 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:50:13,742 WARNING Financial router is None, not including in app
+2025-07-28 09:53:32,092 INFO Matplotlib imported successfully
+2025-07-28 09:53:33,114 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:53:33,116 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:53:33,117 WARNING Financial router is None, not including in app
+2025-07-28 09:53:35,105 INFO Matplotlib imported successfully
+2025-07-28 09:53:35,682 ERROR Failed to import financial router: No module named 'api'
+2025-07-28 09:53:35,683 ERROR Failed to import auth router: No module named 'api'
+2025-07-28 09:53:35,684 WARNING Financial router is None, not including in app
+2025-07-28 09:53:38,388 INFO Matplotlib imported successfully
+2025-07-28 09:53:39,719 ERROR Failed to import financial router: No module named 'models.smartNarrativeGenerator'
+2025-07-28 09:53:41,108 INFO Auth router imported successfully
+2025-07-28 09:53:43,137 INFO Matplotlib imported successfully
+2025-07-28 09:53:45,304 ERROR Failed to import financial router: No module named 'models.smartNarrativeGenerator'
+2025-07-28 09:53:45,993 INFO Auth router imported successfully
+2025-07-28 09:53:50,082 INFO Matplotlib imported successfully
+2025-07-28 09:53:51,185 ERROR Failed to import financial router: No module named 'models.smartNarrativeGenerator'
+2025-07-28 09:53:51,878 INFO Auth router imported successfully
+2025-07-28 09:53:57,727 INFO Matplotlib imported successfully
+2025-07-28 09:53:59,684 ERROR Failed to import financial router: No module named 'models.smartNarrativeGenerator'
+2025-07-28 09:54:00,417 INFO Auth router imported successfully
+2025-07-28 09:54:03,851 INFO Matplotlib imported successfully
+2025-07-28 09:54:05,474 ERROR Failed to import financial router: No module named 'models.smartNarrativeGenerator'
+2025-07-28 09:54:06,113 INFO Auth router imported successfully
+2025-07-28 10:00:21,573 INFO Matplotlib imported successfully
+2025-07-28 10:00:26,248 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:00:32,905 INFO Financial router imported successfully
+2025-07-28 10:00:33,355 INFO Auth router imported successfully
+2025-07-28 10:00:52,283 INFO WebSocket connected: client_1753714852.257234
+2025-07-28 10:00:52,331 INFO Subscribed to job 7946bce9-6288-4b75-af6f-e89156c9e3ec
+2025-07-28 10:00:53,906 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:00:54,268 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:00:54,357 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:00:54,397 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 10:00:55,883 INFO Unsubscribed from job 7946bce9-6288-4b75-af6f-e89156c9e3ec
+2025-07-28 10:00:58,332 INFO WebSocket disconnected: client_1753714852.257234
+2025-07-28 10:01:02,183 INFO Matplotlib imported successfully
+2025-07-28 10:01:05,454 INFO Matplotlib imported successfully
+2025-07-28 10:01:13,955 INFO Matplotlib imported successfully
+2025-07-28 10:01:22,415 INFO Matplotlib imported successfully
+2025-07-28 10:01:47,071 INFO Matplotlib imported successfully
+2025-07-28 10:01:58,077 INFO Matplotlib imported successfully
+2025-07-28 10:02:00,263 INFO Matplotlib imported successfully
+2025-07-28 10:02:24,503 INFO Matplotlib imported successfully
+2025-07-28 10:02:49,495 INFO Matplotlib imported successfully
+2025-07-28 10:03:06,977 INFO Matplotlib imported successfully
+2025-07-28 10:03:24,614 INFO Matplotlib imported successfully
+2025-07-28 10:03:29,147 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:03:31,794 INFO Financial router imported successfully
+2025-07-28 10:03:32,012 INFO Auth router imported successfully
+2025-07-28 10:03:32,043 INFO WebSocket connected: client_1753715012.043034
+2025-07-28 10:04:32,931 INFO WebSocket disconnected: client_1753715012.043034
+2025-07-28 10:04:34,994 INFO Matplotlib imported successfully
+2025-07-28 10:04:40,251 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:04:42,234 INFO Financial router imported successfully
+2025-07-28 10:04:42,430 INFO Auth router imported successfully
+2025-07-28 10:04:44,818 INFO Matplotlib imported successfully
+2025-07-28 10:04:48,747 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:04:52,151 INFO Financial router imported successfully
+2025-07-28 10:04:52,383 INFO Auth router imported successfully
+2025-07-28 10:04:52,423 INFO WebSocket connected: client_1753715092.423669
+2025-07-28 10:04:52,868 INFO WebSocket disconnected: client_1753715092.423669
+2025-07-28 10:04:54,724 INFO Matplotlib imported successfully
+2025-07-28 10:04:58,255 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:05:01,151 INFO Financial router imported successfully
+2025-07-28 10:05:01,339 INFO Auth router imported successfully
+2025-07-28 10:05:01,369 INFO WebSocket connected: client_1753715101.368639
+2025-07-28 10:05:24,451 INFO WebSocket disconnected: client_1753715101.368639
+2025-07-28 10:05:26,481 INFO Matplotlib imported successfully
+2025-07-28 10:05:30,054 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:05:32,506 INFO Financial router imported successfully
+2025-07-28 10:05:32,708 INFO Auth router imported successfully
+2025-07-28 10:05:32,746 INFO WebSocket connected: client_1753715132.74556
+2025-07-28 10:06:14,635 INFO WebSocket disconnected: client_1753715132.74556
+2025-07-28 10:06:16,800 INFO Matplotlib imported successfully
+2025-07-28 10:06:22,491 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:06:26,664 INFO Financial router imported successfully
+2025-07-28 10:06:26,861 INFO Auth router imported successfully
+2025-07-28 10:06:26,897 INFO WebSocket connected: client_1753715186.896579
+2025-07-28 10:08:05,911 INFO WebSocket disconnected: client_1753715186.896579
+2025-07-28 10:08:08,097 INFO Matplotlib imported successfully
+2025-07-28 10:08:12,360 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:08:14,777 INFO Financial router imported successfully
+2025-07-28 10:08:14,945 INFO Auth router imported successfully
+2025-07-28 10:08:14,975 INFO WebSocket connected: client_1753715294.975507
+2025-07-28 10:08:39,579 INFO WebSocket disconnected: client_1753715294.975507
+2025-07-28 10:09:10,958 INFO Matplotlib imported successfully
+2025-07-28 10:09:14,774 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:09:16,945 INFO Financial router imported successfully
+2025-07-28 10:09:17,607 INFO Auth router imported successfully
+2025-07-28 10:10:05,268 INFO WebSocket connected: client_1753715405.256512
+2025-07-28 10:10:05,307 INFO Subscribed to job fe50094c-c0e6-48f1-bf60-4bbd12b3da91
+2025-07-28 10:10:06,902 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:10:06,955 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:10:06,960 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:10:06,965 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 10:10:08,731 INFO Unsubscribed from job fe50094c-c0e6-48f1-bf60-4bbd12b3da91
+2025-07-28 10:11:17,819 INFO WebSocket connected: client_1753715477.81919
+2025-07-28 10:11:17,822 INFO Subscribed to job f05429b3-8651-4c13-9c3a-62e8f8bffe5c
+2025-07-28 10:11:20,185 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:11:20,620 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:11:20,620 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:11:20,659 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 10:11:22,224 INFO Unsubscribed from job f05429b3-8651-4c13-9c3a-62e8f8bffe5c
+2025-07-28 10:11:49,684 INFO WebSocket connected: client_1753715509.683933
+2025-07-28 10:11:49,686 INFO Subscribed to job 5b5583b5-d5b8-47b6-ad3a-32acf9b1cafe
+2025-07-28 10:11:55,704 INFO WebSocket disconnected: client_1753715405.256512
+2025-07-28 10:11:55,705 INFO WebSocket disconnected: client_1753715477.81919
+2025-07-28 10:11:55,708 INFO WebSocket disconnected: client_1753715509.683933
+2025-07-28 10:12:03,967 INFO WebSocket connected: client_1753715523.966463
+2025-07-28 10:12:03,969 INFO Subscribed to job 12304c47-2507-4494-831c-d05844c1519a
+2025-07-28 10:12:06,771 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:12:07,574 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:12:07,611 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:12:07,730 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 10:12:10,374 INFO Unsubscribed from job 12304c47-2507-4494-831c-d05844c1519a
+2025-07-28 10:14:37,075 INFO WebSocket disconnected: client_1753715523.966463
+2025-07-28 10:15:07,627 INFO Matplotlib imported successfully
+2025-07-28 10:15:10,657 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:15:12,794 INFO Financial router imported successfully
+2025-07-28 10:15:12,970 INFO Auth router imported successfully
+2025-07-28 10:18:02,475 INFO Matplotlib imported successfully
+2025-07-28 10:18:07,830 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:18:10,250 INFO Financial router imported successfully
+2025-07-28 10:18:10,406 INFO Auth router imported successfully
+2025-07-28 10:18:11,907 INFO Matplotlib imported successfully
+2025-07-28 10:18:15,039 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:18:17,314 INFO Financial router imported successfully
+2025-07-28 10:18:17,489 INFO Auth router imported successfully
+2025-07-28 10:18:19,596 INFO Matplotlib imported successfully
+2025-07-28 10:18:23,798 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:18:26,322 INFO Financial router imported successfully
+2025-07-28 10:18:26,537 INFO Auth router imported successfully
+2025-07-28 10:19:22,004 INFO Matplotlib imported successfully
+2025-07-28 10:19:25,035 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:19:27,273 INFO Financial router imported successfully
+2025-07-28 10:19:27,454 INFO Auth router imported successfully
+2025-07-28 10:22:57,934 INFO Matplotlib imported successfully
+2025-07-28 10:23:01,217 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 10:23:03,433 INFO Financial router imported successfully
+2025-07-28 10:23:03,597 INFO Auth router imported successfully
+2025-07-28 10:23:24,173 INFO WebSocket connected: client_1753716204.169961
+2025-07-28 10:23:24,177 INFO Subscribed to job 467874d5-4666-4176-8fea-809cfb2343c0
+2025-07-28 10:23:26,424 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:23:26,665 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:23:26,668 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:23:26,704 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 10:23:28,740 INFO Unsubscribed from job 467874d5-4666-4176-8fea-809cfb2343c0
+2025-07-28 10:23:55,570 INFO WebSocket disconnected: client_1753716204.169961
+2025-07-28 10:24:07,174 INFO WebSocket connected: client_1753716247.16245
+2025-07-28 10:24:07,195 INFO Subscribed to job 7b0c9401-6005-4253-916f-6a0bd9592836
+2025-07-28 10:24:09,135 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:24:09,210 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:24:09,210 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:24:09,215 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 10:24:31,927 INFO Unsubscribed from job 7b0c9401-6005-4253-916f-6a0bd9592836
+2025-07-28 10:49:06,067 INFO WebSocket disconnected: client_1753716247.16245
+2025-07-28 10:49:24,629 INFO WebSocket connected: client_1753717764.62929
+2025-07-28 10:49:24,632 INFO Subscribed to job f687a7c0-71b0-4a08-b0ee-52cf471f3972
+2025-07-28 10:49:26,407 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:49:26,485 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:49:26,485 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:49:26,493 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 10:49:31,881 INFO Unsubscribed from job f687a7c0-71b0-4a08-b0ee-52cf471f3972
+2025-07-28 10:50:42,309 INFO WebSocket connected: client_1753717842.308378
+2025-07-28 10:50:42,311 INFO Subscribed to job 60c4a270-8e9f-47d4-903e-fc05e58e772d
+2025-07-28 10:50:44,969 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:50:45,776 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:50:45,776 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:50:45,850 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 10:50:50,231 INFO Unsubscribed from job 60c4a270-8e9f-47d4-903e-fc05e58e772d
+2025-07-28 10:51:18,000 INFO WebSocket connected: client_1753717877.989488
+2025-07-28 10:51:18,024 INFO Subscribed to job b9295bfa-db43-455d-bced-c2d83d2e0d59
+2025-07-28 10:51:19,676 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:51:19,695 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:51:19,707 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:51:19,711 INFO Enhanced ML understanding with domain context: 0 metric categories identified
+2025-07-28 10:51:21,210 INFO Unsubscribed from job b9295bfa-db43-455d-bced-c2d83d2e0d59
+2025-07-28 10:51:49,677 INFO WebSocket connected: client_1753717909.677502
+2025-07-28 10:51:49,679 INFO Subscribed to job 5b3a7fc8-7a35-4df8-a1d3-74687a87351a
+2025-07-28 10:51:51,372 WARNING Failed to read with latin-1: Error tokenizing data. C error: Buffer overflow caught - possible malformed input file.
+
+2025-07-28 10:51:51,380 WARNING Failed to read with iso-8859-1: Error tokenizing data. C error: Buffer overflow caught - possible malformed input file.
+
+2025-07-28 10:51:51,381 ERROR File processing failed in job 5b3a7fc8-7a35-4df8-a1d3-74687a87351a: Could not read file with any supported encoding
+2025-07-28 10:51:51,391 WARNING Failed to read with latin-1: Error tokenizing data. C error: Buffer overflow caught - possible malformed input file.
+
+2025-07-28 10:51:51,401 WARNING Failed to read with iso-8859-1: Error tokenizing data. C error: Buffer overflow caught - possible malformed input file.
+
+2025-07-28 10:51:51,402 ERROR Basic analysis also failed: Could not read file with any supported encoding
+2025-07-28 10:51:54,720 INFO Unsubscribed from job 5b3a7fc8-7a35-4df8-a1d3-74687a87351a
+2025-07-28 10:52:18,297 INFO WebSocket connected: client_1753717938.296546
+2025-07-28 10:52:18,300 INFO Subscribed to job bb4d5cb7-fc16-4eb7-81e9-c693b0e64671
+2025-07-28 10:52:20,253 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:52:20,395 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:52:20,395 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:52:20,407 INFO Enhanced ML understanding with domain context: 0 metric categories identified
+2025-07-28 10:52:22,102 INFO Unsubscribed from job bb4d5cb7-fc16-4eb7-81e9-c693b0e64671
+2025-07-28 10:52:58,366 INFO WebSocket connected: client_1753717978.366137
+2025-07-28 10:52:58,369 INFO Subscribed to job deb85f2f-18f4-479c-891e-fd3ac5742e23
+2025-07-28 10:53:00,066 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:53:00,076 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:53:00,076 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:53:00,080 INFO Enhanced ML understanding with domain context: 0 metric categories identified
+2025-07-28 10:53:02,001 INFO Unsubscribed from job deb85f2f-18f4-479c-891e-fd3ac5742e23
+2025-07-28 10:56:29,823 INFO WebSocket connected: client_1753718189.822107
+2025-07-28 10:56:29,825 INFO Subscribed to job bcf27c9d-3313-4e67-9bff-506f74fac309
+2025-07-28 10:56:50,676 INFO Successfully read file with utf-8 encoding
+2025-07-28 10:57:07,680 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 10:57:07,680 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 10:57:09,075 INFO Enhanced ML understanding with domain context: 0 metric categories identified
+2025-07-28 11:01:33,625 INFO WebSocket connected: client_1753718493.625839
+2025-07-28 11:01:44,529 INFO WebSocket connected: client_1753718504.528895
+2025-07-28 11:01:55,528 INFO WebSocket connected: client_1753718515.528857
+2025-07-28 11:02:06,531 INFO WebSocket connected: client_1753718526.530564
+2025-07-28 11:02:17,540 INFO WebSocket connected: client_1753718537.539126
+2025-07-28 11:02:28,535 INFO WebSocket connected: client_1753718548.535212
+2025-07-28 11:02:39,528 INFO WebSocket connected: client_1753718559.528892
+2025-07-28 11:02:50,536 INFO WebSocket connected: client_1753718570.535305
+2025-07-28 11:03:01,542 INFO WebSocket connected: client_1753718581.53918
+2025-07-28 11:03:12,540 INFO WebSocket connected: client_1753718592.539349
+2025-07-28 11:03:23,538 INFO WebSocket connected: client_1753718603.538788
+2025-07-28 11:03:34,687 INFO WebSocket connected: client_1753718614.687094
+2025-07-28 11:03:45,536 INFO WebSocket connected: client_1753718625.535386
+2025-07-28 11:03:56,537 INFO WebSocket connected: client_1753718636.536256
+2025-07-28 11:04:07,538 INFO WebSocket connected: client_1753718647.538866
+2025-07-28 11:04:18,536 INFO WebSocket connected: client_1753718658.536796
+2025-07-28 11:04:29,530 INFO WebSocket connected: client_1753718669.530692
+2025-07-28 11:04:40,536 INFO WebSocket connected: client_1753718680.536015
+2025-07-28 11:04:49,253 INFO WebSocket disconnected: client_1753717978.366137
+2025-07-28 11:04:49,253 INFO WebSocket disconnected: client_1753718504.528895
+2025-07-28 11:04:49,254 INFO WebSocket disconnected: client_1753718570.535305
+2025-07-28 11:04:49,254 INFO WebSocket disconnected: client_1753718537.539126
+2025-07-28 11:04:49,255 INFO WebSocket disconnected: client_1753718581.53918
+2025-07-28 11:04:49,255 INFO WebSocket disconnected: client_1753718636.536256
+2025-07-28 11:04:49,255 INFO WebSocket disconnected: client_1753717877.989488
+2025-07-28 11:04:49,256 INFO WebSocket disconnected: client_1753718548.535212
+2025-07-28 11:04:49,256 INFO WebSocket disconnected: client_1753718189.822107
+2025-07-28 11:04:49,257 INFO WebSocket disconnected: client_1753718680.536015
+2025-07-28 11:04:49,257 INFO WebSocket disconnected: client_1753718647.538866
+2025-07-28 11:04:49,257 INFO WebSocket disconnected: client_1753717938.296546
+2025-07-28 11:04:49,257 INFO WebSocket disconnected: client_1753717764.62929
+2025-07-28 11:04:49,258 INFO WebSocket disconnected: client_1753718515.528857
+2025-07-28 11:04:49,258 INFO WebSocket disconnected: client_1753718603.538788
+2025-07-28 11:04:49,259 INFO WebSocket disconnected: client_1753717909.677502
+2025-07-28 11:04:49,259 INFO WebSocket disconnected: client_1753718625.535386
+2025-07-28 11:04:49,259 INFO WebSocket disconnected: client_1753718614.687094
+2025-07-28 11:04:49,260 INFO WebSocket disconnected: client_1753718658.536796
+2025-07-28 11:04:49,261 INFO WebSocket disconnected: client_1753717842.308378
+2025-07-28 11:04:49,261 INFO WebSocket disconnected: client_1753718526.530564
+2025-07-28 11:04:49,261 INFO WebSocket disconnected: client_1753718559.528892
+2025-07-28 11:04:49,262 INFO WebSocket disconnected: client_1753718592.539349
+2025-07-28 11:04:49,262 INFO WebSocket disconnected: client_1753718669.530692
+2025-07-28 11:04:49,263 INFO WebSocket disconnected: client_1753718493.625839
+2025-07-28 11:04:52,176 INFO Matplotlib imported successfully
+2025-07-28 11:05:00,885 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 11:05:10,880 INFO Financial router imported successfully
+2025-07-28 11:05:11,118 INFO Auth router imported successfully
+2025-07-28 11:05:13,413 INFO Matplotlib imported successfully
+2025-07-28 11:05:17,620 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 11:05:20,038 INFO Financial router imported successfully
+2025-07-28 11:05:20,231 INFO Auth router imported successfully
+2025-07-28 11:05:20,268 INFO WebSocket connected: client_1753718720.268097
+2025-07-28 11:05:20,290 INFO WebSocket connected: client_1753718720.289106
+2025-07-28 11:05:20,306 INFO WebSocket connected: client_1753718720.305116
+2025-07-28 11:05:20,320 INFO WebSocket connected: client_1753718720.320687
+2025-07-28 11:05:20,336 INFO WebSocket connected: client_1753718720.335688
+2025-07-28 11:05:31,532 INFO WebSocket connected: client_1753718731.532827
+2025-07-28 11:05:42,659 INFO WebSocket connected: client_1753718742.658253
+2025-07-28 11:05:53,531 INFO WebSocket connected: client_1753718753.528909
+2025-07-28 11:06:04,527 INFO WebSocket connected: client_1753718764.527138
+2025-07-28 11:06:15,529 INFO WebSocket connected: client_1753718775.528219
+2025-07-28 11:06:26,537 INFO WebSocket connected: client_1753718786.536578
+2025-07-28 11:06:37,622 INFO WebSocket connected: client_1753718797.622216
+2025-07-28 11:06:48,532 INFO WebSocket connected: client_1753718808.529842
+2025-07-28 11:06:59,532 INFO WebSocket connected: client_1753718819.532399
+2025-07-28 11:07:10,620 INFO WebSocket connected: client_1753718830.620683
+2025-07-28 11:07:21,544 INFO WebSocket connected: client_1753718841.543056
+2025-07-28 11:07:32,538 INFO WebSocket connected: client_1753718852.537598
+2025-07-28 11:07:43,527 INFO WebSocket connected: client_1753718863.527581
+2025-07-28 11:07:54,576 INFO WebSocket connected: client_1753718874.575865
+2025-07-28 11:08:05,574 INFO WebSocket connected: client_1753718885.573854
+2025-07-28 11:08:16,523 INFO WebSocket connected: client_1753718896.522583
+2025-07-28 11:08:27,523 INFO WebSocket connected: client_1753718907.522804
+2025-07-28 11:08:38,555 INFO WebSocket connected: client_1753718918.554035
+2025-07-28 11:08:49,537 INFO WebSocket connected: client_1753718929.536091
+2025-07-28 11:09:00,531 INFO WebSocket connected: client_1753718940.530133
+2025-07-28 11:09:11,530 INFO WebSocket connected: client_1753718951.529801
+2025-07-28 11:09:22,528 INFO WebSocket connected: client_1753718962.527925
+2025-07-28 11:09:33,533 INFO WebSocket connected: client_1753718973.533288
+2025-07-28 11:09:44,539 INFO WebSocket connected: client_1753718984.537652
+2025-07-28 11:09:55,595 INFO WebSocket connected: client_1753718995.537694
+2025-07-28 11:10:06,545 INFO WebSocket connected: client_1753719006.544205
+2025-07-28 11:10:17,528 INFO WebSocket connected: client_1753719017.528182
+2025-07-28 11:10:28,527 INFO WebSocket connected: client_1753719028.526499
+2025-07-28 11:10:39,536 INFO WebSocket connected: client_1753719039.530032
+2025-07-28 11:10:50,528 INFO WebSocket connected: client_1753719050.528387
+2025-07-28 11:11:01,516 INFO WebSocket connected: client_1753719061.516093
+2025-07-28 11:11:12,526 INFO WebSocket connected: client_1753719072.526436
+2025-07-28 11:11:23,526 INFO WebSocket connected: client_1753719083.526266
+2025-07-28 11:11:31,475 INFO WebSocket disconnected: client_1753718918.554035
+2025-07-28 11:11:31,490 INFO WebSocket disconnected: client_1753718753.528909
+2025-07-28 11:11:31,495 INFO WebSocket disconnected: client_1753718830.620683
+2025-07-28 11:11:31,498 INFO WebSocket disconnected: client_1753718731.532827
+2025-07-28 11:11:31,499 INFO WebSocket disconnected: client_1753718984.537652
+2025-07-28 11:11:31,499 INFO WebSocket disconnected: client_1753718720.289106
+2025-07-28 11:11:31,508 INFO WebSocket disconnected: client_1753718764.527138
+2025-07-28 11:11:31,511 INFO WebSocket disconnected: client_1753718841.543056
+2025-07-28 11:11:31,512 INFO WebSocket disconnected: client_1753718951.529801
+2025-07-28 11:11:31,516 INFO WebSocket disconnected: client_1753719050.528387
+2025-07-28 11:11:31,518 INFO WebSocket disconnected: client_1753718797.622216
+2025-07-28 11:11:31,520 INFO WebSocket disconnected: client_1753719017.528182
+2025-07-28 11:11:31,523 INFO WebSocket disconnected: client_1753718885.573854
+2025-07-28 11:11:31,524 INFO WebSocket disconnected: client_1753718808.529842
+2025-07-28 11:11:31,532 INFO WebSocket disconnected: client_1753718940.530133
+2025-07-28 11:11:31,533 INFO WebSocket disconnected: client_1753718896.522583
+2025-07-28 11:11:31,533 INFO WebSocket disconnected: client_1753718929.536091
+2025-07-28 11:11:31,535 INFO WebSocket disconnected: client_1753719028.526499
+2025-07-28 11:11:31,540 INFO WebSocket disconnected: client_1753719061.516093
+2025-07-28 11:11:31,542 INFO WebSocket disconnected: client_1753718775.528219
+2025-07-28 11:11:31,544 INFO WebSocket disconnected: client_1753718720.305116
+2025-07-28 11:11:31,546 INFO WebSocket disconnected: client_1753719083.526266
+2025-07-28 11:11:31,547 INFO WebSocket disconnected: client_1753718852.537598
+2025-07-28 11:11:31,548 INFO WebSocket disconnected: client_1753718720.335688
+2025-07-28 11:11:31,549 INFO WebSocket disconnected: client_1753718995.537694
+2025-07-28 11:11:31,550 INFO WebSocket disconnected: client_1753718786.536578
+2025-07-28 11:11:31,550 INFO WebSocket disconnected: client_1753718962.527925
+2025-07-28 11:11:31,551 INFO WebSocket disconnected: client_1753718742.658253
+2025-07-28 11:11:31,551 INFO WebSocket disconnected: client_1753719072.526436
+2025-07-28 11:11:31,553 INFO WebSocket disconnected: client_1753718863.527581
+2025-07-28 11:11:31,555 INFO WebSocket disconnected: client_1753718973.533288
+2025-07-28 11:11:31,555 INFO WebSocket disconnected: client_1753718720.320687
+2025-07-28 11:11:31,556 INFO WebSocket disconnected: client_1753718819.532399
+2025-07-28 11:11:31,556 INFO WebSocket disconnected: client_1753718907.522804
+2025-07-28 11:11:31,557 INFO WebSocket disconnected: client_1753719006.544205
+2025-07-28 11:11:31,558 INFO WebSocket disconnected: client_1753719039.530032
+2025-07-28 11:11:31,558 INFO WebSocket disconnected: client_1753718720.268097
+2025-07-28 11:11:31,559 INFO WebSocket disconnected: client_1753718874.575865
+2025-07-28 11:11:33,905 INFO Matplotlib imported successfully
+2025-07-28 11:11:37,399 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 11:11:39,855 INFO Financial router imported successfully
+2025-07-28 11:11:40,032 INFO Auth router imported successfully
+2025-07-28 11:11:40,053 INFO WebSocket connected: client_1753719100.053745
+2025-07-28 11:11:40,077 INFO WebSocket connected: client_1753719100.076048
+2025-07-28 11:11:40,093 INFO WebSocket connected: client_1753719100.093159
+2025-07-28 11:11:40,108 INFO WebSocket connected: client_1753719100.107872
+2025-07-28 11:11:40,124 INFO WebSocket connected: client_1753719100.1244
+2025-07-28 11:11:40,140 INFO WebSocket connected: client_1753719100.139409
+2025-07-28 11:11:50,539 INFO WebSocket connected: client_1753719110.539959
+2025-07-28 11:12:01,540 INFO WebSocket connected: client_1753719121.538341
+2025-07-28 11:12:12,538 INFO WebSocket connected: client_1753719132.530191
+2025-07-28 11:12:18,891 INFO WebSocket disconnected: client_1753719100.093159
+2025-07-28 11:12:18,893 INFO WebSocket disconnected: client_1753719110.539959
+2025-07-28 11:12:18,893 INFO WebSocket disconnected: client_1753719100.076048
+2025-07-28 11:12:18,894 INFO WebSocket disconnected: client_1753719100.1244
+2025-07-28 11:12:18,895 INFO WebSocket disconnected: client_1753719100.053745
+2025-07-28 11:12:18,895 INFO WebSocket disconnected: client_1753719100.107872
+2025-07-28 11:12:18,895 INFO WebSocket disconnected: client_1753719121.538341
+2025-07-28 11:12:18,896 INFO WebSocket disconnected: client_1753719132.530191
+2025-07-28 11:12:18,896 INFO WebSocket disconnected: client_1753719100.139409
+2025-07-28 11:13:10,123 INFO Matplotlib imported successfully
+2025-07-28 11:13:13,303 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 11:13:15,402 INFO Financial router imported successfully
+2025-07-28 11:13:15,568 INFO Auth router imported successfully
+2025-07-28 11:17:47,835 INFO Matplotlib imported successfully
+2025-07-28 11:17:50,793 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 11:17:52,761 INFO Financial router imported successfully
+2025-07-28 11:17:52,931 INFO Auth router imported successfully
+2025-07-28 11:25:30,131 INFO WebSocket connected: client_1753719930.113695
+2025-07-28 11:25:30,139 INFO Subscribed to job 2255d6aa-5adf-41cc-9bbb-ba934b15c461
+2025-07-28 11:25:32,251 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:25:32,449 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:25:32,453 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:25:32,499 INFO Enhanced ML understanding with domain context: 0 metric categories identified
+2025-07-28 11:25:36,305 INFO Unsubscribed from job 2255d6aa-5adf-41cc-9bbb-ba934b15c461
+2025-07-28 11:26:05,984 INFO WebSocket disconnected: client_1753719930.113695
+2025-07-28 11:26:18,695 INFO WebSocket connected: client_1753719978.695221
+2025-07-28 11:26:18,698 INFO Subscribed to job e8606485-80ef-4950-a36a-b3331eb93184
+2025-07-28 11:26:20,574 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:26:20,701 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:26:20,701 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:26:20,724 INFO Enhanced ML understanding with domain context: 1 metric categories identified
+2025-07-28 11:26:25,300 INFO Unsubscribed from job e8606485-80ef-4950-a36a-b3331eb93184
+2025-07-28 11:27:05,238 INFO WebSocket disconnected: client_1753719978.695221
+2025-07-28 11:28:09,058 INFO WebSocket connected: client_1753720089.050692
+2025-07-28 11:28:09,061 INFO Subscribed to job eda01eab-17da-49f2-97a5-82e9f481f711
+2025-07-28 11:28:10,904 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:28:10,997 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:28:10,997 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:28:11,008 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 11:28:13,896 INFO Unsubscribed from job eda01eab-17da-49f2-97a5-82e9f481f711
+2025-07-28 11:31:21,091 INFO WebSocket connected: client_1753720281.090603
+2025-07-28 11:31:21,094 INFO Subscribed to job e9567a54-3376-49b8-9621-96a6936ea57a
+2025-07-28 11:31:23,820 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:31:24,415 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:31:24,415 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:31:24,468 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 11:32:40,687 INFO Unsubscribed from job e9567a54-3376-49b8-9621-96a6936ea57a
+2025-07-28 11:39:39,663 INFO WebSocket connected: client_1753720779.662344
+2025-07-28 11:39:39,669 INFO Subscribed to job ff9d9146-6f7c-412c-b7e4-9958757bfd75
+2025-07-28 11:39:41,693 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:39:41,894 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:39:41,895 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:39:41,917 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 11:39:49,074 INFO Unsubscribed from job ff9d9146-6f7c-412c-b7e4-9958757bfd75
+2025-07-28 11:40:19,337 INFO WebSocket connected: client_1753720819.336679
+2025-07-28 11:40:19,345 INFO Subscribed to job 05a4e2e5-e10d-45d0-a3db-0933a0255abd
+2025-07-28 11:40:21,665 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:40:22,033 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:40:22,034 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:40:22,073 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 11:40:24,363 INFO Unsubscribed from job 05a4e2e5-e10d-45d0-a3db-0933a0255abd
+2025-07-28 11:48:58,286 INFO WebSocket disconnected: client_1753720089.050692
+2025-07-28 11:48:58,287 INFO WebSocket disconnected: client_1753720819.336679
+2025-07-28 11:48:58,287 INFO WebSocket disconnected: client_1753720779.662344
+2025-07-28 11:48:58,288 INFO WebSocket disconnected: client_1753720281.090603
+2025-07-28 11:49:34,154 INFO WebSocket connected: client_1753721374.154575
+2025-07-28 11:49:34,156 INFO Subscribed to job 1a733856-3125-4e27-bbeb-c70cf048fac2
+2025-07-28 11:49:53,649 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:50:04,645 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:50:04,646 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:50:07,534 INFO Enhanced ML understanding with domain context: 0 metric categories identified
+2025-07-28 11:50:22,504 INFO Unsubscribed from job 1a733856-3125-4e27-bbeb-c70cf048fac2
+2025-07-28 11:56:18,077 INFO WebSocket connected: client_1753721778.076873
+2025-07-28 11:56:18,084 INFO Subscribed to job 2e553233-71dc-435e-91e2-d2a07fc2e763
+2025-07-28 11:56:19,971 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:56:20,057 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:56:20,057 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:56:20,073 INFO Enhanced ML understanding with domain context: 1 metric categories identified
+2025-07-28 11:57:41,965 INFO Unsubscribed from job 2e553233-71dc-435e-91e2-d2a07fc2e763
+2025-07-28 11:59:46,202 INFO WebSocket connected: client_1753721986.202743
+2025-07-28 11:59:46,204 INFO Subscribed to job 7f18180a-6abc-44b1-b3da-b11140f97206
+2025-07-28 11:59:47,994 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:59:48,095 ERROR File processing failed in job 7f18180a-6abc-44b1-b3da-b11140f97206: unsupported operand type(s) for +: 'float' and 'str'
+2025-07-28 11:59:48,201 INFO Successfully read file with utf-8 encoding
+2025-07-28 11:59:48,220 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 11:59:48,220 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 11:59:48,231 INFO Enhanced ML understanding with domain context: 0 metric categories identified
+2025-07-28 11:59:50,833 INFO Unsubscribed from job 7f18180a-6abc-44b1-b3da-b11140f97206
+2025-07-28 12:05:32,481 INFO WebSocket disconnected: client_1753721986.202743
+2025-07-28 12:05:32,482 INFO WebSocket disconnected: client_1753721374.154575
+2025-07-28 12:05:32,483 INFO WebSocket disconnected: client_1753721778.076873
+2025-07-28 12:05:35,097 INFO Matplotlib imported successfully
+2025-07-28 12:05:39,125 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:05:42,239 INFO Financial router imported successfully
+2025-07-28 12:05:42,454 INFO Auth router imported successfully
+2025-07-28 12:05:42,486 INFO WebSocket connected: client_1753722342.48627
+2025-07-28 12:05:42,508 INFO WebSocket connected: client_1753722342.508638
+2025-07-28 12:05:42,524 INFO WebSocket connected: client_1753722342.524596
+2025-07-28 12:06:02,148 INFO WebSocket disconnected: client_1753722342.508638
+2025-07-28 12:06:02,161 INFO WebSocket disconnected: client_1753722342.524596
+2025-07-28 12:06:02,162 INFO WebSocket disconnected: client_1753722342.48627
+2025-07-28 12:06:03,979 INFO Matplotlib imported successfully
+2025-07-28 12:06:07,248 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:06:09,418 INFO Financial router imported successfully
+2025-07-28 12:06:09,605 INFO Auth router imported successfully
+2025-07-28 12:06:09,638 INFO WebSocket connected: client_1753722369.637908
+2025-07-28 12:06:09,665 INFO WebSocket connected: client_1753722369.665465
+2025-07-28 12:06:09,681 INFO WebSocket connected: client_1753722369.680462
+2025-07-28 12:06:29,224 INFO WebSocket disconnected: client_1753722369.637908
+2025-07-28 12:06:29,224 INFO WebSocket disconnected: client_1753722369.680462
+2025-07-28 12:06:29,226 INFO WebSocket disconnected: client_1753722369.665465
+2025-07-28 12:06:31,039 INFO Matplotlib imported successfully
+2025-07-28 12:06:33,910 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:06:35,940 INFO Financial router imported successfully
+2025-07-28 12:06:36,131 INFO Auth router imported successfully
+2025-07-28 12:06:36,152 INFO WebSocket connected: client_1753722396.151348
+2025-07-28 12:06:36,176 INFO WebSocket connected: client_1753722396.176438
+2025-07-28 12:06:36,192 INFO WebSocket connected: client_1753722396.192045
+2025-07-28 12:06:53,715 INFO WebSocket disconnected: client_1753722396.176438
+2025-07-28 12:06:53,716 INFO WebSocket disconnected: client_1753722396.192045
+2025-07-28 12:06:53,716 INFO WebSocket disconnected: client_1753722396.151348
+2025-07-28 12:06:55,805 INFO Matplotlib imported successfully
+2025-07-28 12:06:58,315 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:07:00,228 INFO Financial router imported successfully
+2025-07-28 12:07:00,687 INFO Auth router imported successfully
+2025-07-28 12:07:00,726 INFO WebSocket connected: client_1753722420.726823
+2025-07-28 12:07:00,755 INFO WebSocket connected: client_1753722420.754834
+2025-07-28 12:07:00,770 INFO WebSocket connected: client_1753722420.770478
+2025-07-28 12:08:19,658 INFO WebSocket disconnected: client_1753722420.770478
+2025-07-28 12:08:19,660 INFO WebSocket disconnected: client_1753722420.726823
+2025-07-28 12:08:19,662 INFO WebSocket disconnected: client_1753722420.754834
+2025-07-28 12:08:22,481 INFO Matplotlib imported successfully
+2025-07-28 12:08:25,309 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:08:27,600 INFO Financial router imported successfully
+2025-07-28 12:08:27,776 INFO Auth router imported successfully
+2025-07-28 12:08:27,808 INFO WebSocket connected: client_1753722507.808171
+2025-07-28 12:08:27,827 INFO WebSocket connected: client_1753722507.827132
+2025-07-28 12:08:27,843 INFO WebSocket connected: client_1753722507.843146
+2025-07-28 12:09:58,762 INFO WebSocket disconnected: client_1753722507.843146
+2025-07-28 12:09:58,763 INFO WebSocket disconnected: client_1753722507.827132
+2025-07-28 12:09:58,763 INFO WebSocket disconnected: client_1753722507.808171
+2025-07-28 12:10:00,778 INFO Matplotlib imported successfully
+2025-07-28 12:10:04,796 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:10:08,277 INFO Financial router imported successfully
+2025-07-28 12:10:08,470 INFO Auth router imported successfully
+2025-07-28 12:10:08,503 INFO WebSocket connected: client_1753722608.502583
+2025-07-28 12:10:08,527 INFO WebSocket connected: client_1753722608.526599
+2025-07-28 12:10:08,542 INFO WebSocket connected: client_1753722608.54208
+2025-07-28 12:10:49,013 INFO WebSocket disconnected: client_1753722608.502583
+2025-07-28 12:10:49,014 INFO WebSocket disconnected: client_1753722608.54208
+2025-07-28 12:10:49,015 INFO WebSocket disconnected: client_1753722608.526599
+2025-07-28 12:10:51,031 INFO Matplotlib imported successfully
+2025-07-28 12:10:53,985 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:10:56,059 INFO Financial router imported successfully
+2025-07-28 12:10:56,227 INFO Auth router imported successfully
+2025-07-28 12:10:56,244 INFO WebSocket connected: client_1753722656.244085
+2025-07-28 12:10:56,265 INFO WebSocket connected: client_1753722656.265606
+2025-07-28 12:10:56,281 INFO WebSocket connected: client_1753722656.280607
+2025-07-28 12:11:08,367 INFO WebSocket disconnected: client_1753722656.244085
+2025-07-28 12:11:08,369 INFO WebSocket disconnected: client_1753722656.265606
+2025-07-28 12:11:08,369 INFO WebSocket disconnected: client_1753722656.280607
+2025-07-28 12:11:24,912 INFO WebSocket connected: client_1753722684.912961
+2025-07-28 12:11:24,915 INFO Subscribed to job 62fed789-ba18-4739-89a8-8ebb12299bc8
+2025-07-28 12:11:26,657 INFO Successfully read file with utf-8 encoding
+2025-07-28 12:11:26,764 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 12:11:26,766 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 12:11:26,791 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 12:11:29,815 INFO Unsubscribed from job 62fed789-ba18-4739-89a8-8ebb12299bc8
+2025-07-28 12:20:46,996 INFO WebSocket disconnected: client_1753722684.912961
+2025-07-28 12:20:57,596 INFO Matplotlib imported successfully
+2025-07-28 12:21:24,317 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:21:34,402 INFO Financial router imported successfully
+2025-07-28 12:21:34,902 INFO Auth router imported successfully
+2025-07-28 12:21:38,909 INFO Matplotlib imported successfully
+2025-07-28 12:21:42,988 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:21:44,504 INFO Financial router imported successfully
+2025-07-28 12:21:44,668 INFO Auth router imported successfully
+2025-07-28 12:21:46,340 INFO Matplotlib imported successfully
+2025-07-28 12:21:49,733 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:21:51,566 INFO Financial router imported successfully
+2025-07-28 12:21:51,733 INFO Auth router imported successfully
+2025-07-28 12:21:58,222 INFO Matplotlib imported successfully
+2025-07-28 12:22:00,305 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:22:01,845 INFO Financial router imported successfully
+2025-07-28 12:22:02,032 INFO Auth router imported successfully
+2025-07-28 12:22:04,226 INFO Matplotlib imported successfully
+2025-07-28 12:22:06,696 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:22:08,376 INFO Financial router imported successfully
+2025-07-28 12:22:08,730 INFO Auth router imported successfully
+2025-07-28 12:22:15,618 INFO Matplotlib imported successfully
+2025-07-28 12:22:18,757 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:22:22,000 INFO Financial router imported successfully
+2025-07-28 12:22:22,264 INFO Auth router imported successfully
+2025-07-28 12:22:24,490 INFO Matplotlib imported successfully
+2025-07-28 12:22:27,234 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:22:28,970 INFO Financial router imported successfully
+2025-07-28 12:22:29,131 INFO Auth router imported successfully
+2025-07-28 12:22:37,393 INFO Matplotlib imported successfully
+2025-07-28 12:22:40,401 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:22:43,486 INFO Financial router imported successfully
+2025-07-28 12:22:43,645 INFO Auth router imported successfully
+2025-07-28 12:22:44,780 INFO Matplotlib imported successfully
+2025-07-28 12:22:47,660 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:22:49,941 INFO Financial router imported successfully
+2025-07-28 12:22:50,098 INFO Auth router imported successfully
+2025-07-28 12:23:28,984 INFO Matplotlib imported successfully
+2025-07-28 12:23:31,821 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 12:23:33,755 INFO Financial router imported successfully
+2025-07-28 12:23:33,889 INFO Auth router imported successfully
+2025-07-28 12:23:53,726 INFO WebSocket connected: client_1753723433.725631
+2025-07-28 13:07:40,586 INFO WebSocket disconnected: client_1753723433.725631
+2025-07-28 13:07:52,937 INFO WebSocket connected: client_1753726072.936882
+2025-07-28 13:07:52,941 INFO Subscribed to job 55c9b0c1-1ae6-4d12-b697-7bd52c480d95
+2025-07-28 13:07:55,340 INFO Successfully read file with utf-8 encoding
+2025-07-28 13:07:55,824 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 13:07:55,830 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 13:07:55,871 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 13:07:57,495 INFO Unsubscribed from job 55c9b0c1-1ae6-4d12-b697-7bd52c480d95
+2025-07-28 13:13:43,106 INFO WebSocket disconnected: client_1753726072.936882
+2025-07-28 13:14:19,520 INFO Matplotlib imported successfully
+2025-07-28 13:14:22,785 ERROR Importing plotly failed. Interactive plots will not work.
+2025-07-28 13:14:25,199 INFO Financial router imported successfully
+2025-07-28 13:14:25,585 INFO Auth router imported successfully
+2025-07-28 13:15:30,768 INFO WebSocket connected: client_1753726530.768518
+2025-07-28 13:15:30,771 INFO Subscribed to job c291b408-c47c-4b7f-bbab-a3aecd6ed045
+2025-07-28 13:15:33,492 INFO Successfully read file with utf-8 encoding
+2025-07-28 13:15:34,420 INFO Processing advanced ML-driven financial analysis within Sygnify app v1.2
+2025-07-28 13:15:34,421 INFO Using advanced Financial ML Engine for intelligent insights
+2025-07-28 13:15:34,487 INFO Enhanced ML understanding with domain context: 4 metric categories identified
+2025-07-28 13:15:37,844 INFO Unsubscribed from job c291b408-c47c-4b7f-bbab-a3aecd6ed045
+2025-07-28 13:17:50,396 INFO WebSocket connected: client_1753726670.394971
+2025-07-28 13:17:50,405 INFO Subscribed to job 2ca4629c-24b4-40e8-ad0d-b500b878289e

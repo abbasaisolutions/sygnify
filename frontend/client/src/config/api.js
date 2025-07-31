@@ -1,16 +1,25 @@
-// Centralized API endpoints for Sygnify Analytics Hub
-
+// API Configuration
 export const API_BASE_URL = 'http://localhost:8000';
+export const WS_BASE_URL = API_BASE_URL.replace('http', 'ws');
+export const WS_ENDPOINT = `${WS_BASE_URL}/ws`;
+export const WS_JOB_ENDPOINT = (jobId) => `${WS_BASE_URL}/ws/job/${jobId}`;
+
+// API Endpoints
 export const FINANCIAL_API = `${API_BASE_URL}/financial`;
-export const AUTH_API = `${API_BASE_URL}/auth`;
 
 export const ENDPOINTS = {
-  results: `${FINANCIAL_API}/results`,
-  insights: `${FINANCIAL_API}/insights`,
+  // Financial Analytics
   upload: `${FINANCIAL_API}/upload`,
-  subscriptionStatus: `${FINANCIAL_API}/subscription/status`,
-  subscriptionCheckout: `${FINANCIAL_API}/subscription/create-checkout-session`,
-  login: `${AUTH_API}/login`,
-  register: `${AUTH_API}/register`,
-  clearCache: `${FINANCIAL_API}/clear-cache`,
+  analyze: `${FINANCIAL_API}/analyze`,
+  insights: `${FINANCIAL_API}/insights`,
+  startJob: `${FINANCIAL_API}/start-job`,
+  jobStatus: (jobId) => `${FINANCIAL_API}/status/${jobId}`,
+  
+  // WebSocket endpoints
+  websocket: WS_ENDPOINT,
+  jobWebsocket: WS_JOB_ENDPOINT,
+  
+  // Health and status
+  health: `${API_BASE_URL}/health`,
+  docs: `${API_BASE_URL}/docs`,
 }; 
