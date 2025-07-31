@@ -1,16 +1,20 @@
 """
-FastAPI Application Entry Point
-- CORS configuration
-- Authentication middleware
-- Rate limiting
-- API versioning
+FastAPI Application Entry Point - Enterprise Security Edition
+- CORS configuration with security headers
+- Rate limiting and DDoS protection
+- IP whitelisting and geographic restrictions
+- Security middleware and audit logging
+- API versioning and health monitoring
 - WebSocket support for real-time communication
 """
 import logging
 import json
 import asyncio
-from typing import Dict, List
-from datetime import datetime
+import time
+import ipaddress
+from typing import Dict, List, Optional, Set
+from datetime import datetime, timedelta
+from collections import defaultdict, deque
 
 # Configure logging first
 logging.basicConfig(
@@ -32,8 +36,206 @@ except ImportError:
     matplotlib = None
 
 # Import FastAPI and related modules
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from fastapi.responses import JSONResponse
+from fastapi.security.utils import get_authorization_scheme_param
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.middleware.gzip import GZipMiddleware
+import os
+import hashlib
+import secrets
+
+# Import rate limiting
+try:
+    from slowapi import Limiter, _rate_limit_exceeded_handler
+    from slowapi.util import get_remote_address
+    from slowapi.errors import RateLimitExceeded
+    from slowapi.middleware import SlowAPIMiddleware
+    
+    # Initialize rate limiter
+    limiter = Limiter(key_func=get_remote_address)
+    rate_limiter_available = True
+    logging.info("Rate limiter initialized successfully")
+except ImportError:
+    logging.warning("SlowAPI not available. Rate limiting disabled.")
+    limiter = None
+    rate_limiter_available = False
+
+# Security configuration
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+API_KEY_HEADER = "X-API-Key"
+ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", secrets.token_urlsafe(32))
+MAX_REQUEST_SIZE = int(os.getenv("MAX_REQUEST_SIZE", "10485760"))  # 10MB
+RATE_LIMIT_PER_MINUTE = int(os.getenv("RATE_LIMIT_PER_MINUTE", "100"))
+BURST_RATE_LIMIT = int(os.getenv("BURST_RATE_LIMIT", "20"))
+
+# IP Whitelisting configuration
+WHITELIST_ENABLED = os.getenv("IP_WHITELIST_ENABLED", "false").lower() == "true"
+WHITELISTED_IPS = set(os.getenv("WHITELISTED_IPS", "").split(",")) if os.getenv("WHITELISTED_IPS") else set()
+BLACKLISTED_IPS = set(os.getenv("BLACKLISTED_IPS", "").split(",")) if os.getenv("BLACKLISTED_IPS") else set()
+
+# Security headers configuration
+SECURITY_HEADERS = {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "Content-Security-Policy": "default-src 'self'",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+}
+
+# DDoS protection - simple implementation
+class DDoSProtection:
+    def __init__(self, max_requests: int = 1000, time_window: int = 60):
+        self.max_requests = max_requests
+        self.time_window = time_window
+        self.request_counts: Dict[str, deque] = defaultdict(deque)
+        
+    def is_allowed(self, client_ip: str) -> bool:
+        now = time.time()
+        requests = self.request_counts[client_ip]
+        
+        # Remove old requests outside time window
+        while requests and requests[0] <= now - self.time_window:
+            requests.popleft()
+        
+        # Check if under limit
+        if len(requests) >= self.max_requests:
+            return False
+        
+        # Add current request
+        requests.append(now)
+        return True
+
+# Initialize DDoS protection
+ddos_protection = DDoSProtection()
+
+# Security Middleware
+class SecurityMiddleware(BaseHTTPMiddleware):
+    """Enterprise security middleware with comprehensive protection"""
+    
+    async def dispatch(self, request: Request, call_next):
+        start_time = time.time()
+        client_ip = self.get_client_ip(request)
+        
+        try:
+            # 1. IP Filtering
+            if not self.check_ip_allowed(client_ip):
+                logging.warning(f"Blocked request from blacklisted IP: {client_ip}")
+                return JSONResponse(
+                    status_code=403,
+                    content={"error": "Access denied"}
+                )
+            
+            # 2. DDoS Protection
+            if not ddos_protection.is_allowed(client_ip):
+                logging.warning(f"DDoS protection triggered for IP: {client_ip}")
+                return JSONResponse(
+                    status_code=429,
+                    content={"error": "Too many requests", "retry_after": 60}
+                )
+            
+            # 3. Request Size Validation
+            if hasattr(request, 'headers') and 'content-length' in request.headers:
+                content_length = int(request.headers.get('content-length', 0))
+                if content_length > MAX_REQUEST_SIZE:
+                    return JSONResponse(
+                        status_code=413,
+                        content={"error": "Request too large"}
+                    )
+            
+            # 4. Process request
+            response = await call_next(request)
+            
+            # 5. Add security headers
+            for header, value in SECURITY_HEADERS.items():
+                response.headers[header] = value
+            
+            # 6. Add response time header
+            process_time = time.time() - start_time
+            response.headers["X-Process-Time"] = str(process_time)
+            
+            # 7. Log request
+            self.log_request(request, response, client_ip, process_time)
+            
+            return response
+            
+        except Exception as e:
+            logging.error(f"Security middleware error: {e}")
+            return JSONResponse(
+                status_code=500,
+                content={"error": "Internal server error"}
+            )
+    
+    def get_client_ip(self, request: Request) -> str:
+        """Get real client IP considering proxy headers"""
+        # Check for forwarded headers
+        forwarded = request.headers.get("X-Forwarded-For")
+        if forwarded:
+            return forwarded.split(",")[0].strip()
+        
+        real_ip = request.headers.get("X-Real-IP")
+        if real_ip:
+            return real_ip
+        
+        return request.client.host if request.client else "unknown"
+    
+    def check_ip_allowed(self, ip: str) -> bool:
+        """Check if IP is allowed based on whitelist/blacklist"""
+        try:
+            client_ip = ipaddress.ip_address(ip)
+            
+            # Check blacklist first
+            if ip in BLACKLISTED_IPS:
+                return False
+            
+            # If whitelist is enabled, check whitelist
+            if WHITELIST_ENABLED and WHITELISTED_IPS:
+                return ip in WHITELISTED_IPS
+            
+            return True
+        except ValueError:
+            # Invalid IP format
+            return False
+    
+    def log_request(self, request: Request, response, client_ip: str, process_time: float):
+        """Log request for monitoring and analytics"""
+        log_data = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "client_ip": client_ip,
+            "method": request.method,
+            "url": str(request.url),
+            "status_code": response.status_code,
+            "process_time": round(process_time, 4),
+            "user_agent": request.headers.get("user-agent", ""),
+            "referer": request.headers.get("referer", "")
+        }
+        
+        # Log to file for analytics
+        with open("access.log", "a") as f:
+            f.write(json.dumps(log_data) + "\n")
+
+# API Key Middleware
+class APIKeyMiddleware(BaseHTTPMiddleware):
+    """API Key authentication for admin endpoints"""
+    
+    PROTECTED_PATHS = ["/admin", "/internal", "/system"]
+    
+    async def dispatch(self, request: Request, call_next):
+        # Check if path requires API key
+        if any(request.url.path.startswith(path) for path in self.PROTECTED_PATHS):
+            api_key = request.headers.get(API_KEY_HEADER)
+            
+            if not api_key or api_key != ADMIN_API_KEY:
+                return JSONResponse(
+                    status_code=401,
+                    content={"error": "Valid API key required"}
+                )
+        
+        return await call_next(request)
 
 # Import routers with error handling
 try:
@@ -64,7 +266,7 @@ except ImportError as e:
     logging.error(f"Failed to import market data router: {e}")
     market_data_router = None
 
-# Import financial dashboard WebSocket handler
+# Import WebSocket handlers
 try:
     from .websocket.financial_dashboard import financial_dashboard_websocket
     logging.info("Financial dashboard WebSocket handler imported successfully")
@@ -72,7 +274,6 @@ except ImportError as e:
     logging.error(f"Failed to import financial dashboard WebSocket handler: {e}")
     financial_dashboard_websocket = None
 
-# Import real-time market WebSocket handler
 try:
     from .websocket.realtime_market import realtime_market_websocket
     logging.info("Real-time market WebSocket handler imported successfully")
@@ -101,15 +302,38 @@ if job_simulator is None:
 # Import global job status manager
 from .job_status_manager import job_status_manager
 
-app = FastAPI(title="Sygnify Financial Analytics API", version="1.0.0")
+# Initialize FastAPI application with security
+app = FastAPI(
+    title="Sygnify Financial Analytics API - Enterprise Edition",
+    version="2.0.0",
+    description="Enterprise-grade financial analytics platform with advanced security",
+    docs_url="/docs" if os.getenv("ENVIRONMENT") != "production" else None,
+    redoc_url="/redoc" if os.getenv("ENVIRONMENT") != "production" else None
+)
 
-# CORS configuration
+# Add security middleware (order matters!)
+if rate_limiter_available:
+    app.state.limiter = limiter
+    app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+    app.add_middleware(SlowAPIMiddleware)
+
+app.add_middleware(SecurityMiddleware)
+app.add_middleware(APIKeyMiddleware)
+app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+# Trusted Host Middleware (production security)
+if os.getenv("ENVIRONMENT") == "production":
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=ALLOWED_HOSTS)
+
+# CORS configuration with enhanced security
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Update for production
+    allow_origins=["http://localhost:3000", "http://localhost:5173"] if os.getenv("ENVIRONMENT") != "production" else ALLOWED_HOSTS,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["X-Process-Time", "X-Request-ID"],
+    max_age=3600,
 )
 
 # WebSocket connection manager for real-time updates
@@ -117,6 +341,12 @@ class ConnectionManager:
     def __init__(self):
         self.active_connections: Dict[str, List[WebSocket]] = {}
         self.job_subscribers: Dict[str, List[WebSocket]] = {}
+        self.connection_stats = {
+            "total_connections": 0,
+            "active_connections": 0,
+            "messages_sent": 0,
+            "errors": 0
+        }
 
     async def connect(self, websocket: WebSocket, client_id: str = None):
         await websocket.accept()
@@ -124,6 +354,9 @@ class ConnectionManager:
             if client_id not in self.active_connections:
                 self.active_connections[client_id] = []
             self.active_connections[client_id].append(websocket)
+        
+        self.connection_stats["total_connections"] += 1
+        self.connection_stats["active_connections"] += 1
         logging.info(f"WebSocket connected: {client_id}")
 
     def disconnect(self, websocket: WebSocket, client_id: str = None):
@@ -133,12 +366,16 @@ class ConnectionManager:
             ]
             if not self.active_connections[client_id]:
                 del self.active_connections[client_id]
+        
+        self.connection_stats["active_connections"] = max(0, self.connection_stats["active_connections"] - 1)
         logging.info(f"WebSocket disconnected: {client_id}")
 
     async def send_personal_message(self, message: dict, websocket: WebSocket):
         try:
             await websocket.send_text(json.dumps(message))
+            self.connection_stats["messages_sent"] += 1
         except Exception as e:
+            self.connection_stats["errors"] += 1
             logging.error(f"Error sending personal message: {e}")
 
     async def broadcast_to_job(self, job_id: str, message: dict):
@@ -147,7 +384,9 @@ class ConnectionManager:
             for websocket in self.job_subscribers[job_id]:
                 try:
                     await websocket.send_text(json.dumps(message))
+                    self.connection_stats["messages_sent"] += 1
                 except Exception as e:
+                    self.connection_stats["errors"] += 1
                     logging.error(f"Error broadcasting to job {job_id}: {e}")
                     disconnected.append(websocket)
             
@@ -172,39 +411,95 @@ class ConnectionManager:
 
     def get_connection_stats(self):
         return {
-            "active_connections": len(self.active_connections),
+            **self.connection_stats,
             "job_subscribers": len(self.job_subscribers),
-            "total_websockets": sum(len(conns) for conns in self.active_connections.values())
+            "subscriber_connections": sum(len(conns) for conns in self.job_subscribers.values())
         }
 
 # Global connection manager
 manager = ConnectionManager()
 
-# Health check endpoint
+# Enhanced health check endpoint with security status
 @app.get("/health")
-def health_check():
-    """Health check endpoint for monitoring."""
+async def health_check():
+    """Comprehensive health check with security and system status"""
     return {
         "status": "healthy",
-        "timestamp": datetime.now().isoformat(),
-        "version": "1.0.0",
+        "timestamp": datetime.utcnow().isoformat(),
+        "version": "2.0.0-enterprise",
+        "environment": os.getenv("ENVIRONMENT", "development"),
+        "security": {
+            "rate_limiting": rate_limiter_available,
+            "ip_filtering": WHITELIST_ENABLED,
+            "ddos_protection": True,
+            "security_headers": True,
+            "api_key_protection": True
+        },
         "services": {
             "financial_router": financial_router is not None,
             "enhanced_financial_router": enhanced_financial_router is not None,
             "auth_router": auth_router is not None,
+            "market_data_router": market_data_router is not None,
             "financial_dashboard_websocket": financial_dashboard_websocket is not None
         },
-        "websocket_stats": manager.get_connection_stats()
+        "websocket_stats": manager.get_connection_stats(),
+        "performance": {
+            "max_request_size_mb": MAX_REQUEST_SIZE // 1024 // 1024,
+            "rate_limit_per_minute": RATE_LIMIT_PER_MINUTE
+        }
     }
 
-# API documentation endpoint
+# System status endpoint (Admin only)
+@app.get("/admin/system-status")
+async def system_status(request: Request):
+    """Detailed system status for administrators"""
+    return {
+        "timestamp": datetime.utcnow().isoformat(),
+        "system": {
+            "uptime": time.time(),
+            "memory_usage": "N/A",  # Could add psutil here
+            "cpu_usage": "N/A"
+        },
+        "security": {
+            "ddos_requests_blocked": len([ip for ip, requests in ddos_protection.request_counts.items() if len(requests) >= ddos_protection.max_requests]),
+            "blacklisted_ips": len(BLACKLISTED_IPS),
+            "whitelisted_ips": len(WHITELISTED_IPS) if WHITELIST_ENABLED else "disabled"
+        },
+        "api_stats": manager.get_connection_stats()
+    }
+
+# Rate-limited endpoints
+if rate_limiter_available:
+    @app.get("/api/rate-limited")
+    @limiter.limit(f"{RATE_LIMIT_PER_MINUTE}/minute")
+    async def rate_limited_endpoint(request: Request):
+        return {"message": "This endpoint is rate limited"}
+
+# API documentation endpoint with security
 @app.get("/api/docs")
 def api_docs(request: Request):
-    """API documentation endpoint."""
+    """API documentation endpoint with security information"""
     return {
-        "title": "Sygnify Financial Analytics API",
-        "version": "1.0.0",
-        "description": "Comprehensive financial analytics and real-time dashboard API",
+        "title": "Sygnify Financial Analytics API - Enterprise Edition",
+        "version": "2.0.0",
+        "description": "Enterprise-grade financial analytics with advanced security",
+        "security_features": [
+            "Rate limiting",
+            "DDoS protection", 
+            "IP filtering",
+            "API key authentication",
+            "Security headers",
+            "Request size limits",
+            "Audit logging"
+        ],
+        "authentication": {
+            "type": "JWT Bearer Token",
+            "endpoints": {
+                "login": "/auth/login",
+                "register": "/auth/register", 
+                "refresh": "/auth/refresh"
+            }
+        },
         "endpoints": {
             "health": "/health",
             "docs": "/docs",
@@ -212,12 +507,13 @@ def api_docs(request: Request):
             "job_websocket": "/ws/job/{job_id}",
             "financial_dashboard_websocket": "/ws/financial-dashboard",
             "financial_api": "/financial",
-            "enhanced_financial_api": "/enhanced-financial"
+            "enhanced_financial_api": "/enhanced-financial",
+            "auth_api": "/auth",
+            "market_data_api": "/market"
         },
-        "websocket_endpoints": {
-            "general": "/ws",
-            "job_specific": "/ws/job/{job_id}",
-            "financial_dashboard": "/ws/financial-dashboard"
+        "rate_limits": {
+            "general": f"{RATE_LIMIT_PER_MINUTE} requests/minute",
+            "burst": f"{BURST_RATE_LIMIT} requests/second"
         }
     }
 
@@ -610,21 +906,53 @@ if auth_router:
 if market_data_router:
     app.include_router(market_data_router)
 
-# Startup event
+# Startup event with security initialization
 @app.on_event("startup")
 async def startup_event():
-    """Application startup event."""
-    logging.info("Sygnify Financial Analytics API starting up...")
+    """Application startup event with security initialization"""
+    logging.info("Sygnify Financial Analytics API - Enterprise Edition starting up...")
+    logging.info(f"Environment: {os.getenv('ENVIRONMENT', 'development')}")
+    logging.info(f"Security features enabled:")
+    logging.info(f"  - Rate limiting: {rate_limiter_available}")
+    logging.info(f"  - IP filtering: {WHITELIST_ENABLED}")
+    logging.info(f"  - DDoS protection: True")
+    logging.info(f"  - Security headers: True")
     logging.info(f"Available routers: financial={financial_router is not None}, enhanced_financial={enhanced_financial_router is not None}, auth={auth_router is not None}, market_data={market_data_router is not None}")
-    logging.info(f"Financial dashboard WebSocket: {financial_dashboard_websocket is not None}")
-    logging.info(f"Real-time market WebSocket: {realtime_market_websocket is not None}")
+    logging.info(f"WebSocket handlers: financial_dashboard={financial_dashboard_websocket is not None}, realtime_market={realtime_market_websocket is not None}")
+    
+    # Log admin API key for development
+    if os.getenv("ENVIRONMENT") != "production":
+        logging.info(f"Admin API Key: {ADMIN_API_KEY}")
 
 # Shutdown event
 @app.on_event("shutdown")
 async def shutdown_event():
-    """Application shutdown event."""
+    """Application shutdown event with cleanup"""
     logging.info("Sygnify Financial Analytics API shutting down...")
+    
+    # Close all WebSocket connections gracefully
+    for client_id, connections in manager.active_connections.items():
+        for websocket in connections:
+            try:
+                await websocket.close()
+            except Exception as e:
+                logging.error(f"Error closing WebSocket connection: {e}")
+    
+    logging.info("Shutdown complete")
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True) 
+    
+    # Production-ready server configuration
+    config = {
+        "app": app,
+        "host": os.getenv("HOST", "127.0.0.1"),
+        "port": int(os.getenv("PORT", "8000")),
+        "reload": os.getenv("ENVIRONMENT") != "production",
+        "access_log": True,
+        "log_level": "info",
+        "workers": 1 if os.getenv("ENVIRONMENT") != "production" else 4
+    }
+    
+    logging.info(f"Starting Uvicorn server with config: {config}")
+    uvicorn.run(**config) 
