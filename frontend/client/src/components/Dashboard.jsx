@@ -9,6 +9,10 @@ import {
 } from 'lucide-react';
 import marketDataService from '../services/marketDataService';
 import realtimeMarketService from '../services/realtimeMarketService';
+import Button from './ui/Button';
+import Tab from './ui/Tab';
+import Footer from './ui/Footer';
+import { textStyles } from '../styles/designSystem';
 
 const Dashboard = ({ analysisResults, onBackToLanding }) => {
   const [activeTab, setActiveTab] = useState('ai_analysis');
@@ -295,7 +299,7 @@ const Dashboard = ({ analysisResults, onBackToLanding }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -308,44 +312,38 @@ const Dashboard = ({ analysisResults, onBackToLanding }) => {
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <button className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
-                <Download className="w-4 h-4" />
-                <span>Export</span>
-              </button>
-              <button className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
-                <Share2 className="w-4 h-4" />
-                <span>Share</span>
-              </button>
-              <button 
+              <Button variant="secondary" icon={Download}>
+                Export
+              </Button>
+              <Button variant="secondary" icon={Share2}>
+                Share
+              </Button>
+              <Button 
+                variant="primary"
                 onClick={onBackToLanding}
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
               >
                 New Analysis
-              </button>
+              </Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+          <div className="flex space-x-1">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === tab.id
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-              >
-                  <Icon className="w-4 h-4" />
-                  <span>{tab.label}</span>
-              </button>
+                <Tab
+                  key={tab.id}
+                  active={activeTab === tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  icon={Icon}
+                >
+                  {tab.label}
+                </Tab>
               );
             })}
           </div>
@@ -1253,6 +1251,9 @@ const Dashboard = ({ analysisResults, onBackToLanding }) => {
           </motion.div>
         )}
       </div>
+      
+      {/* Global Footer */}
+      <Footer />
     </div>
   );
 };

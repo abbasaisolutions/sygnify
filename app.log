@@ -23933,3 +23933,524 @@ KMeans does not accept missing values encoded as NaN natively. For supervised le
 2025-07-31 13:22:15,872 INFO Received WebSocket message: {'type': 'ping'}
 2025-07-31 13:23:29,869 INFO Received WebSocket message: {'type': 'ping'}
 2025-07-31 13:24:29,871 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:25:29,868 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:26:21,326 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:26:45,867 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:27:15,879 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:28:21,889 INFO Client market_client_1753985970.35844 disconnected from real-time market stream
+2025-07-31 13:28:21,889 INFO Client market_client_1753985970.35844 disconnected from real-time market service
+2025-07-31 13:28:22,237 INFO Client market_client_1753986502.23739 connected to real-time market service
+2025-07-31 13:28:23,981 INFO Client market_client_1753986502.23739 subscribed to market_overview
+2025-07-31 13:28:23,985 INFO Client market_client_1753986502.23739 subscribed to indices
+2025-07-31 13:28:23,986 INFO Client market_client_1753986502.23739 subscribed to commodities
+2025-07-31 13:28:23,986 INFO Client market_client_1753986502.23739 subscribed to currencies
+2025-07-31 13:28:23,987 INFO Client market_client_1753986502.23739 subscribed to economic_indicators
+2025-07-31 13:28:23,987 INFO Client market_client_1753986502.23739 subscribed to sentiment
+2025-07-31 13:28:23,988 INFO Client market_client_1753986502.23739 subscribed to alerts
+2025-07-31 13:28:29,869 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:29:12,056 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:29:15,436 INFO Client market_client_1753986502.23739 disconnected from real-time market stream
+2025-07-31 13:29:15,437 INFO Client market_client_1753986502.23739 disconnected from real-time market service
+2025-07-31 13:29:15,582 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:29:16,779 INFO Client market_client_1753986556.779509 connected to real-time market service
+2025-07-31 13:29:45,880 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:30:15,871 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:30:39,301 INFO WebSocket disconnected: None
+2025-07-31 13:30:39,301 INFO Client market_client_1753986556.779509 disconnected from real-time market stream
+2025-07-31 13:30:39,301 INFO Client market_client_1753986556.779509 disconnected from real-time market service
+2025-07-31 13:30:50,068 INFO WebSocket connected: None
+2025-07-31 13:30:50,380 INFO WebSocket connected: job_1753986649720
+2025-07-31 13:30:50,380 INFO WebSocket subscribed to job job_1753986649720
+2025-07-31 13:30:50,380 INFO Starting enhanced job simulation for job_1753986649720 with domain: financial
+2025-07-31 13:30:50,381 INFO Job job_1753986649720: Initialized in global job status manager
+2025-07-31 13:30:50,381 INFO Job job_1753986649720: Starting stage 1/8 - uploading
+2025-07-31 13:30:50,381 INFO Sent job update for job_1753986649720: uploading (10%)
+2025-07-31 13:30:50,381 INFO Broadcasted job update for job_1753986649720 to 1 subscribers
+2025-07-31 13:30:51,361 INFO Job job_1753986649720: Completed stage uploading
+2025-07-31 13:30:51,396 INFO Job job_1753986649720: Starting stage 2/8 - encoding_detection
+2025-07-31 13:30:51,396 INFO Sent job update for job_1753986649720: encoding_detection (20%)
+2025-07-31 13:30:51,419 INFO Broadcasted job update for job_1753986649720 to 1 subscribers
+2025-07-31 13:30:52,421 INFO Job job_1753986649720: Completed stage encoding_detection
+2025-07-31 13:30:52,421 INFO Job job_1753986649720: Starting stage 3/8 - csv_parsing
+2025-07-31 13:30:52,421 INFO Sent job update for job_1753986649720: csv_parsing (35%)
+2025-07-31 13:30:52,422 INFO Broadcasted job update for job_1753986649720 to 1 subscribers
+2025-07-31 13:30:54,416 INFO Job job_1753986649720: Completed stage csv_parsing
+2025-07-31 13:30:54,416 INFO Job job_1753986649720: Starting stage 4/8 - data_quality_analysis
+2025-07-31 13:30:54,416 INFO Sent job update for job_1753986649720: data_quality_analysis (50%)
+2025-07-31 13:30:54,417 INFO Broadcasted job update for job_1753986649720 to 1 subscribers
+2025-07-31 13:30:56,438 INFO Job job_1753986649720: Completed stage data_quality_analysis
+2025-07-31 13:30:56,446 INFO Job job_1753986649720: Starting stage 5/8 - column_labeling
+2025-07-31 13:30:56,459 INFO Sent job update for job_1753986649720: column_labeling (65%)
+2025-07-31 13:30:56,459 INFO Broadcasted job update for job_1753986649720 to 1 subscribers
+2025-07-31 13:30:57,438 INFO Job job_1753986649720: Completed stage column_labeling
+2025-07-31 13:30:57,438 INFO Job job_1753986649720: Starting stage 6/8 - ai_analysis
+2025-07-31 13:30:57,438 INFO Sent job update for job_1753986649720: ai_analysis (80%)
+2025-07-31 13:30:57,439 INFO Broadcasted job update for job_1753986649720 to 1 subscribers
+2025-07-31 13:31:00,435 INFO Job job_1753986649720: Completed stage ai_analysis
+2025-07-31 13:31:00,435 INFO Job job_1753986649720: Starting stage 7/8 - sweetviz_report
+2025-07-31 13:31:00,435 INFO Sent job update for job_1753986649720: sweetviz_report (90%)
+2025-07-31 13:31:00,436 INFO Broadcasted job update for job_1753986649720 to 1 subscribers
+2025-07-31 13:31:01,439 INFO Job job_1753986649720: Completed stage sweetviz_report
+2025-07-31 13:31:01,439 INFO Job job_1753986649720: Starting stage 8/8 - insights_ready
+2025-07-31 13:31:01,439 INFO Sent job update for job_1753986649720: insights_ready (100%)
+2025-07-31 13:31:01,440 INFO Broadcasted job update for job_1753986649720 to 1 subscribers
+2025-07-31 13:31:02,450 INFO Job job_1753986649720: Completed stage insights_ready
+2025-07-31 13:31:02,450 INFO Job job_1753986649720 completed successfully with comprehensive insights
+2025-07-31 13:31:02,450 INFO Job job_1753986649720: Updated global job status manager with comprehensive results
+2025-07-31 13:31:02,451 INFO Job job_1753986649720: Available insights keys: ['financial_kpis', 'data_quality_metrics', 'ml_prompts', 'risk_assessment', 'recommendations', 'ai_insights', 'market_context', 'statistical_analysis']
+2025-07-31 13:31:02,451 INFO Job job_1753986649720: Global job status now contains: ['job_1753985955184', 'job_1753986649720']
+2025-07-31 13:31:02,451 INFO Broadcasted job completion for job_1753986649720 to 1 subscribers
+2025-07-31 13:31:02,451 INFO Job job_1753986649720: Completed successfully
+2025-07-31 13:31:02,453 INFO WebSocket unsubscribed from job job_1753986649720
+2025-07-31 13:31:02,453 INFO WebSocket disconnected: job_1753986649720
+2025-07-31 13:31:04,495 INFO Received WebSocket message: {'type': 'unsubscribe', 'job_id': 'job_1753986649720'}
+2025-07-31 13:31:04,827 INFO Client market_client_1753986664.827997 connected to real-time market service
+2025-07-31 13:31:05,536 INFO Client market_client_1753986664.827997 subscribed to market_overview
+2025-07-31 13:31:05,540 INFO Client market_client_1753986664.827997 subscribed to indices
+2025-07-31 13:31:05,544 INFO Client market_client_1753986664.827997 subscribed to commodities
+2025-07-31 13:31:05,547 INFO Client market_client_1753986664.827997 subscribed to currencies
+2025-07-31 13:31:05,551 INFO Client market_client_1753986664.827997 subscribed to economic_indicators
+2025-07-31 13:31:05,552 INFO Client market_client_1753986664.827997 subscribed to sentiment
+2025-07-31 13:31:05,552 INFO Client market_client_1753986664.827997 subscribed to alerts
+2025-07-31 13:31:19,604 INFO Client market_client_1753986664.827997 disconnected from real-time market stream
+2025-07-31 13:31:19,605 INFO Client market_client_1753986664.827997 disconnected from real-time market service
+2025-07-31 13:31:19,912 INFO Client market_client_1753986679.912028 connected to real-time market service
+2025-07-31 13:31:20,081 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:31:20,606 INFO Client market_client_1753986679.912028 subscribed to market_overview
+2025-07-31 13:31:20,620 INFO Client market_client_1753986679.912028 subscribed to indices
+2025-07-31 13:31:20,623 INFO Client market_client_1753986679.912028 subscribed to commodities
+2025-07-31 13:31:20,638 INFO Client market_client_1753986679.912028 subscribed to currencies
+2025-07-31 13:31:20,646 INFO Client market_client_1753986679.912028 subscribed to economic_indicators
+2025-07-31 13:31:20,647 INFO Client market_client_1753986679.912028 subscribed to sentiment
+2025-07-31 13:31:20,647 INFO Client market_client_1753986679.912028 subscribed to alerts
+2025-07-31 13:31:25,795 INFO Client market_client_1753986679.912028 disconnected from real-time market stream
+2025-07-31 13:31:25,807 INFO Client market_client_1753986679.912028 disconnected from real-time market service
+2025-07-31 13:31:27,114 INFO Client market_client_1753986687.114831 connected to real-time market service
+2025-07-31 13:31:50,076 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:32:20,076 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:32:50,077 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:33:20,079 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:33:50,080 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:34:20,082 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:34:50,074 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:35:20,084 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:35:50,087 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:36:20,075 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:36:50,075 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:37:20,075 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:37:50,077 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:38:20,078 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:38:50,077 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:39:20,081 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:39:50,082 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:40:20,075 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:40:50,080 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:41:20,084 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:41:50,081 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:42:20,075 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:42:50,076 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:43:20,078 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:43:50,079 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:44:20,080 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:44:50,080 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:45:20,081 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:45:50,078 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:46:20,083 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:46:50,079 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:47:20,075 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:47:50,075 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:48:20,076 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:48:50,078 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:49:20,079 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:49:50,081 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:50:20,083 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:50:50,080 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:51:20,085 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:51:32,570 INFO Client market_client_1753986687.114831 disconnected from real-time market stream
+2025-07-31 13:51:32,571 INFO Client market_client_1753986687.114831 disconnected from real-time market service
+2025-07-31 13:51:32,576 INFO WebSocket disconnected: None
+2025-07-31 13:51:34,720 INFO Client market_client_1753987894.720495 connected to real-time market service
+2025-07-31 13:51:34,903 INFO WebSocket connected: None
+2025-07-31 13:51:36,395 INFO Client market_client_1753987894.720495 disconnected from real-time market stream
+2025-07-31 13:51:36,529 INFO Client market_client_1753987894.720495 disconnected from real-time market service
+2025-07-31 13:51:36,861 INFO WebSocket disconnected: None
+2025-07-31 13:51:53,902 INFO WebSocket connected: None
+2025-07-31 13:51:54,213 INFO WebSocket connected: job_1753987913568
+2025-07-31 13:51:54,213 INFO WebSocket subscribed to job job_1753987913568
+2025-07-31 13:51:54,216 INFO Starting enhanced job simulation for job_1753987913568 with domain: financial
+2025-07-31 13:51:54,216 INFO Job job_1753987913568: Initialized in global job status manager
+2025-07-31 13:51:54,216 INFO Job job_1753987913568: Starting stage 1/8 - uploading
+2025-07-31 13:51:54,216 INFO Sent job update for job_1753987913568: uploading (10%)
+2025-07-31 13:51:54,217 INFO Broadcasted job update for job_1753987913568 to 1 subscribers
+2025-07-31 13:51:55,235 INFO Job job_1753987913568: Completed stage uploading
+2025-07-31 13:51:55,235 INFO Job job_1753987913568: Starting stage 2/8 - encoding_detection
+2025-07-31 13:51:55,236 INFO Sent job update for job_1753987913568: encoding_detection (20%)
+2025-07-31 13:51:55,236 INFO Broadcasted job update for job_1753987913568 to 1 subscribers
+2025-07-31 13:51:56,235 INFO Job job_1753987913568: Completed stage encoding_detection
+2025-07-31 13:51:56,235 INFO Job job_1753987913568: Starting stage 3/8 - csv_parsing
+2025-07-31 13:51:56,235 INFO Sent job update for job_1753987913568: csv_parsing (35%)
+2025-07-31 13:51:56,235 INFO Broadcasted job update for job_1753987913568 to 1 subscribers
+2025-07-31 13:51:58,244 INFO Job job_1753987913568: Completed stage csv_parsing
+2025-07-31 13:51:58,244 INFO Job job_1753987913568: Starting stage 4/8 - data_quality_analysis
+2025-07-31 13:51:58,244 INFO Sent job update for job_1753987913568: data_quality_analysis (50%)
+2025-07-31 13:51:58,245 INFO Broadcasted job update for job_1753987913568 to 1 subscribers
+2025-07-31 13:52:00,248 INFO Job job_1753987913568: Completed stage data_quality_analysis
+2025-07-31 13:52:00,248 INFO Job job_1753987913568: Starting stage 5/8 - column_labeling
+2025-07-31 13:52:00,248 INFO Sent job update for job_1753987913568: column_labeling (65%)
+2025-07-31 13:52:00,249 INFO Broadcasted job update for job_1753987913568 to 1 subscribers
+2025-07-31 13:52:01,238 INFO Job job_1753987913568: Completed stage column_labeling
+2025-07-31 13:52:01,238 INFO Job job_1753987913568: Starting stage 6/8 - ai_analysis
+2025-07-31 13:52:01,238 INFO Sent job update for job_1753987913568: ai_analysis (80%)
+2025-07-31 13:52:01,239 INFO Broadcasted job update for job_1753987913568 to 1 subscribers
+2025-07-31 13:52:04,250 INFO Job job_1753987913568: Completed stage ai_analysis
+2025-07-31 13:52:04,250 INFO Job job_1753987913568: Starting stage 7/8 - sweetviz_report
+2025-07-31 13:52:04,251 INFO Sent job update for job_1753987913568: sweetviz_report (90%)
+2025-07-31 13:52:04,251 INFO Broadcasted job update for job_1753987913568 to 1 subscribers
+2025-07-31 13:52:05,254 INFO Job job_1753987913568: Completed stage sweetviz_report
+2025-07-31 13:52:05,254 INFO Job job_1753987913568: Starting stage 8/8 - insights_ready
+2025-07-31 13:52:05,254 INFO Sent job update for job_1753987913568: insights_ready (100%)
+2025-07-31 13:52:05,255 INFO Broadcasted job update for job_1753987913568 to 1 subscribers
+2025-07-31 13:52:06,268 INFO Job job_1753987913568: Completed stage insights_ready
+2025-07-31 13:52:06,268 INFO Job job_1753987913568 completed successfully with comprehensive insights
+2025-07-31 13:52:06,268 INFO Job job_1753987913568: Updated global job status manager with comprehensive results
+2025-07-31 13:52:06,268 INFO Job job_1753987913568: Available insights keys: ['financial_kpis', 'data_quality_metrics', 'ml_prompts', 'risk_assessment', 'recommendations', 'ai_insights', 'market_context', 'statistical_analysis']
+2025-07-31 13:52:06,269 INFO Job job_1753987913568: Global job status now contains: ['job_1753985955184', 'job_1753986649720', 'job_1753987913568']
+2025-07-31 13:52:06,271 INFO Broadcasted job completion for job_1753987913568 to 1 subscribers
+2025-07-31 13:52:06,271 INFO Job job_1753987913568: Completed successfully
+2025-07-31 13:52:06,274 INFO WebSocket unsubscribed from job job_1753987913568
+2025-07-31 13:52:06,274 INFO WebSocket disconnected: job_1753987913568
+2025-07-31 13:52:08,294 INFO Received WebSocket message: {'type': 'unsubscribe', 'job_id': 'job_1753987913568'}
+2025-07-31 13:52:08,612 INFO Client market_client_1753987928.612137 connected to real-time market service
+2025-07-31 13:52:09,322 INFO Client market_client_1753987928.612137 subscribed to market_overview
+2025-07-31 13:52:09,325 INFO Client market_client_1753987928.612137 subscribed to indices
+2025-07-31 13:52:09,326 INFO Client market_client_1753987928.612137 subscribed to commodities
+2025-07-31 13:52:09,327 INFO Client market_client_1753987928.612137 subscribed to currencies
+2025-07-31 13:52:09,327 INFO Client market_client_1753987928.612137 subscribed to economic_indicators
+2025-07-31 13:52:09,328 INFO Client market_client_1753987928.612137 subscribed to sentiment
+2025-07-31 13:52:09,328 INFO Client market_client_1753987928.612137 subscribed to alerts
+2025-07-31 13:52:24,874 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:52:55,070 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:53:25,079 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:53:55,073 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:54:19,939 INFO Client market_client_1753987928.612137 disconnected from real-time market stream
+2025-07-31 13:54:19,939 INFO Client market_client_1753987928.612137 disconnected from real-time market service
+2025-07-31 13:54:21,260 INFO Client market_client_1753988061.2605 connected to real-time market service
+2025-07-31 13:54:24,108 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:54:35,376 INFO WebSocket connected: job_1753988075042
+2025-07-31 13:54:35,377 INFO WebSocket subscribed to job job_1753988075042
+2025-07-31 13:54:35,379 INFO Starting enhanced job simulation for job_1753988075042 with domain: financial
+2025-07-31 13:54:35,380 INFO Job job_1753988075042: Initialized in global job status manager
+2025-07-31 13:54:35,381 INFO Job job_1753988075042: Starting stage 1/8 - uploading
+2025-07-31 13:54:35,381 INFO Sent job update for job_1753988075042: uploading (10%)
+2025-07-31 13:54:35,383 INFO Broadcasted job update for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:36,396 INFO Job job_1753988075042: Completed stage uploading
+2025-07-31 13:54:36,397 INFO Job job_1753988075042: Starting stage 2/8 - encoding_detection
+2025-07-31 13:54:36,397 INFO Sent job update for job_1753988075042: encoding_detection (20%)
+2025-07-31 13:54:36,398 INFO Broadcasted job update for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:37,401 INFO Job job_1753988075042: Completed stage encoding_detection
+2025-07-31 13:54:37,401 INFO Job job_1753988075042: Starting stage 3/8 - csv_parsing
+2025-07-31 13:54:37,401 INFO Sent job update for job_1753988075042: csv_parsing (35%)
+2025-07-31 13:54:37,402 INFO Broadcasted job update for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:39,408 INFO Job job_1753988075042: Completed stage csv_parsing
+2025-07-31 13:54:39,408 INFO Job job_1753988075042: Starting stage 4/8 - data_quality_analysis
+2025-07-31 13:54:39,408 INFO Sent job update for job_1753988075042: data_quality_analysis (50%)
+2025-07-31 13:54:39,408 INFO Broadcasted job update for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:41,421 INFO Job job_1753988075042: Completed stage data_quality_analysis
+2025-07-31 13:54:41,422 INFO Job job_1753988075042: Starting stage 5/8 - column_labeling
+2025-07-31 13:54:41,422 INFO Sent job update for job_1753988075042: column_labeling (65%)
+2025-07-31 13:54:41,423 INFO Broadcasted job update for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:42,426 INFO Job job_1753988075042: Completed stage column_labeling
+2025-07-31 13:54:42,426 INFO Job job_1753988075042: Starting stage 6/8 - ai_analysis
+2025-07-31 13:54:42,427 INFO Sent job update for job_1753988075042: ai_analysis (80%)
+2025-07-31 13:54:42,427 INFO Broadcasted job update for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:45,426 INFO Job job_1753988075042: Completed stage ai_analysis
+2025-07-31 13:54:45,426 INFO Job job_1753988075042: Starting stage 7/8 - sweetviz_report
+2025-07-31 13:54:45,426 INFO Sent job update for job_1753988075042: sweetviz_report (90%)
+2025-07-31 13:54:45,427 INFO Broadcasted job update for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:46,452 INFO Job job_1753988075042: Completed stage sweetviz_report
+2025-07-31 13:54:46,452 INFO Job job_1753988075042: Starting stage 8/8 - insights_ready
+2025-07-31 13:54:46,452 INFO Sent job update for job_1753988075042: insights_ready (100%)
+2025-07-31 13:54:46,453 INFO Broadcasted job update for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:47,457 INFO Job job_1753988075042: Completed stage insights_ready
+2025-07-31 13:54:47,457 INFO Job job_1753988075042 completed successfully with comprehensive insights
+2025-07-31 13:54:47,457 INFO Job job_1753988075042: Updated global job status manager with comprehensive results
+2025-07-31 13:54:47,458 INFO Job job_1753988075042: Available insights keys: ['financial_kpis', 'data_quality_metrics', 'ml_prompts', 'risk_assessment', 'recommendations', 'ai_insights', 'market_context', 'statistical_analysis']
+2025-07-31 13:54:47,461 INFO Job job_1753988075042: Global job status now contains: ['job_1753985955184', 'job_1753986649720', 'job_1753987913568', 'job_1753988075042']
+2025-07-31 13:54:47,462 INFO Broadcasted job completion for job_1753988075042 to 1 subscribers
+2025-07-31 13:54:47,463 INFO Job job_1753988075042: Completed successfully
+2025-07-31 13:54:47,464 INFO WebSocket unsubscribed from job job_1753988075042
+2025-07-31 13:54:47,465 INFO WebSocket disconnected: job_1753988075042
+2025-07-31 13:54:49,497 INFO Received WebSocket message: {'type': 'unsubscribe', 'job_id': 'job_1753988075042'}
+2025-07-31 13:54:50,501 INFO Client market_client_1753988061.2605 subscribed to market_overview
+2025-07-31 13:54:50,502 INFO Client market_client_1753988061.2605 subscribed to indices
+2025-07-31 13:54:50,502 INFO Client market_client_1753988061.2605 subscribed to commodities
+2025-07-31 13:54:50,503 INFO Client market_client_1753988061.2605 subscribed to currencies
+2025-07-31 13:54:50,503 INFO Client market_client_1753988061.2605 subscribed to economic_indicators
+2025-07-31 13:54:50,503 INFO Client market_client_1753988061.2605 subscribed to sentiment
+2025-07-31 13:54:50,504 INFO Client market_client_1753988061.2605 subscribed to alerts
+2025-07-31 13:54:54,109 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:55:01,374 INFO Client market_client_1753988061.2605 disconnected from real-time market stream
+2025-07-31 13:55:01,374 INFO Client market_client_1753988061.2605 disconnected from real-time market service
+2025-07-31 13:55:02,711 INFO Client market_client_1753988102.710785 connected to real-time market service
+2025-07-31 13:55:25,063 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 13:55:41,223 INFO WebSocket disconnected: None
+2025-07-31 13:55:41,225 INFO Client market_client_1753988102.710785 disconnected from real-time market stream
+2025-07-31 13:55:41,225 INFO Client market_client_1753988102.710785 disconnected from real-time market service
+2025-07-31 14:01:01,705 INFO WebSocket connected: None
+2025-07-31 14:01:02,026 INFO WebSocket connected: job_1753988461379
+2025-07-31 14:01:02,027 INFO WebSocket subscribed to job job_1753988461379
+2025-07-31 14:01:02,028 INFO Starting enhanced job simulation for job_1753988461379 with domain: financial
+2025-07-31 14:01:02,028 INFO Job job_1753988461379: Initialized in global job status manager
+2025-07-31 14:01:02,028 INFO Job job_1753988461379: Starting stage 1/8 - uploading
+2025-07-31 14:01:02,029 INFO Sent job update for job_1753988461379: uploading (10%)
+2025-07-31 14:01:02,029 INFO Broadcasted job update for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:03,034 INFO Job job_1753988461379: Completed stage uploading
+2025-07-31 14:01:03,034 INFO Job job_1753988461379: Starting stage 2/8 - encoding_detection
+2025-07-31 14:01:03,034 INFO Sent job update for job_1753988461379: encoding_detection (20%)
+2025-07-31 14:01:03,035 INFO Broadcasted job update for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:04,045 INFO Job job_1753988461379: Completed stage encoding_detection
+2025-07-31 14:01:04,045 INFO Job job_1753988461379: Starting stage 3/8 - csv_parsing
+2025-07-31 14:01:04,045 INFO Sent job update for job_1753988461379: csv_parsing (35%)
+2025-07-31 14:01:04,046 INFO Broadcasted job update for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:06,060 INFO Job job_1753988461379: Completed stage csv_parsing
+2025-07-31 14:01:06,060 INFO Job job_1753988461379: Starting stage 4/8 - data_quality_analysis
+2025-07-31 14:01:06,060 INFO Sent job update for job_1753988461379: data_quality_analysis (50%)
+2025-07-31 14:01:06,061 INFO Broadcasted job update for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:08,056 INFO Job job_1753988461379: Completed stage data_quality_analysis
+2025-07-31 14:01:08,057 INFO Job job_1753988461379: Starting stage 5/8 - column_labeling
+2025-07-31 14:01:08,057 INFO Sent job update for job_1753988461379: column_labeling (65%)
+2025-07-31 14:01:08,058 INFO Broadcasted job update for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:09,075 INFO Job job_1753988461379: Completed stage column_labeling
+2025-07-31 14:01:09,076 INFO Job job_1753988461379: Starting stage 6/8 - ai_analysis
+2025-07-31 14:01:09,076 INFO Sent job update for job_1753988461379: ai_analysis (80%)
+2025-07-31 14:01:09,077 INFO Broadcasted job update for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:12,081 INFO Job job_1753988461379: Completed stage ai_analysis
+2025-07-31 14:01:12,082 INFO Job job_1753988461379: Starting stage 7/8 - sweetviz_report
+2025-07-31 14:01:12,082 INFO Sent job update for job_1753988461379: sweetviz_report (90%)
+2025-07-31 14:01:12,083 INFO Broadcasted job update for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:13,093 INFO Job job_1753988461379: Completed stage sweetviz_report
+2025-07-31 14:01:13,093 INFO Job job_1753988461379: Starting stage 8/8 - insights_ready
+2025-07-31 14:01:13,094 INFO Sent job update for job_1753988461379: insights_ready (100%)
+2025-07-31 14:01:13,095 INFO Broadcasted job update for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:14,112 INFO Job job_1753988461379: Completed stage insights_ready
+2025-07-31 14:01:14,113 INFO Job job_1753988461379 completed successfully with comprehensive insights
+2025-07-31 14:01:14,113 INFO Job job_1753988461379: Updated global job status manager with comprehensive results
+2025-07-31 14:01:14,113 INFO Job job_1753988461379: Available insights keys: ['financial_kpis', 'data_quality_metrics', 'ml_prompts', 'risk_assessment', 'recommendations', 'ai_insights', 'market_context', 'statistical_analysis']
+2025-07-31 14:01:14,114 INFO Job job_1753988461379: Global job status now contains: ['job_1753985955184', 'job_1753986649720', 'job_1753987913568', 'job_1753988075042', 'job_1753988461379']
+2025-07-31 14:01:14,114 INFO Broadcasted job completion for job_1753988461379 to 1 subscribers
+2025-07-31 14:01:14,116 INFO Job job_1753988461379: Completed successfully
+2025-07-31 14:01:14,119 INFO WebSocket unsubscribed from job job_1753988461379
+2025-07-31 14:01:14,120 INFO WebSocket disconnected: job_1753988461379
+2025-07-31 14:01:16,156 INFO Received WebSocket message: {'type': 'unsubscribe', 'job_id': 'job_1753988461379'}
+2025-07-31 14:01:16,472 INFO Client market_client_1753988476.472384 connected to real-time market service
+2025-07-31 14:01:17,216 INFO Client market_client_1753988476.472384 subscribed to market_overview
+2025-07-31 14:01:17,219 INFO Client market_client_1753988476.472384 subscribed to indices
+2025-07-31 14:01:17,223 INFO Client market_client_1753988476.472384 subscribed to commodities
+2025-07-31 14:01:17,224 INFO Client market_client_1753988476.472384 subscribed to currencies
+2025-07-31 14:01:17,226 INFO Client market_client_1753988476.472384 subscribed to economic_indicators
+2025-07-31 14:01:17,226 INFO Client market_client_1753988476.472384 subscribed to sentiment
+2025-07-31 14:01:17,227 INFO Client market_client_1753988476.472384 subscribed to alerts
+2025-07-31 14:01:31,713 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:02:02,073 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:02:32,077 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:03:02,065 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:03:32,066 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:04:02,078 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:04:31,711 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:04:33,039 INFO Client market_client_1753988476.472384 disconnected from real-time market stream
+2025-07-31 14:04:33,039 INFO Client market_client_1753988476.472384 disconnected from real-time market service
+2025-07-31 14:04:34,363 INFO Client market_client_1753988674.363204 connected to real-time market service
+2025-07-31 14:04:40,186 INFO WebSocket connected: job_1753988679824
+2025-07-31 14:04:40,186 INFO WebSocket subscribed to job job_1753988679824
+2025-07-31 14:04:40,188 INFO Starting enhanced job simulation for job_1753988679824 with domain: financial
+2025-07-31 14:04:40,189 INFO Job job_1753988679824: Initialized in global job status manager
+2025-07-31 14:04:40,189 INFO Job job_1753988679824: Starting stage 1/8 - uploading
+2025-07-31 14:04:40,190 INFO Sent job update for job_1753988679824: uploading (10%)
+2025-07-31 14:04:40,191 INFO Broadcasted job update for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:41,204 INFO Job job_1753988679824: Completed stage uploading
+2025-07-31 14:04:41,205 INFO Job job_1753988679824: Starting stage 2/8 - encoding_detection
+2025-07-31 14:04:41,205 INFO Sent job update for job_1753988679824: encoding_detection (20%)
+2025-07-31 14:04:41,206 INFO Broadcasted job update for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:42,230 INFO Job job_1753988679824: Completed stage encoding_detection
+2025-07-31 14:04:42,231 INFO Job job_1753988679824: Starting stage 3/8 - csv_parsing
+2025-07-31 14:04:42,231 INFO Sent job update for job_1753988679824: csv_parsing (35%)
+2025-07-31 14:04:42,232 INFO Broadcasted job update for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:44,226 INFO Job job_1753988679824: Completed stage csv_parsing
+2025-07-31 14:04:44,227 INFO Job job_1753988679824: Starting stage 4/8 - data_quality_analysis
+2025-07-31 14:04:44,228 INFO Sent job update for job_1753988679824: data_quality_analysis (50%)
+2025-07-31 14:04:44,229 INFO Broadcasted job update for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:46,224 INFO Job job_1753988679824: Completed stage data_quality_analysis
+2025-07-31 14:04:46,224 INFO Job job_1753988679824: Starting stage 5/8 - column_labeling
+2025-07-31 14:04:46,225 INFO Sent job update for job_1753988679824: column_labeling (65%)
+2025-07-31 14:04:46,226 INFO Broadcasted job update for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:47,239 INFO Job job_1753988679824: Completed stage column_labeling
+2025-07-31 14:04:47,240 INFO Job job_1753988679824: Starting stage 6/8 - ai_analysis
+2025-07-31 14:04:47,241 INFO Sent job update for job_1753988679824: ai_analysis (80%)
+2025-07-31 14:04:47,243 INFO Broadcasted job update for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:50,242 INFO Job job_1753988679824: Completed stage ai_analysis
+2025-07-31 14:04:50,242 INFO Job job_1753988679824: Starting stage 7/8 - sweetviz_report
+2025-07-31 14:04:50,243 INFO Sent job update for job_1753988679824: sweetviz_report (90%)
+2025-07-31 14:04:50,244 INFO Broadcasted job update for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:51,254 INFO Job job_1753988679824: Completed stage sweetviz_report
+2025-07-31 14:04:51,255 INFO Job job_1753988679824: Starting stage 8/8 - insights_ready
+2025-07-31 14:04:51,255 INFO Sent job update for job_1753988679824: insights_ready (100%)
+2025-07-31 14:04:51,256 INFO Broadcasted job update for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:52,276 INFO Job job_1753988679824: Completed stage insights_ready
+2025-07-31 14:04:52,277 INFO Job job_1753988679824 completed successfully with comprehensive insights
+2025-07-31 14:04:52,280 INFO Job job_1753988679824: Updated global job status manager with comprehensive results
+2025-07-31 14:04:52,281 INFO Job job_1753988679824: Available insights keys: ['financial_kpis', 'data_quality_metrics', 'ml_prompts', 'risk_assessment', 'recommendations', 'ai_insights', 'market_context', 'statistical_analysis']
+2025-07-31 14:04:52,282 INFO Job job_1753988679824: Global job status now contains: ['job_1753985955184', 'job_1753986649720', 'job_1753987913568', 'job_1753988075042', 'job_1753988461379', 'job_1753988679824']
+2025-07-31 14:04:52,283 INFO Broadcasted job completion for job_1753988679824 to 1 subscribers
+2025-07-31 14:04:52,283 INFO Job job_1753988679824: Completed successfully
+2025-07-31 14:04:52,286 INFO WebSocket unsubscribed from job job_1753988679824
+2025-07-31 14:04:52,286 INFO WebSocket disconnected: job_1753988679824
+2025-07-31 14:04:54,341 INFO Received WebSocket message: {'type': 'unsubscribe', 'job_id': 'job_1753988679824'}
+2025-07-31 14:04:55,360 INFO Client market_client_1753988674.363204 subscribed to market_overview
+2025-07-31 14:04:55,361 INFO Client market_client_1753988674.363204 subscribed to indices
+2025-07-31 14:04:55,362 INFO Client market_client_1753988674.363204 subscribed to commodities
+2025-07-31 14:04:55,362 INFO Client market_client_1753988674.363204 subscribed to currencies
+2025-07-31 14:04:55,363 INFO Client market_client_1753988674.363204 subscribed to economic_indicators
+2025-07-31 14:04:55,363 INFO Client market_client_1753988674.363204 subscribed to sentiment
+2025-07-31 14:04:55,364 INFO Client market_client_1753988674.363204 subscribed to alerts
+2025-07-31 14:05:01,709 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:05:31,713 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:06:01,718 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:06:31,711 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:07:01,721 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:07:13,284 INFO Client market_client_1753988674.363204 disconnected from real-time market stream
+2025-07-31 14:07:13,285 INFO Client market_client_1753988674.363204 disconnected from real-time market service
+2025-07-31 14:07:14,617 INFO Client market_client_1753988834.61764 connected to real-time market service
+2025-07-31 14:07:32,072 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:08:02,065 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:09:29,460 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:09:31,708 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:09:38,435 INFO WebSocket connected: job_1753988978106
+2025-07-31 14:09:38,435 INFO WebSocket subscribed to job job_1753988978106
+2025-07-31 14:09:38,436 INFO Starting enhanced job simulation for job_1753988978106 with domain: financial
+2025-07-31 14:09:38,437 INFO Job job_1753988978106: Initialized in global job status manager
+2025-07-31 14:09:38,437 INFO Job job_1753988978106: Starting stage 1/8 - uploading
+2025-07-31 14:09:38,438 INFO Sent job update for job_1753988978106: uploading (10%)
+2025-07-31 14:09:38,438 INFO Broadcasted job update for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:39,450 INFO Job job_1753988978106: Completed stage uploading
+2025-07-31 14:09:39,450 INFO Job job_1753988978106: Starting stage 2/8 - encoding_detection
+2025-07-31 14:09:39,450 INFO Sent job update for job_1753988978106: encoding_detection (20%)
+2025-07-31 14:09:39,451 INFO Broadcasted job update for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:40,465 INFO Job job_1753988978106: Completed stage encoding_detection
+2025-07-31 14:09:40,465 INFO Job job_1753988978106: Starting stage 3/8 - csv_parsing
+2025-07-31 14:09:40,465 INFO Sent job update for job_1753988978106: csv_parsing (35%)
+2025-07-31 14:09:40,466 INFO Broadcasted job update for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:42,471 INFO Job job_1753988978106: Completed stage csv_parsing
+2025-07-31 14:09:42,472 INFO Job job_1753988978106: Starting stage 4/8 - data_quality_analysis
+2025-07-31 14:09:42,472 INFO Sent job update for job_1753988978106: data_quality_analysis (50%)
+2025-07-31 14:09:42,473 INFO Broadcasted job update for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:44,489 INFO Job job_1753988978106: Completed stage data_quality_analysis
+2025-07-31 14:09:44,489 INFO Job job_1753988978106: Starting stage 5/8 - column_labeling
+2025-07-31 14:09:44,489 INFO Sent job update for job_1753988978106: column_labeling (65%)
+2025-07-31 14:09:44,490 INFO Broadcasted job update for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:45,518 INFO Job job_1753988978106: Completed stage column_labeling
+2025-07-31 14:09:45,518 INFO Job job_1753988978106: Starting stage 6/8 - ai_analysis
+2025-07-31 14:09:45,519 INFO Sent job update for job_1753988978106: ai_analysis (80%)
+2025-07-31 14:09:45,520 INFO Broadcasted job update for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:48,506 INFO Job job_1753988978106: Completed stage ai_analysis
+2025-07-31 14:09:48,507 INFO Job job_1753988978106: Starting stage 7/8 - sweetviz_report
+2025-07-31 14:09:48,508 INFO Sent job update for job_1753988978106: sweetviz_report (90%)
+2025-07-31 14:09:48,508 INFO Broadcasted job update for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:49,527 INFO Job job_1753988978106: Completed stage sweetviz_report
+2025-07-31 14:09:49,527 INFO Job job_1753988978106: Starting stage 8/8 - insights_ready
+2025-07-31 14:09:49,527 INFO Sent job update for job_1753988978106: insights_ready (100%)
+2025-07-31 14:09:49,528 INFO Broadcasted job update for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:50,530 INFO Job job_1753988978106: Completed stage insights_ready
+2025-07-31 14:09:50,530 INFO Job job_1753988978106 completed successfully with comprehensive insights
+2025-07-31 14:09:50,531 INFO Job job_1753988978106: Updated global job status manager with comprehensive results
+2025-07-31 14:09:50,531 INFO Job job_1753988978106: Available insights keys: ['financial_kpis', 'data_quality_metrics', 'ml_prompts', 'risk_assessment', 'recommendations', 'ai_insights', 'market_context', 'statistical_analysis']
+2025-07-31 14:09:50,532 INFO Job job_1753988978106: Global job status now contains: ['job_1753985955184', 'job_1753986649720', 'job_1753987913568', 'job_1753988075042', 'job_1753988461379', 'job_1753988679824', 'job_1753988978106']
+2025-07-31 14:09:50,532 INFO Broadcasted job completion for job_1753988978106 to 1 subscribers
+2025-07-31 14:09:50,532 INFO Job job_1753988978106: Completed successfully
+2025-07-31 14:09:50,534 INFO WebSocket unsubscribed from job job_1753988978106
+2025-07-31 14:09:50,534 INFO WebSocket disconnected: job_1753988978106
+2025-07-31 14:09:52,550 INFO Received WebSocket message: {'type': 'unsubscribe', 'job_id': 'job_1753988978106'}
+2025-07-31 14:09:53,559 INFO Client market_client_1753988834.61764 subscribed to market_overview
+2025-07-31 14:09:53,560 INFO Client market_client_1753988834.61764 subscribed to indices
+2025-07-31 14:09:53,561 INFO Client market_client_1753988834.61764 subscribed to commodities
+2025-07-31 14:09:53,561 INFO Client market_client_1753988834.61764 subscribed to currencies
+2025-07-31 14:09:53,562 INFO Client market_client_1753988834.61764 subscribed to economic_indicators
+2025-07-31 14:09:53,562 INFO Client market_client_1753988834.61764 subscribed to sentiment
+2025-07-31 14:09:53,563 INFO Client market_client_1753988834.61764 subscribed to alerts
+2025-07-31 14:10:01,717 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:10:31,712 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:11:01,719 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:11:31,717 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:12:01,717 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:12:31,712 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:13:01,717 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:13:32,064 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:13:57,003 INFO Client market_client_1753988834.61764 disconnected from real-time market stream
+2025-07-31 14:13:57,003 INFO Client market_client_1753988834.61764 disconnected from real-time market service
+2025-07-31 14:13:58,339 INFO Client market_client_1753989238.339919 connected to real-time market service
+2025-07-31 14:14:01,720 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:14:32,079 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:15:01,709 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:15:31,709 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:16:01,710 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:16:31,713 INFO Received WebSocket message: {'type': 'ping'}
+2025-07-31 14:16:38,974 INFO WebSocket disconnected: None
+2025-07-31 14:16:38,975 INFO Client market_client_1753989238.339919 disconnected from real-time market stream
+2025-07-31 14:16:38,982 INFO Client market_client_1753989238.339919 disconnected from real-time market service
+2025-07-31 14:18:16,754 INFO WebSocket connected: None
+2025-07-31 14:18:17,065 INFO WebSocket connected: job_1753989496420
+2025-07-31 14:18:17,066 INFO WebSocket subscribed to job job_1753989496420
+2025-07-31 14:18:17,067 INFO Starting enhanced job simulation for job_1753989496420 with domain: financial
+2025-07-31 14:18:17,068 INFO Job job_1753989496420: Initialized in global job status manager
+2025-07-31 14:18:17,068 INFO Job job_1753989496420: Starting stage 1/8 - uploading
+2025-07-31 14:18:17,069 INFO Sent job update for job_1753989496420: uploading (10%)
+2025-07-31 14:18:17,069 INFO Broadcasted job update for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:18,089 INFO Job job_1753989496420: Completed stage uploading
+2025-07-31 14:18:18,089 INFO Job job_1753989496420: Starting stage 2/8 - encoding_detection
+2025-07-31 14:18:18,090 INFO Sent job update for job_1753989496420: encoding_detection (20%)
+2025-07-31 14:18:18,090 INFO Broadcasted job update for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:19,085 INFO Job job_1753989496420: Completed stage encoding_detection
+2025-07-31 14:18:19,085 INFO Job job_1753989496420: Starting stage 3/8 - csv_parsing
+2025-07-31 14:18:19,086 INFO Sent job update for job_1753989496420: csv_parsing (35%)
+2025-07-31 14:18:19,086 INFO Broadcasted job update for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:21,104 INFO Job job_1753989496420: Completed stage csv_parsing
+2025-07-31 14:18:21,104 INFO Job job_1753989496420: Starting stage 4/8 - data_quality_analysis
+2025-07-31 14:18:21,105 INFO Sent job update for job_1753989496420: data_quality_analysis (50%)
+2025-07-31 14:18:21,105 INFO Broadcasted job update for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:23,120 INFO Job job_1753989496420: Completed stage data_quality_analysis
+2025-07-31 14:18:23,121 INFO Job job_1753989496420: Starting stage 5/8 - column_labeling
+2025-07-31 14:18:23,121 INFO Sent job update for job_1753989496420: column_labeling (65%)
+2025-07-31 14:18:23,122 INFO Broadcasted job update for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:24,120 INFO Job job_1753989496420: Completed stage column_labeling
+2025-07-31 14:18:24,121 INFO Job job_1753989496420: Starting stage 6/8 - ai_analysis
+2025-07-31 14:18:24,121 INFO Sent job update for job_1753989496420: ai_analysis (80%)
+2025-07-31 14:18:24,122 INFO Broadcasted job update for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:27,117 INFO Job job_1753989496420: Completed stage ai_analysis
+2025-07-31 14:18:27,117 INFO Job job_1753989496420: Starting stage 7/8 - sweetviz_report
+2025-07-31 14:18:27,117 INFO Sent job update for job_1753989496420: sweetviz_report (90%)
+2025-07-31 14:18:27,118 INFO Broadcasted job update for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:28,115 INFO Job job_1753989496420: Completed stage sweetviz_report
+2025-07-31 14:18:28,115 INFO Job job_1753989496420: Starting stage 8/8 - insights_ready
+2025-07-31 14:18:28,115 INFO Sent job update for job_1753989496420: insights_ready (100%)
+2025-07-31 14:18:28,115 INFO Broadcasted job update for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:29,129 INFO Job job_1753989496420: Completed stage insights_ready
+2025-07-31 14:18:29,129 INFO Job job_1753989496420 completed successfully with comprehensive insights
+2025-07-31 14:18:29,129 INFO Job job_1753989496420: Updated global job status manager with comprehensive results
+2025-07-31 14:18:29,130 INFO Job job_1753989496420: Available insights keys: ['financial_kpis', 'data_quality_metrics', 'ml_prompts', 'risk_assessment', 'recommendations', 'ai_insights', 'market_context', 'statistical_analysis']
+2025-07-31 14:18:29,130 INFO Job job_1753989496420: Global job status now contains: ['job_1753985955184', 'job_1753986649720', 'job_1753987913568', 'job_1753988075042', 'job_1753988461379', 'job_1753988679824', 'job_1753988978106', 'job_1753989496420']
+2025-07-31 14:18:29,130 INFO Broadcasted job completion for job_1753989496420 to 1 subscribers
+2025-07-31 14:18:29,130 INFO Job job_1753989496420: Completed successfully
+2025-07-31 14:18:29,132 INFO WebSocket unsubscribed from job job_1753989496420
+2025-07-31 14:18:29,132 INFO WebSocket disconnected: job_1753989496420
+2025-07-31 14:18:31,159 INFO Received WebSocket message: {'type': 'unsubscribe', 'job_id': 'job_1753989496420'}
+2025-07-31 14:18:31,483 INFO Client market_client_1753989511.483678 connected to real-time market service
+2025-07-31 14:18:32,166 INFO Client market_client_1753989511.483678 subscribed to market_overview
+2025-07-31 14:18:32,166 INFO Client market_client_1753989511.483678 subscribed to indices
+2025-07-31 14:18:32,167 INFO Client market_client_1753989511.483678 subscribed to commodities
+2025-07-31 14:18:32,168 INFO Client market_client_1753989511.483678 subscribed to currencies
+2025-07-31 14:18:32,168 INFO Client market_client_1753989511.483678 subscribed to economic_indicators
+2025-07-31 14:18:32,168 INFO Client market_client_1753989511.483678 subscribed to sentiment
+2025-07-31 14:18:32,169 INFO Client market_client_1753989511.483678 subscribed to alerts
+2025-07-31 14:18:34,152 INFO Client market_client_1753989511.483678 disconnected from real-time market stream
+2025-07-31 14:18:34,152 INFO Client market_client_1753989511.483678 disconnected from real-time market service
+2025-07-31 14:18:35,475 INFO Client market_client_1753989515.4755 connected to real-time market service
+2025-07-31 14:18:46,759 INFO Received WebSocket message: {'type': 'ping'}

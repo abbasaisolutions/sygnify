@@ -17,6 +17,10 @@ import axios from 'axios';
 import websocketService from '../services/websocketService.js';
 import { ENDPOINTS } from '../config/api.js';
 import Dashboard from './Dashboard.jsx';
+import Button from './ui/Button';
+import Card from './ui/Card';
+import Footer from './ui/Footer';
+import { textStyles } from '../styles/designSystem';
 
 // Domain-specific processing animations and colors
 const DOMAIN_META = {
@@ -576,17 +580,17 @@ Based on current trends and market conditions, the organization is well-position
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0a0f] via-[#1a1a2e] to-[#16213e] text-white overflow-x-hidden relative">
-      {/* AI/Data Science Background */}
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden relative">
+      {/* Subtle Background Pattern */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Neural Network Grid */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-5">
           <svg width="100%" height="100%" className="w-full h-full">
             <defs>
               <pattern id="neural-grid-processing" width="60" height="60" patternUnits="userSpaceOnUse">
-                <circle cx="30" cy="30" r="1" fill="#00d4ff" opacity="0.3"/>
+                <circle cx="30" cy="30" r="1" fill="#3b82f6" opacity="0.2"/>
                 <path d="M 30 30 L 90 30 M 30 30 L 30 90 M 30 30 L 90 90 M 30 30 L 0 90" 
-                      stroke="#00d4ff" strokeWidth="0.5" opacity="0.2" fill="none"/>
+                      stroke="#3b82f6" strokeWidth="0.5" opacity="0.1" fill="none"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#neural-grid-processing)" />
@@ -639,28 +643,28 @@ Based on current trends and market conditions, the organization is well-position
             />
           </div>
           <div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
               Sygnify
             </h1>
-            <p className="text-sm text-cyan-300 font-medium">{domainConfig.label} Analysis</p>
+            <p className="text-sm text-gray-600 font-medium">{domainConfig.label} Analysis</p>
           </div>
         </motion.div>
 
         <div className="flex items-center gap-4">
           <div className="text-right">
-            <p className="text-sm text-cyan-200">Job ID</p>
-            <p className="text-xs text-gray-400 font-mono">{jobId || 'DEMO-123'}</p>
+            <p className="text-sm text-gray-600">Job ID</p>
+            <p className="text-xs text-gray-500 font-mono">{jobId || 'DEMO-123'}</p>
           </div>
           
           {/* WebSocket Status Indicator */}
           <div className="flex items-center gap-2">
             {wsConnected ? (
-              <div className="flex items-center gap-1 text-green-400">
+              <div className="flex items-center gap-1 text-green-600">
                 <Wifi className="w-4 h-4" />
                 <span className="text-xs">Live</span>
               </div>
             ) : (
-              <div className="flex items-center gap-1 text-yellow-400">
+              <div className="flex items-center gap-1 text-yellow-600">
                 <WifiOff className="w-4 h-4" />
                 <span className="text-xs">Polling</span>
               </div>
@@ -668,7 +672,10 @@ Based on current trends and market conditions, the organization is well-position
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
             
             {/* Debug Button */}
-            <button
+            <Button
+              variant="ghost"
+              size="small"
+              className="text-xs"
               onClick={() => {
                 console.log('🔧 Manual WebSocket test triggered');
                 const serviceInfo = websocketService.getServiceInfo();
@@ -676,14 +683,16 @@ Based on current trends and market conditions, the organization is well-position
                 websocketService.testConnection();
                 websocketService.sendTestMessage();
               }}
-              className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
               title="Test WebSocket Connection"
             >
               Test WS
-            </button>
+            </Button>
             
             {/* Force Reload Button */}
-            <button
+            <Button
+              variant="danger"
+              size="small"
+              className="text-xs"
               onClick={() => {
                 console.log('🔄 Force reloading WebSocket service...');
                 websocketService.forceReload();
@@ -691,11 +700,10 @@ Based on current trends and market conditions, the organization is well-position
                   initializeWebSocket();
                 }, 1000);
               }}
-              className="px-2 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
               title="Force Reload WebSocket"
             >
               Reload
-            </button>
+            </Button>
           </div>
         </div>
       </header>
@@ -737,17 +745,17 @@ Based on current trends and market conditions, the organization is well-position
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">
             Processing Your Data
           </h2>
-          <p className="text-lg text-cyan-200 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {currentMessage || `Analyzing ${domainConfig.label.toLowerCase()} data with advanced AI algorithms`}
           </p>
         </motion.div>
 
         {/* Processing Pipeline */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-8 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 mb-12">
             {[
               { name: 'Uploading', icon: <Database />, description: 'Processing your data files' },
               { name: 'Encoding', icon: <Code />, description: 'Detecting file encoding' },
@@ -760,117 +768,182 @@ Based on current trends and market conditions, the organization is well-position
             ].map((step, index) => (
               <motion.div
                 key={index}
-                className={`relative rounded-2xl p-4 border-2 transition-all duration-500 ${
-                  index < currentStage
-                    ? 'bg-green-500/20 border-green-400/50 shadow-lg'
-                    : index === currentStage
-                    ? `bg-gradient-to-br ${domainConfig.color} border-white/30 ${domainConfig.glow}`
-                    : 'bg-slate-800/30 border-slate-600/30'
-                }`}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="h-full"
               >
-                {/* Step Icon */}
-                <div className="flex items-center justify-center mb-3">
-                  <div className={`p-3 rounded-xl ${
+                <Card
+                  variant={index < currentStage ? "elevated" : "default"}
+                  className={`relative p-3 h-full flex flex-col transition-all duration-500 hover:shadow-lg ${
                     index < currentStage
-                      ? 'bg-green-500/20 text-green-400'
+                      ? 'ring-2 ring-green-500 border-green-300 bg-gradient-to-br from-green-50 to-green-100 shadow-green-100'
                       : index === currentStage
-                      ? 'bg-white/20 text-white'
-                      : 'bg-slate-700/50 text-slate-400'
-                  }`}>
-                    {index < currentStage ? (
-                      <CheckCircle className="w-6 h-6" />
-                    ) : index === currentStage ? (
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Loader className="w-6 h-6" />
-                      </motion.div>
-                    ) : (
-                      step.icon
-                    )}
+                      ? 'ring-2 ring-blue-500 border-blue-300 bg-gradient-to-br from-blue-50 to-blue-100 shadow-blue-100'
+                      : 'hover:bg-gray-50'
+                  }`}
+                >
+                  {/* Step Icon */}
+                  <div className="flex items-center justify-center mb-2 flex-shrink-0">
+                    <motion.div 
+                      className={`p-2 rounded-lg shadow-sm ${
+                        index < currentStage
+                          ? 'bg-gradient-to-br from-green-500 to-green-600 text-white shadow-green-200'
+                          : index === currentStage
+                          ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-blue-200'
+                          : 'bg-gray-100 text-gray-400'
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      {index < currentStage ? (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        >
+                          <CheckCircle className="w-5 h-5" />
+                        </motion.div>
+                      ) : index === currentStage ? (
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                        >
+                          <Loader className="w-5 h-5" />
+                        </motion.div>
+                      ) : (
+                        <div className="w-5 h-5">
+                          {step.icon}
+                        </div>
+                      )}
+                    </motion.div>
                   </div>
-                </div>
 
-                {/* Step Content */}
-                <h3 className={`text-sm font-bold mb-1 ${
-                  index <= currentStage ? 'text-white' : 'text-slate-400'
-                }`}>
-                  {step.name}
-                </h3>
-                <p className={`text-xs ${
-                  index <= currentStage ? 'text-white/80' : 'text-slate-500'
-                }`}>
-                  {step.description}
-                </p>
+                  {/* Step Content */}
+                  <div className="flex-1 flex flex-col justify-center text-center">
+                    <h3 className={`text-xs font-semibold mb-1 ${
+                      index < currentStage
+                        ? 'text-green-800'
+                        : index === currentStage
+                        ? 'text-blue-800'
+                        : 'text-gray-500'
+                    }`}>
+                      {step.name}
+                    </h3>
+                    <p className={`text-xs leading-tight ${
+                      index < currentStage
+                        ? 'text-green-700'
+                        : index === currentStage
+                        ? 'text-blue-700'
+                        : 'text-gray-400'
+                    }`}>
+                      {step.description}
+                    </p>
+                  </div>
 
-                {/* Progress Indicator */}
-                {index === currentStage && (
-                  <motion.div
-                    className="mt-3 w-full bg-white/20 rounded-full h-1 overflow-hidden"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                  >
+                  {/* Enhanced Progress Indicator */}
+                  {index === currentStage && (
                     <motion.div
-                      className={`h-full bg-gradient-to-r ${domainConfig.color} rounded-full`}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${progress}%` }}
-                      transition={{ duration: 1, ease: "easeOut" }}
-                    />
-                  </motion.div>
-                )}
+                      className="mt-2 w-full bg-gray-200 rounded-full h-1.5 overflow-hidden shadow-inner"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                    >
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full shadow-sm"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${progress}%` }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                      >
+                        <motion.div
+                          className="h-full w-full bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
+                          animate={{ x: [-100, 100] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                        />
+                      </motion.div>
+                    </motion.div>
+                  )}
 
-                {/* Status Badge */}
-                {index < currentStage && (
-                  <motion.div
-                    className="absolute top-2 right-2"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  >
-                    <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-2 h-2 text-white" />
-                    </div>
-                  </motion.div>
-                )}
+                  {/* Enhanced Status Badge */}
+                  {index < currentStage && (
+                    <motion.div
+                      className="absolute top-1 right-1"
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    >
+                      <div className="w-4 h-4 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                        <CheckCircle className="w-2 h-2 text-white" />
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Connection Line */}
+                  {index < currentStage && index < 7 && (
+                    <motion.div
+                      className="absolute top-1/2 -right-1.5 w-3 h-0.5 bg-gradient-to-r from-green-500 to-green-400"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 0.5, duration: 0.3 }}
+                    />
+                  )}
+                </Card>
               </motion.div>
             ))}
           </div>
 
-          {/* Overall Progress Bar */}
+          {/* Enhanced Overall Progress Bar */}
           <motion.div 
             className="max-w-4xl mx-auto mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-white">Overall Progress</h3>
-                <span className="text-cyan-200 font-mono">{Math.round(progress)}%</span>
+            <Card variant="elevated" className="p-6 bg-gradient-to-br from-white to-gray-50">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">Overall Progress</h3>
+                  <p className="text-sm text-gray-600">Processing your data through all stages</p>
+                </div>
+                <div className="text-right">
+                  <span className="text-2xl font-bold text-blue-600">{Math.round(progress)}%</span>
+                  <p className="text-xs text-gray-500">Complete</p>
+                </div>
               </div>
-              <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden">
+              
+              {/* Enhanced Progress Bar */}
+              <div className="relative w-full bg-gray-200 rounded-full h-4 overflow-hidden shadow-inner">
                 <motion.div
-                  className={`h-full bg-gradient-to-r ${domainConfig.color} rounded-full`}
+                  className="h-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 rounded-full shadow-sm"
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 1, ease: "easeOut" }}
-                />
+                >
+                  <motion.div
+                    className="h-full w-full bg-gradient-to-r from-transparent via-white to-transparent opacity-40"
+                    animate={{ x: [-200, 200] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  />
+                </motion.div>
               </div>
-              <div className="flex justify-between mt-2 text-xs text-slate-400">
-                <span>Upload</span>
-                <span>Encode</span>
-                <span>Parse</span>
-                <span>Quality</span>
-                <span>Label</span>
-                <span>AI</span>
-                <span>Reports</span>
-                <span>Complete</span>
+              
+              {/* Progress Labels */}
+              <div className="flex justify-between mt-4 text-xs text-gray-500">
+                {['Upload', 'Encode', 'Parse', 'Quality', 'Label', 'AI', 'Reports', 'Complete'].map((label, index) => (
+                  <div key={label} className="text-center">
+                    <div className={`w-2 h-2 rounded-full mx-auto mb-1 ${
+                      index < currentStage 
+                        ? 'bg-green-500' 
+                        : index === currentStage 
+                        ? 'bg-blue-500 animate-pulse' 
+                        : 'bg-gray-300'
+                    }`} />
+                    <span className={index <= currentStage ? 'text-gray-700 font-medium' : ''}>
+                      {label}
+                    </span>
+                  </div>
+                ))}
               </div>
-            </div>
+            </Card>
           </motion.div>
 
           {/* Real-time Status */}
@@ -881,15 +954,15 @@ Based on current trends and market conditions, the organization is well-position
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <Card variant="elevated" className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                   <div>
-                    <h4 className="text-white font-semibold">Real-time Status</h4>
-                    <p className="text-cyan-200 text-sm">{currentMessage}</p>
+                    <h4 className="text-gray-900 font-semibold">Real-time Status</h4>
+                    <p className="text-gray-600 text-sm">{currentMessage}</p>
                   </div>
                 </div>
-              </div>
+              </Card>
             </motion.div>
           )}
         </div>
@@ -905,25 +978,25 @@ Based on current trends and market conditions, the organization is well-position
             exit={{ opacity: 0, y: 100 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
           >
-            <div className="w-full bg-gradient-to-r from-slate-900/95 to-slate-800/95 backdrop-blur-xl border-t border-green-400/20">
+            <div className="w-full bg-white border-t border-gray-200 shadow-lg">
               <div className="max-w-4xl mx-auto px-8 py-6 flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">
                     Analysis Complete! 🎉
                   </h3>
-                  <p className="text-green-200 text-sm">
+                  <p className="text-gray-600 text-sm">
                     Your {domainConfig.label.toLowerCase()} insights are ready to explore
                   </p>
                 </div>
-                <motion.button
-                  className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-xl shadow-lg hover:shadow-green-500/25 transition-all duration-300 text-lg flex items-center gap-3"
+                <Button
+                  variant="primary"
+                  size="large"
                   onClick={handleContinue}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  icon={Sparkles}
+                  className="text-lg"
                 >
-                  <Sparkles className="w-5 h-5" />
                   View Insights
-                </motion.button>
+                </Button>
               </div>
             </div>
           </motion.div>
@@ -946,6 +1019,9 @@ Based on current trends and market conditions, the organization is well-position
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* Global Footer */}
+      <Footer />
     </div>
   );
 };

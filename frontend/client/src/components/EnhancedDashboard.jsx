@@ -11,6 +11,10 @@ import {
   Calendar, Clock, TrendingUp as TrendingUpIcon, AlertTriangle as AlertTriangleIcon,
   FileText, Database
 } from 'lucide-react';
+import Button from './ui/Button';
+import Tab from './ui/Tab';
+import Card from './ui/Card';
+import { textStyles } from '../styles/designSystem';
 
 // Enhanced Financial KPI Cards with comprehensive metrics
 const FinancialKPICard = ({ title, value, change, trend, icon, color, subtitle, details, category }) => (
@@ -903,7 +907,7 @@ const EnhancedDashboard = ({ analysisResults, onBackToLanding }) => {
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${domainConfig.bgGradient}`}>
+    <div className="min-h-screen bg-white">
       {/* Header Section */}
       <motion.div 
         className="mb-8"
@@ -923,59 +927,53 @@ const EnhancedDashboard = ({ analysisResults, onBackToLanding }) => {
           </div>
           
           <div className="flex items-center gap-3">
-            <motion.button
-              onClick={handleRefresh}
+            <Button
+              variant="secondary"
+              size="small"
               disabled={isRefreshing}
-              className="p-3 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-50"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <RefreshCw className={`w-5 h-5 text-gray-600 ${isRefreshing ? 'animate-spin' : ''}`} />
-            </motion.button>
-            <motion.button
+              loading={isRefreshing}
+              onClick={handleRefresh}
+              icon={RefreshCw}
+            />
+            <Button
+              variant="secondary"
+              size="small"
               onClick={handleExport}
-              className="p-3 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download className="w-5 h-5 text-gray-600" />
-            </motion.button>
-            <motion.button
+              icon={Download}
+            />
+            <Button
+              variant="secondary"
+              size="small"
               onClick={handleShare}
-              className="p-3 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Share2 className="w-5 h-5 text-gray-600" />
-            </motion.button>
+              icon={Share2}
+            />
           </div>
         </div>
 
         {/* Navigation Tabs */}
         <div className="flex flex-wrap gap-2 mb-6">
           {[
-            { id: 'overview', label: 'Overview', icon: <BarChart3 className="w-4 h-4" /> },
-            { id: 'kpis', label: 'Financial KPIs', icon: <DollarSign className="w-4 h-4" /> },
-            { id: 'insights', label: 'AI Insights', icon: <Lightbulb className="w-4 h-4" /> },
-            { id: 'context', label: 'Market Context', icon: <Globe className="w-4 h-4" /> },
-            { id: 'narrative', label: 'AI Narrative', icon: <FileText className="w-4 h-4" /> },
-            { id: 'profiling', label: 'Data Profiling', icon: <Database className="w-4 h-4" /> },
-            { id: 'intelligent', label: 'Intelligent Analysis', icon: <Brain className="w-4 h-4" /> }
+            { id: 'overview', label: 'Overview', icon: BarChart3 },
+            { id: 'kpis', label: 'Financial KPIs', icon: DollarSign },
+            { id: 'insights', label: 'AI Insights', icon: Lightbulb },
+            { id: 'context', label: 'Market Context', icon: Globe },
+            { id: 'narrative', label: 'AI Narrative', icon: FileText },
+            { id: 'profiling', label: 'Data Profiling', icon: Database },
+            { id: 'intelligent', label: 'Intelligent Analysis', icon: Brain }
           ].map((tab) => (
-            <motion.button
+            <motion.div
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                activeTab === tab.id
-                  ? 'bg-white text-gray-800 shadow-lg'
-                  : 'text-gray-600 hover:text-gray-800 hover:bg-white/50'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              {tab.icon}
-              {tab.label}
-            </motion.button>
+              <Tab
+                active={activeTab === tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                icon={tab.icon}
+              >
+                {tab.label}
+              </Tab>
+            </motion.div>
           ))}
         </div>
       </motion.div>

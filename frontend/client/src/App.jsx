@@ -7,6 +7,8 @@ import Login from './components/Login';
 import Subscription from './components/Subscription';
 import LandingPage from './components/LandingPage';
 import ProcessingPage from './components/ProcessingPage';
+import Button from './components/ui/Button';
+import { textStyles } from './styles/designSystem';
 import './index.css';
 
 function App() {
@@ -58,16 +60,16 @@ function App() {
         );
       case 'dashboard':
         return (
-          <div className="min-h-screen bg-gray-50 font-sans">
-            <header className="bg-white shadow p-4">
+          <div className="min-h-screen bg-white font-sans">
+            <header className="bg-white shadow-sm border-b border-gray-200 p-4">
               <div className="flex items-center justify-between">
-                <h1 className="text-3xl font-semibold text-gray-800">Sygnify Analytics Hub</h1>
-                <button
+                <h1 className={textStyles.h2}>Sygnify Analytics Hub</h1>
+                <Button 
+                  variant="secondary"
                   onClick={handleBackToLanding}
-                  className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
                 >
                   ← Back to Landing
-                </button>
+                </Button>
               </div>
             </header>
             <main className="p-6 max-w-7xl mx-auto">
