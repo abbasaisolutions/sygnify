@@ -16,6 +16,7 @@ from ..services.llm_service import llm_service
 from ..services.data_quality_service import data_quality_service
 from ..services.job_simulation_service import job_simulator
 from ..services.enhanced_narrative_service import enhanced_narrative_service, NarrativeRequest, NarrativeType
+from ..services.storytelling_engine import generate_financial_story, StoryRequest, StoryType
 
 # Import global job status manager
 from ..job_status_manager import job_status_manager
@@ -566,3 +567,203 @@ async def simulate_job_processing(job_id: str, domain: str):
             "status": "error",
             "error": str(e)
         })
+
+@router.post("/financial-story")
+async def generate_complete_financial_story(
+    data: Dict,
+    story_type: str = "executive_briefing",
+    user_role: str = "executive",
+    tone: str = "professional",
+    length: str = "comprehensive",
+    include_market_context: bool = True,
+    include_recommendations: bool = True
+):
+    """
+    🎯 MASTER ENDPOINT: Generate complete financial story that makes data speak to users
+    
+    This is the crown jewel of Sygnify - it combines:
+    - Financial analysis & ratios
+    - Market intelligence & trends  
+    - AI-powered narratives
+    - Actionable recommendations
+    - Risk assessment
+    - Comparative analysis
+    
+    The data will literally "speak" to users with compelling, contextual stories!
+    """
+    try:
+        # Validate story type
+        try:
+            story_enum = StoryType(story_type)
+        except ValueError:
+            story_enum = StoryType.EXECUTIVE_BRIEFING
+        
+        # Extract financial data
+        financial_records = data.get("data", [])
+        if not financial_records:
+            raise HTTPException(status_code=400, detail="No financial data provided for story generation")
+        
+        # Create story request
+        story_request = StoryRequest(
+            financial_data=financial_records,
+            story_type=story_enum,
+            user_role=user_role,
+            tone=tone,
+            length=length,
+            include_market_context=include_market_context,
+            include_recommendations=include_recommendations,
+            include_visualizations=True,
+            personalization_level="high"
+        )
+        
+        # Generate the complete financial story
+        financial_story = await generate_financial_story(story_request)
+        
+        # Format response for frontend consumption
+        response = {
+            "story": {
+                "headline": financial_story.headline,
+                "executive_summary": financial_story.executive_summary,
+                "story_narrative": financial_story.story_narrative,
+                "key_insights": financial_story.key_insights,
+                "recommendations": financial_story.recommendations,
+                "actionable_items": financial_story.actionable_items
+            },
+            "financial_analysis": {
+                "performance_metrics": financial_story.performance_metrics,
+                "trend_analysis": financial_story.trend_analysis,
+                "risk_assessment": financial_story.risk_assessment,
+                "comparative_analysis": financial_story.comparative_analysis
+            },
+            "market_intelligence": {
+                "market_context": financial_story.market_context,
+                "sector_analysis": financial_story.market_context.get("market_overview", {}).get("sector_performance", []),
+                "economic_indicators": financial_story.market_context.get("market_overview", {}).get("economic_indicators", []),
+                "market_sentiment": financial_story.market_context.get("market_overview", {}).get("market_sentiment", {})
+            },
+            "metadata": {
+                "confidence_score": financial_story.confidence_score,
+                "data_quality": financial_story.data_quality,
+                "generated_at": financial_story.generated_at.isoformat(),
+                "sources": financial_story.sources,
+                "story_type": story_type,
+                "user_role": user_role,
+                "processing_time": f"{(datetime.now() - financial_story.generated_at).total_seconds():.2f}s"
+            },
+            "competitive_advantages": {
+                "ai_powered_narratives": "✅ Advanced LLaMA3 integration",
+                "market_intelligence": "✅ Real-time market context",
+                "financial_expertise": "✅ Domain-specific analysis",
+                "storytelling_engine": "✅ Data speaks to users",
+                "actionable_insights": "✅ Ready-to-implement recommendations"
+            }
+        }
+        
+        return response
+        
+    except Exception as e:
+        logger.error(f"Financial story generation failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Story generation failed: {str(e)}")
+
+@router.get("/storytelling-capabilities")
+async def get_storytelling_capabilities():
+    """
+    Get comprehensive overview of Sygnify's storytelling and competitive capabilities
+    """
+    return {
+        "sygnify_financial_module": {
+            "status": "🚀 ENTERPRISE-READY",
+            "competitive_positioning": "Leading AI-Powered Financial Analytics Platform"
+        },
+        "core_capabilities": {
+            "ai_narratives": {
+                "description": "Enterprise AI narrative generation with LLaMA3 integration",
+                "features": [
+                    "Contextual financial storytelling",
+                    "Multi-model AI support (LLaMA3, OpenAI)",
+                    "Confidence scoring and quality assessment",
+                    "Role-based personalization",
+                    "Real-time market context integration"
+                ],
+                "competitive_advantage": "🥇 First-to-market AI storytelling for financial data"
+            },
+            "market_intelligence": {
+                "description": "Real-time market data integration and analysis",
+                "features": [
+                    "S&P 500, NASDAQ, sector performance",
+                    "Economic indicators (GDP, unemployment, inflation)",
+                    "Market sentiment analysis",
+                    "Industry benchmarking",
+                    "Risk factor identification"
+                ],
+                "competitive_advantage": "🎯 Contextual market intelligence for financial decisions"
+            },
+            "financial_analysis": {
+                "description": "Advanced financial analysis and ratio calculation",
+                "features": [
+                    "Comprehensive financial ratios",
+                    "Trend analysis and forecasting",
+                    "Risk assessment and mitigation",
+                    "Performance benchmarking",
+                    "ML-powered anomaly detection"
+                ],
+                "competitive_advantage": "📊 Deep financial domain expertise"
+            },
+            "storytelling_engine": {
+                "description": "Master orchestration engine that makes data speak",
+                "features": [
+                    "Executive briefings",
+                    "Performance reviews", 
+                    "Risk assessments",
+                    "Market intelligence reports",
+                    "Trend analysis narratives"
+                ],
+                "competitive_advantage": "🗣️ Data literally speaks to users with compelling stories"
+            }
+        },
+        "enterprise_features": {
+            "security": "✅ Enterprise authentication, RBAC, audit logging",
+            "scalability": "✅ PostgreSQL, Redis, connection pooling",
+            "performance": "✅ Sub-second response times, caching",
+            "reliability": "✅ Fallback mechanisms, error handling",
+            "monitoring": "✅ Performance metrics, health checks"
+        },
+        "competitive_analysis": {
+            "vs_tableau": {
+                "sygnify_advantages": [
+                    "AI-powered narratives (Tableau has none)",
+                    "Real-time market context (Tableau is static)",
+                    "Financial domain expertise (Tableau is generic)",
+                    "Executive-ready stories (Tableau requires manual interpretation)"
+                ]
+            },
+            "vs_power_bi": {
+                "sygnify_advantages": [
+                    "Advanced AI integration (Power BI has basic AI)",
+                    "Financial storytelling (Power BI lacks narrative capability)",
+                    "Market intelligence (Power BI has no market data)",
+                    "Enterprise-grade caching (Power BI is slower)"
+                ]
+            },
+            "vs_qlik_sense": {
+                "sygnify_advantages": [
+                    "LLaMA3 integration (Qlik has no advanced AI)",
+                    "Financial narratives (Qlik has no storytelling)",
+                    "Market context (Qlik lacks external data)",
+                    "Actionable recommendations (Qlik is exploration-only)"
+                ]
+            }
+        },
+        "next_domain_modules": {
+            "healthcare_analytics": "🏥 Medical data storytelling with clinical intelligence",
+            "retail_analytics": "🛒 Customer behavior narratives with market trends",
+            "manufacturing_analytics": "🏭 Operations storytelling with supply chain intelligence",
+            "hr_analytics": "👥 Workforce narratives with talent market insights"
+        },
+        "api_endpoints": {
+            "financial_story": "/api/financial/financial-story - 🎯 Master storytelling endpoint",
+            "enhanced_narrative": "/api/financial/enhanced-narrative - 🤖 AI narrative generation",
+            "market_context": "/api/financial/market-context - 📈 Real-time market intelligence",
+            "narrative_performance": "/api/financial/narrative-performance - 📊 AI performance metrics"
+        }
+    }
