@@ -1,10 +1,10 @@
-# 🚀 Sygnify Financial Analytics Platform v1.0
+# 🚀 Sygnify Financial Analytics Platform v2.0
 
 **Enterprise-grade AI-powered financial analytics platform with intelligent data comprehension, advanced ML integration, and production-ready analysis capabilities**
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)](package.json)
+[![Version](https://img.shields.io/badge/Version-2.0.0-orange.svg)](package.json)
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org/)
 [![Production](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
 
@@ -17,6 +17,7 @@
 - **Real-time Processing**: Animated progress tracking with domain-specific animations
 - **Responsive Design**: Modern UI with Tailwind CSS and Framer Motion animations
 - **Interactive Dashboard**: Multi-tab interface with Overview, AI Insights, Market Context, AI Narrative, Real-Time Monitor, and Advanced Analytics
+- **Enhanced Market Trends**: Improved Treasury Yield Curve, Major Market Indices, Market Sentiment Indicators, and Precious Metals & Energy sections
 
 ### 🤖 **Advanced AI & ML Integration**
 - **LLaMA3 Integration**: Real AI analysis with Ollama service integration
@@ -58,6 +59,22 @@
 - **Interactive User Experience**: No page refreshes needed for updates
 - **Connection Management**: Automatic reconnection and heartbeat monitoring
 - **Event-Driven Architecture**: Subscribe to specific events and job updates
+
+### 💾 **Enhanced Caching System**
+- **Multi-Tier Caching**: Different TTL values for different data types (realtime: 5min, domain: 1hour, analysis: 30min, fallback: 24hours)
+- **Smart Error Handling**: Returns expired cache on fetch failure, fallback data if no cache
+- **Automatic Cache Management**: Periodic cache cleanup and health monitoring
+- **Data Source Transparency**: Clear indicators showing live data, cached data, or fallback data
+- **Manual Refresh Capability**: User-controlled data refresh with loading states
+- **Cache Health Monitoring**: Real-time cache status and performance metrics
+
+### 📈 **Market Data Enhancements**
+- **Treasury Yield Curve**: Detailed interest rates with month names and color-coded yields
+- **Major Market Indices**: Enhanced display with full names, descriptions, and volume data
+- **Market Sentiment Indicators**: VIX and Fear & Greed Index with volatility badges
+- **Precious Metals & Energy**: Comprehensive commodity information with categories and units
+- **Market Analysis & Recommendations**: Numbered recommendations with enhanced styling
+- **Real-time Data Stream**: Consolidated data source information and status indicators
 
 ## 🚀 Quick Start
 
@@ -146,7 +163,7 @@ ollama pull llama3.2:3b-q4_0
 ## 📊 System Architecture
 
 ```
-Sygnify Financial Platform v1.0
+Sygnify Financial Platform v2.0
 ├── 📁 backend/
 │   ├── 🖥️ api/                 # FastAPI application
 │   │   ├── routers/           # API endpoints
@@ -162,6 +179,7 @@ Sygnify Financial Platform v1.0
 │       ├── src/
 │       │   ├── components/    # React components
 │       │   ├── config/        # Configuration
+│       │   ├── services/      # Market data services
 │       │   └── contexts/      # React contexts
 │       └── public/            # Static assets
 ├── 📁 config/                 # Configuration files
@@ -202,6 +220,7 @@ VITE_AUTH_API=http://localhost:8000/auth
 - **File Upload**: Drag-and-drop file upload with progress tracking
 - **Processing Animation**: Real-time progress with domain-specific animations
 - **Dashboard Tabs**: Overview, AI Insights, Market Context, AI Narrative, Advanced Analytics
+- **Enhanced Market Trends**: Improved data visualization and user experience
 
 ### **🤖 AI/ML Integration**
 - **LLaMA3 Service**: Real AI analysis with timeout handling
@@ -223,6 +242,20 @@ VITE_AUTH_API=http://localhost:8000/auth
 - **AI Narrative**: LLaMA3-generated comprehensive analysis
 - **External Context**: Market updates and macroeconomic indicators
 - **Risk Assessment**: Multi-dimensional risk analysis
+
+### **💾 Caching System**
+- **Multi-Tier Caching**: Different TTL values for different data types
+- **Smart Error Handling**: Returns expired cache on fetch failure
+- **Automatic Cache Management**: Periodic cache cleanup
+- **Data Source Transparency**: Clear indicators for data source
+- **Manual Refresh**: User-controlled data refresh capability
+
+### **📈 Market Data Enhancements**
+- **Treasury Yield Curve**: Detailed interest rates with month names
+- **Major Market Indices**: Enhanced display with descriptions
+- **Market Sentiment**: VIX and Fear & Greed Index with badges
+- **Commodities**: Comprehensive commodity information
+- **Real-time Updates**: Live market data with status indicators
 
 ## 🧪 Testing
 
@@ -307,6 +340,13 @@ ollama pull llama3.2:3b-q4_0
 # Check file size limits
 ```
 
+#### **Market Data Issues**
+```bash
+# Check cache status
+# Verify API endpoints
+# Check network connectivity
+```
+
 ### **Logs and Debugging**
 ```bash
 # Backend logs
@@ -333,9 +373,10 @@ curl http://localhost:8000/health
 - **Background Processing**: Asynchronous job processing
 - **Data Validation**: Early validation to prevent unnecessary processing
 - **Sweetviz Optimization**: Skip full profiling for large files
-- **Market Data Caching**: Cached external market data
+- **Market Data Caching**: Cached external market data with smart TTL
+- **Multi-Tier Caching**: Different cache strategies for different data types
 
-## 🆕 Version 1.0 Features
+## 🆕 Version 2.0 Features
 
 ### **✅ Completed Features**
 - **Modern Frontend**: Professional AI-themed design with smooth animations
@@ -347,6 +388,10 @@ curl http://localhost:8000/health
 - **Background Jobs**: Asynchronous processing with status tracking
 - **Domain Support**: Multiple business domains with custom branding
 - **Production Ready**: Comprehensive error handling and validation
+- **Enhanced Caching**: Multi-tier caching system with smart error handling
+- **Market Data Improvements**: Enhanced Treasury Yield Curve, Market Indices, and Sentiment displays
+- **UI Enhancements**: Better data visualization and user experience
+- **Real-time Status**: Data source indicators and manual refresh capabilities
 
 ### **🎯 Key Improvements**
 - **Encoding Support**: Handles UTF-8, Latin-1, CP1252, ISO-8859-1
@@ -356,6 +401,9 @@ curl http://localhost:8000/health
 - **User Experience**: Beautiful animations and real-time progress tracking
 - **Data Quality**: Comprehensive validation and cleaning
 - **Performance**: Intelligent caching and background processing
+- **Caching System**: Multi-tier caching with different TTL values
+- **Market Data**: Enhanced displays with detailed information
+- **Error Handling**: Improved error handling and user feedback
 
 ## 🤝 Contributing
 
@@ -378,14 +426,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🎯 Roadmap
 
 - [x] **Version 1.0**: Production-ready financial analytics platform
+- [x] **Version 2.0**: Enhanced caching system and market data improvements
 - [x] **Modern Frontend**: Professional AI-themed design
 - [x] **LLaMA3 Integration**: Real AI analysis capabilities
 - [x] **Market Data**: Live external market context
 - [x] **Robust Processing**: Multi-encoding and error handling
-- [ ] **Version 1.1**: Advanced ML models and custom training
-- [ ] **Version 1.2**: Real-time data streaming and live analytics
-- [ ] **Version 1.3**: Mobile application and offline capabilities
-- [ ] **Version 2.0**: Enterprise features and advanced security
+- [x] **Enhanced Caching**: Multi-tier caching system
+- [x] **Market Data Improvements**: Enhanced displays and user experience
+- [ ] **Version 2.1**: Advanced ML models and custom training
+- [ ] **Version 2.2**: Real-time data streaming and live analytics
+- [ ] **Version 2.3**: Mobile application and offline capabilities
+- [ ] **Version 3.0**: Enterprise features and advanced security
 
 ---
 
@@ -393,5 +444,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 *Enterprise-grade financial analytics platform for the modern business*
 
-**Version 1.0 - Production Ready** 🚀
+**Version 2.0 - Enhanced & Production Ready** 🚀
 
