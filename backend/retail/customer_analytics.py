@@ -10,6 +10,7 @@ from typing import Dict, Any, List
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+from .error_handler import safe_execute, validate_dataframe_columns, create_error_response, DataValidationError
 
 class CustomerAnalyzer:
     """
@@ -30,40 +31,57 @@ class CustomerAnalyzer:
         """
         Calculate Customer Lifetime Value using historical transaction data
         """
-        try:
+        def _calculate_clv_internal():
+            # Validate required columns
+            validation = validate_dataframe_columns(
+                df, 
+                required_columns=['customer', 'revenue', 'transaction_date', 'total_revenue'],
+                optional_columns=['date', 'amount', 'sales']
+            )
+            
+            if not validation['valid'] and validation['matched_columns'] < 2:
+                raise DataValidationError(
+                    "Insufficient columns for CLV calculation", 
+                    validation['missing_columns']
+                )
+            
             clv_metrics = {
                 'average_clv': 0,
                 'clv_distribution': {},
                 'high_value_customers': 0,
-                'clv_by_segment': {}
+                'clv_by_segment': {},
+                'data_quality': validation
             }
             
-            # Check for required columns
-            required_cols = ['customer_id', 'revenue', 'transaction_date']
-            available_cols = [col.lower() for col in df.columns]
+            # Use found columns with flexible mapping
+            found_cols = validation['found_columns']
+            customer_col = found_cols.get('customer') or [col for col in df.columns if 'customer' in col.lower()][0]
+            revenue_col = found_cols.get('revenue') or found_cols.get('total_revenue') or [col for col in df.columns if any(term in col.lower() for term in ['revenue', 'amount', 'sales', 'total'])][0]
             
-            if any(req_col in str(col).lower() for col in df.columns for req_col in required_cols):
-                # Calculate basic CLV metrics
-                customer_revenue = df.groupby('customer_id')['revenue'].agg([
-                    'sum', 'mean', 'count'
-                ]).reset_index()
-                
-                clv_metrics['average_clv'] = customer_revenue['sum'].mean()
-                clv_metrics['high_value_customers'] = len(
-                    customer_revenue[customer_revenue['sum'] > customer_revenue['sum'].quantile(0.8)]
-                )
-                
-                # CLV distribution
-                clv_metrics['clv_distribution'] = {
-                    'top_10_percent': customer_revenue['sum'].quantile(0.9),
-                    'median': customer_revenue['sum'].median(),
-                    'bottom_10_percent': customer_revenue['sum'].quantile(0.1)
-                }
+            # Calculate basic CLV metrics
+            customer_revenue = df.groupby(customer_col)[revenue_col].agg([
+                'sum', 'mean', 'count'
+            ]).reset_index()
+            
+            clv_metrics['average_clv'] = float(customer_revenue['sum'].mean())
+            clv_metrics['high_value_customers'] = int(len(
+                customer_revenue[customer_revenue['sum'] > customer_revenue['sum'].quantile(0.8)]
+            ))
+            
+            # CLV distribution
+            clv_metrics['clv_distribution'] = {
+                'top_10_percent': float(customer_revenue['sum'].quantile(0.9)),
+                'median': float(customer_revenue['sum'].median()),
+                'bottom_10_percent': float(customer_revenue['sum'].quantile(0.1))
+            }
             
             return clv_metrics
-            
-        except Exception as e:
-            return {'error': str(e), 'average_clv': 0}
+        
+        return safe_execute(
+            _calculate_clv_internal,
+            default_value={'average_clv': 0, 'high_value_customers': 0, 'clv_distribution': {}},
+            error_context="CLV calculation"
+        )
     
     def perform_rfm_analysis(self, df: pd.DataFrame) -> Dict[str, Any]:
         """

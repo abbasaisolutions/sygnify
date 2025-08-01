@@ -18,7 +18,12 @@ from api.services.job_simulation_service import job_simulator
 from api.services.retail_kpi_service import retail_kpi_service
 
 # Import retail domain modules
-from retail import CustomerAnalyzer, RetailKPICalculator
+from retail import CustomerAnalyzer, RetailKPICalculator, RetailError, DataValidationError
+from retail.performance_optimizer import (
+    cached_operation, monitor_performance, optimize_retail_dataframe, 
+    get_performance_report, DataFrameOptimizer
+)
+from retail.error_handler import safe_execute, create_error_response
 
 # Import global job status manager
 from ..job_status_manager import job_status_manager
@@ -143,12 +148,13 @@ async def get_retail_job_status(job_id: str):
         raise HTTPException(status_code=500, detail=f"Status check failed: {str(e)}")
 
 @router.post("/customer-analysis")
+@monitor_performance("customer_analysis")
 async def analyze_customers(
     data: Dict,
     background_tasks: BackgroundTasks = None
 ):
     """
-    Perform customer analytics on retail data
+    Perform customer analytics on retail data with performance optimization
     """
     try:
         # Convert data to DataFrame
@@ -157,22 +163,48 @@ async def analyze_customers(
         if df.empty:
             raise HTTPException(status_code=400, detail="No data provided for analysis")
         
-        # Perform customer analysis
-        clv_analysis = customer_analyzer.calculate_clv(df)
-        rfm_analysis = customer_analyzer.perform_rfm_analysis(df)
-        churn_analysis = customer_analyzer.analyze_customer_churn(df)
-        recommendations = customer_analyzer.generate_recommendations(df)
+        # Optimize DataFrame for performance
+        df_optimized = optimize_retail_dataframe(df)
         
-        return JSONResponse(content={
-            "customer_lifetime_value": clv_analysis,
-            "rfm_segmentation": rfm_analysis,
-            "churn_analysis": churn_analysis,
-            "recommendations": recommendations,
-            "timestamp": datetime.now().isoformat()
-        })
+        # Perform customer analysis with error handling
+        def _analyze_customers():
+            clv_analysis = customer_analyzer.calculate_clv(df_optimized)
+            rfm_analysis = customer_analyzer.perform_rfm_analysis(df_optimized)
+            churn_analysis = customer_analyzer.analyze_customer_churn(df_optimized)
+            recommendations = customer_analyzer.generate_recommendations(df_optimized)
+            
+            return {
+                "customer_lifetime_value": clv_analysis,
+                "rfm_segmentation": rfm_analysis,
+                "churn_analysis": churn_analysis,
+                "recommendations": recommendations,
+                "data_optimization": df_optimized.attrs.get('column_mapping', {}),
+                "performance_metrics": {
+                    "original_memory_mb": df.memory_usage(deep=True).sum() / 1024 / 1024,
+                    "optimized_memory_mb": df_optimized.memory_usage(deep=True).sum() / 1024 / 1024
+                },
+                "timestamp": datetime.now().isoformat()
+            }
         
+        result = safe_execute(
+            _analyze_customers,
+            error_context="customer_analysis_endpoint"
+        )
+        
+        # Handle error responses
+        if isinstance(result, dict) and result.get('error'):
+            raise HTTPException(
+                status_code=422, 
+                detail=f"Customer analysis failed: {result.get('message', 'Unknown error')}"
+            )
+        
+        return JSONResponse(content=result)
+        
+    except RetailError as e:
+        logger.error(f"Retail error in customer analysis: {e}")
+        raise HTTPException(status_code=422, detail=f"Retail analysis error: {e.message}")
     except Exception as e:
-        logger.error(f"Error in customer analysis: {e}")
+        logger.error(f"Unexpected error in customer analysis: {e}")
         raise HTTPException(status_code=500, detail=f"Customer analysis failed: {str(e)}")
 
 @router.post("/retail-insights")
@@ -194,7 +226,7 @@ async def generate_retail_insights(
         retail_analytics = retail_kpi_service.calculate_retail_kpis(df, domain)
         
         # Perform AI analysis with retail context
-        ai_analysis = await llm_service.analyze_financial_data(df, domain)  # This now routes to retail analysis
+        ai_analysis = await llm_service.analyze_retail_data(df, domain)  # Use retail-specific analysis
         
         # Generate recommendations and risk assessment
         recommendations = retail_kpi_service.generate_recommendations(df, domain)
@@ -256,6 +288,22 @@ async def analyze_inventory(data: Dict):
         logger.error(f"Error in inventory analysis: {e}")
         raise HTTPException(status_code=500, detail=f"Inventory analysis failed: {str(e)}")
 
+@router.get("/performance-report")
+async def get_retail_performance_report():
+    """
+    Get comprehensive performance report for retail operations
+    """
+    try:
+        performance_data = get_performance_report()
+        return JSONResponse(content={
+            "performance_report": performance_data,
+            "timestamp": datetime.now().isoformat(),
+            "system_status": "healthy"
+        })
+    except Exception as e:
+        logger.error(f"Error generating performance report: {e}")
+        raise HTTPException(status_code=500, detail=f"Performance report failed: {str(e)}")
+
 async def perform_retail_analysis(job_id: str, data_df: pd.DataFrame, domain: str):
     """
     Background task to perform comprehensive retail analysis
@@ -271,7 +319,7 @@ async def perform_retail_analysis(job_id: str, data_df: pd.DataFrame, domain: st
         job_status_manager.update_job(job_id, progress=60)
         
         # Perform AI analysis with retail context
-        ai_analysis = await llm_service.analyze_financial_data(data_df, domain)  # This now routes to retail analysis
+        ai_analysis = await llm_service.analyze_retail_data(data_df, domain)  # Use retail-specific analysis
         job_status_manager.update_job(job_id, progress=80)
         
         # Generate retail-specific recommendations
