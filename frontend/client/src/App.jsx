@@ -49,7 +49,7 @@ function App() {
   const renderCurrentStep = () => {
     switch (currentStep) {
       case 'landing':
-        return <RetailTestPage />;
+        return <RetailLandingPage onNavigateToProcessing={handleNavigateToProcessing} />;
       case 'processing':
         return (
           <ProcessingPage
