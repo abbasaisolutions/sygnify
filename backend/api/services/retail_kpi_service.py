@@ -129,60 +129,194 @@ class RetailKPIService:
     
     def generate_risk_assessment(self, data: pd.DataFrame, domain: str = "retail") -> Dict[str, Any]:
         """
-        Generate retail-specific risk assessment
+        Generate comprehensive retail industry-focused risk assessment
         """
         risks = {
             'inventory_risks': [],
-            'customer_risks': [],
-            'supplier_risks': [],
-            'operational_risks': [],
-            'overall_risk_level': 'Medium'
+            'customer_retention_risks': [],
+            'supply_chain_risks': [],
+            'revenue_concentration_risks': [],
+            'operational_efficiency_risks': [],
+            'market_competition_risks': [],
+            'financial_performance_risks': [],
+            'overall_risk_level': 'Medium',
+            'risk_score': 0,
+            'critical_actions_required': []
         }
         
         try:
-            # Inventory risks
+            risk_score = 0
+            
+            # 1. INVENTORY & WORKING CAPITAL RISKS
             if 'inventory_on_hand' in data.columns and 'quantity_sold' in data.columns:
                 avg_inventory = data['inventory_on_hand'].mean()
-                avg_sold = data['quantity_sold'].mean()
+                total_sold = data['quantity_sold'].sum()
+                inventory_turnover = (total_sold / avg_inventory * 12) if avg_inventory > 0 else 0
                 
-                if avg_inventory > avg_sold * 90:  # 90 days of inventory
-                    risks['inventory_risks'].append("High inventory levels - risk of obsolescence")
+                if inventory_turnover < 3:
+                    risks['inventory_risks'].append("🔴 CRITICAL: Extremely slow inventory turnover (<3x) - major working capital inefficiency")
+                    risks['critical_actions_required'].append("Implement aggressive clearance sales and improve demand forecasting")
+                    risk_score += 25
+                elif inventory_turnover < 6:
+                    risks['inventory_risks'].append("🟡 HIGH RISK: Below-average inventory turnover (3-6x) - optimize stock levels")
+                    risk_score += 15
+                elif inventory_turnover > 15:
+                    risks['inventory_risks'].append("🟡 MODERATE RISK: Very high turnover (>15x) - potential stockout vulnerability")
+                    risk_score += 10
                 
-                if avg_inventory < avg_sold * 7:  # Less than 7 days
-                    risks['inventory_risks'].append("Low inventory levels - stockout risk")
+                # Dead stock analysis
+                if avg_inventory > total_sold * 6:  # 6 months of inventory
+                    risks['inventory_risks'].append("🟠 Excess inventory detected - obsolescence and markdown risk")
+                    risk_score += 12
             
-            # Customer concentration risk
-            if 'customer_id' in data.columns and 'total_revenue' in data.columns:
-                customer_revenue = data.groupby('customer_id')['total_revenue'].sum()
-                top_customer_share = customer_revenue.max() / customer_revenue.sum()
+            # 2. CUSTOMER RETENTION & CLV RISKS
+            if 'customer_id' in data.columns:
+                unique_customers = data['customer_id'].nunique()
+                repeat_customers = len(data['customer_id'].value_counts()[data['customer_id'].value_counts() > 1])
+                repeat_rate = (repeat_customers / unique_customers) * 100 if unique_customers > 0 else 0
                 
-                if top_customer_share > 0.2:
-                    risks['customer_risks'].append("High customer concentration - dependency risk")
+                if repeat_rate < 15:
+                    risks['customer_retention_risks'].append("🔴 CRITICAL: Very low customer retention (<15%) - high CAC and low CLV")
+                    risks['critical_actions_required'].append("Immediate retention program implementation required")
+                    risk_score += 30
+                elif repeat_rate < 25:
+                    risks['customer_retention_risks'].append("🟡 HIGH RISK: Below-average retention (15-25%) - CLV optimization needed")
+                    risk_score += 18
+                
+                # Customer concentration risk
+                if 'total_revenue' in data.columns:
+                    customer_revenue = data.groupby('customer_id')['total_revenue'].sum().sort_values(ascending=False)
+                    top_5_customer_share = customer_revenue.head(5).sum() / customer_revenue.sum()
+                    
+                    if top_5_customer_share > 0.5:
+                        risks['revenue_concentration_risks'].append("🔴 CRITICAL: Top 5 customers represent >50% of revenue - extreme dependency risk")
+                        risks['critical_actions_required'].append("Urgent customer diversification strategy needed")
+                        risk_score += 25
+                    elif top_5_customer_share > 0.3:
+                        risks['revenue_concentration_risks'].append("🟡 HIGH RISK: Top 5 customers represent >30% of revenue - concentration risk")
+                        risk_score += 15
             
-            # Supplier concentration risk
+            # 3. SUPPLY CHAIN & VENDOR RISKS
             if 'supplier' in data.columns:
                 supplier_counts = data['supplier'].value_counts(normalize=True)
-                if supplier_counts.iloc[0] > 0.5:
-                    risks['supplier_risks'].append("High supplier concentration - supply chain risk")
+                top_supplier_dependency = supplier_counts.iloc[0] if len(supplier_counts) > 0 else 0
+                
+                if top_supplier_dependency > 0.6:
+                    risks['supply_chain_risks'].append("🔴 CRITICAL: Over-reliance on single supplier (>60%) - major supply disruption risk")
+                    risks['critical_actions_required'].append("Immediate supplier diversification required")
+                    risk_score += 25
+                elif top_supplier_dependency > 0.4:
+                    risks['supply_chain_risks'].append("🟡 HIGH RISK: High supplier concentration (>40%) - supply chain vulnerability")
+                    risk_score += 15
+                
+                # Supplier quality risks
+                if 'quality_score' in data.columns:
+                    avg_quality = data['quality_score'].mean()
+                    quality_std = data['quality_score'].std()
+                    
+                    if avg_quality < 85:
+                        risks['supply_chain_risks'].append("🔴 CRITICAL: Poor supplier quality (<85%) - customer satisfaction and return risks")
+                        risks['critical_actions_required'].append("Immediate supplier quality improvement program")
+                        risk_score += 20
+                    elif avg_quality < 95:
+                        risks['supply_chain_risks'].append("🟡 MODERATE RISK: Below-average quality (85-95%) - monitor customer feedback")
+                        risk_score += 10
+                    
+                    if quality_std > 10:
+                        risks['supply_chain_risks'].append("🟠 Quality inconsistency detected - supplier performance variability risk")
+                        risk_score += 8
             
-            # Quality risks
-            if 'quality_score' in data.columns:
-                avg_quality = data['quality_score'].mean()
-                if avg_quality < 95:
-                    risks['operational_risks'].append("Quality issues detected - customer satisfaction risk")
+            # 4. PROFITABILITY & MARGIN RISKS  
+            if all(col in data.columns for col in ['total_revenue', 'cost_per_unit', 'quantity_sold']):
+                data_copy = data.copy()
+                data_copy['total_cost'] = data_copy['cost_per_unit'] * data_copy['quantity_sold']
+                data_copy['gross_profit'] = data_copy['total_revenue'] - data_copy['total_cost']
+                data_copy['margin'] = data_copy['gross_profit'] / data_copy['total_revenue']
+                
+                avg_margin = data_copy['margin'].mean()
+                margin_std = data_copy['margin'].std()
+                
+                if avg_margin < 0.2:
+                    risks['financial_performance_risks'].append("🔴 CRITICAL: Very low gross margins (<20%) - profitability crisis")
+                    risks['critical_actions_required'].append("Urgent pricing strategy review and cost optimization")
+                    risk_score += 30
+                elif avg_margin < 0.3:
+                    risks['financial_performance_risks'].append("🟡 HIGH RISK: Below-industry margins (20-30%) - pricing pressure")
+                    risk_score += 18
+                
+                if margin_std > 0.2:
+                    risks['financial_performance_risks'].append("🟠 High margin variability - inconsistent pricing or cost management")
+                    risk_score += 10
             
-            # Calculate overall risk level
-            total_risks = sum(len(risk_list) for risk_list in risks.values() if isinstance(risk_list, list))
-            if total_risks >= 4:
-                risks['overall_risk_level'] = 'High'
-            elif total_risks >= 2:
-                risks['overall_risk_level'] = 'Medium'
+            # 5. CATEGORY & PRODUCT MIX RISKS
+            if 'category' in data.columns and 'total_revenue' in data.columns:
+                category_revenue = data.groupby('category')['total_revenue'].sum()
+                top_category_share = category_revenue.max() / category_revenue.sum()
+                
+                if top_category_share > 0.6:
+                    risks['revenue_concentration_risks'].append("🔴 CRITICAL: Over-dependence on single category (>60%) - market risk exposure")
+                    risks['critical_actions_required'].append("Immediate portfolio diversification strategy")
+                    risk_score += 20
+                elif top_category_share > 0.4:
+                    risks['revenue_concentration_risks'].append("🟡 HIGH RISK: High category concentration (>40%) - limited diversification")
+                    risk_score += 12
+            
+            # 6. OPERATIONAL EFFICIENCY RISKS
+            if 'total_revenue' in data.columns:
+                revenue_std = data['total_revenue'].std()
+                revenue_mean = data['total_revenue'].mean()
+                revenue_cv = revenue_std / revenue_mean if revenue_mean > 0 else 0
+                
+                if revenue_cv > 1.0:
+                    risks['operational_efficiency_risks'].append("🟡 HIGH RISK: High revenue volatility - demand unpredictability")
+                    risk_score += 12
+                elif revenue_cv > 0.5:
+                    risks['operational_efficiency_risks'].append("🟠 Moderate revenue inconsistency - forecasting challenges")
+                    risk_score += 8
+            
+            # 7. CHURN & LOYALTY RISKS
+            if 'churn_risk' in data.columns:
+                high_churn_customers = (data['churn_risk'] == 'High').sum()
+                total_customers = len(data)
+                high_churn_rate = high_churn_customers / total_customers
+                
+                if high_churn_rate > 0.3:
+                    risks['customer_retention_risks'].append("🔴 CRITICAL: High churn risk customers (>30%) - revenue erosion threat")
+                    risks['critical_actions_required'].append("Immediate churn prevention campaigns")
+                    risk_score += 25
+                elif high_churn_rate > 0.15:
+                    risks['customer_retention_risks'].append("🟡 HIGH RISK: Elevated churn risk (15-30%) - retention focus needed")
+                    risk_score += 15
+            
+            # Calculate overall risk level and assessment
+            if risk_score >= 80:
+                risks['overall_risk_level'] = 'CRITICAL'
+                risks['risk_priority'] = 'Immediate action required across multiple areas'
+            elif risk_score >= 50:
+                risks['overall_risk_level'] = 'HIGH'
+                risks['risk_priority'] = 'Significant risks requiring prompt attention'
+            elif risk_score >= 25:
+                risks['overall_risk_level'] = 'MEDIUM'
+                risks['risk_priority'] = 'Moderate risks requiring monitoring and planning'
             else:
-                risks['overall_risk_level'] = 'Low'
+                risks['overall_risk_level'] = 'LOW'
+                risks['risk_priority'] = 'Minimal risks with good operational health'
+            
+            risks['risk_score'] = risk_score
+            risks['retail_risk_summary'] = f"Risk Score: {risk_score}/100 | Level: {risks['overall_risk_level']}"
+            
+            # Add retail industry context
+            risks['industry_benchmarks'] = {
+                'inventory_turnover': '6-12x annually',
+                'customer_retention': '25-40% repeat rate',
+                'gross_margins': '25-55% depending on category',
+                'supplier_concentration': '<40% from top supplier'
+            }
                 
         except Exception as e:
-            logger.error(f"Error in risk assessment: {e}")
+            logger.error(f"Error in retail risk assessment: {e}")
             risks['error'] = str(e)
+            risks['overall_risk_level'] = 'UNKNOWN'
         
         return risks
     
