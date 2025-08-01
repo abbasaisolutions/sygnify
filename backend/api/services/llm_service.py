@@ -81,6 +81,57 @@ class LLMService:
             logger.error(f"Error in AI analysis: {e}")
             return self._generate_fallback_analysis(data, domain)
     
+    async def analyze_retail_data(self, data: pd.DataFrame, domain: str = "retail") -> Dict:
+        """
+        Perform comprehensive AI analysis on retail data with retail-specific context
+        """
+        try:
+            # Generate retail-specific analysis prompt
+            prompt = self._generate_retail_analysis_prompt(data, domain)
+            
+            # Get AI analysis
+            ai_analysis = await self._get_llama_analysis(prompt)
+            
+            # Get market context
+            market_context = await self._get_market_context()
+            
+            # Import retail KPI service for comprehensive metrics
+            try:
+                from api.services.retail_kpi_service import retail_kpi_service
+                retail_kpis = retail_kpi_service.calculate_retail_kpis(data, domain)
+                ml_prompts = retail_kpi_service.generate_ml_prompts(data, domain)
+                risk_assessment = retail_kpi_service.generate_risk_assessment(data, domain)
+                recommendations = retail_kpi_service.generate_recommendations(data, domain)
+            except ImportError:
+                # Fallback if retail service not available
+                retail_kpis = {"error": "Retail KPI service not available"}
+                ml_prompts = []
+                risk_assessment = {"overall_risk_level": "Medium"}
+                recommendations = ["Implement retail analytics for better insights"]
+            
+            # Perform statistical analysis
+            statistical_analysis = self._perform_statistical_analysis(data)
+            
+            # Generate retail-specific insights
+            insights = self._generate_retail_insights(data, ai_analysis, market_context, statistical_analysis)
+            
+            return {
+                "ai_analysis": ai_analysis,
+                "market_context": market_context,
+                "statistical_analysis": statistical_analysis,
+                "retail_kpis": retail_kpis,
+                "ml_prompts": ml_prompts,
+                "risk_assessment": risk_assessment,
+                "recommendations": recommendations,
+                "insights": insights,
+                "confidence_score": self._calculate_confidence(data),
+                "timestamp": datetime.now().isoformat()
+            }
+            
+        except Exception as e:
+            logger.error(f"Error in retail AI analysis: {e}")
+            return self._generate_fallback_analysis(data, domain)
+    
     async def _get_llama_analysis(self, prompt: str) -> Dict:
         """
         Get real AI analysis from LLaMA3 via Ollama
@@ -331,6 +382,147 @@ class LLMService:
         Focus on practical, actionable insights that would be valuable for business decision-making.
         """
         return prompt
+    
+    def _generate_retail_analysis_prompt(self, data: pd.DataFrame, domain: str) -> str:
+        """Generate retail-specific analysis prompt"""
+        # Basic data info
+        rows, cols = data.shape
+        
+        # Identify retail-specific columns
+        customer_cols = [col for col in data.columns if 'customer' in col.lower()]
+        product_cols = [col for col in data.columns if any(term in col.lower() for term in ['product', 'item'])]
+        sales_cols = [col for col in data.columns if any(term in col.lower() for term in ['sales', 'revenue', 'amount'])]
+        inventory_cols = [col for col in data.columns if any(term in col.lower() for term in ['inventory', 'stock'])]
+        supplier_cols = [col for col in data.columns if 'supplier' in col.lower()]
+        
+        prompt = f"""
+You are a retail analytics AI assistant specializing in {domain} data analysis. 
+
+Analyze the following retail dataset:
+- Dataset size: {rows} transactions, {cols} attributes
+- Customer data: {len(customer_cols)} customer-related fields
+- Product data: {len(product_cols)} product-related fields  
+- Sales data: {len(sales_cols)} sales/revenue fields
+- Inventory data: {len(inventory_cols)} inventory fields
+- Supplier data: {len(supplier_cols)} supplier fields
+
+Key columns available: {', '.join(data.columns[:10])}...
+
+Please provide a comprehensive retail analysis focusing on:
+
+1. **Customer Analytics**:
+   - Customer segmentation and lifetime value insights
+   - Purchase behavior patterns and frequency analysis
+   - Churn risk assessment and retention opportunities
+
+2. **Sales Performance**:
+   - Sales velocity and conversion rate analysis
+   - Product performance and revenue drivers
+   - Seasonal trends and growth opportunities
+
+3. **Inventory Management**:
+   - Inventory turnover and efficiency metrics
+   - Stock aging and obsolescence risks
+   - Demand forecasting and optimization recommendations
+
+4. **Supply Chain Insights**:
+   - Supplier performance and reliability
+   - Cost optimization opportunities
+   - Risk mitigation strategies
+
+5. **Strategic Recommendations**:
+   - Actionable insights for revenue growth
+   - Operational efficiency improvements
+   - Customer experience enhancements
+
+Provide specific, data-driven insights with retail industry context and benchmarks.
+"""
+        return prompt
+    
+    def _generate_retail_insights(self, data: pd.DataFrame, ai_analysis: Dict, market_context: Dict, statistical_analysis: Dict) -> List[Dict]:
+        """Generate retail-specific insights"""
+        insights = []
+        
+        try:
+            # Customer insights
+            if 'customer_id' in data.columns:
+                unique_customers = data['customer_id'].nunique()
+                repeat_customers = len(data['customer_id'].value_counts()[data['customer_id'].value_counts() > 1])
+                repeat_rate = (repeat_customers / unique_customers) * 100 if unique_customers > 0 else 0
+                
+                insights.append({
+                    "type": "customer_analytics",
+                    "title": "Customer Retention Analysis",
+                    "insight": f"Customer repeat rate is {repeat_rate:.1f}% with {unique_customers} unique customers",
+                    "recommendation": "Focus on customer retention programs" if repeat_rate < 30 else "Maintain customer loyalty initiatives",
+                    "priority": "high" if repeat_rate < 20 else "medium"
+                })
+            
+            # Sales insights
+            if 'total_revenue' in data.columns:
+                total_revenue = data['total_revenue'].sum()
+                avg_order_value = data['total_revenue'].mean()
+                
+                insights.append({
+                    "type": "sales_performance",
+                    "title": "Revenue Analysis",
+                    "insight": f"Total revenue: ${total_revenue:,.2f}, Average order value: ${avg_order_value:.2f}",
+                    "recommendation": "Optimize pricing strategy" if avg_order_value < 50 else "Focus on volume growth",
+                    "priority": "high"
+                })
+            
+            # Inventory insights
+            if 'inventory_on_hand' in data.columns and 'quantity_sold' in data.columns:
+                avg_inventory = data['inventory_on_hand'].mean()
+                total_sold = data['quantity_sold'].sum()
+                turnover_rate = total_sold / avg_inventory if avg_inventory > 0 else 0
+                
+                insights.append({
+                    "type": "inventory_management",
+                    "title": "Inventory Efficiency",
+                    "insight": f"Inventory turnover rate: {turnover_rate:.1f}x annually",
+                    "recommendation": "Optimize inventory levels" if turnover_rate < 4 else "Maintain current inventory strategy",
+                    "priority": "high" if turnover_rate < 2 else "medium"
+                })
+            
+            # Supplier insights
+            if 'supplier' in data.columns and 'quality_score' in data.columns:
+                avg_quality = data['quality_score'].mean()
+                supplier_count = data['supplier'].nunique()
+                
+                insights.append({
+                    "type": "supply_chain",
+                    "title": "Supplier Performance",
+                    "insight": f"Average supplier quality: {avg_quality:.1f}% across {supplier_count} suppliers",
+                    "recommendation": "Review supplier relationships" if avg_quality < 95 else "Maintain supplier partnerships",
+                    "priority": "high" if avg_quality < 90 else "low"
+                })
+            
+            # Category insights
+            if 'category' in data.columns and 'total_revenue' in data.columns:
+                category_revenue = data.groupby('category')['total_revenue'].sum().sort_values(ascending=False)
+                top_category = category_revenue.index[0]
+                category_share = (category_revenue.iloc[0] / category_revenue.sum()) * 100
+                
+                insights.append({
+                    "type": "product_analysis",
+                    "title": "Category Performance",
+                    "insight": f"Top category '{top_category}' contributes {category_share:.1f}% of revenue",
+                    "recommendation": f"Expand {top_category} product line" if category_share > 30 else "Diversify product mix",
+                    "priority": "medium"
+                })
+            
+        except Exception as e:
+            logger.error(f"Error generating retail insights: {e}")
+            insights.append({
+                "type": "error",
+                "title": "Analysis Error",
+                "insight": "Unable to generate specific insights due to data processing error",
+                "recommendation": "Review data quality and completeness",
+                "priority": "high"
+            })
+        
+        return insights
     
     def _generate_insights(self, data: pd.DataFrame, ai_analysis: Dict, market_context: Dict, statistical_analysis: Dict) -> Dict:
         """

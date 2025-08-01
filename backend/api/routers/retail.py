@@ -15,6 +15,7 @@ import asyncio
 from api.services.llm_service import llm_service
 from api.services.data_quality_service import data_quality_service
 from api.services.job_simulation_service import job_simulator
+from api.services.retail_kpi_service import retail_kpi_service
 
 # Import retail domain modules
 from retail import CustomerAnalyzer, RetailKPICalculator
@@ -180,16 +181,22 @@ async def generate_retail_insights(
         if df.empty:
             raise HTTPException(status_code=400, detail="No data provided for analysis")
         
-        # Calculate retail KPIs
-        retail_kpis = retail_kpi_calculator.calculate_retail_kpis(df, domain)
+        # Calculate comprehensive retail KPIs
+        retail_analytics = retail_kpi_service.calculate_retail_kpis(df, domain)
         
         # Perform AI analysis with retail context
-        ai_analysis = await llm_service.analyze_financial_data(df, domain)  # Note: Will need retail-specific method
+        ai_analysis = await llm_service.analyze_financial_data(df, domain)
+        
+        # Generate recommendations and risk assessment
+        recommendations = retail_kpi_service.generate_recommendations(df, domain)
+        risk_assessment = retail_kpi_service.generate_risk_assessment(df, domain)
         
         # Combine results
         insights = {
-            "retail_kpis": retail_kpis,
+            "retail_analytics": retail_analytics,
             "ai_analysis": ai_analysis,
+            "recommendations": recommendations,
+            "risk_assessment": risk_assessment,
             "domain": domain,
             "timestamp": datetime.now().isoformat()
         }
@@ -250,30 +257,24 @@ async def perform_retail_analysis(job_id: str, data_df: pd.DataFrame, domain: st
         # Update job status
         job_status_manager.update_job(job_id, status="analyzing", progress=10)
         
-        # Calculate retail KPIs
-        retail_kpis = retail_kpi_calculator.calculate_retail_kpis(data_df, domain)
-        job_status_manager.update_job(job_id, progress=30)
+        # Calculate comprehensive retail KPIs using retail service
+        retail_kpis = retail_kpi_service.calculate_retail_kpis(data_df, domain)
+        job_status_manager.update_job(job_id, progress=60)
         
-        # Perform customer analysis
-        clv_analysis = customer_analyzer.calculate_clv(data_df)
-        rfm_analysis = customer_analyzer.perform_rfm_analysis(data_df)
-        churn_analysis = customer_analyzer.analyze_customer_churn(data_df)
-        job_status_manager.update_job(job_id, progress=50)
-        
-        # Perform AI analysis
-        ai_analysis = await llm_service.analyze_financial_data(data_df, domain)  # Note: Need retail-specific method
+        # Perform AI analysis with retail context
+        ai_analysis = await llm_service.analyze_financial_data(data_df, domain)
         job_status_manager.update_job(job_id, progress=80)
+        
+        # Generate retail-specific recommendations
+        recommendations = retail_kpi_service.generate_recommendations(data_df, domain)
+        risk_assessment = retail_kpi_service.generate_risk_assessment(data_df, domain)
         
         # Compile final results
         analysis_results = {
-            "retail_kpis": retail_kpis,
-            "customer_analysis": {
-                "clv": clv_analysis,
-                "rfm": rfm_analysis,
-                "churn": churn_analysis
-            },
+            "retail_analytics": retail_kpis,
             "ai_insights": ai_analysis,
-            "recommendations": retail_kpi_calculator.generate_recommendations(data_df),
+            "recommendations": recommendations,
+            "risk_assessment": risk_assessment,
             "domain": domain,
             "analysis_type": "comprehensive_retail_analysis"
         }
