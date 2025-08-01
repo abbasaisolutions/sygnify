@@ -1,0 +1,297 @@
+"""
+Retail Analytics Router for Sygnify Analytics Platform
+Retail-specific data processing, KPI calculation, and AI analysis
+"""
+from fastapi import APIRouter, HTTPException, UploadFile, File, BackgroundTasks
+from fastapi.responses import JSONResponse
+import pandas as pd
+import json
+import logging
+from typing import Dict, Optional, List
+from datetime import datetime
+import asyncio
+
+# Import services
+from api.services.llm_service import llm_service
+from api.services.data_quality_service import data_quality_service
+from api.services.job_simulation_service import job_simulator
+
+# Import retail domain modules
+from retail import CustomerAnalyzer, RetailKPICalculator
+
+# Import global job status manager
+from ..job_status_manager import job_status_manager
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+router = APIRouter(tags=["retail"])
+
+# Initialize retail analyzers
+customer_analyzer = CustomerAnalyzer()
+retail_kpi_calculator = RetailKPICalculator()
+
+@router.get("/health")
+async def health_check():
+    """Health check endpoint for retail domain"""
+    return {
+        "status": "healthy",
+        "domain": "retail",
+        "timestamp": datetime.now().timestamp(),
+        "endpoints": [
+            "/upload",
+            "/status/{job_id}",
+            "/customer-analysis",
+            "/sales-performance",
+            "/inventory-analysis",
+            "/retail-insights"
+        ]
+    }
+
+@router.post("/upload")
+async def upload_retail_file(
+    file: UploadFile = File(...),
+    domain: str = "retail",
+    background_tasks: BackgroundTasks = None
+):
+    """
+    Upload and process retail data file with retail-specific analysis
+    """
+    try:
+        # Validate file
+        if not file.filename.lower().endswith('.csv'):
+            raise HTTPException(status_code=400, detail="Only CSV files are supported")
+        
+        # Read file content
+        content = await file.read()
+        
+        # Validate file using data quality service
+        validation = data_quality_service.validate_file(content, file.filename)
+        if not validation["valid"]:
+            raise HTTPException(status_code=400, detail=f"File validation failed: {validation['errors']}")
+        
+        # Process file with data quality service for retail domain
+        processing_result = await data_quality_service.process_file(content, file.filename, domain)
+        
+        if not processing_result["success"]:
+            raise HTTPException(status_code=400, detail=f"File processing failed: {processing_result.get('error', 'Unknown error')}")
+        
+        # Generate job ID
+        job_id = f"retail_job_{int(datetime.now().timestamp() * 1000)}"
+        
+        # Store job information
+        job_status_manager.create_job(job_id, domain)
+        job_status_manager.update_job(job_id, 
+            filename=file.filename,
+            domain=domain,
+            file_info=processing_result["file_info"],
+            quality_report=processing_result["quality_report"],
+            timestamp=datetime.now().isoformat()
+        )
+        
+        # Start background retail analysis if data is available
+        if "data" in processing_result and processing_result["data"]:
+            data_df = pd.DataFrame(processing_result["data"])
+            
+            # Start retail-specific AI analysis in background
+            if background_tasks:
+                background_tasks.add_task(
+                    perform_retail_analysis,
+                    job_id,
+                    data_df,
+                    domain
+                )
+        
+        return JSONResponse(content={
+            "job_id": job_id,
+            "status": "processing",
+            "domain": domain,
+            "filename": file.filename,
+            "rows": len(processing_result.get("data", [])),
+            "columns": len(processing_result.get("data", [{}])[0].keys()) if processing_result.get("data") else 0,
+            "quality_score": processing_result.get("quality_report", {}).get("overall_quality_score", 0),
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Error in retail file upload: {e}")
+        raise HTTPException(status_code=500, detail=f"Upload failed: {str(e)}")
+
+@router.get("/status/{job_id}")
+async def get_retail_job_status(job_id: str):
+    """Get status of retail analysis job"""
+    try:
+        job_info = job_status_manager.get_job(job_id)
+        if not job_info:
+            raise HTTPException(status_code=404, detail="Job not found")
+        
+        return JSONResponse(content=job_info)
+        
+    except Exception as e:
+        logger.error(f"Error getting retail job status: {e}")
+        raise HTTPException(status_code=500, detail=f"Status check failed: {str(e)}")
+
+@router.post("/customer-analysis")
+async def analyze_customers(
+    data: Dict,
+    background_tasks: BackgroundTasks = None
+):
+    """
+    Perform customer analytics on retail data
+    """
+    try:
+        # Convert data to DataFrame
+        df = pd.DataFrame(data.get("records", []))
+        
+        if df.empty:
+            raise HTTPException(status_code=400, detail="No data provided for analysis")
+        
+        # Perform customer analysis
+        clv_analysis = customer_analyzer.calculate_clv(df)
+        rfm_analysis = customer_analyzer.perform_rfm_analysis(df)
+        churn_analysis = customer_analyzer.analyze_customer_churn(df)
+        recommendations = customer_analyzer.generate_recommendations(df)
+        
+        return JSONResponse(content={
+            "customer_lifetime_value": clv_analysis,
+            "rfm_segmentation": rfm_analysis,
+            "churn_analysis": churn_analysis,
+            "recommendations": recommendations,
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Error in customer analysis: {e}")
+        raise HTTPException(status_code=500, detail=f"Customer analysis failed: {str(e)}")
+
+@router.post("/retail-insights")
+async def generate_retail_insights(
+    data: Dict,
+    domain: str = "retail"
+):
+    """
+    Generate comprehensive retail insights using AI analysis
+    """
+    try:
+        # Convert data to DataFrame
+        df = pd.DataFrame(data.get("records", []))
+        
+        if df.empty:
+            raise HTTPException(status_code=400, detail="No data provided for analysis")
+        
+        # Calculate retail KPIs
+        retail_kpis = retail_kpi_calculator.calculate_retail_kpis(df, domain)
+        
+        # Perform AI analysis with retail context
+        ai_analysis = await llm_service.analyze_financial_data(df, domain)  # Note: Will need retail-specific method
+        
+        # Combine results
+        insights = {
+            "retail_kpis": retail_kpis,
+            "ai_analysis": ai_analysis,
+            "domain": domain,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+        return JSONResponse(content=insights)
+        
+    except Exception as e:
+        logger.error(f"Error generating retail insights: {e}")
+        raise HTTPException(status_code=500, detail=f"Retail insights generation failed: {str(e)}")
+
+@router.post("/sales-performance")
+async def analyze_sales_performance(data: Dict):
+    """Analyze sales performance metrics"""
+    try:
+        df = pd.DataFrame(data.get("records", []))
+        
+        if df.empty:
+            raise HTTPException(status_code=400, detail="No data provided for analysis")
+        
+        sales_kpis = retail_kpi_calculator.calculate_sales_kpis(df)
+        
+        return JSONResponse(content={
+            "sales_performance": sales_kpis,
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Error in sales performance analysis: {e}")
+        raise HTTPException(status_code=500, detail=f"Sales analysis failed: {str(e)}")
+
+@router.post("/inventory-analysis")
+async def analyze_inventory(data: Dict):
+    """Analyze inventory management metrics"""
+    try:
+        df = pd.DataFrame(data.get("records", []))
+        
+        if df.empty:
+            raise HTTPException(status_code=400, detail="No data provided for analysis")
+        
+        inventory_kpis = retail_kpi_calculator.calculate_inventory_kpis(df)
+        
+        return JSONResponse(content={
+            "inventory_analysis": inventory_kpis,
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Error in inventory analysis: {e}")
+        raise HTTPException(status_code=500, detail=f"Inventory analysis failed: {str(e)}")
+
+async def perform_retail_analysis(job_id: str, data_df: pd.DataFrame, domain: str):
+    """
+    Background task to perform comprehensive retail analysis
+    """
+    try:
+        logger.info(f"Starting retail analysis for job: {job_id}")
+        
+        # Update job status
+        job_status_manager.update_job(job_id, status="analyzing", progress=10)
+        
+        # Calculate retail KPIs
+        retail_kpis = retail_kpi_calculator.calculate_retail_kpis(data_df, domain)
+        job_status_manager.update_job(job_id, progress=30)
+        
+        # Perform customer analysis
+        clv_analysis = customer_analyzer.calculate_clv(data_df)
+        rfm_analysis = customer_analyzer.perform_rfm_analysis(data_df)
+        churn_analysis = customer_analyzer.analyze_customer_churn(data_df)
+        job_status_manager.update_job(job_id, progress=50)
+        
+        # Perform AI analysis
+        ai_analysis = await llm_service.analyze_financial_data(data_df, domain)  # Note: Need retail-specific method
+        job_status_manager.update_job(job_id, progress=80)
+        
+        # Compile final results
+        analysis_results = {
+            "retail_kpis": retail_kpis,
+            "customer_analysis": {
+                "clv": clv_analysis,
+                "rfm": rfm_analysis,
+                "churn": churn_analysis
+            },
+            "ai_insights": ai_analysis,
+            "recommendations": retail_kpi_calculator.generate_recommendations(data_df),
+            "domain": domain,
+            "analysis_type": "comprehensive_retail_analysis"
+        }
+        
+        # Update job with final results
+        job_status_manager.update_job(
+            job_id,
+            status="completed",
+            progress=100,
+            analysis_results=analysis_results
+        )
+        
+        logger.info(f"Retail analysis completed for job: {job_id}")
+        
+    except Exception as e:
+        logger.error(f"Error in retail analysis for job {job_id}: {e}")
+        job_status_manager.update_job(
+            job_id,
+            status="failed",
+            error=str(e)
+        )

@@ -68,6 +68,72 @@ class DomainInstructions:
             }
         }
         
+        # Retail domain context
+        self.retail_context = {
+            'customer_metrics': {
+                'description': 'Customer behavior, segmentation, and lifetime value indicators',
+                'metrics': ['CLV', 'CAC', 'Churn_Rate', 'RFM_Score', 'Retention_Rate', 'AOV'],
+                'benchmarks': {
+                    'E-commerce': {'clv_cac_ratio': 3.0, 'churn_rate': 0.15, 'aov': 85.0},
+                    'Fashion': {'clv_cac_ratio': 2.5, 'churn_rate': 0.25, 'aov': 120.0},
+                    'Electronics': {'clv_cac_ratio': 4.0, 'churn_rate': 0.10, 'aov': 350.0},
+                    'Grocery': {'clv_cac_ratio': 2.0, 'churn_rate': 0.05, 'aov': 45.0}
+                },
+                'analysis_focus': [
+                    'Assess customer lifetime value and acquisition costs',
+                    'Evaluate customer segmentation effectiveness',
+                    'Identify churn risks and retention opportunities',
+                    'Optimize customer journey and experience'
+                ]
+            },
+            'sales_metrics': {
+                'description': 'Sales performance and conversion indicators',
+                'metrics': ['Conversion_Rate', 'Sales_Velocity', 'Revenue_Growth', 'Basket_Size'],
+                'benchmarks': {
+                    'E-commerce': {'conversion_rate': 2.5, 'sales_velocity': 1000.0},
+                    'Fashion': {'conversion_rate': 1.8, 'sales_velocity': 800.0},
+                    'Electronics': {'conversion_rate': 3.2, 'sales_velocity': 1500.0},
+                    'Grocery': {'conversion_rate': 85.0, 'sales_velocity': 500.0}
+                },
+                'analysis_focus': [
+                    'Assess sales conversion efficiency',
+                    'Evaluate pricing strategies and elasticity',
+                    'Identify growth opportunities and bottlenecks',
+                    'Optimize sales funnel and customer journey'
+                ]
+            },
+            'inventory_metrics': {
+                'description': 'Inventory management and optimization indicators',
+                'metrics': ['Inventory_Turnover', 'Stock_Aging', 'Out_of_Stock_Rate', 'ABC_Classification'],
+                'risk_thresholds': {
+                    'inventory_turnover': {'low': 4.0, 'medium': 8.0, 'high': 12.0},
+                    'out_of_stock_rate': {'low': 0.02, 'medium': 0.05, 'high': 0.10}
+                },
+                'analysis_focus': [
+                    'Assess inventory efficiency and turnover',
+                    'Evaluate stock aging and obsolescence risks',
+                    'Identify optimal stock levels and reorder points',
+                    'Recommend inventory optimization strategies'
+                ]
+            },
+            'profitability_metrics': {
+                'description': 'Profitability and margin analysis indicators',
+                'metrics': ['Gross_Margin', 'Category_Performance', 'Markup_Percentage', 'Profit_per_SKU'],
+                'benchmarks': {
+                    'E-commerce': {'gross_margin': 45.0, 'markup': 80.0},
+                    'Fashion': {'gross_margin': 55.0, 'markup': 120.0},
+                    'Electronics': {'gross_margin': 25.0, 'markup': 35.0},
+                    'Grocery': {'gross_margin': 22.0, 'markup': 28.0}
+                },
+                'analysis_focus': [
+                    'Assess category and product profitability',
+                    'Evaluate pricing strategies and margins',
+                    'Identify high-performing product categories',
+                    'Recommend profit optimization strategies'
+                ]
+            }
+        }
+        
         self.analysis_instructions = {
             'comprehensive_assessment': {
                 'objective': 'Provide comprehensive financial health assessment with actionable insights',
@@ -101,6 +167,44 @@ class DomainInstructions:
                     'Cost structure analysis',
                     'Process optimization opportunities',
                     'Resource allocation recommendations'
+                ]
+            },
+            'retail_comprehensive_assessment': {
+                'objective': 'Provide comprehensive retail performance assessment with actionable insights',
+                'focus_areas': [
+                    'Customer analytics and segmentation performance',
+                    'Sales conversion and revenue optimization',
+                    'Inventory management and turnover efficiency',
+                    'Profitability analysis by category and product',
+                    'Operational efficiency and customer satisfaction',
+                    'Strategic recommendations for retail growth'
+                ],
+                'output_format': {
+                    'key_insights': 'Retail-specific insights with industry benchmarks',
+                    'customer_analysis': 'Customer segmentation, CLV, and churn analysis',
+                    'sales_performance': 'Conversion rates, sales velocity, and growth trends',
+                    'inventory_optimization': 'Turnover analysis and stock optimization recommendations',
+                    'profitability_assessment': 'Category performance and margin analysis'
+                }
+            },
+            'retail_customer_focus': {
+                'objective': 'Deep-dive customer analytics for retail optimization',
+                'focus_areas': [
+                    'Customer lifetime value and acquisition cost analysis',
+                    'RFM segmentation and behavioral patterns',
+                    'Churn prediction and retention strategies',
+                    'Purchase journey optimization',
+                    'Customer satisfaction and loyalty metrics'
+                ]
+            },
+            'retail_operational_analysis': {
+                'objective': 'Focus on operational efficiency and inventory optimization',
+                'focus_areas': [
+                    'Inventory turnover and stock aging analysis',
+                    'Supply chain efficiency metrics',
+                    'Order fulfillment and delivery performance',
+                    'Category and product performance analysis',
+                    'Seasonal trend analysis and demand forecasting'
                 ]
             }
         }
