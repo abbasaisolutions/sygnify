@@ -51,6 +51,13 @@ except ImportError as e:
     enhanced_financial_router = None
 
 try:
+    from .routers.retail import router as retail_router
+    logging.info("Retail router imported successfully")
+except ImportError as e:
+    logging.error(f"Failed to import retail router: {e}")
+    retail_router = None
+
+try:
     from .routers.auth import router as auth_router
     logging.info("Auth router imported successfully")
 except ImportError as e:
@@ -613,6 +620,9 @@ if financial_router:
     app.include_router(financial_router, prefix="/financial")
 if enhanced_financial_router:
     app.include_router(enhanced_financial_router, prefix="/enhanced-financial")
+
+if retail_router:
+    app.include_router(retail_router, prefix="/retail")
 if auth_router:
     app.include_router(auth_router, prefix="/auth")
 if market_data_router:
