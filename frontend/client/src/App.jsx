@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Subscription from './components/Subscription';
 import RetailLandingPage from './components/RetailLandingPage';
 import ProcessingPage from './components/ProcessingPage';
+import RetailTestPage from './components/RetailTestPage';
 import Button from './components/ui/Button';
 import { textStyles } from './styles/designSystem';
 import './index.css';
@@ -48,7 +49,7 @@ function App() {
   const renderCurrentStep = () => {
     switch (currentStep) {
       case 'landing':
-        return <RetailLandingPage onNavigateToProcessing={handleNavigateToProcessing} />;
+        return <RetailTestPage />;
       case 'processing':
         return (
           <ProcessingPage
