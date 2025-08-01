@@ -38,8 +38,17 @@ async def health_check():
     """Health check endpoint"""
     return {
         "status": "healthy",
-        "router": "financial",
+        "domain": "🏦 FINANCIAL DOMAIN",
+        "description": "Financial Analytics Platform - Risk, Performance & Investment Analysis",
         "timestamp": datetime.now().timestamp(),
+        "key_features": [
+            "Financial Ratio Analysis (ROE, ROA, Liquidity)",
+            "Risk Management & Assessment",
+            "Portfolio Analytics & Optimization",
+            "Credit Scoring & Fraud Detection",
+            "Market Data Integration",
+            "Financial KPIs & Benchmarks"
+        ],
         "endpoints": [
             "/upload",
             "/status/{job_id}",

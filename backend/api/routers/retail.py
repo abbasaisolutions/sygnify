@@ -38,13 +38,22 @@ async def health_check():
     """Health check endpoint for retail domain"""
     return {
         "status": "healthy",
-        "domain": "retail",
+        "domain": "🛍️ RETAIL DOMAIN",
+        "description": "Retail Analytics Platform - Customer, Sales, Inventory & Supply Chain",
         "timestamp": datetime.now().timestamp(),
+        "key_features": [
+            "Customer Lifetime Value (CLV) Analysis",
+            "RFM Customer Segmentation", 
+            "Sales Performance & Conversion Optimization",
+            "Inventory Turnover & ABC Analysis",
+            "Supply Chain & Supplier Performance",
+            "Retail-Specific KPIs & Benchmarks"
+        ],
         "endpoints": [
             "/upload",
             "/status/{job_id}",
             "/customer-analysis",
-            "/sales-performance",
+            "/sales-performance", 
             "/inventory-analysis",
             "/retail-insights"
         ]
@@ -185,7 +194,7 @@ async def generate_retail_insights(
         retail_analytics = retail_kpi_service.calculate_retail_kpis(df, domain)
         
         # Perform AI analysis with retail context
-        ai_analysis = await llm_service.analyze_financial_data(df, domain)
+        ai_analysis = await llm_service.analyze_financial_data(df, domain)  # This now routes to retail analysis
         
         # Generate recommendations and risk assessment
         recommendations = retail_kpi_service.generate_recommendations(df, domain)
@@ -262,7 +271,7 @@ async def perform_retail_analysis(job_id: str, data_df: pd.DataFrame, domain: st
         job_status_manager.update_job(job_id, progress=60)
         
         # Perform AI analysis with retail context
-        ai_analysis = await llm_service.analyze_financial_data(data_df, domain)
+        ai_analysis = await llm_service.analyze_financial_data(data_df, domain)  # This now routes to retail analysis
         job_status_manager.update_job(job_id, progress=80)
         
         # Generate retail-specific recommendations

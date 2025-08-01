@@ -34,7 +34,23 @@ class LLMService:
         
     async def analyze_financial_data(self, data: pd.DataFrame, domain: str = "financial") -> Dict:
         """
-        Perform comprehensive AI analysis on financial data
+        Perform comprehensive AI analysis - routes to domain-specific analysis based on domain parameter
+        """
+        try:
+            # Route to appropriate domain analysis
+            if domain == "retail":
+                return await self.analyze_retail_data(data, domain)
+            else:
+                # Financial domain analysis
+                return await self._analyze_financial_domain(data, domain)
+            
+        except Exception as e:
+            logger.error(f"Error in AI analysis routing: {e}")
+            return self._generate_fallback_analysis(data, domain)
+    
+    async def _analyze_financial_domain(self, data: pd.DataFrame, domain: str = "financial") -> Dict:
+        """
+        Perform comprehensive AI analysis on financial data (original financial logic)
         """
         try:
             # Generate analysis prompt
@@ -78,7 +94,7 @@ class LLMService:
             }
             
         except Exception as e:
-            logger.error(f"Error in AI analysis: {e}")
+            logger.error(f"Error in financial AI analysis: {e}")
             return self._generate_fallback_analysis(data, domain)
     
     async def analyze_retail_data(self, data: pd.DataFrame, domain: str = "retail") -> Dict:
@@ -570,23 +586,42 @@ Provide specific, data-driven insights with retail industry context and benchmar
     
     def _generate_fallback_analysis(self, data: pd.DataFrame, domain: str) -> Dict:
         """
-        Generate fallback analysis when AI services are unavailable
+        Generate fallback analysis when AI services are unavailable - domain-specific
         """
-        # Calculate financial KPIs even in fallback mode
-        financial_kpis = financial_kpi_service.calculate_financial_kpis(data, domain)
-        ml_prompts = financial_kpi_service.generate_ml_prompts(data, domain)
-        risk_assessment = financial_kpi_service.generate_risk_assessment(data, domain)
-        recommendations = financial_kpi_service.generate_recommendations(data, domain)
+        if domain == "retail":
+            # Use retail KPI service for fallback
+            try:
+                from api.services.retail_kpi_service import retail_kpi_service
+                domain_kpis = retail_kpi_service.calculate_retail_kpis(data, domain)
+                ml_prompts = retail_kpi_service.generate_ml_prompts(data, domain)
+                risk_assessment = retail_kpi_service.generate_risk_assessment(data, domain)
+                recommendations = retail_kpi_service.generate_recommendations(data, domain)
+                kpi_key = "retail_analytics"
+            except ImportError:
+                # Fallback to basic retail analysis
+                domain_kpis = {"error": "Retail service unavailable"}
+                ml_prompts = ["Retail analysis unavailable"]
+                risk_assessment = {"overall_risk_level": "Medium"}
+                recommendations = ["Enable retail analytics for insights"]
+                kpi_key = "retail_analytics"
+        else:
+            # Use financial KPI service for fallback
+            domain_kpis = financial_kpi_service.calculate_financial_kpis(data, domain)
+            ml_prompts = financial_kpi_service.generate_ml_prompts(data, domain)
+            risk_assessment = financial_kpi_service.generate_risk_assessment(data, domain)
+            recommendations = financial_kpi_service.generate_recommendations(data, domain)
+            kpi_key = "financial_kpis"
         
         return {
             "ai_analysis": {
                 "analysis": f"Basic analysis for {domain} domain. AI services temporarily unavailable.",
                 "model": "fallback",
-                "success": False
+                "success": False,
+                "domain": domain
             },
             "market_context": self._generate_fallback_market_data(),
             "statistical_analysis": self._perform_statistical_analysis(data),
-            "financial_kpis": financial_kpis,
+            kpi_key: domain_kpis,
             "ml_prompts": ml_prompts,
             "risk_assessment": risk_assessment,
             "recommendations": recommendations,
@@ -618,9 +653,9 @@ Provide specific, data-driven insights with retail industry context and benchmar
     
     def _generate_basic_insights(self, data: pd.DataFrame, domain: str) -> Dict:
         """
-        Generate basic insights without AI
+        Generate basic insights without AI - domain-specific
         """
-        return {
+        basic_insights = {
             "data_quality": {
                 "total_records": len(data),
                 "missing_values": data.isnull().sum().sum(),
@@ -630,13 +665,48 @@ Provide specific, data-driven insights with retail industry context and benchmar
                 f"Dataset contains {len(data)} records",
                 f"Data completeness: {((len(data) - data.isnull().sum().sum()) / (len(data) * len(data.columns)) * 100):.1f}%",
                 f"Analysis domain: {domain}"
-            ],
-            "recommendations": [
-                "Review data quality before analysis",
-                "Consider data cleaning for missing values",
-                "Validate assumptions with domain experts"
             ]
         }
+        
+        if domain == "retail":
+            # Add retail-specific insights
+            retail_insights = []
+            retail_recommendations = []
+            
+            if 'customer_id' in data.columns:
+                unique_customers = data['customer_id'].nunique()
+                retail_insights.append(f"Unique customers: {unique_customers}")
+                
+            if 'category' in data.columns:
+                categories = data['category'].nunique()
+                retail_insights.append(f"Product categories: {categories}")
+                
+            if 'total_revenue' in data.columns:
+                total_revenue = data['total_revenue'].sum()
+                retail_insights.append(f"Total revenue: ${total_revenue:,.2f}")
+                
+            if 'supplier' in data.columns:
+                suppliers = data['supplier'].nunique()
+                retail_insights.append(f"Number of suppliers: {suppliers}")
+                
+            basic_insights["key_findings"].extend(retail_insights)
+            
+            basic_insights["recommendations"] = [
+                "Analyze customer segmentation for targeted marketing",
+                "Review inventory turnover by category",
+                "Assess supplier performance and relationships",
+                "Monitor seasonal sales patterns"
+            ]
+        else:
+            # Financial domain recommendations
+            basic_insights["recommendations"] = [
+                "Review financial ratios and performance metrics",
+                "Assess risk management strategies",
+                "Analyze liquidity and profitability trends",
+                "Validate assumptions with financial experts"
+            ]
+        
+        return basic_insights
 
 # Global instance
 llm_service = LLMService() 
